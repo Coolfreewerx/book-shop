@@ -1,2 +1,5 @@
-package ku.cs.controllers;public class SellerController {
+package ku.cs.controllers;
+
+public class SellerController {
+
 }
