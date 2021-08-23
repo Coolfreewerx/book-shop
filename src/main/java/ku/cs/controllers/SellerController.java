@@ -1,20 +1,20 @@
 package ku.cs.controllers;
 
 import javafx.event.ActionEvent;
-
+import ku.cs.models.Book;
 
 public class SellerController {
     private Book book;
     public void handleDecreaseStockButton(ActionEvent actionEvent) {
         String decraseStock = decreaseStockTextField.getText();
         int decrease = Integer.parseInt(decraseStock);
-        book.decreaseStock(decrase);
+        book.decreaseStock(decrease);
     }
 
     public void handleIncreaseStockButton(ActionEvent actionEvent) {
         String incraseStock = increaseStockTextField.getText();
         int increase = Integer.parseInt(incraseStock);
-        book.increaseStock(incrase);
+        book.increaseStock(increase);
     }
 
     public void handlSetBookDetailButton(ActionEvent actionEvent) {
@@ -27,9 +27,9 @@ public class SellerController {
         book.setBookPrice(setBookPrice);
     }
 
-    public void handleSetCategoryButton(ActionEvent actionEvent) {
-        String setCategory = setCategoryTextField.getText();
-        book.setCategory(setCategory);
+    public void handleSetBookTypeButton(ActionEvent actionEvent) {
+        String setBookType = setBookTypeTextField.getText();
+        book.setBookType(setBookType);
     }
 
     public void handleSetBookNameButton(ActionEvent actionEvent) {
