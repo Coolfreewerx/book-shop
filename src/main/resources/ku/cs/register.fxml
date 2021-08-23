@@ -35,8 +35,8 @@
          </font>
       </Text>
       <TextField fx:id="firstNameTextField" layoutX="348.0" layoutY="312.0" prefHeight="25.0" prefWidth="150.0" promptText="ชื่อ" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88;" />
-      <TextField fx:id="lastnameTextField" layoutX="522.0" layoutY="312.0" prefHeight="25.0" prefWidth="150.0" promptText="นามสกุล" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88;" />
-      <TextField fx:id="usernameTextField" layoutX="348.0" layoutY="358.0" prefHeight="28.0" prefWidth="324.0" promptText="ชื่อผู้ใช้ (username)" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88;" />
+      <TextField fx:id="lastNameTextField" layoutX="522.0" layoutY="312.0" prefHeight="25.0" prefWidth="150.0" promptText="นามสกุล" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88;" />
+      <TextField fx:id="userNameTextField" layoutX="348.0" layoutY="358.0" prefHeight="28.0" prefWidth="324.0" promptText="ชื่อผู้ใช้ (username)" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88;" />
       <TextField fx:id="passwordTextField" layoutX="348.0" layoutY="404.0" prefHeight="28.0" prefWidth="324.0" promptText="รหัสผ่าน" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88;" />
       <TextField fx:id="passwordRecheckTextField" layoutX="348.0" layoutY="450.0" prefHeight="28.0" prefWidth="324.0" promptText="ยืนยันรหัสผ่าน" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88;" />
       <Text fill="#828282" layoutX="349.0" layoutY="506.0" strokeType="OUTSIDE" strokeWidth="0.0" text="วันเกิด">
