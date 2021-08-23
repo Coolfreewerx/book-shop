@@ -1,4 +1,4 @@
-package ku.cs.controllers;
+package ku.cs.shop.controllers;
 
 public class DetailBookController {
 

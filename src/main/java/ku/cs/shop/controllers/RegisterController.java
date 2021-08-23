@@ -1,9 +1,9 @@
-package ku.cs.controllers;
+package ku.cs.shop.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import ku.cs.models.User ;
+import ku.cs.shop.models.User ;
 
 public class RegisterController {
 

@@ -1,4 +1,4 @@
-package ku.cs.models;
+package ku.cs.shop.models;
 
 public class Book {
     private String bookName;

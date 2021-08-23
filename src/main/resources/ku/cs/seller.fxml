@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #fff; -fx-border-color: #ef0404;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.SellerController">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #fff; -fx-border-color: #ef0404;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.SellerController">
    <children>
       <Label layoutX="161.0" layoutY="35.0" text="ประเภท" textFill="#c9ad88">
          <font>

@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.BasketController">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.BasketController">
    <children>
       <Button layoutX="837.0" layoutY="701.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="169.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="สั่งซื้อสินค้า" textFill="#fffefe">
          <font>

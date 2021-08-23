@@ -1,7 +1,7 @@
-package ku.cs.controllers;
+package ku.cs.shop.controllers;
 
 import javafx.event.ActionEvent;
-import ku.cs.models.Book;
+import ku.cs.shop.models.Book;
 
 public class SellerController {
     private Book book;
