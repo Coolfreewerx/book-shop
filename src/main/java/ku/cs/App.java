@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import com.github.saacsos.FXRouter;
 import java.io.IOException;
 
 /**
@@ -15,11 +16,23 @@ public class App extends Application {
 
     private static Scene scene;
 
+//    @Override
+//    public void start(Stage stage) throws IOException {
+////        scene = new Scene(loadFXML("primary"), 640, 480);
+////        stage.setScene(scene);
+////        stage.show();
+////    }
+
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
-        stage.setScene(scene);
-        stage.show();
+        FXRouter.bind(this, stage, "6310400991",1024.0,768.0);
+        configRoute();
+        FXRouter.goTo("bookDetail");
+    }
+
+    private static void configRoute() {
+        String packageStr = "ku/cs/";
+        FXRouter.when("bookDetail", packageStr + "bookDetail.fxml");
     }
 
     public static void setRoot(String fxml) throws IOException {
