@@ -60,7 +60,11 @@
       </ImageView>
       <ImageView fitHeight="101.0" fitWidth="98.0" layoutX="51.0" layoutY="483.0" pickOnBounds="true" preserveRatio="true">
          <image>
+<<<<<<< HEAD
             <Image url="@image/127475.jpg" />
+=======
+           <Image url="@../../../../../../127475.jpg" />
+>>>>>>> a0094e4f8158ba774d9e2ccdb465bf123dfcd423
          </image>
       </ImageView>
       <ImageView fitHeight="101.0" fitWidth="98.0" layoutX="157.0" layoutY="483.0" pickOnBounds="true" preserveRatio="true">

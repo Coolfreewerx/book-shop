@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.SellerController">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #fff; -fx-border-color: #ef0404;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.SellerController">
    <children>
       <Label layoutX="161.0" layoutY="35.0" text="ประเภท" textFill="#c9ad88">
          <font>
@@ -148,5 +148,35 @@
          </font>
       </Label>
       <TextField layoutX="637.0" layoutY="30.0" prefHeight="44.0" prefWidth="199.0" promptText="USERNAME" style="-fx-background-color: F99F28; -fx-background-radius: 10; -fx-effect: shadow;" />
+      <Label layoutX="366.0" layoutY="313.0" text="*" textFill="#ef0404">
+         <font>
+            <Font name="JasmineUPC" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="792.0" layoutY="313.0" text="*" textFill="#ef0404">
+         <font>
+            <Font name="JasmineUPC" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="440.0" layoutY="418.0" text="*" textFill="#ef0404">
+         <font>
+            <Font name="JasmineUPC" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="444.0" layoutY="523.0" text="*" textFill="#ef0404">
+         <font>
+            <Font name="JasmineUPC" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="654.0" layoutY="158.0" text="*" textFill="#ef0404">
+         <font>
+            <Font name="JasmineUPC" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="721.0" layoutY="675.0" text="*" textFill="#ef0404">
+         <font>
+            <Font name="JasmineUPC" size="25.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
