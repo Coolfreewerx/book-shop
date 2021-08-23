@@ -115,11 +115,11 @@ public class Book {
     }
 
     // increase method
-    void increaseStock (int bookStock, int newAmountBookStock) {
+    void increaseStock (int newAmountBookStock) {
         bookStock += newAmountBookStock;
     }
 
-    void decreaseStock (int bookStock, int newAmountBookStock) {
+    void decreaseStock (int newAmountBookStock) {
         bookStock -= newAmountBookStock;
     }
 }
