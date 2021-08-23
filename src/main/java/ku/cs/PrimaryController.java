@@ -1,4 +1,4 @@
-package ku.cs.shop.controllers;
+package ku.cs;
 
 import java.io.IOException;
 import javafx.fxml.FXML;

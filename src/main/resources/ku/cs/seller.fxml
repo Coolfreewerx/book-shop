@@ -22,7 +22,7 @@
             <Image url="@image/logo.png" />
          </image>
       </ImageView>
-      <Label fx:id="Typebook11" layoutX="507.0" layoutY="38.0" text="แนะนำ" textFill="#c9ad88">
+      <Label layoutX="507.0" layoutY="38.0" text="แนะนำ" textFill="#c9ad88">
          <font>
             <Font name="JasmineUPC" size="36.0" />
          </font>
