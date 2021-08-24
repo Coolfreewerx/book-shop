@@ -6,11 +6,11 @@ import ku.cs.shop.models.Book;
 public class SellerController {
     private int newAmountBookStock;
     Book book = new Book() ;
-//    public void handleEditStockButton(ActionEvent actionEvent) {
-//        String editStock = editStockTextField.getText();
-//        int edit = Integer.parseInt(editStock);
-//        decreaseStock(decrease);
-//    }
+   public void handleEditStockButton(ActionEvent actionEvent) {
+       String editStock = editStockTextField.getText();
+       int edit = Integer.parseInt(editStock);
+       editStock(edit);
+    }
 //    public void handleDecreaseStockButton(ActionEvent actionEvent) {
 //        String decreaseStock = decreaseStockTextField.getText();
 //        int decrease = Integer.parseInt(decreaseStock);
