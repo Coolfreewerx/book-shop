@@ -7,16 +7,21 @@ public class SellerController
 {
     private int newAmountBookStock;
     Book book = new Book() ;
+//    public void handleEditStockButton(ActionEvent actionEvent) {
+//        String editStock = editStockTextField.getText();
+//        int edit = Integer.parseInt(editStock);
+//        decreaseStock(decrease);
+//    }
 //    public void handleDecreaseStockButton(ActionEvent actionEvent) {
-//        String decraseStock = decreaseStockTextField.getText();
-//        int decrease = Integer.parseInt(decraseStock);
-//        book.decreaseStock(decrease);
+//        String decreaseStock = decreaseStockTextField.getText();
+//        int decrease = Integer.parseInt(decreaseStock);
+//        decreaseStock(decrease);
 //    }
 //
 //    public void handleIncreaseStockButton(ActionEvent actionEvent) {
-//        String incraseStock = increaseStockTextField.getText();
-//        int increase = Integer.parseInt(incraseStock);
-//        book.increaseStock(increase);
+//        String increaseStock = increaseStockTextField.getText();
+//        int increase = Integer.parseInt(increaseStock);
+//        increaseStock(increase);
 //    }
 //
 //    public void handlSetBookDetailButton(ActionEvent actionEvent) {
@@ -48,5 +53,8 @@ public class SellerController
     // decrease method
     public void decreaseStock (int newAmountBookStock) {
         book.setBookStock(book.getBookStock()-newAmountBookStock);
+    }
+    public void editStock (int newAmountBookStock) {
+        book.setBookStock(book.getBookStock()+newAmountBookStock);
     }
 }
