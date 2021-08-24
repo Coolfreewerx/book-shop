@@ -17,7 +17,9 @@ public class Book {
     //set default value
     public Book() {}
 
-    public Book(String bookName, String bookShop, String bookAuthor, String bookISBN, String bookType, String bookDetail, String bookPublisher, String bookStatus, int bookStock, int bookPage, int leastStock, double bookPrice) {
+    public Book(String bookName, String bookShop, String bookAuthor, String bookISBN, String bookType,
+                String bookDetail, String bookPublisher, String bookStatus, int bookStock,
+                int bookPage, int leastStock, double bookPrice) {
         this.bookName = bookName;
         this.bookShop = bookShop;
         this.bookAuthor = bookAuthor;
@@ -108,21 +110,27 @@ public class Book {
         this.bookStock = bookStock;
     }
 
+//    @Override
+//    public String toString() {
+//        return "Book{" +
+//                "bookName='" + bookName + '\'' +
+//                ", bookShop='" + bookShop + '\'' +
+//                ", bookAuthor='" + bookAuthor + '\'' +
+//                ", bookISBN='" + bookISBN + '\'' +
+//                ", bookType='" + bookType + '\'' +
+//                ", bookDetail='" + bookDetail + '\'' +
+//                ", bookPublisher='" + bookPublisher + '\'' +
+//                ", bookStatus='" + bookStatus + '\'' +
+//                ", bookStock=" + bookStock +
+//                ", bookPage=" + bookPage +
+//                ", leastStock=" + leastStock +
+//                ", bookPrice=" + bookPrice +
+//                '}';
+//    }
+
     @Override
     public String toString() {
-        return "Book{" +
-                "bookName='" + bookName + '\'' +
-                ", bookShop='" + bookShop + '\'' +
-                ", bookAuthor='" + bookAuthor + '\'' +
-                ", bookISBN='" + bookISBN + '\'' +
-                ", bookType='" + bookType + '\'' +
-                ", bookDetail='" + bookDetail + '\'' +
-                ", bookPublisher='" + bookPublisher + '\'' +
-                ", bookStatus='" + bookStatus + '\'' +
-                ", bookStock=" + bookStock +
-                ", bookPage=" + bookPage +
-                ", leastStock=" + leastStock +
-                ", bookPrice=" + bookPrice +
-                '}';
+        return bookName + "," + bookShop + "," + bookStatus;
     }
+
 }
