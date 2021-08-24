@@ -1,16 +1,26 @@
 package ku.cs.shop.controllers;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import ku.cs.shop.models.Book;
+import ku.cs.shop.models.Seller;
 
 public class SellerController {
     private int newAmountBookStock;
-    Book book = new Book() ;
-   public void handleEditStockButton(ActionEvent actionEvent) {
-       String editStock = editStockTextField.getText();
-       int edit = Integer.parseInt(editStock);
-       editStock(edit);
+    Seller bookSeller = new Seller();
+    @FXML
+    private TextField editStockTextField;
+    @FXML
+    private Button editStockButton;
+
+    public void handleEditStockButton(ActionEvent actionEvent) {
+        String editStock = editStockTextField.getText();
+        int edit = Integer.parseInt(editStock);
+        bookSeller.editStock(edit);
     }
+//    }
 //    public void handleDecreaseStockButton(ActionEvent actionEvent) {
 //        String decreaseStock = decreaseStockTextField.getText();
 //        int decrease = Integer.parseInt(decreaseStock);
@@ -42,18 +52,4 @@ public class SellerController {
 //        String setBookName = setBookNameTextField.getText();
 //        book.setBookName(setBookName);
 //    }
-
-    // increase method
-    public void increaseStock (int newAmountBookStock)
-    {
-        book.setBookStock(book.getBookStock()+newAmountBookStock);
-    }
-
-    // decrease method
-    public void decreaseStock (int newAmountBookStock) {
-        book.setBookStock(book.getBookStock()-newAmountBookStock);
-    }
-    public void editStock (int newAmountBookStock) {
-        book.setBookStock(book.getBookStock()+newAmountBookStock);
-    }
 }

@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.SellerController">
    <children>
       <ImageView fitHeight="76.0" fitWidth="61.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -47,7 +47,7 @@
             <Image url="@image/basket.png" />
          </image>
       </ImageView>
-      <TextField layoutX="798.0" layoutY="20.0" prefHeight="35.0" prefWidth="181.0" promptText="ค้นหาหนังสือ" style="-fx-background-color: BC986A;">
+      <TextField layoutX="798.0" layoutY="20.0" prefHeight="35.0" prefWidth="181.0" promptText="ค้นหาหนังสือ" style="-fx-background-color: BC986A;" >
          <font>
             <Font name="JasmineUPC" size="23.0" />
          </font>
