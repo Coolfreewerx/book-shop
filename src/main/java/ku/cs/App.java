@@ -25,7 +25,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXRouter.bind(this, stage, "6310400991",1024.0,768.0);
+        FXRouter.bind(this, stage, "JAVAPAI",1024.0,768.0);
         configRoute();
         FXRouter.goTo("bookDetail");
     }

@@ -3,8 +3,10 @@ package ku.cs.shop.controllers;
 import javafx.event.ActionEvent;
 import ku.cs.shop.models.Book;
 
-public class SellerController {
-    private Book book;
+public class SellerController
+{
+    private int newAmountBookStock;
+    Book book = new Book() ;
 //    public void handleDecreaseStockButton(ActionEvent actionEvent) {
 //        String decraseStock = decreaseStockTextField.getText();
 //        int decrease = Integer.parseInt(decraseStock);
@@ -36,4 +38,15 @@ public class SellerController {
 //        String setBookName = setBookNameTextField.getText();
 //        book.setBookName(setBookName);
 //    }
+
+    // increase method
+    public void increaseStock (int newAmountBookStock)
+    {
+        book.setBookStock(book.getBookStock()+newAmountBookStock);
+    }
+
+    // decrease method
+    public void decreaseStock (int newAmountBookStock) {
+        book.setBookStock(book.getBookStock()-newAmountBookStock);
+    }
 }

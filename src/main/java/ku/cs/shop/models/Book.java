@@ -10,13 +10,14 @@ public class Book {
     private String bookPublisher;
     private String bookStatus;
     private int bookStock;
-    private int newAmountBookStock;
     private int bookPage;
     private int leastStock;
     private double bookPrice;
 
     //set default value
-    public Book(String bookName, String bookShop, String bookAuthor, String bookISBN, String bookType, String bookDetail, String bookPublisher, String bookStatus, int bookStock, int newAmountBookStock, int bookPage, int leastStock, double bookPrice) {
+    public Book() {}
+
+    public Book(String bookName, String bookShop, String bookAuthor, String bookISBN, String bookType, String bookDetail, String bookPublisher, String bookStatus, int bookStock, int bookPage, int leastStock, double bookPrice) {
         this.bookName = bookName;
         this.bookShop = bookShop;
         this.bookAuthor = bookAuthor;
@@ -26,7 +27,6 @@ public class Book {
         this.bookPublisher = bookPublisher;
         this.bookStatus = bookStatus;
         this.bookStock = bookStock;
-        this.newAmountBookStock = newAmountBookStock;
         this.bookPage = bookPage;
         this.leastStock = leastStock;
         this.bookPrice = bookPrice;
@@ -69,9 +69,6 @@ public class Book {
     public int getBookStock() {
         return bookStock;
     }
-    public int getNewAmountBookStock() {
-        return newAmountBookStock;
-    }
 
     // set new value
     public void setBookAuthor(String bookAuthor) {
@@ -110,16 +107,22 @@ public class Book {
     public void setBookStock(int bookStock) {
         this.bookStock = bookStock;
     }
-    public void setNewAmountBookStock(int newAmountBookStock) {
-        this.newAmountBookStock = newAmountBookStock;
-    }
 
-    // increase method
-    public void increaseStock (int newAmountBookStock) {
-        bookStock += newAmountBookStock;
-    }
-
-    public void decreaseStock (int newAmountBookStock) {
-        bookStock -= newAmountBookStock;
+    @Override
+    public String toString() {
+        return "Book{" +
+                "bookName='" + bookName + '\'' +
+                ", bookShop='" + bookShop + '\'' +
+                ", bookAuthor='" + bookAuthor + '\'' +
+                ", bookISBN='" + bookISBN + '\'' +
+                ", bookType='" + bookType + '\'' +
+                ", bookDetail='" + bookDetail + '\'' +
+                ", bookPublisher='" + bookPublisher + '\'' +
+                ", bookStatus='" + bookStatus + '\'' +
+                ", bookStock=" + bookStock +
+                ", bookPage=" + bookPage +
+                ", leastStock=" + leastStock +
+                ", bookPrice=" + bookPrice +
+                '}';
     }
 }

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -8,10 +11,9 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.BookDetailController">
    <children>
-      <Label layoutX="158.0" layoutY="35.0" text="ประเภท" textFill="#c9ad88">
+      <Label fx:id="bookTypeLabel" layoutX="158.0" layoutY="35.0" text="ประเภท" textFill="#c9ad88">
          <font>
             <Font name="JasmineUPC" size="36.0" />
          </font>
@@ -129,5 +131,12 @@
             <Font name="JasmineUPC" size="30.0" />
          </font>
       </Label>
+      <MenuButton layoutX="123.0" layoutY="189.0" mnemonicParsing="false" text="MenuButton">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </MenuButton>
+      <ComboBox layoutX="89.0" layoutY="292.0" prefWidth="150.0" />
    </children>
 </AnchorPane>
