@@ -3,8 +3,7 @@ package ku.cs.shop.controllers;
 import javafx.event.ActionEvent;
 import ku.cs.shop.models.Book;
 
-public class SellerController
-{
+public class SellerController {
     private int newAmountBookStock;
     Book book = new Book() ;
 //    public void handleDecreaseStockButton(ActionEvent actionEvent) {
