@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import ku.cs.shop.models.User ;
 
+import java.io.IOException;
+
 public class RegisterController {
 
     private User user ;
@@ -50,5 +52,14 @@ public class RegisterController {
         //นำข้อมูล String เก็บใน FieldClass และบันทึกลง CSV
         user = new User(firstNameStr, lastNameStr, userNameStr, passwordStr, birthDayStr, birthMonthStr, birthYearStr);
 
+    }
+    @FXML
+    public void handleToLoginButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า หนังสือทั้งหมด (เพจหลัก)
+        try {
+            com.github.saacsos.FXRouter.goTo("login");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า login ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
     }
 }

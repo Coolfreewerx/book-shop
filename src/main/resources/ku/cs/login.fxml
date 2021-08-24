@@ -48,7 +48,7 @@
       </Button>
       <Button layoutX="699.0" layoutY="522.0" mnemonicParsing="false" style="-fx-background-color: ffffff;" text="Forget your password" />
       <Label layoutX="662.0" layoutY="633.0" text="Not have account?" />
-      <Button layoutX="783.0" layoutY="629.0" mnemonicParsing="false" style="-fx-background-color: ffffff;" text="Register here" textFill="RED" />
+      <Button layoutX="783.0" layoutY="629.0" mnemonicParsing="false" style="-fx-background-color: ffffff;" text="Register here" textFill="RED" onAction="#handleToRegisterButton" />
       <Line endX="-100.0" endY="18.93328857421875" layoutX="875.0" layoutY="631.0" startX="-100.0" />
       <TextField layoutX="587.0" layoutY="353.0" prefHeight="55.0" prefWidth="358.0" promptText="                     Your Password" style="-fx-background-color: FFFCF1; -fx-background-radius: 5;">
          <font>
