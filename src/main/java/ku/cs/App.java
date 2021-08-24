@@ -27,12 +27,20 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         FXRouter.bind(this, stage, "JAVAPAI",1024.0,768.0);
         configRoute();
-        FXRouter.goTo("bookDetail");
+        FXRouter.goTo("home");
     }
 
     private static void configRoute() {
         String packageStr = "ku/cs/";
         FXRouter.when("bookDetail", packageStr + "bookDetail.fxml");
+        FXRouter.when("home",packageStr + "home.fxml");
+        FXRouter.when("pageBookCartoon",packageStr + "pageBookCartoon.fxml");
+        FXRouter.when("pageMagazine",packageStr + "pageMagazine.fxml");
+        FXRouter.when("basket", packageStr + "basket.fxml");
+        FXRouter.when("login",packageStr + "login.fxml");
+        FXRouter.when("register" , packageStr + "register.fxml");
+        FXRouter.when("seller", packageStr + "seller.fxml");
+        FXRouter.when("sellerStock", packageStr + "sellerStock.fxml");
     }
 
     public static void setRoot(String fxml) throws IOException {

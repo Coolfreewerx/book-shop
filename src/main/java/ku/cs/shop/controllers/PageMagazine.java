@@ -2,34 +2,10 @@ package ku.cs.shop.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import ku.cs.shop.models.Book;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
-public class BookDetailController
-{
-    BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.txt");
-    @FXML private Label bookNameLabel, bookShopLabel, bookStatusLabel, bookTypeLabel, bookPageLabel, bookISBNLabel, bookPublisherLabel, bookAuthorLabel, bookDetailLabel, bookPriceLabel ;
-    private ArrayList<Book> booksList = new ArrayList<>();
-
-    @FXML
-    public void initialize()
-    {
-        booksList = data.readData();
-        bookNameLabel.setText(booksList.get(0).getBookName());
-        bookShopLabel.setText(booksList.get(0).getBookShop());
-        bookStatusLabel.setText(booksList.get(0).getBookStatus());
-        bookTypeLabel.setText(booksList.get(0).getBookType());
-        bookPageLabel.setText(booksList.get(0).getBookPage());
-        bookISBNLabel.setText(booksList.get(0).getBookISBN());
-        bookPublisherLabel.setText(booksList.get(0).getBookPublisher());
-        bookAuthorLabel.setText(booksList.get(0).getBookAuthor());
-        bookDetailLabel.setText(booksList.get(0).getBookDetail());
-        bookPriceLabel.setText(Double.toString(booksList.get(0).getBookPrice()) + " Baht.");
-    }
-
+public class PageMagazine {
     @FXML
     public void handleCartoonBookButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าหนังสือการ์ตูน
         try {

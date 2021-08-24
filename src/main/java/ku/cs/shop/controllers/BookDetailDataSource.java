@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 import ku.cs.shop.models.Book;
 
-public class bookDetailDataSource {
+public class BookDetailDataSource {
     private String filename;
 
-    public bookDetailDataSource(String filename) {
+    public BookDetailDataSource(String filename) {
         this.filename = filename;
     }
 
@@ -36,7 +36,7 @@ public class bookDetailDataSource {
                 String bookPublisher = data[6].trim();
                 String bookStatus = data[7].trim();
                 int bookStock = Integer.parseInt(data[8].trim());
-                int bookPage = Integer.parseInt(data[9].trim());
+                String bookPage = data[9].trim();
                 int leastStock = Integer.parseInt(data[10].trim());
                 double bookPrice = Double.parseDouble(data[11].trim());
 

@@ -7,19 +7,11 @@ import javafx.fxml.FXML;
 import java.io.IOException;
 
 public class HomeController {
-    @FXML
-    public void handleLinkToTypeButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าประเภทของหนังสือ
-        try {
-            FXRouter.goTo("profile");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า profile ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
-    }
+
     @FXML
     public void handleLinkToBestSellerButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าหนังสือขายดี
         try {
-            FXRouter.goTo("profile");
+            FXRouter.goTo("home");
         } catch (IOException e) {
             System.err.println("ไปที่หน้า profile ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
@@ -28,7 +20,7 @@ public class HomeController {
     @FXML
     public void handleLinkToRecommendButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าหนังสือแนะนำ
         try {
-            FXRouter.goTo("profile");
+            FXRouter.goTo("home");
         } catch (IOException e) {
             System.err.println("ไปที่หน้า profile ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
@@ -37,7 +29,7 @@ public class HomeController {
     @FXML
     public void handleLinkToLoginButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าล็อกอิน
         try {
-            FXRouter.goTo("profile");
+            FXRouter.goTo("login");
         } catch (IOException e) {
             System.err.println("ไปที่หน้า profile ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
@@ -53,4 +45,33 @@ public class HomeController {
         }
     }
 
+    @FXML
+    public void handleCartoonBookButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าหนังสือการ์ตูน
+        try {
+            FXRouter.goTo("pageBookCartoon");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้าเพจของหนังสือการ์ตูนไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
+    public void handleMagazineButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า Magazine
+        try {
+            FXRouter.goTo("pageMagazine");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้าเพจของ Magazine ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
+    public void handleAllTypeBookButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า หนังสือทั้งหมด (เพจหลัก)
+        try {
+            FXRouter.goTo("home");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้าเพจหลักไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
 }

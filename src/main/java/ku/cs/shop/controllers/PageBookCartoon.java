@@ -8,10 +8,10 @@ import ku.cs.shop.models.Book;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class BookDetailController
-{
+public class PageBookCartoon {
+
     BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.txt");
-    @FXML private Label bookNameLabel, bookShopLabel, bookStatusLabel, bookTypeLabel, bookPageLabel, bookISBNLabel, bookPublisherLabel, bookAuthorLabel, bookDetailLabel, bookPriceLabel ;
+    @FXML private Label bookNameLabel, bookShopLabel, bookPriceLabel ;
     private ArrayList<Book> booksList = new ArrayList<>();
 
     @FXML
@@ -20,15 +20,9 @@ public class BookDetailController
         booksList = data.readData();
         bookNameLabel.setText(booksList.get(0).getBookName());
         bookShopLabel.setText(booksList.get(0).getBookShop());
-        bookStatusLabel.setText(booksList.get(0).getBookStatus());
-        bookTypeLabel.setText(booksList.get(0).getBookType());
-        bookPageLabel.setText(booksList.get(0).getBookPage());
-        bookISBNLabel.setText(booksList.get(0).getBookISBN());
-        bookPublisherLabel.setText(booksList.get(0).getBookPublisher());
-        bookAuthorLabel.setText(booksList.get(0).getBookAuthor());
-        bookDetailLabel.setText(booksList.get(0).getBookDetail());
         bookPriceLabel.setText(Double.toString(booksList.get(0).getBookPrice()) + " Baht.");
     }
+
 
     @FXML
     public void handleCartoonBookButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าหนังสือการ์ตูน
@@ -56,6 +50,16 @@ public class BookDetailController
             com.github.saacsos.FXRouter.goTo("home");
         } catch (IOException e) {
             System.err.println("ไปที่หน้าเพจหลักไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
+    public void handleFullDetailButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้ารยาละเอียดหนังสือ
+        try {
+            com.github.saacsos.FXRouter.goTo("bookDetail");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้ารายละเอียดหนังสือไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }

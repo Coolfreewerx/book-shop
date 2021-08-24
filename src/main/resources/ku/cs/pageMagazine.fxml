@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: whilte;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.PageMagazine">
+   <children>
+      <MenuButton fx:id="handleBookTypeButton" layoutX="101.0" layoutY="36.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="134.0" style="-fx-background-color: #c9ad88;" text="ประเภท" textFill="WHITE">
+         <items>
+            <MenuItem mnemonicParsing="false" onAction="#handleCartoonBookButton" text="หนังสือการ์ตูน" />
+            <MenuItem mnemonicParsing="false" onAction="#handleMagazineButton" text="นิตยสาร" />
+            <MenuItem mnemonicParsing="false" onAction="#handleAllTypeBookButton" text="ทั้งหมด" />
+         </items>
+         <font>
+            <Font name="JasmineUPC" size="25.0" />
+         </font>
+      </MenuButton>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffcf1" height="309.0" layoutX="84.0" layoutY="125.0" stroke="#eccece" strokeType="OUTSIDE" width="230.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffcf1" height="309.0" layoutX="373.0" layoutY="125.0" stroke="#eccece" strokeType="OUTSIDE" width="230.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffcf1" height="309.0" layoutX="667.0" layoutY="125.0" stroke="#eccece" strokeType="OUTSIDE" width="230.0" />
+   </children>
+</AnchorPane>
