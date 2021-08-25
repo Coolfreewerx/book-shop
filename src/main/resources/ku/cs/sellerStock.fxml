@@ -9,7 +9,6 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.SellerController">
    <children>
       <ImageView fitHeight="76.0" fitWidth="61.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
@@ -47,7 +46,7 @@
             <Image url="@image/basket.png" />
          </image>
       </ImageView>
-      <TextField layoutX="798.0" layoutY="20.0" prefHeight="35.0" prefWidth="181.0" promptText="ค้นหาหนังสือ" style="-fx-background-color: BC986A;" >
+      <TextField layoutX="798.0" layoutY="20.0" prefHeight="35.0" prefWidth="181.0" promptText="ค้นหาหนังสือ" style="-fx-background-color: BC986A;">
          <font>
             <Font name="JasmineUPC" size="23.0" />
          </font>
@@ -75,23 +74,89 @@
             <Image url="@image/logo.png" />
          </image>
       </ImageView>
-      <Label layoutX="522.0" layoutY="159.0" text="ชื่อสินค้า">
+      <Label layoutX="512.0" layoutY="155.0" text="ชื่อสินค้า">
          <font>
-            <Font name="JasmineUPC" size="36.0" />
+            <Font name="JasmineUPC" size="28.0" />
          </font>
       </Label>
-      <Label layoutX="532.0" layoutY="369.0" text="ชื่อสินค้า">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f3efef" height="65.0" layoutX="695.0" layoutY="154.0" stroke="WHITE" strokeType="INSIDE" width="118.0" />
+      <Button fx:id="editStockButton" layoutX="727.0" layoutY="257.0" mnemonicParsing="false" onAction="#handleEditStockButton" style="-fx-background-color: F99F28;" text="submit" textFill="WHITE" />
+      <TextField fx:id="editStockTextField" layoutX="696.0" layoutY="225.0" prefHeight="12.0" prefWidth="117.0" />
+      <Label fx:id="bookNameLabel" layoutX="514.0" layoutY="182.0" text="bookNameLabel">
          <font>
-            <Font name="JasmineUPC" size="36.0" />
+            <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="533.0" layoutY="575.0" text="ชื่อสินค้า">
+<!--      <Label fx:id="bookNameLabel" layoutX="514.0" layoutY="391.0" text="bookNameLabel">-->
+<!--         <font>-->
+<!--            <Font size="18.0" />-->
+<!--         </font>-->
+<!--      </Label>-->
+<!--      <Label fx:id="bookNameLabel" layoutX="514.0" layoutY="602.0" text="bookNameLabel">-->
+<!--         <font>-->
+<!--            <Font size="18.0" />-->
+<!--         </font>-->
+<!--      </Label>-->
+      <Label layoutX="515.0" layoutY="228.0" text="ราคาสินค้า">
          <font>
-            <Font name="JasmineUPC" size="36.0" />
+            <Font name="JasmineUPC" size="28.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f3efef" height="49.0" layoutX="691.0" layoutY="177.0" stroke="WHITE" strokeType="INSIDE" width="204.0" />
-      <Button fx:id="editStockButton" layoutX="826.0" layoutY="235.0" mnemonicParsing="false" onAction="#handleEditStockButton" style="-fx-background-color: F99F28;" text="แก้ไขข้อมูล" textFill="WHITE" />
-      <TextField fx:id="editStockTextField" layoutX="695.0" layoutY="236.0" prefHeight="12.0" prefWidth="117.0" />
+      <Label layoutX="512.0" layoutY="362.0" text="ชื่อสินค้า">
+         <font>
+            <Font name="JasmineUPC" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="512.0" layoutY="574.0" text="ชื่อสินค้า">
+         <font>
+            <Font name="JasmineUPC" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="515.0" layoutY="435.0" text="ราคาสินค้า">
+         <font>
+            <Font name="JasmineUPC" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="515.0" layoutY="646.0" text="ราคาสินค้า">
+         <font>
+            <Font name="JasmineUPC" size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="bookPriceLabel" layoutX="517.0" layoutY="462.0" text="bookPriceLabel">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+<!--      <Label fx:id="bookPriceLabel" layoutX="518.0" layoutY="256.0" text="bookPriceLabel">-->
+<!--         <font>-->
+<!--            <Font size="18.0" />-->
+<!--         </font>-->
+<!--      </Label>-->
+<!--      <Label fx:id="bookPriceLabel" layoutX="516.0" layoutY="675.0" text="bookPriceLabel">-->
+<!--         <font>-->
+<!--            <Font size="18.0" />-->
+<!--         </font>-->
+<!--      </Label>-->
+<!--      <Label fx:id="bookStockLabel" layoutX="672.0" layoutY="166.0" text="bookStockLabel">-->
+<!--         <font>-->
+<!--            <Font name="System Bold" size="24.0" />-->
+<!--         </font>-->
+<!--      </Label>-->
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f3efef" height="65.0" layoutX="723.0" layoutY="384.0" stroke="WHITE" strokeType="INSIDE" width="180.0" />
+      <Label fx:id="bookStockLabel" layoutX="722.0" layoutY="399.0" text="bookStockLabel">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="decreaseBookButton" layoutX="726.0" layoutY="395.0" mnemonicParsing="false" onAction="#handleDecreaseStockButton" prefHeight="42.0" prefWidth="47.0" style="-fx-background-color: #f3efef;" text="-">
+         <font>
+            <Font name="JasmineUPC" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="increaseBookButton" layoutX="855.0" layoutY="396.0" mnemonicParsing="false" onAction="#handleIncreaseStockButton" prefHeight="42.0" prefWidth="47.0" style="-fx-background-color: #f3efef;" text="+">
+         <font>
+            <Font name="JasmineUPC" size="24.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
