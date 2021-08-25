@@ -137,17 +137,17 @@
 <!--            <Font size="18.0" />-->
 <!--         </font>-->
 <!--      </Label>-->
-<!--      <Label fx:id="bookStockLabel" layoutX="672.0" layoutY="166.0" text="bookStockLabel">-->
-<!--         <font>-->
-<!--            <Font name="System Bold" size="24.0" />-->
-<!--         </font>-->
-<!--      </Label>-->
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f3efef" height="65.0" layoutX="723.0" layoutY="384.0" stroke="WHITE" strokeType="INSIDE" width="180.0" />
-      <Label fx:id="bookStockLabel" layoutX="722.0" layoutY="399.0" text="bookStockLabel">
+      <Label fx:id="bookStockLabel" layoutX="672.0" layoutY="166.0" text="bookStockLabel">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
+<!--      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f3efef" height="65.0" layoutX="723.0" layoutY="384.0" stroke="WHITE" strokeType="INSIDE" width="180.0" />-->
+<!--      <Label fx:id="bookStockLabel" layoutX="722.0" layoutY="399.0" text="bookStockLabel">-->
+<!--         <font>-->
+<!--            <Font name="System Bold" size="24.0" />-->
+<!--         </font>-->
+<!--      </Label>-->
       <Button fx:id="decreaseBookButton" layoutX="726.0" layoutY="395.0" mnemonicParsing="false" onAction="#handleDecreaseStockButton" prefHeight="42.0" prefWidth="47.0" style="-fx-background-color: #f3efef;" text="-">
          <font>
             <Font name="JasmineUPC" size="24.0" />
