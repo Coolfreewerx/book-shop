@@ -155,7 +155,7 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="183.0" layoutX="788.0" layoutY="459.0" stroke="#c4c4c4" strokeType="INSIDE" width="200.0" />
       <MenuButton accessibleRole="LIST_VIEW" layoutX="100.0" layoutY="34.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="134.0" style="-fx-background-color: #c9ad88;" text="ประเภท" textFill="WHITE">
          <items>
-            <MenuItem mnemonicParsing="false" onAction="#handleCartoonBookButton" text="หนังสือการ์ตูน" />
+            <MenuItem mnemonicParsing="false" onAction="#handleCartoonBookButton" style="-fx-background-color: #bc986a; " text="หนังสือการ์ตูน" />
             <MenuItem mnemonicParsing="false" onAction="#handleMagazineButton" text="นิตยสาร" />
             <MenuItem mnemonicParsing="false" onAction="#handleAllTypeBookButton" text="ทั้งหมด" />
          </items>
