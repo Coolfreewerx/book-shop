@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -38,8 +39,6 @@
       <TextField fx:id="firstNameTextField" layoutX="348.0" layoutY="248.0" prefHeight="25.0" prefWidth="150.0" promptText="ชื่อ" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88;" />
       <TextField fx:id="lastNameTextField" layoutX="521.0" layoutY="248.0" prefHeight="25.0" prefWidth="150.0" promptText="นามสกุล" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88;" />
       <TextField fx:id="userNameTextField" layoutX="347.0" layoutY="296.0" prefHeight="28.0" prefWidth="324.0" promptText="ชื่อผู้ใช้ (username)" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88;" />
-      <TextField fx:id="passwordTextField" layoutX="348.0" layoutY="346.0" prefHeight="28.0" prefWidth="324.0" promptText="รหัสผ่าน" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88;" />
-      <TextField fx:id="passwordRecheckTextField" layoutX="348.0" layoutY="397.0" prefHeight="28.0" prefWidth="324.0" promptText="ยืนยันรหัสผ่าน" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88;" />
       <Text fill="#828282" layoutX="349.0" layoutY="463.0" strokeType="OUTSIDE" strokeWidth="0.0" text="วันเกิด">
          <font>
             <Font name="Calibri" size="14.0" />
@@ -63,7 +62,7 @@
             <Font name="Calibri" size="18.0" />
          </font>
       </Button>
-      <Text fill="#828282" layoutX="398.0" layoutY="642.0" strokeType="OUTSIDE" strokeWidth="0.0" text="หากคุณมีบัญชีอยู่แล้ว">
+      <Text fill="#828282" layoutX="398.0" layoutY="656.0" strokeType="OUTSIDE" strokeWidth="0.0" text="หากคุณมีบัญชีอยู่แล้ว">
          <font>
             <Font name="Calibri" size="14.0" />
          </font>
@@ -73,14 +72,17 @@
             <Font name="Calibri" size="9.0" />
          </font>
       </Text>
-      <Button layoutX="517.0" layoutY="623.0" mnemonicParsing="false" onAction="#handleToLoginButton" style="-fx-background-color: FCFCFC;" text="กลับไปที่หน้าล็อกอิน" textFill="#203bc5">
+      <Button layoutX="517.0" layoutY="637.0" mnemonicParsing="false" onAction="#handleToLoginButton" style="-fx-background-color: FCFCFC;" text="กลับไปที่หน้าล็อกอิน" textFill="#203bc5">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Label fx:id="userNameCheckLabel" layoutX="347.0" layoutY="324.0" text="11111111111" />
-      <Label fx:id="passwordConditionCheckLabel" layoutX="349.0" layoutY="374.0" text="2222222222222222" />
-      <Label fx:id="passwordCompareLabel" layoutX="349.0" layoutY="425.0" text="333333333" />
+      <Label fx:id="userNameCheckLabel" layoutX="347.0" layoutY="324.0" textFill="RED" />
+      <Label fx:id="passwordConditionCheckLabel" layoutX="349.0" layoutY="374.0" textFill="RED" />
+      <Label fx:id="passwordCompareLabel" layoutX="349.0" layoutY="425.0" textFill="#d2271e" />
+      <PasswordField fx:id="passwordField" layoutX="348.0" layoutY="346.0" prefHeight="28.0" prefWidth="324.0" promptText="รหัสผ่าน" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88;" />
+      <PasswordField fx:id="checkPasswordField" layoutX="348.0" layoutY="397.0" onKeyReleased="#comparePassword" prefHeight="28.0" prefWidth="324.0" promptText="ยืนยันรหัสผ่าน" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88;" />
+      <Label fx:id="passwordConditionPassLabel" layoutX="349.0" layoutY="374.0" textFill="#00ff1a" />
+      <Label fx:id="registerErrorLabel" layoutX="423.0" layoutY="618.0" text="พบข้อผิดพลาด กรุณาตรวจสอบข้อมูล" textFill="WHITE" />
    </children>
 </AnchorPane>
-
