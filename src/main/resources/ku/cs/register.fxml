@@ -77,12 +77,11 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Label fx:id="userNameCheckLabel" layoutX="347.0" layoutY="324.0" textFill="RED" />
-      <Label fx:id="passwordConditionCheckLabel" layoutX="349.0" layoutY="374.0" textFill="RED" />
+      <Label fx:id="userNameCheckLabel" layoutX="347.0" layoutY="324.0" textFill="#d2271e" />
+      <Label fx:id="passwordConditionCheckLabel" layoutX="349.0" layoutY="374.0" textFill="#d2271e" />
       <Label fx:id="passwordCompareLabel" layoutX="349.0" layoutY="425.0" textFill="#d2271e" />
-      <PasswordField fx:id="passwordField" layoutX="348.0" layoutY="346.0" prefHeight="28.0" prefWidth="324.0" promptText="รหัสผ่าน" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88;" />
-      <PasswordField fx:id="checkPasswordField" layoutX="348.0" layoutY="397.0" onKeyReleased="#comparePassword" prefHeight="28.0" prefWidth="324.0" promptText="ยืนยันรหัสผ่าน" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88;" />
-      <Label fx:id="passwordConditionPassLabel" layoutX="349.0" layoutY="374.0" textFill="#00ff1a" />
-      <Label fx:id="registerErrorLabel" layoutX="423.0" layoutY="618.0" text="พบข้อผิดพลาด กรุณาตรวจสอบข้อมูล" textFill="WHITE" />
+      <PasswordField fx:id="passwordField" layoutX="348.0" layoutY="346.0" onKeyReleased="#keyPassword" prefHeight="28.0" prefWidth="324.0" promptText="รหัสผ่าน" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88;" />
+      <PasswordField fx:id="checkPasswordField" layoutX="348.0" layoutY="397.0" onKeyReleased="#keyCheckPassword" prefHeight="28.0" prefWidth="324.0" promptText="ยืนยันรหัสผ่าน" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88;" />
+      <Label fx:id="registerErrorLabel" layoutX="410.0" layoutY="618.0" textAlignment="CENTER" textFill="#d2271e" />
    </children>
 </AnchorPane>

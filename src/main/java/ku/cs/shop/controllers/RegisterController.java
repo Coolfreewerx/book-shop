@@ -15,6 +15,7 @@ import java.io.IOException;
 public class RegisterController {
 
     // controller เชื่อมต่อกับ view เพื่อรับข้อมูล
+    User user = new User();
     @FXML private TextField firstNameTextField ;
     @FXML private TextField lastNameTextField ;
     @FXML private TextField userNameTextField ;
@@ -25,68 +26,27 @@ public class RegisterController {
     @FXML private TextField birthYearTextField ;
     @FXML private Label passwordCompareLabel ;
     @FXML private Label registerErrorLabel ;
+    @FXML private Label passwordConditionCheckLabel ;
 
-    //private boolean usernameCheck = true ;
-    private boolean passwordCheck = false ;
-
-    //ตรวจสอบการยืนยันรหัสผ่าน
-    @FXML
-    public void comparePassword() {
-        String passwordStr = passwordField.getText();
-        String passwordRecheckStr = checkPasswordField.getText();
-
-        if (passwordStr.equals(passwordRecheckStr)) {
-            passwordCompareLabel.setText("");
-            passwordCheck = true ;
+    @FXML //ทำงานเมื่อกรอกรหัส
+    public void keyPassword() {
+        if (user.checkPasswordCondition(passwordField.getText())){
+            passwordConditionCheckLabel.setText("รหัสผ่านนี้สามารถใช้ได้") ;
+            passwordConditionCheckLabel.setTextFill(Color.rgb(21, 117, 84));
         }
         else {
-            passwordCompareLabel.setText("รหัสผ่านไม่ตรงกัน โปรดตรวจสอบรหัสผ่าน");
-            passwordCheck = false ;
+            passwordConditionCheckLabel.setText("รหัสผ่านไม่ตรงตามรูปแบบที่กำหนด");
+            passwordConditionCheckLabel.setTextFill(Color.rgb(210, 39, 30));
         }
-
     }
-
-    //ตรวจสอบรหัสผ่านตามเงื่อนไข  //setTextFill(Color.rgb(21, 117, 84));
-
-//    public void checkUserNameCondition() {
-//        String userNameStr = userNameTextField.getText() ;
-//        //ตรวจสอบ username ว่าตรงเงื่อนไขมั้ย
-//
-//        //ตรวจสอบ username ว่าซ้ำมั้ย
-//    }
+    @FXML //ทำงานเมื่อกรอกยืนยันรหัส
+    public void keyCheckPassword() {
+        passwordCompareLabel.setText(user.comparePassword(passwordField.getText(), checkPasswordField.getText()));
+    }
 
     //ปุ่ม register
     @FXML
     public void registerButton(ActionEvent actionEvent) {
-        //ตรวจสอบความถูกต้อง username password
-        if(!(passwordCheck/*&&usernameCheck*/)) {
-            registerErrorLabel.setText("พบข้อผิดพลาด กรุณาตรวจสอบข้อมูล");
-            registerErrorLabel.setTextFill(Color.rgb(210, 39, 30));
-            return;
-        }
-        // ตรวจสอบว่าทุกช่องมีข้อมูล
-        else if (firstNameTextField.getText().equals("")||lastNameTextField.getText().equals("")||
-        userNameTextField.getText().equals("")||checkPasswordField.getText().equals("")||
-        birthDayTextField.getText().equals("")||birthMonthTextField.getText().equals("")||birthYearTextField.getText().equals("")) {
-            registerErrorLabel.setText("ข้อมูลไม่ครบถ้วน กรุณาตรวจสอบข้อมูล");
-            registerErrorLabel.setTextFill(Color.rgb(210, 39, 30));
-            return;
-        }
-
-        registerErrorLabel.setTextFill(Color.rgb(255, 255, 255));
-        writeUserInfo();
-        try {
-            com.github.saacsos.FXRouter.goTo("login");
-        }
-        catch (IOException e) {
-            System.err.println("ไปที่หน้า login ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
-    }
-
-    //เก็บข้อมูลของ user
-    @FXML
-    public void writeUserInfo() {
 
         String firstNameStr = firstNameTextField.getText() ;
         String lastNameStr = lastNameTextField.getText() ;
@@ -95,20 +55,27 @@ public class RegisterController {
         String birthDayStr = birthDayTextField.getText() ;
         String birthMonthStr = birthMonthTextField.getText() ;
         String birthYearStr = birthYearTextField.getText() ;
+        user.setFirstName(firstNameStr);
+        user.setLastName(lastNameStr);
+        user.setUserName(userNameStr);
+        user.setPassword(passwordStr);
+        user.setBirthDay(birthDayStr);
+        user.setBirthMonth(birthMonthStr);
+        user.setBirthYear(birthYearStr);
 
-        //นำข้อมูล String เก็บใน FieldClass และบันทึกลง CSV
-        File userData = new File("src/main/java/ku/cs/shop/userData.csv");
+        registerErrorLabel.setText(user.dataCheck());
 
-        FileWriter writer ;
-        try {
-            writer = new FileWriter(userData, true);
-            writer.write(""+userNameStr+","+firstNameStr+","+lastNameStr+","+passwordStr+","+
-                    birthDayStr+","+birthMonthStr+","+birthYearStr+"\r\n");
-            writer.close();
+        if (!(user.getDataCheck())) {
+            return;
         }
-        catch (IOException e){
-            e.printStackTrace();
-            System.err.println("สมัครไม่สำเร็จ");
+
+        user.writeUserInfo();
+
+        try {
+            com.github.saacsos.FXRouter.goTo("login");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า login ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
 
