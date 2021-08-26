@@ -1,8 +1,7 @@
 package ku.cs.shop.models;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.io.FileReader;
 import java.util.regex.Pattern;
 
 public class User {
@@ -14,7 +13,7 @@ public class User {
     private String birthDay ;
     private String birthMonth ;
     private String birthYear ;
-    private boolean passwordCheck = false, passwordCondition = false, dataCheck = false;
+    private boolean passwordCheck = false, passwordCondition = false, dataCheck = false, userNameCheck = false ;
 
     //เก็บค่าเริ่มต้น
     public User(){}
@@ -50,6 +49,7 @@ public class User {
         return birthYear;
     }
     public boolean getDataCheck() {return dataCheck; }
+    public boolean getUserNameCheck() {return userNameCheck; }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -65,23 +65,48 @@ public class User {
         this.password = password;
     }
 
-    //    public void checkUserNameCondition() {
-//        String userNameStr = userNameTextField.getText() ;
-//        //ตรวจสอบ username ว่าตรงเงื่อนไขมั้ย
-//
-//        //ตรวจสอบ username ว่าซ้ำมั้ย
-//    }
+    public String checkUserNameCondition(String userName) {
+        //ตรวจสอบ username ว่าตรงเงื่อนไขมั้ย
+        if (!Pattern.matches("[a-zA-Z0-9]+", userName)) {
+            this.userNameCheck = false ;
+            return "ชื่อผู้ใช้ไม่ตรงตามรูปแบบที่กำหนด" ;
+        }
+        else if (checkUserNameHad(userName)) {
+            this.userNameCheck = false ;
+            return "ชื่อผู้ใช้นี้ถูกใช้งานไปแล้ว" ;
+        }
+        else {
+            this.userNameCheck = true ;
+            return "ชื่อผู้ใช้นี้สามารถใช้งานได้" ; }
+    }
+
+    //ตรวจสอบ username ว่าซ้ำมั้ย
+    public boolean checkUserNameHad(String userName) {
+        File userData = new File("src/main/java/ku/cs/shop/userData.csv");
+        try {
+            BufferedReader buffer = new BufferedReader(new FileReader(userData));
+            String line;
+            while ((line = buffer.readLine()) != null) {
+                String[] arr = line.split(","); //อ่าน username
+                if (arr[0].equals(userName)) { return true ;}
+            }
+            buffer.close();
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+        return false ;
+    }
 
     //ตรวจสอบรหัสผ่านตามเงื่อนไข
     public boolean checkPasswordCondition (String password)  {
-        if (password.length()<8 ||!(Pattern.matches("[a-zA-Z0-9]+", password))) {
+        if (password.length()<8 || !(Pattern.matches("[a-zA-Z0-9]+", password)&&!Pattern.matches("[a-zA-Z]+", password)&&!Pattern.matches("[0-9]+", password))) {
             this.passwordCondition = false ;
             return false ;
         }
         else {
             this.passwordCondition = true ;
-            return true ;
-        }
+            return true ; }
     }
 
     //ตรวจสอบการยืนยันรหัสผ่าน
@@ -116,7 +141,6 @@ public class User {
 
     //เช็คการกรอกข้อมูลก่อนสมัคร
     public String dataCheck() {
-
         // ตรวจสอบว่าทุกช่องมีข้อมูล
         if ((firstName.equals("")||lastName.equals("")||userName.equals("")||!(passwordCheck)||
                 birthDay.equals("")||birthMonth.equals("")||birthYear.equals(""))) {
