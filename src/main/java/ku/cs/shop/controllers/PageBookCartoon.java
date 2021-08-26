@@ -63,4 +63,16 @@ public class PageBookCartoon {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
+
+    @FXML
+    public void handleFullDetailButton2(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้ารยาละเอียดหนังสือ
+        try {
+            com.github.saacsos.FXRouter.goTo("bookDetail");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้ารายละเอียดหนังสือไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+
 }
