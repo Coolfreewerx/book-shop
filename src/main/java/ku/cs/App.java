@@ -27,7 +27,11 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         FXRouter.bind(this, stage, "JAVAPAI",1024.0,768.0);
         configRoute();
+<<<<<<< HEAD
         FXRouter.goTo("sellerStock");
+=======
+        FXRouter.goTo("home");
+>>>>>>> 1daef438345cd93c494e63a90017ac417c185529
     }
 
     private static void configRoute() {
