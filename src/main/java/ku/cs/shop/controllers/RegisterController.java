@@ -27,7 +27,18 @@ public class RegisterController {
     @FXML private Label passwordCompareLabel ;
     @FXML private Label registerErrorLabel ;
     @FXML private Label passwordConditionCheckLabel ;
+    @FXML private Label userNameCheckLabel ;
 
+    @FXML //ทำงานเมื่อกรอก username
+    public void keyUserName() {
+        userNameCheckLabel.setText(user.checkUserNameCondition(userNameTextField.getText()));
+        if (user.getUserNameCheck()){
+            userNameCheckLabel.setTextFill(Color.rgb(21, 117, 84));
+        }
+        else {
+            userNameCheckLabel.setTextFill(Color.rgb(210, 39, 30));
+        }
+    }
     @FXML //ทำงานเมื่อกรอกรหัส
     public void keyPassword() {
         if (user.checkPasswordCondition(passwordField.getText())){
