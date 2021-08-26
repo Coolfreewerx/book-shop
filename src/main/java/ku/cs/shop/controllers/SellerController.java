@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class SellerController {
-    BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.txt");
+    BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
     @FXML private Label bookStockLabel,bookNameLabel,bookPriceLabel ;
     private ArrayList<Book> booksList = new ArrayList<>();
 

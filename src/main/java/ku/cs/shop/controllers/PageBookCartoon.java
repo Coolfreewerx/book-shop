@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class PageBookCartoon {
 
-    BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.txt");
+    BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
     @FXML private Label bookNameLabel, bookShopLabel, bookPriceLabel ;
     private ArrayList<Book> booksList = new ArrayList<>();
 
