@@ -82,21 +82,21 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f3efef" height="65.0" layoutX="695.0" layoutY="154.0" stroke="WHITE" strokeType="INSIDE" width="118.0" />
       <Button fx:id="editStockButton" layoutX="727.0" layoutY="257.0" mnemonicParsing="false" onAction="#handleEditStockButton" style="-fx-background-color: F99F28;" text="submit" textFill="WHITE" />
       <TextField fx:id="editStockTextField" layoutX="696.0" layoutY="225.0" prefHeight="12.0" prefWidth="117.0" />
-      <Label fx:id="bookNameLabel" layoutX="514.0" layoutY="182.0" text="bookNameLabel">
+      <Label fx:id="bookNameLabel0" layoutX="514.0" layoutY="182.0" text="bookNameLabel">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-<!--      <Label fx:id="bookNameLabel" layoutX="514.0" layoutY="391.0" text="bookNameLabel">-->
-<!--         <font>-->
-<!--            <Font size="18.0" />-->
-<!--         </font>-->
-<!--      </Label>-->
-<!--      <Label fx:id="bookNameLabel" layoutX="514.0" layoutY="602.0" text="bookNameLabel">-->
-<!--         <font>-->
-<!--            <Font size="18.0" />-->
-<!--         </font>-->
-<!--      </Label>-->
+      <Label fx:id="bookNameLabel1" layoutX="514.0" layoutY="391.0" text="bookNameLabel">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="bookNameLabel2" layoutX="514.0" layoutY="602.0" text="bookNameLabel">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
       <Label layoutX="515.0" layoutY="228.0" text="ราคาสินค้า">
          <font>
             <Font name="JasmineUPC" size="28.0" />
@@ -122,32 +122,32 @@
             <Font name="JasmineUPC" size="28.0" />
          </font>
       </Label>
-      <Label fx:id="bookPriceLabel" layoutX="517.0" layoutY="462.0" text="bookPriceLabel">
+      <Label fx:id="bookPriceLabel0" layoutX="517.0" layoutY="462.0" text="bookPriceLabel">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-<!--      <Label fx:id="bookPriceLabel" layoutX="518.0" layoutY="256.0" text="bookPriceLabel">-->
-<!--         <font>-->
-<!--            <Font size="18.0" />-->
-<!--         </font>-->
-<!--      </Label>-->
-<!--      <Label fx:id="bookPriceLabel" layoutX="516.0" layoutY="675.0" text="bookPriceLabel">-->
-<!--         <font>-->
-<!--            <Font size="18.0" />-->
-<!--         </font>-->
-<!--      </Label>-->
-      <Label fx:id="bookStockLabel" layoutX="672.0" layoutY="166.0" text="bookStockLabel">
+      <Label fx:id="bookPriceLabe1" layoutX="518.0" layoutY="256.0" text="bookPriceLabel">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="bookPriceLabel2" layoutX="516.0" layoutY="675.0" text="bookPriceLabel">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="bookStockLabel0" layoutX="672.0" layoutY="166.0" text="bookStockLabel">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-<!--      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f3efef" height="65.0" layoutX="723.0" layoutY="384.0" stroke="WHITE" strokeType="INSIDE" width="180.0" />-->
-<!--      <Label fx:id="bookStockLabel" layoutX="722.0" layoutY="399.0" text="bookStockLabel">-->
-<!--         <font>-->
-<!--            <Font name="System Bold" size="24.0" />-->
-<!--         </font>-->
-<!--      </Label>-->
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f3efef" height="65.0" layoutX="723.0" layoutY="384.0" stroke="WHITE" strokeType="INSIDE" width="180.0" />
+      <Label fx:id="bookStockLabel1" layoutX="722.0" layoutY="399.0" text="bookStockLabel">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
       <Button fx:id="decreaseBookButton" layoutX="726.0" layoutY="395.0" mnemonicParsing="false" onAction="#handleDecreaseStockButton" prefHeight="42.0" prefWidth="47.0" style="-fx-background-color: #f3efef;" text="-">
          <font>
             <Font name="JasmineUPC" size="24.0" />
