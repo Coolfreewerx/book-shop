@@ -142,12 +142,12 @@ public class User {
     //เช็คการกรอกข้อมูลก่อนสมัคร
     public String dataCheck() {
         // ตรวจสอบว่าทุกช่องมีข้อมูล
-        if ((firstName.equals("")||lastName.equals("")||userName.equals("")||!(passwordCheck)||
+        if ((firstName.equals("")||lastName.equals("")||userName.equals("")||password.equals("")||
                 birthDay.equals("")||birthMonth.equals("")||birthYear.equals(""))) {
             this.dataCheck = false ;
             return "ข้อมูลไม่ครบถ้วน โปรดตรวจสอบข้อมูลอีกครั้ง";
         }
-        else if (!(this.passwordCheck && this.passwordCondition /*&&usernameCheck*/)) {
+        else if (!(this.passwordCheck && this.passwordCondition && this.userNameCheck )) {
             this.dataCheck = false ;
             return "ข้อมูลมีข้อผิดพลาดโปรดตรวจสอบข้อมูลอีกครั้ง" ;
         }

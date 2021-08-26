@@ -28,7 +28,7 @@ public class App extends Application {
         FXRouter.bind(this, stage, "JAVAPAI",1024.0,768.0);
         configRoute();
 //        FXRouter.goTo("sellerStock");
-        FXRouter.goTo("register");
+        FXRouter.goTo("home");
     }
 
     private static void configRoute() {
