@@ -13,41 +13,11 @@
 
 <AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.BookDetailController">
    <children>
-      <ImageView fitHeight="76.0" fitWidth="61.0" layoutX="44.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@image/logo.png" />
-         </image>
-      </ImageView>
-      <Label fx:id="Typebook11" layoutX="467.0" layoutY="35.0" text="แนะนำ" textFill="#c9ad88">
+      <Label fx:id="Typebook111" layoutX="568.0" layoutY="38.0" text="Login" textFill="#c9ad88">
          <font>
             <Font name="JasmineUPC" size="36.0" />
          </font>
       </Label>
-      <Label layoutX="322.0" layoutY="35.0" text="ขายดี" textFill="#c9ad88">
-         <font>
-            <Font name="JasmineUPC" size="36.0" />
-         </font>
-      </Label>
-      <Label fx:id="Typebook111" layoutX="615.0" layoutY="35.0" text="Login" textFill="#c9ad88">
-         <font>
-            <Font name="JasmineUPC" size="36.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="35.0" fitWidth="48.0" layoutX="714.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@image/heart.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="35.0" fitWidth="45.0" layoutX="759.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@image/basket.png" />
-         </image>
-      </ImageView>
-      <TextField layoutX="819.0" layoutY="32.0" prefHeight="35.0" prefWidth="181.0" promptText="ค้นหาหนังสือ" style="-fx-background-color: BC986A;">
-         <font>
-            <Font name="JasmineUPC" size="23.0" />
-         </font>
-      </TextField>
       <Label layoutX="22.0" layoutY="111.0" text="ประเภทหนังสือ" textFill="#a05e07">
          <font>
             <Font name="JasmineUPC" size="38.0" />
@@ -193,9 +163,34 @@
             <Image url="@image/book11_horimiya_cartoon.jpg" />
          </image>
       </ImageView>
-      <MenuButton layoutX="130.0" layoutY="31.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="134.0" style="-fx-background-color: #c9ad88;" text="ประเภท" textFill="WHITE">
+      <ImageView fitHeight="64.0" fitWidth="66.0" layoutX="17.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="71.0" fitWidth="65.0" layoutX="744.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/basket.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="71.0" fitWidth="65.0" layoutX="682.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/heart.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="284.0" layoutY="30.0" mnemonicParsing="false" onAction="#handleLinkToBestSellerButton" style="-fx-background-color: while;" text="ขายดี" textFill="#bc986a">
+         <font>
+            <Font name="JasmineUPC" size="30.0" />
+         </font>
+      </Button>
+      <Button fx:id="Typebook11" layoutX="409.0" layoutY="30.0" mnemonicParsing="false" onAction="#handleLinkToRecommendButton" style="-fx-background-color: while;" text="แนะนำ" textFill="#bc986a">
+         <font>
+            <Font name="JasmineUPC" size="30.0" />
+         </font>
+      </Button>
+      <MenuButton accessibleRole="LIST_VIEW" layoutX="103.0" layoutY="34.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="134.0" style="-fx-background-color: #c9ad88;" text="ประเภท" textFill="WHITE">
          <items>
-            <MenuItem mnemonicParsing="false" onAction="#handleCartoonBookButton" text="หนังสือการ์ตูน" />
+            <MenuItem mnemonicParsing="false" onAction="#handleCartoonBookButton" style="-fx-background-color: #bc986a; " text="หนังสือการ์ตูน" />
             <MenuItem mnemonicParsing="false" onAction="#handleMagazineButton" text="นิตยสาร" />
             <MenuItem mnemonicParsing="false" onAction="#handleAllTypeBookButton" text="ทั้งหมด" />
          </items>
@@ -203,5 +198,10 @@
             <Font name="JasmineUPC" size="25.0" />
          </font>
       </MenuButton>
+      <TextField layoutX="815.0" layoutY="24.0" prefHeight="54.0" prefWidth="192.0" promptText="ค้นหาหนังสือ" style="-fx-background-color: BC986A; -fx-background-radius: 10;">
+         <font>
+            <Font name="JasmineUPC" size="25.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>

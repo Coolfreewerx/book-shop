@@ -55,7 +55,7 @@ public class PageBookCartoon {
     }
 
     @FXML
-    public void handleFullDetailButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้ารยาละเอียดหนังสือ
+    public void handleFullDetailButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้ารายละเอียดหนังสือ
         try {
             com.github.saacsos.FXRouter.goTo("bookDetail");
         } catch (IOException e) {
@@ -65,7 +65,7 @@ public class PageBookCartoon {
     }
 
     @FXML
-    public void handleFullDetailButton2(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้ารยาละเอียดหนังสือ
+    public void handleFullDetailButton2(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้ารายละเอียดหนังสือ
         try {
             com.github.saacsos.FXRouter.goTo("bookDetail");
         } catch (IOException e) {
