@@ -10,7 +10,6 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: whilte;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.PageBookCartoon">
    <children>
       <MenuButton layoutX="155.0" layoutY="39.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="134.0" style="-fx-background-color: #c9ad88;" text="ประเภท" textFill="WHITE">
@@ -71,5 +70,35 @@
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffcf1" height="309.0" layoutX="364.0" layoutY="117.0" stroke="#eccece" strokeType="OUTSIDE" width="230.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffcf1" height="309.0" layoutX="660.0" layoutY="117.0" stroke="#eccece" strokeType="OUTSIDE" width="230.0" />
+      <ImageView fitHeight="147.0" fitWidth="102.0" layoutX="428.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/book20_iamcoolgirl.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="374.0" layoutY="306.0" text="ชื่อหนังสือ">
+         <font>
+            <Font name="JasmineUPC" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="374.0" layoutY="335.0" text="ราคา">
+         <font>
+            <Font name="JasmineUPC" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="374.0" layoutY="366.0" text="ร้านค้า">
+         <font>
+            <Font name="JasmineUPC" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="bookNameLabel" layoutX="441.0" layoutY="306.0" text="booknameLabel">
+         <font>
+            <Font name="JasmineUPC" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="bookPriceLabel" layoutX="442.0" layoutY="335.0" text="bookPriceLabel">
+         <font>
+            <Font name="JasmineUPC" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
