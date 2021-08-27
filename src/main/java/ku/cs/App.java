@@ -43,6 +43,7 @@ public class App extends Application {
         FXRouter.when("seller", packageStr + "seller.fxml");
         FXRouter.when("sellerStock", packageStr + "sellerStock.fxml");
         FXRouter.when("applyToBeASeller", packageStr + "applyToBeASeller.fxml");
+        FXRouter.when("homeWhenLogin", packageStr + "homeWhenLogin.fxml");
     }
 
     public static void setRoot(String fxml) throws IOException {

@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,16 +13,6 @@
 
 <AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: whilte;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.PageBookCartoon">
    <children>
-      <MenuButton layoutX="155.0" layoutY="39.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="134.0" style="-fx-background-color: #c9ad88;" text="ประเภท" textFill="WHITE">
-         <items>
-            <MenuItem mnemonicParsing="false" onAction="#handleCartoonBookButton" text="หนังสือการ์ตูน" />
-            <MenuItem mnemonicParsing="false" onAction="#handleMagazineButton" text="นิตยสาร" />
-            <MenuItem mnemonicParsing="false" onAction="#handleAllTypeBookButton" text="ทั้งหมด" />
-         </items>
-         <font>
-            <Font name="JasmineUPC" size="25.0" />
-         </font>
-      </MenuButton>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffcf1" height="315.0" layoutX="71.0" layoutY="113.0" stroke="#eccece" strokeType="OUTSIDE" width="260.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffcf1" height="315.0" layoutX="354.0" layoutY="113.0" stroke="#eccece" strokeType="OUTSIDE" width="260.0" />
       <ImageView fitHeight="147.0" fitWidth="107.0" layoutX="146.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
@@ -64,12 +55,14 @@
             <Font name="JasmineUPC" size="18.0" />
          </font>
       </Button>
-      <ImageView fitHeight="76.0" fitWidth="61.0" layoutX="51.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffcf1" height="309.0" layoutX="364.0" layoutY="117.0" stroke="#eccece" strokeType="OUTSIDE" width="230.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffcf1" height="309.0" layoutX="660.0" layoutY="117.0" stroke="#eccece" strokeType="OUTSIDE" width="230.0" />
+      <ImageView fitHeight="64.0" fitWidth="66.0" layoutX="9.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@image/logo.png" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffcf1" height="311.0" layoutX="659.0" layoutY="116.0" stroke="#eccece" strokeType="OUTSIDE" width="246.0" />
+       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffcf1" height="311.0" layoutX="659.0" layoutY="116.0" stroke="#eccece" strokeType="OUTSIDE" width="246.0" />
       <ImageView fitHeight="147.0" fitWidth="102.0" layoutX="428.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@image/book20_iamcoolgirl.jpg" />
@@ -110,5 +103,48 @@
             <Font name="JasmineUPC" size="18.0" />
          </font>
       </Button>
+=======
+      <MenuButton accessibleRole="LIST_VIEW" layoutX="95.0" layoutY="29.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="134.0" style="-fx-background-color: #c9ad88;" text="ประเภท" textFill="WHITE">
+         <items>
+            <MenuItem mnemonicParsing="false" onAction="#handleCartoonBookButton" style="-fx-background-color: #bc986a; " text="หนังสือการ์ตูน" />
+            <MenuItem mnemonicParsing="false" onAction="#handleMagazineButton" text="นิตยสาร" />
+            <MenuItem mnemonicParsing="false" onAction="#handleAllTypeBookButton" text="ทั้งหมด" />
+         </items>
+         <font>
+            <Font name="JasmineUPC" size="25.0" />
+         </font>
+      </MenuButton>
+      <Button layoutX="276.0" layoutY="26.0" mnemonicParsing="false" style="-fx-background-color: while;" text="ขายดี" textFill="#bc986a">
+         <font>
+            <Font name="JasmineUPC" size="30.0" />
+         </font>
+      </Button>
+      <Button layoutX="398.0" layoutY="26.0" mnemonicParsing="false"  style="-fx-background-color: while;" text="แนะนำ" textFill="#bc986a">
+         <font>
+            <Font name="JasmineUPC" size="30.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="71.0" fitWidth="65.0" layoutX="740.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/basket.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="71.0" fitWidth="65.0" layoutX="679.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/heart.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="521.0" layoutY="24.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="143.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" />
+      <Label fx:id="userName" layoutX="544.0" layoutY="32.0" text="username" textFill="WHITE">
+         <font>
+            <Font name="JasmineUPC" size="38.0" />
+         </font>
+      </Label>
+      <TextField layoutX="817.0" layoutY="22.0" prefHeight="54.0" prefWidth="192.0" promptText="ค้นหาหนังสือ" style="-fx-background-color: BC986A; -fx-background-radius: 10;">
+         <font>
+            <Font name="JasmineUPC" size="25.0" />
+         </font>
+      </TextField>
+>>>>>>> Stashed changes
    </children>
 </AnchorPane>

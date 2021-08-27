@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,147 +14,38 @@
 
 <AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.HomeController">
    <children>
-      <ImageView fitHeight="64.0" fitWidth="66.0" layoutX="14.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c9ad88" height="272.0" layoutX="9.0" layoutY="101.0" stroke="#c9ad88" strokeType="INSIDE" width="1007.0" />
+      <Button layoutX="531.0" layoutY="26.0" mnemonicParsing="false" onAction="#handleLinkToLoginButton" style="-fx-background-color: while; -fx-background-radius: 10;" text="Login" textFill="#bc986a">
+         <font>
+            <Font name="JasmineUPC" size="38.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="64.0" fitWidth="66.0" layoutX="17.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@image/logo.png" />
          </image>
       </ImageView>
-      <Button layoutX="818.0" layoutY="24.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="190.0" style="-fx-background-color: BC986A; -fx-background-radius: 10;" text="ค้นหาหนังสือ" textAlignment="RIGHT" textFill="WHITE">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <ImageView fitHeight="71.0" fitWidth="65.0" layoutX="748.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="71.0" fitWidth="65.0" layoutX="739.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@image/basket.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="71.0" fitWidth="65.0" layoutX="687.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="71.0" fitWidth="65.0" layoutX="676.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@image/heart.png" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c9ad88" height="272.0" layoutX="9.0" layoutY="101.0" stroke="#c9ad88" strokeType="INSIDE" width="1007.0" />
-      <Label layoutX="35.0" layoutY="390.0" text="หนังสือใหม่" textFill="RED">
+      <Button layoutX="281.0" layoutY="33.0" mnemonicParsing="false" onAction="#handleLinkToBestSellerButton" style="-fx-background-color: while;" text="ขายดี" textFill="#bc986a">
          <font>
-            <Font size="30.0" />
-         </font>
-      </Label>
-      <Label layoutX="182.0" layoutY="397.0" text="ซื้อได้ก่อนใครที่นี้!!">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Line endX="-100.0" endY="23.0" layoutX="268.0" layoutY="401.0" startX="-100.0" />
-      <Label layoutX="381.0" layoutY="150.0" text="Promotion" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="50.0" />
-         </font>
-      </Label>
-      <Button layoutX="271.0" layoutY="17.0" mnemonicParsing="false" onAction="#handleLinkToBestSellerButton" style="-fx-background-color: while;" text="ขายดี" textFill="#bc986a">
-         <font>
-            <Font size="30.0" />
+            <Font name="JasmineUPC" size="30.0" />
          </font>
       </Button>
-      <Button layoutX="416.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleLinkToRecommendButton" style="-fx-background-color: while;" text="แนะนำ" textFill="#bc986a">
+      <Button layoutX="403.0" layoutY="33.0" mnemonicParsing="false" onAction="#handleLinkToRecommendButton" style="-fx-background-color: while;" text="แนะนำ" textFill="#bc986a">
          <font>
-            <Font size="30.0" />
+            <Font name="JasmineUPC" size="30.0" />
          </font>
       </Button>
-      <Button layoutX="559.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleLinkToLoginButton" style="-fx-background-color: while;" text="Login" textFill="#bc986a">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Button>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffcf1" height="294.0" layoutX="33.0" layoutY="444.0" stroke="#fffcf1" strokeType="INSIDE" width="219.0" />
-      <Label fx:id="bookName" layoutX="45.0" layoutY="663.0" text="ชื่อหนังสือ">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="bookType" layoutX="153.0" layoutY="663.0" text="ประเภท">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="bookPrice" layoutX="47.0" layoutY="697.0" text="ราคา">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="bookShop" layoutX="151.0" layoutY="697.0" text="ชื่อร้านค้า">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="183.0" layoutX="42.0" layoutY="459.0" stroke="#c4c4c4" strokeType="INSIDE" width="200.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffcf1" height="294.0" layoutX="285.0" layoutY="444.0" stroke="#fffcf1" strokeType="INSIDE" width="219.0" />
-      <Label fx:id="bookName1" layoutX="297.0" layoutY="663.0" text="ชื่อหนังสือ">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="bookType1" layoutX="405.0" layoutY="663.0" text="ประเภท">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="bookPrice1" layoutX="299.0" layoutY="697.0" text="ราคา">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="bookShop1" layoutX="403.0" layoutY="697.0" text="ชื่อร้านค้า">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="183.0" layoutX="294.0" layoutY="459.0" stroke="#c4c4c4" strokeType="INSIDE" width="200.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffcf1" height="294.0" layoutX="531.0" layoutY="443.0" stroke="#fffcf1" strokeType="INSIDE" width="219.0" />
-      <Label fx:id="bookName2" layoutX="543.0" layoutY="663.0" text="ชื่อหนังสือ">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="bookType2" layoutX="651.0" layoutY="663.0" text="ประเภท">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="bookPrice2" layoutX="545.0" layoutY="697.0" text="ราคา">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="bookShop2" layoutX="649.0" layoutY="697.0" text="ชื่อร้านค้า">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="183.0" layoutX="540.0" layoutY="459.0" stroke="#c4c4c4" strokeType="INSIDE" width="200.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffcf1" height="294.0" layoutX="779.0" layoutY="443.0" stroke="#fffcf1" strokeType="INSIDE" width="219.0" />
-      <Label fx:id="bookName3" layoutX="791.0" layoutY="663.0" text="ชื่อหนังสือ">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="bookType3" layoutX="899.0" layoutY="663.0" text="ประเภท">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="bookPrice3" layoutX="793.0" layoutY="697.0" text="ราคา">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="bookShop3" layoutX="897.0" layoutY="697.0" text="ชื่อร้านค้า">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="183.0" layoutX="788.0" layoutY="459.0" stroke="#c4c4c4" strokeType="INSIDE" width="200.0" />
-      <MenuButton accessibleRole="LIST_VIEW" layoutX="100.0" layoutY="34.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="134.0" style="-fx-background-color: #c9ad88;" text="ประเภท" textFill="WHITE">
+      <MenuButton accessibleRole="LIST_VIEW" layoutX="103.0" layoutY="37.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="134.0" style="-fx-background-color: #c9ad88;" text="ประเภท" textFill="WHITE">
          <items>
             <MenuItem mnemonicParsing="false" onAction="#handleCartoonBookButton" style="-fx-background-color: #bc986a; " text="หนังสือการ์ตูน" />
             <MenuItem mnemonicParsing="false" onAction="#handleMagazineButton" text="นิตยสาร" />
@@ -163,5 +55,114 @@
             <Font name="JasmineUPC" size="25.0" />
          </font>
       </MenuButton>
+      <Label layoutX="395.0" layoutY="149.0" text="Promotion" textFill="WHITE">
+         <font>
+            <Font name="JasmineUPC Bold" size="70.0" />
+         </font>
+      </Label>
+      <Label layoutX="41.0" layoutY="401.0" text="หนังสือใหม่" textFill="RED">
+         <font>
+            <Font name="JasmineUPC" size="35.0" />
+         </font>
+      </Label>
+      <Label layoutX="173.0" layoutY="401.0" text="ซื้อได้ก่อนใครที่นี้!!">
+         <font>
+            <Font name="JasmineUPC" size="35.0" />
+         </font>
+      </Label>
+      <Line endX="-100.0" endY="23.0" layoutX="264.0" layoutY="400.0" startX="-100.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffcf1" height="294.0" layoutX="30.0" layoutY="449.0" stroke="#fffcf1" strokeType="INSIDE" width="219.0" />
+      <Label fx:id="bookName" layoutX="42.0" layoutY="668.0" text="ชื่อหนังสือ">
+         <font>
+            <Font name="JasmineUPC" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="bookType" layoutX="150.0" layoutY="668.0" text="ประเภท">
+         <font>
+            <Font name="JasmineUPC" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="bookPrice" layoutX="44.0" layoutY="702.0" text="ราคา">
+         <font>
+            <Font name="JasmineUPC" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="bookShop" layoutX="148.0" layoutY="702.0" text="ชื่อร้านค้า">
+         <font>
+            <Font name="JasmineUPC" size="20.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="183.0" layoutX="39.0" layoutY="464.0" stroke="#c4c4c4" strokeType="INSIDE" width="200.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffcf1" height="294.0" layoutX="282.0" layoutY="452.0" stroke="#fffcf1" strokeType="INSIDE" width="219.0" />
+      <Label fx:id="bookName1" layoutX="294.0" layoutY="668.0" text="ชื่อหนังสือ">
+         <font>
+            <Font name="JasmineUPC" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="bookType1" layoutX="402.0" layoutY="668.0" text="ประเภท">
+         <font>
+            <Font name="JasmineUPC" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="bookPrice1" layoutX="296.0" layoutY="702.0" text="ราคา">
+         <font>
+            <Font name="JasmineUPC" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="bookShop1" layoutX="400.0" layoutY="702.0" text="ชื่อร้านค้า">
+         <font>
+            <Font name="JasmineUPC" size="20.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="183.0" layoutX="291.0" layoutY="464.0" stroke="#c4c4c4" strokeType="INSIDE" width="200.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffcf1" height="294.0" layoutX="528.0" layoutY="448.0" stroke="#fffcf1" strokeType="INSIDE" width="219.0" />
+      <Label fx:id="bookName2" layoutX="540.0" layoutY="668.0" text="ชื่อหนังสือ">
+         <font>
+            <Font name="JasmineUPC" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="bookType2" layoutX="648.0" layoutY="668.0" text="ประเภท">
+         <font>
+            <Font name="JasmineUPC" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="bookPrice2" layoutX="542.0" layoutY="702.0" text="ราคา">
+         <font>
+            <Font name="JasmineUPC" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="bookShop2" layoutX="646.0" layoutY="702.0" text="ชื่อร้านค้า">
+         <font>
+            <Font name="JasmineUPC" size="20.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="183.0" layoutX="537.0" layoutY="464.0" stroke="#c4c4c4" strokeType="INSIDE" width="200.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffcf1" height="294.0" layoutX="776.0" layoutY="448.0" stroke="#fffcf1" strokeType="INSIDE" width="219.0" />
+      <Label fx:id="bookName3" layoutX="788.0" layoutY="668.0" text="ชื่อหนังสือ">
+         <font>
+            <Font name="JasmineUPC" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="bookType3" layoutX="890.0" layoutY="667.0" text="ประเภท">
+         <font>
+            <Font name="JasmineUPC" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="bookPrice3" layoutX="790.0" layoutY="702.0" text="ราคา">
+         <font>
+            <Font name="JasmineUPC" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="bookShop3" layoutX="888.0" layoutY="701.0" text="ชื่อร้านค้า">
+         <font>
+            <Font name="JasmineUPC" size="20.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="183.0" layoutX="785.0" layoutY="464.0" stroke="#c4c4c4" strokeType="INSIDE" width="200.0" />
+      <TextField layoutX="816.0" layoutY="27.0" prefHeight="54.0" prefWidth="192.0" promptText="ค้นหาหนังสือ" style="-fx-background-color: BC986A; -fx-background-radius: 10;">
+         <font>
+            <Font name="JasmineUPC" size="25.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>

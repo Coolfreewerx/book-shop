@@ -51,7 +51,7 @@ public class SellerController {
 
         booksList.get(1).increaseStock(1);
     }
-//
+
 //    public void handlSetBookDetailButton(ActionEvent actionEvent) {
 //        String setBookDetail = setBookDetailTextField.getText();
 //        book.setBookDetail(setBookDetail);
