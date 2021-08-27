@@ -4,19 +4,21 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import ku.cs.shop.models.Book;
+import ku.cs.shop.controllers.BookDetailController;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class PageBookCartoon {
 
+    BookDetailController infoOfBook = new BookDetailController();
+
     BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
     @FXML private Label bookNameLabel, bookShopLabel, bookPriceLabel ;
     private ArrayList<Book> booksList = new ArrayList<>();
 
-    @FXML
-    public void initialize()
-    {
+    @FXML // เริ่มต้นกับ indexนั้นๆ
+    public void setDataOverview() {
         booksList = data.readData();
         bookNameLabel.setText(booksList.get(0).getBookName());
         bookShopLabel.setText(booksList.get(0).getBookShop());
@@ -55,7 +57,8 @@ public class PageBookCartoon {
     }
 
     @FXML
-    public void handleFullDetailButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้ารยาละเอียดหนังสือ
+    public void handleFullDetailButton(ActionEvent actionEvent) {
+        //ปุ่มสำหรับกดไปหน้ารยาละเอียดหนังสือ
         try {
             com.github.saacsos.FXRouter.goTo("bookDetail");
         } catch (IOException e) {
@@ -65,7 +68,8 @@ public class PageBookCartoon {
     }
 
     @FXML
-    public void handleFullDetailButton2(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้ารยาละเอียดหนังสือ
+    public void handleFullDetailButton2(ActionEvent actionEvent) {
+        //ปุ่มสำหรับกดไปหน้ารยาละเอียดหนังสือ
         try {
             com.github.saacsos.FXRouter.goTo("bookDetail");
         } catch (IOException e) {
