@@ -48,6 +48,8 @@ public class User {
     public String getBirthYear() {
         return birthYear;
     }
+    public boolean getPasswordCondition() { return  passwordCondition; }
+    public boolean getPasswordCheck() { return passwordCheck; }
     public boolean getDataCheck() {return dataCheck; }
     public boolean getUserNameCheck() {return userNameCheck; }
 
@@ -71,7 +73,7 @@ public class User {
             this.userNameCheck = false ;
             return "ชื่อผู้ใช้ไม่ตรงตามรูปแบบที่กำหนด" ;
         }
-        else if (checkUserNameHad(userName)) {
+        else if (checkUserNameHaveUsed(userName)) {
             this.userNameCheck = false ;
             return "ชื่อผู้ใช้นี้ถูกใช้งานไปแล้ว" ;
         }
@@ -81,7 +83,7 @@ public class User {
     }
 
     //ตรวจสอบ username ว่าซ้ำมั้ย
-    public boolean checkUserNameHad(String userName) {
+    public boolean checkUserNameHaveUsed(String userName) {
         File userData = new File("src/main/java/ku/cs/shop/userData.csv");
         try {
             BufferedReader buffer = new BufferedReader(new FileReader(userData));
