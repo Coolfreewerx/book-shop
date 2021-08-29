@@ -2,9 +2,12 @@ package ku.cs.shop.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import ku.cs.shop.models.Book;
 import ku.cs.shop.models.Seller;
 import java.io.IOException;
@@ -12,37 +15,29 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class SellerController {
+    @FXML
+    private ScrollPane scoll;
+
+    @FXML
+    private GridPane grid;
     BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
     @FXML private Label bookStockLabel0,bookNameLabel0,bookPriceLabel0,bookStockLabel1,bookNameLabel1,bookPriceLabel1,bookStockLabel2,bookNameLabel2,bookPriceLabel2 ;
     private ArrayList<Book> booksList = new ArrayList<>();
 
     @FXML
-    public void initialize()
-    {
-        booksList = data.readData();
-        bookNameLabel0.setText(booksList.get(0).getBookName());
-        bookPriceLabel0.setText(Double.toString(booksList.get(0).getBookPrice()));
-        bookStockLabel0.setText(Double.toString(booksList.get(0).getBookStock()));
+    public void initialize() {
+        for(int i = 0; i < booksList.size(); i++){
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/resource/ku.cs/stock"));
 
-        bookNameLabel1.setText(booksList.get(1).getBookName());
-        bookPriceLabel1.setText(Double.toString(booksList.get(1).getBookPrice()));
-        bookStockLabel1.setText(Double.toString(booksList.get(1).getBookStock()));
+            StockController stockController = fxmlLoader.getController();
+            stockController.setData();
+        }
 
-        bookNameLabel2.setText(booksList.get(2).getBookName());
-        bookPriceLabel2.setText(Double.toString(booksList.get(2).getBookPrice()));
-        bookStockLabel2.setText(Double.toString(booksList.get(2).getBookStock()));
 
     }
-    @FXML
-    private TextField editStockTextField;
-    @FXML
-    private Button increaseBookButton,decreaseBookButton;
 
-    public void handleEditStockButton(ActionEvent actionEvent) {
-        String editStock = editStockTextField.getText();
-        int edit = Integer.parseInt(editStock);
-        booksList.get(0).editStock(edit);
-    }
+
     public void handleDecreaseStockButton(ActionEvent actionEvent) {
         booksList.get(1).decreaseStock(1);
     }
