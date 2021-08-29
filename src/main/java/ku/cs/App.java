@@ -18,16 +18,15 @@ public class App extends Application {
 
 //    @Override
 //    public void start(Stage stage) throws IOException {
-////        scene = new Scene(loadFXML("primary"), 640, 480);
-////        stage.setScene(scene);
-////        stage.show();
-////    }
+//        scene = new Scene(loadFXML("primary"), 640, 480);
+//        stage.setScene(scene);
+//        stage.show();
+//    }
 
     @Override
     public void start(Stage stage) throws IOException {
         FXRouter.bind(this, stage, "JAVAPAI",1024.0,768.0);
         configRoute();
-//        FXRouter.goTo("sellerStock");
         FXRouter.goTo("home");
     }
 
