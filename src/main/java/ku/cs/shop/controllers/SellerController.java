@@ -31,7 +31,7 @@ public class SellerController {
             fxmlLoader.setLocation(getClass().getResource("/resource/ku.cs/stock"));
 
             StockController stockController = fxmlLoader.getController();
-            stockController.setData();
+            //stockController.setData();
         }
 
 
