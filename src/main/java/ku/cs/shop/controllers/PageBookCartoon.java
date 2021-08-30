@@ -73,8 +73,6 @@ public class PageBookCartoon
         }
     }
 
-<<<<<<< HEAD
-=======
     @FXML
     public void handleFullDetailButton2(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้ารายละเอียดหนังสือ
         try {
@@ -85,7 +83,6 @@ public class PageBookCartoon
         }
     }
 
->>>>>>> 9338d1d6dca61da705ccaef9483dc7942f5ab1b9
 //    private void handleFullDetailButton() {
 //        BookList.getSelectionModel().selectedItemProperty().addListener(
 //                new ChangeListener<MemberCard>() {
