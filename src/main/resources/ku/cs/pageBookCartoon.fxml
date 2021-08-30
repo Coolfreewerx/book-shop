@@ -103,7 +103,6 @@
             <Font name="JasmineUPC" size="18.0" />
          </font>
       </Button>
-=======
       <MenuButton accessibleRole="LIST_VIEW" layoutX="95.0" layoutY="29.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="134.0" style="-fx-background-color: #c9ad88;" text="ประเภท" textFill="WHITE">
          <items>
             <MenuItem mnemonicParsing="false" onAction="#handleCartoonBookButton" style="-fx-background-color: #bc986a; " text="หนังสือการ์ตูน" />
@@ -145,6 +144,5 @@
             <Font name="JasmineUPC" size="25.0" />
          </font>
       </TextField>
->>>>>>> Stashed changes
    </children>
 </AnchorPane>
