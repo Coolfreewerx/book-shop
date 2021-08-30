@@ -11,9 +11,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="handleBookTypeButton" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: whilte;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.PageMagazine">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: whilte;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.PageMagazine">
    <children>
-      <MenuButton fx:id="handleBookTypeButton" layoutX="103.0" layoutY="28.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="134.0" style="-fx-background-color: #c9ad88;" text="ประเภท" textFill="WHITE">
+      <MenuButton layoutX="103.0" layoutY="28.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="134.0" style="-fx-background-color: #c9ad88;" text="ประเภท" textFill="WHITE">
          <items>
             <MenuItem mnemonicParsing="false" onAction="#handleCartoonBookButton" text="หนังสือการ์ตูน" />
             <MenuItem mnemonicParsing="false" onAction="#handleMagazineButton" text="นิตยสาร" />
@@ -28,15 +28,15 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffcf1" height="309.0" layoutX="667.0" layoutY="125.0" stroke="#eccece" strokeType="OUTSIDE" width="230.0" />
       <ImageView fitHeight="64.0" fitWidth="66.0" layoutX="11.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@image/logo.png" />
+            <Image url="@image/javapai.png" />
          </image>
       </ImageView>
-      <Button layoutX="278.0" layoutY="25.0" mnemonicParsing="false" onAction="#handleLinkToBestSellerButton" style="-fx-background-color: while;" text="ขายดี" textFill="#bc986a">
+      <Button layoutX="278.0" layoutY="25.0" mnemonicParsing="false" style="-fx-background-color: while;" text="ขายดี" textFill="#bc986a">
          <font>
             <Font name="JasmineUPC" size="30.0" />
          </font>
       </Button>
-      <Button layoutX="400.0" layoutY="25.0" mnemonicParsing="false" onAction="#handleLinkToRecommendButton" style="-fx-background-color: while;" text="แนะนำ" textFill="#bc986a">
+      <Button layoutX="400.0" layoutY="25.0" mnemonicParsing="false" style="-fx-background-color: while;" text="แนะนำ" textFill="#bc986a">
          <font>
             <Font name="JasmineUPC" size="30.0" />
          </font>

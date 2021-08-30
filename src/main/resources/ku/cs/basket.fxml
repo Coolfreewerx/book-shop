@@ -106,7 +106,16 @@
             <Font name="JasmineUPC" size="33.0" />
          </font>
       </Button>
+<<<<<<< HEAD
       <Label layoutX="350.0" layoutY="120.0" text="สินค้าในตะกร้า" textFill="#a05e07">
+=======
+      <ImageView fitHeight="64.0" fitWidth="66.0" layoutX="12.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/javapai.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="133.0" layoutY="31.0" text="ประเภท" textFill="#bc986a">
+>>>>>>> 9338d1d6dca61da705ccaef9483dc7942f5ab1b9
          <font>
             <Font name="JasmineUPC" size="40.0" />
          </font>

@@ -40,7 +40,7 @@
             <Font name="JasmineUPC" size="25.0" />
          </font>
       </TextField>
-      <Button layoutX="699.0" layoutY="466.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="127.0" style="-fx-background-color: B78748; -fx-background-radius: 30;" text="Login" textAlignment="CENTER" textFill="WHITE" onAction="#handleToHomeButton">
+      <Button layoutX="699.0" layoutY="466.0" mnemonicParsing="false" onAction="#handleToHomeButton" prefHeight="52.0" prefWidth="127.0" style="-fx-background-color: B78748; -fx-background-radius: 30;" text="Login" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="JasmineUPC Bold" size="38.0" />
          </font>

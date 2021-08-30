@@ -109,6 +109,7 @@
          </font></TextField>
       <TextField layoutX="350.0" layoutY="356.0" prefHeight="34.0" prefWidth="521.0" promptText="ที่อยู่ที่สามารถติดต่อได้" style="-fx-background-color: FFFCF1; -fx-effect: shadow; -fx-background-radius: 10;">
          <font>
+<<<<<<< HEAD
             <Font name="JasmineUPC" size="18.0" />
          </font></TextField>
       <TextField layoutX="679.0" layoutY="233.0" prefHeight="34.0" prefWidth="271.0" promptText="อธิบายรายละเอียดร้านพอสังเขป" style="-fx-background-color: FFFCF1; -fx-effect: shadow; -fx-background-radius: 10;">
@@ -120,6 +121,44 @@
             <Font name="JasmineUPC" size="18.0" />
          </font></TextField>
       <TextField layoutX="350.0" layoutY="480.0" prefHeight="34.0" prefWidth="521.0" promptText="เบอร์โทรติดต่อของคุณ" style="-fx-background-color: FFFCF1; -fx-effect: shadow; -fx-background-radius: 10;">
+=======
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button layoutX="769.0" layoutY="329.0" mnemonicParsing="false" style="-fx-background-color: FFFCF1;" text="ใช้ที่อยู่เริ่มต้น" />
+      <ImageView fitHeight="64.0" fitWidth="66.0" layoutX="14.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/javapai.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="71.0" fitWidth="65.0" layoutX="749.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/basket.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="71.0" fitWidth="65.0" layoutX="688.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/heart.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="278.0" layoutY="27.0" mnemonicParsing="false" style="-fx-background-color: while;" text="ขายดี" textFill="#bc986a">
+         <font>
+            <Font name="JasmineUPC" size="30.0" />
+         </font>
+      </Button>
+      <Button layoutX="400.0" layoutY="27.0" mnemonicParsing="false" style="-fx-background-color: while;" text="แนะนำ" textFill="#bc986a">
+         <font>
+            <Font name="JasmineUPC" size="30.0" />
+         </font>
+      </Button>
+      <Button layoutX="528.0" layoutY="24.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="143.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" />
+      <MenuButton accessibleRole="LIST_VIEW" layoutX="100.0" layoutY="31.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="134.0" style="-fx-background-color: #c9ad88;" text="ประเภท" textFill="WHITE">
+         <items>
+            <MenuItem mnemonicParsing="false" style="-fx-background-color: #bc986a; " text="หนังสือการ์ตูน" />
+            <MenuItem mnemonicParsing="false" text="นิตยสาร" />
+            <MenuItem mnemonicParsing="false" text="ทั้งหมด" />
+         </items>
+>>>>>>> 9338d1d6dca61da705ccaef9483dc7942f5ab1b9
          <font>
             <Font name="JasmineUPC" size="18.0" />
          </font></TextField>
