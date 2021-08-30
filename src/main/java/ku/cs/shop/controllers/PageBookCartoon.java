@@ -63,7 +63,6 @@ public class PageBookCartoon
         }
     }
 
-<<<<<<< HEAD
 //    @FXML
 //    public void handleFullDetailButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้ารายละเอียดหนังสือ
 //        try {
@@ -74,9 +73,10 @@ public class PageBookCartoon
 //        }
 //    }
 
-    @FXML
-    public void handleFullDetailButton2(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้ารายละเอียดหนังสือ
-=======
+//    @FXML
+//    public void handleFullDetailButton2(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้ารายละเอียดหนังสือ
+//    }
+
     @FXML
     public void handleFullDetailButton(ActionEvent actionEvent) {
         //ปุ่มสำหรับกดไปหน้ารยาละเอียดหนังสือ
@@ -88,19 +88,20 @@ public class PageBookCartoon
         }
     }
 
-    @FXML
-    public void handleFullDetailButton2(ActionEvent actionEvent) {
-        //ปุ่มสำหรับกดไปหน้ารยาละเอียดหนังสือ
->>>>>>> 5664e05b83d897270ed1659288647f3ebcecc228
-        try {
-            com.github.saacsos.FXRouter.goTo("bookDetail");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้ารายละเอียดหนังสือไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
-    }
+//    @FXML
+//    public void handleFullDetailButton2(ActionEvent actionEvent) {
+//        //ปุ่มสำหรับกดไปหน้ารยาละเอียดหนังสือ
+//    }
 
-<<<<<<< HEAD
+//        try {
+//            com.github.saacsos.FXRouter.goTo("bookDetail");
+//        } catch (IOException e) {
+//            System.err.println("ไปที่หน้ารายละเอียดหนังสือไม่ได้");
+//            System.err.println("ให้ตรวจสอบการกำหนด route");
+//        }
+//    }
+
+
 //    private void handleFullDetailButton() {
 //        BookList.getSelectionModel().selectedItemProperty().addListener(
 //                new ChangeListener<MemberCard>() {
@@ -112,7 +113,4 @@ public class PageBookCartoon
 //                    }
 //                });
 //    }
-
-=======
->>>>>>> 5664e05b83d897270ed1659288647f3ebcecc228
 }
