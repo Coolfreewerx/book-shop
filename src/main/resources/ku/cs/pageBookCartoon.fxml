@@ -55,7 +55,6 @@
             <Font name="JasmineUPC" size="18.0" />
          </font>
       </Button>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffcf1" height="309.0" layoutX="364.0" layoutY="117.0" stroke="#eccece" strokeType="OUTSIDE" width="230.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffcf1" height="309.0" layoutX="660.0" layoutY="117.0" stroke="#eccece" strokeType="OUTSIDE" width="230.0" />
       <ImageView fitHeight="64.0" fitWidth="66.0" layoutX="9.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -98,12 +97,11 @@
             <Font name="JasmineUPC" size="18.0" />
          </font>
       </Label>
-      <Button layoutX="479.0" layoutY="384.0" mnemonicParsing="false" onAction="#handleFullDetailButton2" style="-fx-background-color: #e1c272; -fx-background-radius: 10;" text="คลิกดูรายละเอียด" textFill="WHITE">
+      <Button layoutX="479.0" layoutY="384.0" mnemonicParsing="false" onAction="#handleFullDetailButton" style="-fx-background-color: #e1c272; -fx-background-radius: 10;" text="คลิกดูรายละเอียด" textFill="WHITE">
          <font>
             <Font name="JasmineUPC" size="18.0" />
          </font>
       </Button>
-=======
       <MenuButton accessibleRole="LIST_VIEW" layoutX="95.0" layoutY="29.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="134.0" style="-fx-background-color: #c9ad88;" text="ประเภท" textFill="WHITE">
          <items>
             <MenuItem mnemonicParsing="false" onAction="#handleCartoonBookButton" style="-fx-background-color: #bc986a; " text="หนังสือการ์ตูน" />
@@ -119,7 +117,7 @@
             <Font name="JasmineUPC" size="30.0" />
          </font>
       </Button>
-      <Button layoutX="398.0" layoutY="26.0" mnemonicParsing="false"  style="-fx-background-color: while;" text="แนะนำ" textFill="#bc986a">
+      <Button layoutX="398.0" layoutY="26.0" mnemonicParsing="false" style="-fx-background-color: while;" text="แนะนำ" textFill="#bc986a">
          <font>
             <Font name="JasmineUPC" size="30.0" />
          </font>
@@ -145,6 +143,5 @@
             <Font name="JasmineUPC" size="25.0" />
          </font>
       </TextField>
->>>>>>> Stashed changes
    </children>
 </AnchorPane>
