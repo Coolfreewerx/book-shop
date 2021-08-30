@@ -1,20 +1,27 @@
 package ku.cs.shop.controllers;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import ku.cs.shop.models.Book;
 import ku.cs.shop.controllers.BookDetailController;
+import ku.cs.shop.models.BookList;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class PageBookCartoon {
+public class PageBookCartoon
+{
 
-    BookDetailController infoOfBook = new BookDetailController();
+//    BookDetailController infoOfBook = new BookDetailController();
 
     BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
-    @FXML private Label bookNameLabel, bookShopLabel, bookPriceLabel ;
+    @FXML private Label bookNameLabel;
+    @FXML private Label bookShopLabel;
+    @FXML private Label bookPriceLabel;
+
     private ArrayList<Book> booksList = new ArrayList<>();
 
     @FXML // เริ่มต้นกับ indexนั้นๆ
@@ -56,28 +63,18 @@ public class PageBookCartoon {
         }
     }
 
-    @FXML
-<<<<<<< HEAD
-    public void handleFullDetailButton(ActionEvent actionEvent) {
-        //ปุ่มสำหรับกดไปหน้ารยาละเอียดหนังสือ
-=======
-    public void handleFullDetailButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้ารายละเอียดหนังสือ
->>>>>>> e8ea2377439949380a47c2786a3592068bfb5755
-        try {
-            com.github.saacsos.FXRouter.goTo("bookDetail");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้ารายละเอียดหนังสือไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
-    }
+//    @FXML
+//    public void handleFullDetailButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้ารายละเอียดหนังสือ
+//        try {
+//            com.github.saacsos.FXRouter.goTo("bookDetail");
+//        } catch (IOException e) {
+//            System.err.println("ไปที่หน้ารายละเอียดหนังสือไม่ได้");
+//            System.err.println("ให้ตรวจสอบการกำหนด route");
+//        }
+//    }
 
     @FXML
-<<<<<<< HEAD
-    public void handleFullDetailButton2(ActionEvent actionEvent) {
-        //ปุ่มสำหรับกดไปหน้ารยาละเอียดหนังสือ
-=======
     public void handleFullDetailButton2(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้ารายละเอียดหนังสือ
->>>>>>> e8ea2377439949380a47c2786a3592068bfb5755
         try {
             com.github.saacsos.FXRouter.goTo("bookDetail");
         } catch (IOException e) {
@@ -86,5 +83,16 @@ public class PageBookCartoon {
         }
     }
 
+//    private void handleFullDetailButton() {
+//        BookList.getSelectionModel().selectedItemProperty().addListener(
+//                new ChangeListener<MemberCard>() {
+//                    @Override
+//                    public void changed(ObservableValue<? extends Book> observable,
+//                                        Book oldValue, Book newValue) {
+//                        System.out.println(newValue + " is selected");
+//                        showSelectedBookDetailCard(newValue);
+//                    }
+//                });
+//    }
 
 }

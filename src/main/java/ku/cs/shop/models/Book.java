@@ -16,7 +16,6 @@ public class Book {
 
     //set default value
     public Book() {}
-
     public Book(String bookName, String bookShop, String bookAuthor, String bookISBN, String bookType,
                 String bookDetail, String bookPublisher, String bookStatus, int bookStock,
                 String bookPage, int leastStock, double bookPrice) {
@@ -116,6 +115,8 @@ public class Book {
 
     // decrease method
     public void decreaseStock (int newAmountBookStock) { setBookStock(this.bookStock - newAmountBookStock); }
+
+    // edit method
     public void editStock (int newAmountBookStock) { setBookStock(this.bookStock + newAmountBookStock); }
 
     @Override
