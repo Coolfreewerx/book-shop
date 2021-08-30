@@ -158,4 +158,26 @@ public class User {
             return " ";
         }
     }
+
+    //ล็อกอินเข้าสู่ระบบ
+    public boolean login(String userName, String password){
+        File userData = new File("src/main/java/ku/cs/shop/userData.csv");
+        try {
+            BufferedReader buffer = new BufferedReader(new FileReader(userData));
+            String line;
+            while ((line = buffer.readLine()) != null) {
+                String[] arr = line.split(","); //อ่าน username
+                if (arr[0].equals(userName)) {
+                    if (arr[3].equals(password)) {
+                        return true;
+                    }
+                }
+            }
+            buffer.close();
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+        return false;
+    }
 }
