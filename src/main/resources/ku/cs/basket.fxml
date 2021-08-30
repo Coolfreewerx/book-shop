@@ -20,7 +20,7 @@
       </Button>
       <ImageView fitHeight="64.0" fitWidth="66.0" layoutX="12.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@image/logo.png" />
+            <Image url="@image/javapai.png" />
          </image>
       </ImageView>
       <Label layoutX="133.0" layoutY="31.0" text="ประเภท" textFill="#bc986a">

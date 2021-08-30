@@ -23,7 +23,7 @@
                <children>
                   <ImageView fitHeight="73.0" fitWidth="93.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@image/logo.png" />
+                        <Image url="@image/javapai.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="20.0" />
