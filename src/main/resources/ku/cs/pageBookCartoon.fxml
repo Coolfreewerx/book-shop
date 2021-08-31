@@ -6,9 +6,17 @@
 <?import javafx.scene.layout.HBox?>
 
 
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.LoginController">
    <children>
-<<<<<<< HEAD
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffcf1" height="315.0" layoutX="71.0" layoutY="113.0" stroke="#eccece" strokeType="OUTSIDE" width="260.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffcf1" height="315.0" layoutX="354.0" layoutY="113.0" stroke="#eccece" strokeType="OUTSIDE" width="260.0" />
       <ImageView fitHeight="147.0" fitWidth="107.0" layoutX="146.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
@@ -46,7 +54,7 @@
             <Font name="JasmineUPC" size="18.0" />
          </font>
       </Label>
-      <Button layoutX="197.0" layoutY="384.0" mnemonicParsing="false" onAction="#handleFullDetailButton" style="-fx-background-color: #e1c272; -fx-background-radius: 10;" text="คลิกดูรายละเอียด" textFill="WHITE">
+      <Button layoutX="197.0" layoutY="384.0" mnemonicParsing="false" style="-fx-background-color: #e1c272; -fx-background-radius: 10;" text="คลิกดูรายละเอียด" textFill="WHITE">
          <font>
             <Font name="JasmineUPC" size="18.0" />
          </font>
@@ -93,16 +101,16 @@
             <Font name="JasmineUPC" size="18.0" />
          </font>
       </Label>
-      <Button layoutX="479.0" layoutY="384.0" mnemonicParsing="false" onAction="#handleFullDetailButton" style="-fx-background-color: #e1c272; -fx-background-radius: 10;" text="คลิกดูรายละเอียด" textFill="WHITE">
+      <Button layoutX="479.0" layoutY="384.0" mnemonicParsing="false" style="-fx-background-color: #e1c272; -fx-background-radius: 10;" text="คลิกดูรายละเอียด" textFill="WHITE">
          <font>
             <Font name="JasmineUPC" size="18.0" />
          </font>
       </Button>
       <MenuButton accessibleRole="LIST_VIEW" layoutX="95.0" layoutY="29.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="134.0" style="-fx-background-color: #c9ad88;" text="ประเภท" textFill="WHITE">
          <items>
-            <MenuItem mnemonicParsing="false" onAction="#handleCartoonBookButton" style="-fx-background-color: #bc986a; " text="หนังสือการ์ตูน" />
-            <MenuItem mnemonicParsing="false" onAction="#handleMagazineButton" text="นิตยสาร" />
-            <MenuItem mnemonicParsing="false" onAction="#handleAllTypeBookButton" text="ทั้งหมด" />
+            <MenuItem mnemonicParsing="false" style="-fx-background-color: #bc986a; " text="หนังสือการ์ตูน" />
+            <MenuItem mnemonicParsing="false" text="นิตยสาร" />
+            <MenuItem mnemonicParsing="false" text="ทั้งหมด" />
          </items>
          <font>
             <Font name="JasmineUPC" size="25.0" />
@@ -139,19 +147,5 @@
             <Font name="JasmineUPC" size="25.0" />
          </font>
       </TextField>
-=======
-      <BorderPane layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <top>
-            <HBox prefHeight="69.0" prefWidth="1024.0" BorderPane.alignment="CENTER" />
-         </top>
-         <center>
-            <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="699.0" prefWidth="1024.0" />
-              </content>
-            </ScrollPane>
-         </center>
-      </BorderPane>
->>>>>>> 9338d1d6dca61da705ccaef9483dc7942f5ab1b9
    </children>
 </AnchorPane>
