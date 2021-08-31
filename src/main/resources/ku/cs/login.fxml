@@ -49,7 +49,7 @@
          <font>
             <Font name="JasmineUPC" size="20.0" />
          </font></Button>
-      <Label layoutX="657.0" layoutY="634.0" text="Not have account?">
+      <Label layoutX="642.0" layoutY="634.0" prefHeight="15.0" prefWidth="127.0" text="Doesn't have account?">
          <font>
             <Font name="JasmineUPC" size="20.0" />
          </font></Label>

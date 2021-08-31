@@ -139,11 +139,6 @@
          </font>
       </TextField>
 
-<!--      <Button layoutX="528.0" layoutY="24.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="143.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" />-->
-<!--         <font>-->
-<!--            <Font name="JasmineUPC" size="18.0" />-->
-<!--         </font>-->
-<!--      -->
       <TextField layoutX="350.0" layoutY="600.0" prefHeight="34.0" prefWidth="513.0" promptText="เลขบัญชีของคุณ" style="-fx-background-color: FFFCF1; -fx-effect: shadow; -fx-background-radius: 10;">
          <font>
             <Font name="JasmineUPC" size="18.0" />
