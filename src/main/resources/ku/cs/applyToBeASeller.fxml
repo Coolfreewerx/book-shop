@@ -109,7 +109,6 @@
          </font></TextField>
       <TextField layoutX="350.0" layoutY="356.0" prefHeight="34.0" prefWidth="521.0" promptText="ที่อยู่ที่สามารถติดต่อได้" style="-fx-background-color: FFFCF1; -fx-effect: shadow; -fx-background-radius: 10;">
          <font>
-<<<<<<< HEAD
             <Font name="JasmineUPC" size="18.0" />
          </font></TextField>
       <TextField layoutX="679.0" layoutY="233.0" prefHeight="34.0" prefWidth="271.0" promptText="อธิบายรายละเอียดร้านพอสังเขป" style="-fx-background-color: FFFCF1; -fx-effect: shadow; -fx-background-radius: 10;">
@@ -121,7 +120,6 @@
             <Font name="JasmineUPC" size="18.0" />
          </font></TextField>
       <TextField layoutX="350.0" layoutY="480.0" prefHeight="34.0" prefWidth="521.0" promptText="เบอร์โทรติดต่อของคุณ" style="-fx-background-color: FFFCF1; -fx-effect: shadow; -fx-background-radius: 10;">
-=======
             <Font size="24.0" />
          </font>
       </Button>
@@ -158,7 +156,6 @@
             <MenuItem mnemonicParsing="false" text="นิตยสาร" />
             <MenuItem mnemonicParsing="false" text="ทั้งหมด" />
          </items>
->>>>>>> 9338d1d6dca61da705ccaef9483dc7942f5ab1b9
          <font>
             <Font name="JasmineUPC" size="18.0" />
          </font></TextField>

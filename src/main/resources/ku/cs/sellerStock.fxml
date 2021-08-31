@@ -22,7 +22,6 @@
          <center>
             <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-<<<<<<< HEAD
                   <ScrollPane fx:id="scoll" prefHeight="668.0" prefWidth="702.0" HBox.hgrow="ALWAYS">
                      <content>
                         <GridPane fx:id="grid" prefHeight="250.0" prefWidth="700.0">
@@ -37,81 +36,13 @@
                         </GridPane>
                      </content>
                   </ScrollPane>
-=======
-                  <ImageView fitHeight="73.0" fitWidth="93.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@image/javapai.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets left="20.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <Label text="ประเภท" textFill="#bc986a">
-                     <HBox.margin>
-                        <Insets left="40.0" top="20.0" />
-                     </HBox.margin>
-                     <font>
-                        <Font name="JasmineUPC" size="36.0" />
-                     </font>
-                  </Label>
-                  <Label text="ขายดี" textFill="#bc986a">
-                     <font>
-                        <Font name="JasmineUPC" size="36.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="80.0" top="20.0" />
-                     </HBox.margin>
-                  </Label>
-                  <Label text="แนะนำ" textFill="#bc986a">
-                     <font>
-                        <Font name="JasmineUPC" size="36.0" />
-                     </font>
-                     <padding>
-                        <Insets left="80.0" top="20.0" />
-                     </padding>
-                  </Label>
-                  <Label text="login" textFill="#bc986a">
-                     <font>
-                        <Font name="JasmineUPC" size="36.0" />
-                     </font>
-                     <padding>
-                        <Insets left="80.0" top="20.0" />
-                     </padding>
-                  </Label>
-                  <ImageView fitHeight="37.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@image/heart.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets left="80.0" top="20.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <ImageView fitHeight="37.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@image/basket.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets left="20.0" top="20.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <TextField prefHeight="36.0" prefWidth="182.0" promptText="ค้นหาข้อมูล" style="-fx-background-color: BC986A;">
-                     <HBox.margin>
-                        <Insets left="20.0" top="20.0" />
-                     </HBox.margin>
-                     <font>
-                        <Font name="JasmineUPC" size="24.0" />
-                     </font>
-                  </TextField>
->>>>>>> 9338d1d6dca61da705ccaef9483dc7942f5ab1b9
                </children>
             </HBox>
          </center>
          <left>
-<<<<<<< HEAD
-            <HBox prefHeight="694.0" prefWidth="326.0" style="-fx-background-color: #F5DEB3;" BorderPane.alignment="CENTER">
-=======
+
+<!--            <HBox prefHeight="694.0" prefWidth="326.0" style="-fx-background-color: #F5DEB3;" BorderPane.alignment="CENTER">-->
             <HBox prefHeight="694.0" prefWidth="326.0" style="-fx-background-color: FFFCF1;" BorderPane.alignment="CENTER">
->>>>>>> 9338d1d6dca61da705ccaef9483dc7942f5ab1b9
                <children>
                   <GridPane prefHeight="676.0" prefWidth="360.0">
                      <columnConstraints>
@@ -133,11 +64,7 @@
                               <Insets left="90.0" top="40.0" />
                            </GridPane.margin>
                         </ImageView>
-<<<<<<< HEAD
                         <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" text="ข้อมูลส่วนตัว" textFill="WHITE" GridPane.rowIndex="1">
-=======
-                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: BC986A; -fx-background-radius: 10;" text="ข้อมูลส่วนตัว" textFill="WHITE" GridPane.rowIndex="1">
->>>>>>> 9338d1d6dca61da705ccaef9483dc7942f5ab1b9
                            <GridPane.margin>
                               <Insets left="70.0" top="10.0" />
                            </GridPane.margin>
@@ -145,11 +72,8 @@
                               <Font name="JasmineUPC" size="32.0" />
                            </font>
                         </Button>
-<<<<<<< HEAD
-                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" text="สินค้าในตะกร้า" textFill="WHITE" GridPane.rowIndex="2">
-=======
+<!--                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" text="สินค้าในตะกร้า" textFill="WHITE" GridPane.rowIndex="2">-->
                         <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: BC986A; -fx-background-radius: 10;" text="สินค้าในตระกร้า" textFill="WHITE" GridPane.rowIndex="2">
->>>>>>> 9338d1d6dca61da705ccaef9483dc7942f5ab1b9
                            <font>
                               <Font name="JasmineUPC" size="32.0" />
                            </font>
@@ -157,11 +81,8 @@
                               <Insets left="70.0" top="10.0" />
                            </GridPane.margin>
                         </Button>
-<<<<<<< HEAD
-                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" text="ข้อมูลการขาย" textFill="WHITE" GridPane.rowIndex="3">
-=======
+<!--                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" text="ข้อมูลการขาย" textFill="WHITE" GridPane.rowIndex="3">-->
                         <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: BC986A; -fx-background-radius: 10;" text="ข้อมูลการขาย" textFill="WHITE" GridPane.rowIndex="3">
->>>>>>> 9338d1d6dca61da705ccaef9483dc7942f5ab1b9
                            <GridPane.margin>
                               <Insets left="70.0" top="10.0" />
                            </GridPane.margin>
@@ -169,11 +90,8 @@
                               <Font name="JasmineUPC" size="32.0" />
                            </font>
                         </Button>
-<<<<<<< HEAD
-                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" text="ประวัติการซื้อ" textFill="WHITE" GridPane.rowIndex="4">
-=======
+<!--                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" text="ประวัติการซื้อ" textFill="WHITE" GridPane.rowIndex="4">-->
                         <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: BC986A; -fx-background-radius: 10;" text="ประวัติการซื้อ" textFill="WHITE" GridPane.rowIndex="4">
->>>>>>> 9338d1d6dca61da705ccaef9483dc7942f5ab1b9
                            <font>
                               <Font name="JasmineUPC" size="32.0" />
                            </font>
