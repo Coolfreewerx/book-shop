@@ -2,10 +2,12 @@ package ku.cs.shop.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
 public class LoginController {
+    @FXML private TextField usernameTextField ;
     @FXML
     public void handleToRegisterButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า หนังสือทั้งหมด (เพจหลัก)
         try {
