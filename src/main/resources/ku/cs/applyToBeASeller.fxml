@@ -82,100 +82,90 @@
             </HBox>
          </left>
       </BorderPane>
+
       <Label layoutX="350.0" layoutY="120.0" text="สมัครเป็นผู้ขายสินค้า" textFill="#a05e07">
          <font>
             <Font name="JasmineUPC" size="40.0" />
          </font>
       </Label>
+
       <Line endX="500.666748046875" endY="1.52587890625E-5" layoutX="450.0" layoutY="161.0" startX="-100.0" stroke="#7e4811" />
+
       <Label layoutX="350.0" layoutY="197.0" text="ชื่อร้านค้า">
          <font>
             <Font name="JasmineUPC" size="32.0" />
          </font>
       </Label>
+
       <Label layoutX="681.0" layoutY="196.0" text="รายละเอียดเพิ่มเติม">
          <font>
             <Font name="JasmineUPC" size="30.0" />
          </font>
       </Label>
+
       <Label layoutX="350.0" layoutY="310.0" text="ช่องทางการติดต่อ">
          <font>
             <Font name="JasmineUPC" size="30.0" />
          </font>
       </Label>
+
       <TextField layoutX="350.0" layoutY="233.0" prefHeight="34.0" prefWidth="271.0" promptText="ชื่อร้านค้าของคุน" style="-fx-background-color: FFFCF1; -fx-effect: shadow; -fx-background-radius: 10;">
          <font>
             <Font name="JasmineUPC" size="18.0" />
-         </font></TextField>
+         </font>
+      </TextField>
+
       <TextField layoutX="350.0" layoutY="356.0" prefHeight="34.0" prefWidth="521.0" promptText="ที่อยู่ที่สามารถติดต่อได้" style="-fx-background-color: FFFCF1; -fx-effect: shadow; -fx-background-radius: 10;">
          <font>
             <Font name="JasmineUPC" size="18.0" />
-         </font></TextField>
+         </font>
+      </TextField>
+
       <TextField layoutX="679.0" layoutY="233.0" prefHeight="34.0" prefWidth="271.0" promptText="อธิบายรายละเอียดร้านพอสังเขป" style="-fx-background-color: FFFCF1; -fx-effect: shadow; -fx-background-radius: 10;">
          <font>
             <Font name="JasmineUPC" size="18.0" />
-         </font></TextField>
+         </font>
+      </TextField>
+
       <TextField layoutX="350.0" layoutY="420.0" prefHeight="34.0" prefWidth="521.0" promptText="E-mail ของคุณ" style="-fx-background-color: FFFCF1; -fx-effect: shadow; -fx-background-radius: 10;">
          <font>
             <Font name="JasmineUPC" size="18.0" />
-         </font></TextField>
+         </font>
+      </TextField>
+
       <TextField layoutX="350.0" layoutY="480.0" prefHeight="34.0" prefWidth="521.0" promptText="เบอร์โทรติดต่อของคุณ" style="-fx-background-color: FFFCF1; -fx-effect: shadow; -fx-background-radius: 10;">
-            <Font size="24.0" />
+          <font>
+            <Font name="JasmineUPC" size="19.0" />
          </font>
-      </Button>
-      <Button layoutX="769.0" layoutY="329.0" mnemonicParsing="false" style="-fx-background-color: FFFCF1;" text="ใช้ที่อยู่เริ่มต้น" />
-      <ImageView fitHeight="64.0" fitWidth="66.0" layoutX="14.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@image/javapai.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="71.0" fitWidth="65.0" layoutX="749.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@image/basket.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="71.0" fitWidth="65.0" layoutX="688.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@image/heart.png" />
-         </image>
-      </ImageView>
-      <Button layoutX="278.0" layoutY="27.0" mnemonicParsing="false" style="-fx-background-color: while;" text="ขายดี" textFill="#bc986a">
-         <font>
-            <Font name="JasmineUPC" size="30.0" />
-         </font>
-      </Button>
-      <Button layoutX="400.0" layoutY="27.0" mnemonicParsing="false" style="-fx-background-color: while;" text="แนะนำ" textFill="#bc986a">
-         <font>
-            <Font name="JasmineUPC" size="30.0" />
-         </font>
-      </Button>
-      <Button layoutX="528.0" layoutY="24.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="143.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" />
-      <MenuButton accessibleRole="LIST_VIEW" layoutX="100.0" layoutY="31.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="134.0" style="-fx-background-color: #c9ad88;" text="ประเภท" textFill="WHITE">
-         <items>
-            <MenuItem mnemonicParsing="false" style="-fx-background-color: #bc986a; " text="หนังสือการ์ตูน" />
-            <MenuItem mnemonicParsing="false" text="นิตยสาร" />
-            <MenuItem mnemonicParsing="false" text="ทั้งหมด" />
-         </items>
-         <font>
-            <Font name="JasmineUPC" size="18.0" />
-         </font></TextField>
+      </TextField>
+
+<!--      <Button layoutX="528.0" layoutY="24.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="143.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" />-->
+<!--         <font>-->
+<!--            <Font name="JasmineUPC" size="18.0" />-->
+<!--         </font>-->
+<!--      -->
       <TextField layoutX="350.0" layoutY="600.0" prefHeight="34.0" prefWidth="513.0" promptText="เลขบัญชีของคุณ" style="-fx-background-color: FFFCF1; -fx-effect: shadow; -fx-background-radius: 10;">
          <font>
             <Font name="JasmineUPC" size="18.0" />
-         </font></TextField>
+         </font>
+      </TextField>
+
       <Label layoutX="350.0" layoutY="555.0" text="ช่องทางการโอนเงิน">
          <font>
             <Font name="JasmineUPC" size="30.0" />
          </font>
       </Label>
+
       <Button layoutX="530.0" layoutY="670.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="194.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="สมัครเป็นผู้ขาย" textFill="WHITE">
          <font>
             <Font name="JasmineUPC" size="30.0" />
          </font>
       </Button>
+
       <Button layoutX="775.0" layoutY="356.0" mnemonicParsing="false" style="-fx-background-color: FFFCF1;" text="ใช้ที่อยู่เริ่มต้น" textFill="RED">
          <font>
             <Font name="JasmineUPC" size="18.0" />
-         </font></Button>
+         </font>
+      </Button>
    </children>
 </AnchorPane>
