@@ -30,7 +30,7 @@ public class RegisterController {
     @FXML private Label userNameCheckLabel ;
 
     @FXML //ทำงานเมื่อกรอก username
-    public void keyUserName() {
+    public void handleKeyUserName() {
         userNameCheckLabel.setText(user.checkUserNameCondition(userNameTextField.getText()));
         if (user.getUserNameCheck()){
             userNameCheckLabel.setTextFill(Color.rgb(21, 117, 84));
@@ -40,7 +40,7 @@ public class RegisterController {
         }
     }
     @FXML //ทำงานเมื่อกรอกรหัส
-    public void keyPassword() {
+    public void handleKeyPassword() {
         if (user.checkPasswordCondition(passwordField.getText())){
             passwordConditionCheckLabel.setText("รหัสผ่านนี้สามารถใช้ได้") ;
             passwordConditionCheckLabel.setTextFill(Color.rgb(21, 117, 84));
@@ -51,13 +51,13 @@ public class RegisterController {
         }
     }
     @FXML //ทำงานเมื่อกรอกยืนยันรหัส
-    public void keyCheckPassword() {
+    public void handleKeyCheckPassword() {
         passwordCompareLabel.setText(user.comparePassword(passwordField.getText(), checkPasswordField.getText()));
     }
 
     //ปุ่ม register
     @FXML
-    public void registerButton(ActionEvent actionEvent) {
+    public void handleRegisterButton(ActionEvent actionEvent) {
 
         String firstNameStr = firstNameTextField.getText() ;
         String lastNameStr = lastNameTextField.getText() ;
