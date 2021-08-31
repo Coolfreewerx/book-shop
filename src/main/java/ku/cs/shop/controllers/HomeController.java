@@ -3,10 +3,49 @@ package ku.cs.shop.controllers;
 import com.github.saacsos.FXRouter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.layout.GridPane;
+import ku.cs.shop.models.Book;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
 
-public class HomeController {
+public class HomeController implements Initializable {
+
+    @FXML
+    private GridPane grid;
+
+    private BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
+    List<Book> books = data.readData();
+    List<Book> book = new ArrayList<>();
+
+    // แสดงข้อมูล ชื่อหนังสือ ชื่อร้านค้า ราคา จาก CSV
+    private List<Book> showData() {
+        for (Book book : books) {
+            book.getBookName();
+            book.getBookPrice();
+            book.getBookShop();
+            book.getBookImg();
+        }
+
+        return book;
+    }
+
+
+    // นำข้อมูลแต่ละ index ใน csv มาแสดงยัง grid
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        book.addAll(showData());
+
+        for (int i = 0 ; i < book.size() ; i++) {
+            FXMLLoader fxmlloader = new FXMLLoader();
+        }
+    }
+
 
     @FXML
     public void handleLinkToBestSellerButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าหนังสือขายดี
@@ -74,4 +113,5 @@ public class HomeController {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
+
 }

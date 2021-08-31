@@ -9,8 +9,7 @@ import java.util.List;
 import ku.cs.shop.models.Book;
 import ku.cs.shop.models.BookList;
 
-public class BookDetailDataSource
-{
+public class BookDetailDataSource {
     private String filename;
 
 
@@ -36,12 +35,13 @@ public class BookDetailDataSource
                 String bookDetail = data[5].trim();
                 String bookPublisher = data[6].trim();
                 String bookStatus = data[7].trim();
-                int bookStock = Integer.parseInt(data[8].trim());
-                String bookPage = data[9].trim();
-                int leastStock = Integer.parseInt(data[10].trim());
-                double bookPrice = Double.parseDouble(data[11].trim());
+                String bookImg = data[8].trim();
+                int bookStock = Integer.parseInt(data[9].trim());
+                String bookPage = data[10].trim();
+                int leastStock = Integer.parseInt(data[11].trim());
+                double bookPrice = Double.parseDouble(data[12].trim());
 
-                Book bookInformation = new Book(bookName,bookShop,bookAuthor,bookISBN,bookType,bookDetail,bookPublisher,bookStatus,bookStock,bookPage,leastStock,bookPrice);
+                Book bookInformation = new Book(bookName,bookShop,bookAuthor,bookISBN,bookType,bookDetail,bookPublisher,bookStatus,bookImg,bookStock,bookPage,leastStock,bookPrice);
                 bookInformations.add(bookInformation);
             }
 
@@ -53,4 +53,5 @@ public class BookDetailDataSource
 
         return bookInformations;
     }
+
 }
