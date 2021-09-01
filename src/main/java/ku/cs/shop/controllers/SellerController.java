@@ -8,6 +8,7 @@ import javafx.geometry.Insets;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Region;
 import ku.cs.shop.models.Book;
 import ku.cs.shop.models.Seller;
 import ku.cs.shop.controllers.StockController;
@@ -23,18 +24,20 @@ public class SellerController implements Initializable {
     @FXML
     private GridPane grid;
 
-    //BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
+    private BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
     private ArrayList<Book> books = new ArrayList<>();
     private ArrayList<Book> getData() {
         ArrayList<Book> books = new ArrayList<>();
+        ArrayList<Book> bookList = new ArrayList<>();
+        bookList = data.readData();
         Book book;
 
-        for(int i = 0 ; i < 5; i++){
+        for(int i = 0 ; i < 3; i++){
             book = new Book();
-            book.setBookName("โฮริมิยะ สาวมั่นกับนายมืดมน");
-            book.setBookPrice(80.25);
-            book.setBookType("หนังสือการ์ตูน");
-            book.setBookStock(10);
+            book.setBookName(bookList.get(i).getBookName());
+            book.setBookPrice(bookList.get(i).getBookPrice());
+            book.setBookType(bookList.get(i).getBookType());
+            book.setBookStock(bookList.get(i).getBookStock());
             books.add(book);
         }
         return books;
@@ -55,6 +58,13 @@ public class SellerController implements Initializable {
                 stockController.setData(books.get(i));
 
                 grid.add(anchorPane, column,row++); // child,col,row
+                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
+                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                grid.setMaxWidth(Region.USE_COMPUTED_SIZE);
+
+                grid.setMinHeight(Region.USE_COMPUTED_SIZE);
+                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
                 GridPane.setMargin(anchorPane, new Insets(10));
 
             }
