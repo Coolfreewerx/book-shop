@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import ku.cs.shop.models.Book;
 
 import java.io.IOException;
@@ -16,8 +17,7 @@ import java.util.ResourceBundle;
 
 public class HomeController implements Initializable {
 
-    @FXML
-    private GridPane grid;
+    @FXML private GridPane grid;
 
     private BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
     List<Book> books = data.readData();
@@ -113,5 +113,4 @@ public class HomeController implements Initializable {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
-
 }
