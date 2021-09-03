@@ -8,7 +8,7 @@ import ku.cs.shop.models.Book;
 
 import java.util.ArrayList;
 
-public class itemController {
+public class ItemController {
 
     @FXML private Label bookNameLabel;
     @FXML private Label bookPriceLabel;
