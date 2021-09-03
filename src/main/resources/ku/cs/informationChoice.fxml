@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane prefHeight="250.0" prefWidth="940.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.InformationChoiceController">
+    <children>
+        <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <GridPane maxWidth="200.0" minWidth="200.0" prefHeight="260.0" prefWidth="200.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@image/profile.jpg" />
+                            </image>
+                        </ImageView>
+                        <Rectangle height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" GridPane.rowIndex="1">
+                            <fill>
+                                <LinearGradient endX="1.0" endY="1.0" startX="1.0">
+                                    <stops>
+                                        <Stop>
+                                            <color>
+                                                <Color red="0.7176470756530762" green="0.529411792755127" blue="0.2823529541492462" />
+                                            </color>
+                                        </Stop>
+                                        <Stop offset="0.007653061224489797">
+                                            <color>
+                                                <Color red="0.7176470756530762" green="0.529411792755127" blue="0.2823529541492462" />
+                                            </color>
+                                        </Stop>
+                                        <Stop offset="1.0">
+                                            <color>
+                                                <Color red="1.0" green="1.0" blue="1.0" opacity="0.0" />
+                                            </color>
+                                        </Stop>
+                                    </stops>
+                                </LinearGradient>
+                            </fill>
+                        </Rectangle>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1" />
+                    </children>
+                </GridPane>
+                <Pane minWidth="46.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
+                <GridPane maxWidth="200.0" minWidth="200.0" prefHeight="260.0" prefWidth="200.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@image/profile.jpg" />
+                            </image>
+                        </ImageView>
+                        <Rectangle height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" GridPane.rowIndex="1">
+                            <fill>
+                                <LinearGradient endX="1.0" endY="1.0" startX="1.0">
+                                    <stops>
+                                        <Stop>
+                                            <color>
+                                                <Color red="0.7176470756530762" green="0.529411792755127" blue="0.2823529541492462" />
+                                            </color>
+                                        </Stop>
+                                        <Stop offset="0.007653061224489797">
+                                            <color>
+                                                <Color red="0.7176470756530762" green="0.529411792755127" blue="0.2823529541492462" />
+                                            </color>
+                                        </Stop>
+                                        <Stop offset="1.0">
+                                            <color>
+                                                <Color red="1.0" green="1.0" blue="1.0" opacity="0.0" />
+                                            </color>
+                                        </Stop>
+                                    </stops>
+                                </LinearGradient>
+                            </fill>
+                        </Rectangle>
+                    </children>
+                </GridPane>
+                <Pane minWidth="46.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
+                <GridPane maxWidth="200.0" minWidth="200.0" prefHeight="260.0" prefWidth="200.0">
+                    <columnConstraints>
+                        <ColumnConstraints />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                            <image>
+                                <Image url="@image/profile.jpg" />
+                            </image>
+                        </ImageView>
+                        <Rectangle height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <fill>
+                                <LinearGradient endX="1.0" endY="1.0" startX="1.0">
+                                    <stops>
+                                        <Stop>
+                                            <color>
+                                                <Color red="0.7176470756530762" green="0.529411792755127" blue="0.2823529541492462" />
+                                            </color>
+                                        </Stop>
+                                        <Stop offset="0.007653061224489797">
+                                            <color>
+                                                <Color red="0.7176470756530762" green="0.529411792755127" blue="0.2823529541492462" />
+                                            </color>
+                                        </Stop>
+                                        <Stop offset="1.0">
+                                            <color>
+                                                <Color red="0.11999999731779099" green="0.5746666789054871" blue="1.0" opacity="0.0" />
+                                            </color>
+                                        </Stop>
+                                    </stops>
+                                </LinearGradient>
+                            </fill>
+                        </Rectangle>
+                    </children>
+                </GridPane>
+                <Pane minWidth="46.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
+                <GridPane maxWidth="200.0" minWidth="200.0" prefHeight="260.0" prefWidth="200.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@image/profile.jpg" />
+                            </image>
+                        </ImageView>
+                        <Rectangle height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" GridPane.rowIndex="1">
+                            <fill>
+                                <LinearGradient endX="1.0" endY="1.0" startX="1.0">
+                                    <stops>
+                                        <Stop>
+                                            <color>
+                                                <Color red="0.7176470756530762" green="0.529411792755127" blue="0.2823529541492462" />
+                                            </color>
+                                        </Stop>
+                                        <Stop offset="0.007653061224489797">
+                                            <color>
+                                                <Color red="0.7176470756530762" green="0.529411792755127" blue="0.2823529541492462" />
+                                            </color>
+                                        </Stop>
+                                        <Stop offset="1.0">
+                                            <color>
+                                                <Color red="1.0" green="1.0" blue="1.0" opacity="0.0" />
+                                            </color>
+                                        </Stop>
+                                    </stops>
+                                </LinearGradient>
+                            </fill>
+                        </Rectangle>
+                    </children>
+                </GridPane>
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>

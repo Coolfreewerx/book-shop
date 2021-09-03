@@ -14,12 +14,12 @@
 
 <AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: BC986A;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.LoginController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffae9" height="338.0" layoutX="-7.0" layoutY="430.0" stroke="#fffae9" strokeType="INSIDE" width="1050.0" />
+      <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#fffae9" height="338.0" layoutX="-7.0" layoutY="430.0" stroke="#fffae9" strokeType="INSIDE" width="1050.0" />
       <QuadCurve controlX="54.26666259765625" controlY="-129.99998474121094" endX="155.13330078125" endY="-6.66668701171875" fill="#fffae9" layoutX="62.0" layoutY="448.0" startX="-83.80001831054688" startY="-16.26666259765625" stroke="#fffae9" strokeType="INSIDE" />
       <QuadCurve controlX="2.066619873046875" controlY="75.60000610351562" endX="157.26663208007812" endY="-5.20001220703125" fill="#bc986a" layoutX="274.0" layoutY="434.0" startX="-84.06668090820312" startY="-21.4666748046875" stroke="#bc986a" strokeType="INSIDE" />
       <QuadCurve controlX="41.79998779296875" controlY="-98.33331298828125" endX="113.933349609375" endY="-34.333343505859375" fill="#fffae9" layoutX="472.0" layoutY="473.0" startX="-65.3333740234375" startY="-30.066680908203125" stroke="#fffae9" strokeType="INSIDE" />
       <QuadCurve controlX="2.066650390625" controlY="61.4666748046875" endX="113.0" endY="-7.999969482421875" fill="#bc986a" layoutX="930.0" layoutY="438.0" startX="-84.06668090820312" startY="-21.4666748046875" stroke="#bc986a" strokeType="INSIDE" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="576.0" layoutX="573.0" layoutY="100.0" stroke="WHITE" strokeType="INSIDE" width="386.0" />
+      <Rectangle arcHeight="10.0" arcWidth="10.0" fill="WHITE" height="576.0" layoutX="573.0" layoutY="100.0" stroke="WHITE" strokeType="INSIDE" width="386.0" />
       <Label layoutX="713.0" layoutY="126.0" text="เข้าสู่ระบบ">
          <font>
             <Font name="JasmineUPC Bold" size="30.0" />
