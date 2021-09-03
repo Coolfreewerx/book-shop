@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -25,11 +26,17 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class HomeController {
+public class HomeController implements Initializable {
 
-    @FXML private GridPane grid, gridHead;
+    @FXML
+    private GridPane grid, gridHead;
 
-//    public static void main(String[] args) throws IOException, CsvException {
+    @FXML
+    private Label bookNameLabel;
+    private Label bookPriceLabel;
+    private Label bookShopLabel;
+
+//    public static void main(String[] args) {
 //    String filename = "src/main/java/ku/cs/shop/bookDetail.csv";
 //    Book book;
 //
@@ -57,55 +64,60 @@ public class HomeController {
         bookList = data.readData();
         Book book;
 
-        for(int i = 0 ; i < 3; i++){
-            book = new Book();
-            book.setBookName(bookList.get(i).getBookName());
-            book.setBookPrice(bookList.get(i).getBookPrice());
-            book.setBookType(bookList.get(i).getBookType());
-            book.setBookStock(bookList.get(i).getBookStock());
-            books.add(book);
-        }
-        return books;
-    }
+//            ArrayList<Book> books = new ArrayList<>();
+//            ArrayList<Book> bookList = new ArrayList<>();
+//            bookList = data.readData();
+//            Book book;
 
-    public void initialize(URL location, ResourceBundle resource){
-        try {
-            FXMLLoader fxmlLoaderHead = new FXMLLoader();
-            fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/headNoLogin.fxml"));
-//            AnchorPane anchorPaneHead = fxmlLoaderHead.load();
-            gridHead.add(fxmlLoaderHead.load(),0,0);
-        }catch(IOException e){
-            e.printStackTrace();
-        }
-
-        books.addAll(getData());
-        int column = 0;
-        int row = 1;
-        try {
-            for (int i = 0; i < books.size(); i++) {
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/ku/cs/stock.fxml"));
-
-                AnchorPane anchorPane = fxmlLoader.load();
-
-                StockController stockController = fxmlLoader.getController();
-                stockController.setData(books.get(i));
-
-                grid.add(anchorPane, column,row++); // child,col,row
-                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
-                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
-                grid.setMaxWidth(Region.USE_COMPUTED_SIZE);
-
-                grid.setMinHeight(Region.USE_COMPUTED_SIZE);
-                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
-                grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
-                GridPane.setMargin(anchorPane, new Insets(10));
-
+            for (int i = 0; i < 3; i++) {
+                book = new Book();
+                book.setBookName(bookList.get(i).getBookName());
+                book.setBookPrice(bookList.get(i).getBookPrice());
+                book.setBookShop(bookList.get(i).getBookShop());
+                books.add(book);
             }
-        }catch(IOException e){
-            e.printStackTrace();
+            return books;
         }
-    }
+
+        public void initialize (URL location, ResourceBundle resource){
+            try {
+                FXMLLoader fxmlLoaderHead = new FXMLLoader();
+                fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/headNoLogin.fxml"));
+//                AnchorPane anchorPaneHead = fxmlLoaderHead.load();
+                gridHead.add(fxmlLoaderHead.load(), 0, 0);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            books.addAll(getData());
+
+            int column = 1;
+            int row = 1;
+            try {
+                for (int i = 0; i < 6; i++) {
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("/ku/cs/item.fxml"));
+
+//                    AnchorPane anchorPane = fxmlLoader.load();
+
+//                    ItemController itemController = fxmlLoader.getController();
+//                    itemController.setData(books.get(i));
+
+                    grid.add(fxmlLoader.load(), column++, row); // child,col,row
+                    grid.setMinWidth(Region.USE_COMPUTED_SIZE);
+                    grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                    grid.setMaxWidth(Region.USE_COMPUTED_SIZE);
+
+                    grid.setMinHeight(Region.USE_COMPUTED_SIZE);
+                    grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                    grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
+//                    GridPane.setMargin(fxmlLoader.load(), new Insets(200,200,30,0));
+
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
 
     @FXML
     public void handleLinkToBestSellerButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าหนังสือขายดี

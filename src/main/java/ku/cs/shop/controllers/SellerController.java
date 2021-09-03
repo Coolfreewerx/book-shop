@@ -27,10 +27,6 @@ public class SellerController implements Initializable {
     @FXML
     private HBox hBoxSellerStock;
 
-
-
-
-
     private BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
     private ArrayList<Book> books = new ArrayList<>();
     private ArrayList<Book> getData() {
@@ -41,10 +37,10 @@ public class SellerController implements Initializable {
 
         for(int i = 0 ; i < 3; i++){
             book = new Book();
-            book.setBookName(bookList.get(i).getBookName());
-            book.setBookPrice(bookList.get(i).getBookPrice());
-            book.setBookType(bookList.get(i).getBookType());
-            book.setBookStock(bookList.get(i).getBookStock());
+            book.setBookName(bookList.get(0).getBookName());
+            book.setBookPrice(bookList.get(0).getBookPrice());
+            book.setBookType(bookList.get(0).getBookType());
+            book.setBookStock(bookList.get(0).getBookStock());
             books.add(book);
         }
         return books;
