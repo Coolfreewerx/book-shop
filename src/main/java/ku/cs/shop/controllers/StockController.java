@@ -23,11 +23,11 @@ public class StockController {
     private Book book;
 
     public void setData(Book book){
-        this.book = book;
-        bookNameLabel.setText(book.getBookName());
-        bookTypeLabel.setText(book.getBookType());
-        bookPriceLabel.setText(Double.toString(book.getBookPrice()));
-        bookStockLabel.setText(Integer.toString(book.getBookStock()));
+//        this.book = book;
+//        bookNameLabel.setText(book.getBookName());
+//        bookTypeLabel.setText(book.getBookType());
+//        bookPriceLabel.setText(Double.toString(book.getBookPrice()));
+//        bookStockLabel.setText(Integer.toString(book.getBookStock()));
 
 //        bookImageView.setImage();
 //        bookNameLabel.setText(book.getBookName());
