@@ -29,7 +29,6 @@ public class App extends Application
         configRoute();
         FXRouter.goTo("sellerStock");
 
-
     }
 
     private static void configRoute() {
