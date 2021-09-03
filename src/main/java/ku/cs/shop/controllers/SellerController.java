@@ -13,6 +13,7 @@ import javafx.scene.layout.Region;
 import ku.cs.shop.models.Book;
 import ku.cs.shop.models.Seller;
 import ku.cs.shop.controllers.StockController;
+import ku.cs.shop.controllers.HeadController;
 import java.io.IOException;
 
 import java.net.URL;
@@ -45,11 +46,12 @@ public class SellerController implements Initializable {
         }
         return books;
     }
+    private HeadController headController = new HeadController();
 
     public void initialize(URL location, ResourceBundle resource){
         try {
             FXMLLoader fxmlLoaderHead = new FXMLLoader();
-            fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/headNoLogin.fxml"));
+            fxmlLoaderHead.setLocation(getClass().getResource(headController.pagesHeader()));
 //            AnchorPane anchorPaneHead = fxmlLoaderHead.load();
             gridHead.add(fxmlLoaderHead.load(),0,0);
         }catch(IOException e){

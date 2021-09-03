@@ -15,7 +15,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import ku.cs.shop.models.Book;
 
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -27,6 +26,18 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class HomeController implements Initializable {
+//    @FXML private GridPane grid;
+    @FXML private HBox head;
+    @FXML private AnchorPane pane;
+
+//    public void initialize() {
+//        System.out.println("initialize HomeController");
+//        headController = (HeadController) FXRouter.getData();
+////        pane.getChildren().add(headController.pagesHeader());
+//        System.out.println(pane);
+////        System.out.println(headController.pagesHeader());
+//        System.out.println(headController);
+//    }
 
     @FXML
     private GridPane grid, gridHead;
@@ -82,7 +93,7 @@ public class HomeController implements Initializable {
         public void initialize (URL location, ResourceBundle resource){
             try {
                 FXMLLoader fxmlLoaderHead = new FXMLLoader();
-                fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/headNoLogin.fxml"));
+                fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/headWhenLogin.fxml"));
 //                AnchorPane anchorPaneHead = fxmlLoaderHead.load();
                 gridHead.add(fxmlLoaderHead.load(), 0, 0);
             } catch (IOException e) {
@@ -128,6 +139,7 @@ public class HomeController implements Initializable {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
+
     @FXML
     public void handleLinkToRecommendButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าหนังสือแนะนำ
         try {
@@ -137,6 +149,7 @@ public class HomeController implements Initializable {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
+
     @FXML
     public void handleLinkToLoginButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าล็อกอิน
         try {
@@ -186,4 +199,31 @@ public class HomeController implements Initializable {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
+    //    private BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
+//    List<Book> books = data.readdata();
+//    List<Book> book = new ArrayList<>();
+//
+//    // แสดงข้อมูล ชื่อหนังสือ ชื่อร้านค้า ราคา จาก CSV
+//    private List<Book> showData() {
+//        for (Book book : books) {
+//            book.getBookName();
+//            book.getBookPrice();
+//            book.getBookShop();
+//            book.getBookImg();
+//        } implements Initializable
+//
+//        return book;
+//    }
+//
+//    CSVReader reader;
+//
+//    // นำข้อมูลแต่ละ index ใน csv มาแสดงยัง grid
+//    @Override
+//    public void initialize(URL url, ResourceBundle resourceBundle) {
+//        book.addAll(showData());
+//
+//        for (int i = 0 ; i < book.size() ; i++) {
+//            FXMLLoader fxmlloader = new FXMLLoader();
+//        }
+//    }
 }

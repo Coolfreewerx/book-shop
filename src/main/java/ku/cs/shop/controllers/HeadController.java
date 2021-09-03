@@ -2,23 +2,18 @@ package ku.cs.shop.controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import ku.cs.shop.models.User;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 public class HeadController {
     private User user;
-    @FXML
-    private HBox head;
-    @FXML
-    private HBox head1;
-    @FXML
-    private Label userNameLabel;
+    private Pane view;
+    @FXML private HBox headVerNoLogin;
+    @FXML private HBox headVerLogin;
+    @FXML private Label userNameLabel;
+    @FXML private AnchorPane paneVerLogin;
+    @FXML private AnchorPane paneVerNoLogin;
 
 //    @FXML
 //    public void initialize() {
@@ -27,11 +22,24 @@ public class HeadController {
 //        showUsername();
 //    }
 
-    public void pagesHeader() {
-        if (user.login(user.getUserName(), user.getPassword()) == true) {
-            HBox.setHgrow(head1, Priority.ALWAYS);
+    public String pagesHeader() {
+        try{
+            if (true) {//user.login(user.getUserName(), user.getPassword()) == true
+//                FXMLLoader fxmlLoaderHead = new FXMLLoader();
+//                fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/headWhenLogin.fxml"));
+                String paneVerLogin = "/ku/cs/headWhenLogin.fxml";
+                return paneVerLogin;
+            }
+            else{
+//                FXMLLoader fxmlLoaderHead = new FXMLLoader();
+//                fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/headNoLogin.fxml"));
+                String paneVerNoLogin = "/ku/cs/headNoLogin.fxml";
+                return paneVerNoLogin;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-//        HBox.setMargin("INHERIT", new Insets(head));
+        return null;
     }
 
     private void showUsername() {
