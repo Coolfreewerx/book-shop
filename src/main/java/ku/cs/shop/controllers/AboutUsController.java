@@ -23,9 +23,9 @@ public class AboutUsController {
             FXMLLoader fxmlLoaderHead = new FXMLLoader();
             fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/aboutUsChoice.fxml"));
             gridHeadChoice.add(fxmlLoaderHead.load(), 0, 0);
-//            FXMLLoader fxmlLoaderInfo = new FXMLLoader();
-//            fxmlLoaderInfo.setLocation(getClass().getResource("/ku/cs/information.fxml"));
-//            gridInfo.add(fxmlLoaderInfo.load(), 0, 0);
+            FXMLLoader fxmlLoaderInfo = new FXMLLoader();
+            fxmlLoaderInfo.setLocation(getClass().getResource("/ku/cs/information.fxml"));
+            gridInfo.add(fxmlLoaderInfo.load(), 0, 1);
         } catch (
                 IOException e) {
             e.printStackTrace();

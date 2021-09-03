@@ -24,8 +24,8 @@
                     </columnConstraints>
                   </GridPane>
                </children></HBox>
-            <HBox prefHeight="30.0" prefWidth="200.0" />
-            <HBox prefHeight="371.0" prefWidth="200.0">
+            <HBox prefHeight="30.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+            <HBox alignment="BOTTOM_LEFT" prefHeight="371.0" prefWidth="200.0">
                <children>
                   <GridPane fx:id="gridInfo" prefHeight="371.0" prefWidth="0.0">
                     <rowConstraints>
