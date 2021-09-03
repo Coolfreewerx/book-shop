@@ -28,6 +28,16 @@ public class LoginController {
     }
 
     @FXML
+    public void handleToAboutUsButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า หนังสือทั้งหมด (เพจหลัก)
+        try {
+            com.github.saacsos.FXRouter.goTo("aboutUs");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า register ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
     public void handleLoginButton(ActionEvent actionEvent) {
         if (user.login(usernameTextField.getText(), passwordField.getText())) {
             errorLabel.setTextFill(Color.rgb(255, 255, 255));

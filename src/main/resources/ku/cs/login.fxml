@@ -79,7 +79,7 @@
             <Font name="JasmineUPC" size="25.0" />
          </font>
       </Button>
-      <Button layoutX="704.0" layoutY="30.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="136.0" style="-fx-background-color: BC986A;" text="ABOUT US" textFill="WHITE">
+      <Button layoutX="704.0" layoutY="30.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="136.0" onAction="#handleToAboutUsButton" style="-fx-background-color: BC986A;" text="ABOUT US" textFill="WHITE">
          <font>
             <Font name="JasmineUPC Bold" size="28.0" />
          </font>
