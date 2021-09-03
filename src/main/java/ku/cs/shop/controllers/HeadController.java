@@ -22,26 +22,24 @@ public class HeadController {
 //        showUsername();
 //    }
 
-    public AnchorPane pagesHeader() {
+    public String pagesHeader() {
         try{
-            if (user.login(user.getUserName(), user.getPassword()) == true) {
-                FXMLLoader fxmlLoaderHead = new FXMLLoader();
-                fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/headWhenLogin.fxml"));
-                paneVerLogin = fxmlLoaderHead.load();
-                System.out.println(pagesHeader());
+            if (true) {//user.login(user.getUserName(), user.getPassword()) == true
+//                FXMLLoader fxmlLoaderHead = new FXMLLoader();
+//                fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/headWhenLogin.fxml"));
+                String paneVerLogin = "/ku/cs/headWhenLogin.fxml";
                 return paneVerLogin;
             }
             else{
-                FXMLLoader fxmlLoaderHead = new FXMLLoader();
-                fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/headNoLogin.fxml"));
-                paneVerNoLogin = fxmlLoaderHead.load();
-                System.out.println(pagesHeader());
+//                FXMLLoader fxmlLoaderHead = new FXMLLoader();
+//                fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/headNoLogin.fxml"));
+                String paneVerNoLogin = "/ku/cs/headNoLogin.fxml";
                 return paneVerNoLogin;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return new AnchorPane();
+        return null;
     }
 
     private void showUsername() {
