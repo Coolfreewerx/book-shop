@@ -17,7 +17,7 @@ public class AboutUsController {
     public void initialize () {
         try {
             FXMLLoader fxmlLoaderHead = new FXMLLoader();
-            fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/adminInfoChoice.fxml"));
+            fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/aboutUsChoice.fxml"));
             gridHeadChoice.add(fxmlLoaderHead.load(), 0, 1);
         } catch (
                 IOException e) {
@@ -31,7 +31,7 @@ public class AboutUsController {
             gridHeadChoice.getChildren().remove(0) ;
             FXMLLoader fxmlLoaderHead = new FXMLLoader();
             fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/aboutUsChoice.fxml"));
-            gridHeadChoice.add(fxmlLoaderHead.load(), 0, 0);
+            gridHeadChoice.add(fxmlLoaderHead.load(), 0, 1);
         } catch (
                 IOException e) {
             e.printStackTrace();
@@ -44,22 +44,11 @@ public class AboutUsController {
             gridHeadChoice.getChildren().remove(0) ;
             FXMLLoader fxmlLoaderHead = new FXMLLoader();
             fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/adminInfoChoice.fxml"));
-            gridHeadChoice.add(fxmlLoaderHead.load(), 0, 0);
+            gridHeadChoice.add(fxmlLoaderHead.load(), 0, 1);
         } catch (
                 IOException e) {
             e.printStackTrace();
         }
     }
 
-//    @FXML
-//    public void handleInfoClick(){
-//        try {
-//            FXMLLoader fxmlLoaderInfo = new FXMLLoader();
-//            fxmlLoaderInfo.setLocation(getClass().getResource("/ku/cs/information.fxml"));
-//            gridInfo.add(fxmlLoaderInfo.load(), 0, 1);
-//        } catch (
-//                IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
 }
