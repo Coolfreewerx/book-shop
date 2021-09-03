@@ -1,6 +1,7 @@
 package ku.cs.shop.controllers;
 
 import com.github.saacsos.FXRouter;
+import com.opencsv.CSVReader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import ku.cs.shop.models.Book;
+
 
 import java.io.IOException;
 import java.net.URL;
@@ -19,22 +21,23 @@ public class HomeController implements Initializable {
 
     @FXML private GridPane grid;
 
-    private BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
-    List<Book> books = data.readData();
-    List<Book> book = new ArrayList<>();
+//    private BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
+//    List<Book> books = data.readdata();
+//    List<Book> book = new ArrayList<>();
+//
+//    // แสดงข้อมูล ชื่อหนังสือ ชื่อร้านค้า ราคา จาก CSV
+//    private List<Book> showData() {
+//        for (Book book : books) {
+//            book.getBookName();
+//            book.getBookPrice();
+//            book.getBookShop();
+//            book.getBookImg();
+//        }
+//
+//        return book;
+//    }
 
-    // แสดงข้อมูล ชื่อหนังสือ ชื่อร้านค้า ราคา จาก CSV
-    private List<Book> showData() {
-        for (Book book : books) {
-            book.getBookName();
-            book.getBookPrice();
-            book.getBookShop();
-            book.getBookImg();
-        }
-
-        return book;
-    }
-
+    CSVReader reader
 
     // นำข้อมูลแต่ละ index ใน csv มาแสดงยัง grid
     @Override
@@ -74,6 +77,7 @@ public class HomeController implements Initializable {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
+
     @FXML
     public void handleLinkToBasketBookButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าตะกร้าสินค้า
         try {
@@ -113,4 +117,10 @@ public class HomeController implements Initializable {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
+<<<<<<< HEAD
+
+
+
+=======
+>>>>>>> cc1605d26626ecb2413671b3306d6598b9462e16
 }
