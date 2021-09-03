@@ -1,5 +1,6 @@
 module ku.cs {
     requires javafx.controls;
+    requires opencsv;
     requires javafx.fxml;
 
     opens ku.cs to javafx.fxml;

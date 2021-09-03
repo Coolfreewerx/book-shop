@@ -18,6 +18,5 @@ public class itemController {
 
     @FXML
     public void handleToSeeFullButton(ActionEvent actionEvent) {
-
     }
 }

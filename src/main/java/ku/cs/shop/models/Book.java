@@ -90,6 +90,8 @@ public class Book {
         }
     }
 
+
+
     // increase method
     public void increaseStock (int newAmountBookStock)
     {
