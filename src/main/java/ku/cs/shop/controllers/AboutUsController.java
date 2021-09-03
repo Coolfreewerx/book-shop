@@ -1,5 +1,6 @@
 package ku.cs.shop.controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -12,9 +13,29 @@ import java.io.IOException;
 public class AboutUsController {
 
     @FXML private GridPane gridHeadChoice ;
+    @FXML private GridPane gridInfo ;
+
+
+
 
     public void initialize () {
         try {
+            FXMLLoader fxmlLoaderHead = new FXMLLoader();
+            fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/aboutUsChoice.fxml"));
+            gridHeadChoice.add(fxmlLoaderHead.load(), 0, 0);
+//            FXMLLoader fxmlLoaderInfo = new FXMLLoader();
+//            fxmlLoaderInfo.setLocation(getClass().getResource("/ku/cs/information.fxml"));
+//            gridInfo.add(fxmlLoaderInfo.load(), 0, 0);
+        } catch (
+                IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void handleAboutUsButton (ActionEvent actionEvent) {
+        try {
+            gridHeadChoice.getChildren().remove(0) ;
             FXMLLoader fxmlLoaderHead = new FXMLLoader();
             fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/aboutUsChoice.fxml"));
             gridHeadChoice.add(fxmlLoaderHead.load(), 0, 0);
@@ -23,4 +44,29 @@ public class AboutUsController {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    public void handleAdminInfoButton (ActionEvent actionEvent) {
+        try {
+            gridHeadChoice.getChildren().remove(0) ;
+            FXMLLoader fxmlLoaderHead = new FXMLLoader();
+            fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/adminInfoChoice.fxml"));
+            gridHeadChoice.add(fxmlLoaderHead.load(), 0, 0);
+        } catch (
+                IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+//    @FXML
+//    public void setGridInfo() {
+//        try {
+//            FXMLLoader fxmlLoaderInfo = new FXMLLoader();
+//            fxmlLoaderInfo.setLocation(getClass().getResource("/ku/cs/information.fxml"));
+//            gridInfo.add(fxmlLoaderInfo.load(), 0, 0);
+//        } catch (
+//                IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 }
