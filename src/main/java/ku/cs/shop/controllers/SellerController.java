@@ -8,6 +8,7 @@ import javafx.geometry.Insets;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import ku.cs.shop.models.Book;
 import ku.cs.shop.models.Seller;
@@ -22,7 +23,13 @@ public class SellerController implements Initializable {
     @FXML
     private ScrollPane scoll;
     @FXML
-    private GridPane grid;
+    private GridPane grid,gridHead;
+    @FXML
+    private HBox hBoxSellerStock;
+
+
+
+
 
     private BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
     private ArrayList<Book> books = new ArrayList<>();
@@ -44,6 +51,15 @@ public class SellerController implements Initializable {
     }
 
     public void initialize(URL location, ResourceBundle resource){
+        try {
+            FXMLLoader fxmlLoaderHead = new FXMLLoader();
+            fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/headNoLogin.fxml"));
+//            AnchorPane anchorPaneHead = fxmlLoaderHead.load();
+            gridHead.add(fxmlLoaderHead.load(),0,0);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+
         books.addAll(getData());
         int column = 0;
         int row = 1;

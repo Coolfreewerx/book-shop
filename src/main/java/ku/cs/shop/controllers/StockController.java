@@ -30,7 +30,6 @@ public class StockController {
 //        bookStockLabel.setText(Integer.toString(book.getBookStock()));
 //        Image image = new Image(getClass().getResourceAsStream(book.getBookImg()));
 //        bookImageView.setImage(image);
-
     }
 //    public void handleDecreaseStockButton(ActionEvent actionEvent) {
 //        booksList.get(1).decreaseStock(1);
