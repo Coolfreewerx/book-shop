@@ -27,7 +27,7 @@ public class App extends Application
     public void start(Stage stage) throws IOException {
         FXRouter.bind(this, stage, "JAVAPAI",1024.0,768.0);
         configRoute();
-        FXRouter.goTo("login");
+        FXRouter.goTo("information");
 //        FXRouter.goTo("sellerStock");
     }
 
@@ -48,6 +48,7 @@ public class App extends Application
         FXRouter.when("headNoLogin",packageStr + "headNoLogin.fxml");
         FXRouter.when("detailUser",packageStr + "editPasswordDetail.fxml");
         FXRouter.when("aboutUs",packageStr + "aboutUs.fxml");
+        FXRouter.when("information",packageStr + "information.fxml");
     }
 
     public static void setRoot(String fxml) throws IOException {
