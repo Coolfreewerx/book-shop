@@ -14,6 +14,7 @@ public class BookDetailDataSource {
 
 
     public BookDetailDataSource(String filename) { this.filename = filename; }
+
     public ArrayList<Book> readData()
     {
         ArrayList<Book> bookInformations = new ArrayList<>();
