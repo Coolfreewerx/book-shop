@@ -28,6 +28,7 @@ public class StockController {
         bookTypeLabel.setText(book.getBookType());
         bookPriceLabel.setText(Double.toString(book.getBookPrice()));
         bookStockLabel.setText(Integer.toString(book.getBookStock()));
+
 //        bookImageView.setImage();
 //        bookNameLabel.setText(book.getBookName());
 //        bookTypeLabel.setText(book.getBookType());

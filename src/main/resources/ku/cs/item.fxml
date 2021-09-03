@@ -89,7 +89,7 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="38.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="#handleSeeFullDetailButton" mnemonicParsing="false" style="-fx-background-color: #e1c272; -fx-background-radius: 5;" text="รายละเอียดเพิ่มเติม" textFill="WHITE">
+                  <Button fx:id= "handleSeeFullDetailButton" mnemonicParsing="false" style="-fx-background-color: #e1c272; -fx-background-radius: 5;" text="รายละเอียดเพิ่มเติม" textFill="WHITE" onAction= "#handleSeeFullDetailButton">
                      <font>
                         <Font name="JasmineUPC" size="12.0" />
                      </font>

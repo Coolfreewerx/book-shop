@@ -17,6 +17,6 @@ public class ItemController {
 
 
     @FXML
-    public void handleToSeeFullButton(ActionEvent actionEvent) {
+    public void handleSeeFullDetailButton(ActionEvent actionEvent) {
     }
 }
