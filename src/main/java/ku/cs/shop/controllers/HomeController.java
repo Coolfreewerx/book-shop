@@ -2,53 +2,110 @@ package ku.cs.shop.controllers;
 
 import com.github.saacsos.FXRouter;
 import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Region;
 import ku.cs.shop.models.Book;
 
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class HomeController implements Initializable {
+public class HomeController {
 
-    @FXML private GridPane grid;
+    @FXML private GridPane grid, gridHead;
 
-//    private BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
-//    List<Book> books = data.readdata();
-//    List<Book> book = new ArrayList<>();
+//    public static void main(String[] args) throws IOException, CsvException {
+//    String filename = "src/main/java/ku/cs/shop/bookDetail.csv";
+//    Book book;
 //
-//    // แสดงข้อมูล ชื่อหนังสือ ชื่อร้านค้า ราคา จาก CSV
-//    private List<Book> showData() {
-//        for (Book book : books) {
-//            book.getBookName();
-//            book.getBookPrice();
-//            book.getBookShop();
-//            book.getBookImg();
+//        try {
+//            CSVReader reader = new CSVReader(new FileReader(filename));
+//            reader.readNext();
+//            String[] bookDetail;
+//            while (bookDetail = reader.readNext() != null) {
+//                bookDetail.;
+//            }
+//
+//        } catch (FileNotFoundException e) {
+//            System.out.println("File not found");
 //        }
-//
-//        return book;
+//        } catch (IOException e) {
+//            System.out.println("Item not found");
+//        }
 //    }
 
-    CSVReader reader
+    private BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
+    private ArrayList<Book> books = new ArrayList<>();
+    private ArrayList<Book> getData() {
+        ArrayList<Book> books = new ArrayList<>();
+        ArrayList<Book> bookList = new ArrayList<>();
+        bookList = data.readData();
+        Book book;
 
-    // นำข้อมูลแต่ละ index ใน csv มาแสดงยัง grid
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        book.addAll(showData());
-
-        for (int i = 0 ; i < book.size() ; i++) {
-            FXMLLoader fxmlloader = new FXMLLoader();
+        for(int i = 0 ; i < 3; i++){
+            book = new Book();
+            book.setBookName(bookList.get(i).getBookName());
+            book.setBookPrice(bookList.get(i).getBookPrice());
+            book.setBookType(bookList.get(i).getBookType());
+            book.setBookStock(bookList.get(i).getBookStock());
+            books.add(book);
         }
+        return books;
     }
 
+    public void initialize(URL location, ResourceBundle resource){
+        try {
+            FXMLLoader fxmlLoaderHead = new FXMLLoader();
+            fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/headNoLogin.fxml"));
+//            AnchorPane anchorPaneHead = fxmlLoaderHead.load();
+            gridHead.add(fxmlLoaderHead.load(),0,0);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+
+        books.addAll(getData());
+        int column = 0;
+        int row = 1;
+        try {
+            for (int i = 0; i < books.size(); i++) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/ku/cs/stock.fxml"));
+
+                AnchorPane anchorPane = fxmlLoader.load();
+
+                StockController stockController = fxmlLoader.getController();
+                stockController.setData(books.get(i));
+
+                grid.add(anchorPane, column,row++); // child,col,row
+                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
+                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                grid.setMaxWidth(Region.USE_COMPUTED_SIZE);
+
+                grid.setMinHeight(Region.USE_COMPUTED_SIZE);
+                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
+                GridPane.setMargin(anchorPane, new Insets(10));
+
+            }
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     public void handleLinkToBestSellerButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าหนังสือขายดี
@@ -117,10 +174,4 @@ public class HomeController implements Initializable {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> cc1605d26626ecb2413671b3306d6598b9462e16
 }
