@@ -10,15 +10,15 @@ public class AboutUsChoiceController {
 
     @FXML private GridPane gridInfo ;
 
-    @FXML
-    public void initialize () {
-        try {
-            FXMLLoader fxmlLoaderInfo = new FXMLLoader();
-            fxmlLoaderInfo.setLocation(getClass().getResource("/ku/cs/subscene/information.fxml"));
-            gridInfo.add(fxmlLoaderInfo.load(), 0, 1);
-        } catch (
-                IOException e) {
-            e.printStackTrace();
-        }
-    }
+//    @FXML
+//    public void initialize () {
+//        try {
+//            FXMLLoader fxmlLoaderInfo = new FXMLLoader();
+//            fxmlLoaderInfo.setLocation(getClass().getResource("/ku/cs/subscene/fresh.fxml"));
+//            gridInfo.add(fxmlLoaderInfo.load(), 0, 1);
+//        } catch (
+//                IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 }
