@@ -16,8 +16,7 @@ public class AdminInfoChoiceController {
             FXMLLoader fxmlLoaderInfo = new FXMLLoader();
             fxmlLoaderInfo.setLocation(getClass().getResource("/ku/cs/subscene/fresh.fxml"));
             gridInfo.add(fxmlLoaderInfo.load(), 0, 1);
-        } catch (
-                IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -29,8 +28,7 @@ public class AdminInfoChoiceController {
             FXMLLoader fxmlLoaderInfo = new FXMLLoader();
             fxmlLoaderInfo.setLocation(getClass().getResource("/ku/cs/subscene/fresh.fxml"));
             gridInfo.add(fxmlLoaderInfo.load(), 0, 1);
-        } catch (
-                IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -42,8 +40,7 @@ public class AdminInfoChoiceController {
             FXMLLoader fxmlLoaderInfo = new FXMLLoader();
             fxmlLoaderInfo.setLocation(getClass().getResource("/ku/cs/subscene/tam.fxml"));
             gridInfo.add(fxmlLoaderInfo.load(), 0, 1);
-        } catch (
-                IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -55,8 +52,7 @@ public class AdminInfoChoiceController {
             FXMLLoader fxmlLoaderInfo = new FXMLLoader();
             fxmlLoaderInfo.setLocation(getClass().getResource("/ku/cs/subscene/kwan.fxml"));
             gridInfo.add(fxmlLoaderInfo.load(), 0, 1);
-        } catch (
-                IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -68,8 +64,7 @@ public class AdminInfoChoiceController {
             FXMLLoader fxmlLoaderInfo = new FXMLLoader();
             fxmlLoaderInfo.setLocation(getClass().getResource("/ku/cs/subscene/frince.fxml"));
             gridInfo.add(fxmlLoaderInfo.load(), 0, 1);
-        } catch (
-                IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

@@ -19,8 +19,7 @@ public class AboutUsController {
             FXMLLoader fxmlLoaderHead = new FXMLLoader();
             fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/aboutUsChoice.fxml"));
             gridHeadChoice.add(fxmlLoaderHead.load(), 0, 1);
-        } catch (
-                IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -32,8 +31,7 @@ public class AboutUsController {
             FXMLLoader fxmlLoaderHead = new FXMLLoader();
             fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/aboutUsChoice.fxml"));
             gridHeadChoice.add(fxmlLoaderHead.load(), 0, 1);
-        } catch (
-                IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -45,8 +43,7 @@ public class AboutUsController {
             FXMLLoader fxmlLoaderHead = new FXMLLoader();
             fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/adminInfoChoice.fxml"));
             gridHeadChoice.add(fxmlLoaderHead.load(), 0, 1);
-        } catch (
-                IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

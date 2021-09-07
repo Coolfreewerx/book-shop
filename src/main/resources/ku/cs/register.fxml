@@ -6,14 +6,10 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.RegisterController">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.RegisterController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c9ad88" height="768.0" stroke="BLACK" strokeType="INSIDE" width="1024.0" />
-      <ImageView fitHeight="615.0" fitWidth="410.0" layoutX="324.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@image/BG01.png" />
-         </image>
-      </ImageView>
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#fcfcfc" height="615.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="378.0" AnchorPane.bottomAnchor="98.0" AnchorPane.leftAnchor="324.0" AnchorPane.topAnchor="55.0" />
       <ImageView fitHeight="87.0" fitWidth="90.0" layoutX="465.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@image/Icon01.png" />
@@ -47,18 +43,6 @@
             <Font name="JasmineUPC" size="18.0" />
          </font>
       </Text>
-      <TextField fx:id="birthDayTextField" layoutX="348.0" layoutY="484.0" prefHeight="28.0" prefWidth="77.0" promptText="วัน" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88; -fx-border-radius: 5;">
-         <font>
-            <Font name="JasmineUPC" size="16.0" />
-         </font></TextField>
-      <TextField fx:id="birthMonthTextField" layoutX="441.0" layoutY="484.0" prefHeight="28.0" prefWidth="125.0" promptText="เดือน" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88; -fx-border-radius: 5;">
-         <font>
-            <Font name="JasmineUPC" size="16.0" />
-         </font></TextField>
-      <TextField fx:id="birthYearTextField" layoutX="582.0" layoutY="484.0" prefHeight="28.0" prefWidth="90.0" promptText="ปี (ค.ศ.)" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88; -fx-border-radius: 5;">
-         <font>
-            <Font name="JasmineUPC" size="16.0" />
-         </font></TextField>
       <Text fill="#828282" layoutX="462.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="อีกก้าวเดียวเพื่อเข้าสู่โลกใบใหม่">
          <font>
             <Font name="JasmineUPC" size="18.0" />
@@ -128,5 +112,8 @@
             <Font name="JasmineUPC" size="18.0" />
          </font>
       </Text>
+      <ChoiceBox fx:id="birthYearChoice" layoutX="438.0" layoutY="484.0" prefHeight="28.0" prefWidth="90.0" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88; -fx-border-radius: 5;" AnchorPane.leftAnchor="348.0" AnchorPane.topAnchor="484.0" />
+      <ChoiceBox fx:id="birthMonthChoice" layoutX="454.0" layoutY="484.0" prefHeight="28.0" prefWidth="125.0" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88; -fx-border-radius: 5;" AnchorPane.leftAnchor="454.0" AnchorPane.topAnchor="484.0" />
+      <ChoiceBox fx:id="birthDayChoice" layoutX="478.0" layoutY="509.0" prefHeight="28.0" prefWidth="77.0" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88; -fx-border-radius: 5;" AnchorPane.rightAnchor="351.0" AnchorPane.topAnchor="484.0" />
    </children>
 </AnchorPane>
