@@ -6,10 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.paint.Color;
 import ku.cs.shop.models.User ;
 
@@ -25,9 +22,9 @@ public class RegisterController {
     @FXML private TextField userNameTextField ;
     @FXML private PasswordField passwordField ;
     @FXML private PasswordField checkPasswordField ;
-    @FXML private ChoiceBox<String> birthDayChoice ;
-    @FXML private ChoiceBox<String> birthMonthChoice ;
-    @FXML private ChoiceBox<String> birthYearChoice ;
+    @FXML private ComboBox<String> birthDayChoice ;
+    @FXML private ComboBox<String> birthMonthChoice ;
+    @FXML private ComboBox<String> birthYearChoice ;
     @FXML private Label passwordCompareLabel ;
     @FXML private Label registerErrorLabel ;
     @FXML private Label passwordConditionCheckLabel ;
@@ -39,7 +36,7 @@ public class RegisterController {
 
     @FXML
     public void initialize () {
-        lodeData();
+        lodeYearData();
     }
     @FXML //ทำงานเมื่อกรอก username
     public void handleKeyUserName() {
@@ -67,17 +64,60 @@ public class RegisterController {
         passwordCompareLabel.setText(user.comparePassword(passwordField.getText(), checkPasswordField.getText()));
     }
 
-    private void lodeData() {
+    private void lodeYearData() {
         yearList.removeAll(yearList) ;
-        int i = 2021;
-        String year = "ปี" ;
-        yearList.add(year) ;
+        int i = 2009;
         while ( i >= 1940){
-            year = "" + i ;
-            yearList.add(year) ;
+            yearList.add(""+i) ;
             i-- ;
         }
         birthYearChoice.getItems().addAll(yearList) ;
+    }
+
+    public void setMonthChoice(ActionEvent event) {
+        birthMonthChoice.setValue("เดือน");
+        birthMonthChoice.getItems().removeAll(monthList) ;
+        birthDayChoice.getItems().removeAll(dayList) ;
+        monthList.removeAll(monthList) ;
+        lodeMonthData();
+    }
+    public void setDayChoice(ActionEvent event) {
+        birthDayChoice.setValue("วัน");
+        birthDayChoice.getItems().removeAll(dayList) ;
+        dayList.removeAll(dayList) ;
+        lodeDayData();
+    }
+
+    private void lodeMonthData() {
+        birthMonthChoice.getItems().removeAll(monthList);
+        monthList.removeAll(monthList) ;
+        String month = "มกราคม,กุมภาพันธ์,มีนาคม,เมษายน,พฤษภาคม,มิถุนายน,กรกฎาคม,สิงหาคม,กันยายน,ตุลาคม,พฤศจิกายน,ธันวาคม" ;
+        String[] arr = month.split(",") ;
+        int i = 0 ;
+
+        while ( i < 12){
+            monthList.add(arr[i]) ;
+            i++ ;
+        }
+        birthMonthChoice.getItems().addAll(monthList) ;
+    }
+
+    private void lodeDayData() {
+        birthDayChoice.getItems().removeAll(dayList) ;
+        dayList.removeAll(dayList);
+        int i = 1 , maxDay, year = Integer.parseInt(birthYearChoice.getValue()) ;
+        String month = birthMonthChoice.getValue() ;
+
+        if(month.contains("คม")) { maxDay = 31 ; }
+        else if(month.contains("ยน")) { maxDay = 30 ; }
+        else if(year%4 == 0) { maxDay = 29 ; }
+        else { maxDay = 28 ; }
+
+        while ( i <= maxDay){
+            dayList.add(""+i) ;
+            i++ ;
+        }
+        birthDayChoice.getItems().addAll(dayList) ;
     }
 
     //ปุ่ม register
@@ -88,16 +128,16 @@ public class RegisterController {
         String lastNameStr = lastNameTextField.getText() ;
         String userNameStr = userNameTextField.getText() ;
         String passwordStr = passwordField.getText() ;
-//        String birthDayStr = birthDayChoice.getText() ;
-//        String birthMonthStr = birthMonthTextField.getText() ;
-//        String birthYearStr = birthYearTextField.getText() ;
+        String birthDayStr = birthDayChoice.getValue() ;
+        String birthMonthStr = birthMonthChoice.getValue() ;
+        String birthYearStr = birthYearChoice.getValue() ;
         user.setFirstName(firstNameStr);
         user.setLastName(lastNameStr);
         user.setUserName(userNameStr);
         user.setPassword(passwordStr);
-//        user.setBirthDay(birthDayStr);
-//        user.setBirthMonth(birthMonthStr);
-//        user.setBirthYear(birthYearStr);
+        user.setBirthDay(birthDayStr);
+        user.setBirthMonth(birthMonthStr);
+        user.setBirthYear(birthYearStr);
 
         registerErrorLabel.setText(user.dataCheck());
 
