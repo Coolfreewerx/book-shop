@@ -27,13 +27,13 @@ import java.util.ResourceBundle;
 
 public class HomeController implements Initializable {
 
-    @FXML
-    private HBox head;
-    private AnchorPane pane;
-    private GridPane grid, gridHead;
-    private Label bookNameLabel;
-    private Label bookPriceLabel;
-    private Label bookShopLabel;
+    @FXML private HBox head;
+    @FXML private GridPane gridHead;
+    @FXML private GridPane grid;
+    @FXML private AnchorPane pane;
+    @FXML private Label bookNameLabel;
+    @FXML private Label bookPriceLabel;
+    @FXML private Label bookShopLabel;
 
     private BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
     private ArrayList<Book> books = data.readData();
