@@ -54,7 +54,7 @@
                   <Insets left="70.0" top="15.0" />
                </HBox.margin>
                <graphic>
-                  <Label fx:id="userNameLabel" prefHeight="27.0" prefWidth="100.0" text="Username" textFill="WHITE">
+                  <Label fx:id="userNameLabel" prefHeight="27.0" prefWidth="100.0" stylesheets="@style/PrimaryTheme.css" text="Username" textFill="WHITE">
                      <font>
                         <Font name="JasmineUPC" size="36.0" />
                      </font>

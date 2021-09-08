@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.InformationController">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" styleClass="font_rsu" stylesheets="@style/PrimaryTheme.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.InformationController">
    <children>
       <HBox layoutX="65.0" layoutY="236.0" prefHeight="250.0" prefWidth="1024.0" AnchorPane.leftAnchor="0.0">
          <children>
@@ -48,37 +48,37 @@
                         <Font name="JasmineUPC" size="20.0" />
                      </font>
                   </TextField>
-                  <Label layoutX="42.0" layoutY="28.0" text="Username">
+                  <Label layoutX="40.0" layoutY="25.0" styleClass="font_rsu_18pt" stylesheets="@style/PrimaryTheme.css" text="Username">
+                     <font>
+                        <Font name="JasmineUPC" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="343.0" layoutY="27.0" styleClass="font_rsu_18pt" text="Birthday">
                      <font>
                         <Font name="JasmineUPC" size="36.0" />
                      </font>
                   </Label>
-                  <Label layoutX="343.0" layoutY="27.0" text="Birthday">
+                  <Label layoutX="39.0" layoutY="65.0" styleClass="font_rsu" text="Password">
                      <font>
                         <Font name="JasmineUPC" size="36.0" />
                      </font>
                   </Label>
-                  <Label layoutX="42.0" layoutY="68.0" text="Password">
+                  <Label layoutX="37.0" layoutY="105.0" styleClass="font_rsu_18pt" stylesheets="@style/PrimaryTheme.css" text="Firstname">
                      <font>
                         <Font name="JasmineUPC" size="36.0" />
                      </font>
                   </Label>
-                  <Label layoutX="42.0" layoutY="107.0" text="Firstname">
+                  <Label layoutX="38.0" layoutY="144.0" styleClass="font_rsu_18pt" stylesheets="@style/PrimaryTheme.css" text="Lastname">
                      <font>
                         <Font name="JasmineUPC" size="36.0" />
                      </font>
                   </Label>
-                  <Label layoutX="42.0" layoutY="147.0" text="Lastname">
+                  <Label layoutX="343.0" layoutY="68.0" styleClass="font_rsu_18pt" stylesheets="@style/PrimaryTheme.css" text="Phone">
                      <font>
                         <Font name="JasmineUPC" size="36.0" />
                      </font>
                   </Label>
-                  <Label layoutX="343.0" layoutY="68.0" text="Phone">
-                     <font>
-                        <Font name="JasmineUPC" size="36.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="344.0" layoutY="108.0" text="Sex">
+                  <Label layoutX="344.0" layoutY="108.0" styleClass="font_rsu_18pt" text="Sex">
                      <font>
                         <Font name="JasmineUPC" size="36.0" />
                      </font>

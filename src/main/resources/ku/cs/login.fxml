@@ -20,15 +20,19 @@
       <QuadCurve controlX="41.79998779296875" controlY="-98.33331298828125" endX="113.933349609375" endY="-34.333343505859375" fill="#fffae9" layoutX="472.0" layoutY="473.0" startX="-65.3333740234375" startY="-30.066680908203125" stroke="#fffae9" strokeType="INSIDE" />
       <QuadCurve controlX="2.066650390625" controlY="61.4666748046875" endX="113.0" endY="-7.999969482421875" fill="#bc986a" layoutX="930.0" layoutY="438.0" startX="-84.06668090820312" startY="-21.4666748046875" stroke="#bc986a" strokeType="INSIDE" />
       <Rectangle arcHeight="10.0" arcWidth="10.0" fill="WHITE" height="576.0" layoutX="573.0" layoutY="100.0" stroke="WHITE" strokeType="INSIDE" width="386.0" />
-      <Label layoutX="713.0" layoutY="126.0" styleClass="root" text="เข้าสู่ระบบ">
-      </Label>
+      <Label layoutX="713.0" layoutY="131.0" styleClass="font_jasmine_20pt" text="เข้าสู่ระบบ">
+         <font>
+            <Font size="31.0" />
+         </font></Label>
       <Line endX="134.933349609375" layoutX="770.0" layoutY="164.0" startX="-137.066650390625" />
-      <Label layoutX="583.0" layoutY="200.0" styleClass="root" stylesheets="@style/PrimaryTheme.css" text="ชื่อผู้ใช้">
+      <Label layoutX="587.0" layoutY="214.0" styleClass="font_jasmine_20pt" text="ชื่อผู้ใช้">
       </Label>
-      <Label layoutX="589.0" layoutY="318.0" styleClass="root" text="รหัสผ่าน">
+      <Label layoutX="587.0" layoutY="324.0" styleClass="font_jasmine_20pt" text="รหัสผ่าน">
       </Label>
-      <TextField fx:id="usernameTextField" layoutX="586.0" layoutY="248.0" prefHeight="55.0" prefWidth="358.0" promptText="กรอกชื่อผู้ใช้ของคุณ" style="-fx-background-color: FFFCF1; -fx-background-radius: 10;">
-      </TextField>
+      <TextField fx:id="usernameTextField" layoutX="586.0" layoutY="248.0" prefHeight="55.0" prefWidth="358.0" promptText="กรอกชื่อผู้ใช้ของคุณ" style="-fx-background-color: FFFCF1; -fx-background-radius: 10;" styleClass="font_jasmine_16pt" stylesheets="@style/PrimaryTheme.css">
+         <font>
+            <Font name="JasmineUPC" size="13.0" />
+         </font></TextField>
       <Button layoutX="699.0" layoutY="466.0" mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="52.0" prefWidth="127.0" style="-fx-background-color: B78748; -fx-background-radius: 20;" text="เข้าสู่ระบบ" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="JasmineUPC Bold" size="24.0" />
@@ -47,8 +51,6 @@
             <Font name="JasmineUPC" size="18.0" />
          </font></Button>
       <Line endX="-100.0" endY="18.93328857421875" layoutX="868.0" layoutY="632.0" startX="-100.0" />
-      <Label layoutX="835.0" layoutY="41.0" text="|   PROMOTION" textFill="WHITE">
-      </Label>
       <ImageView fitHeight="88.0" fitWidth="74.0" layoutX="12.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@image/javapaiver.brown.png" />
@@ -64,11 +66,13 @@
             <Font name="JasmineUPC" size="25.0" />
          </font>
       </Button>
-      <Button layoutX="602.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleToAboutUsButton" prefHeight="57.0" prefWidth="222.0" style="-fx-background-color: BC986A;" styleClass="root" stylesheets="@style/PrimaryTheme.css" text="ABOUT US" textFill="WHITE">
+      <Button layoutX="632.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleToAboutUsButton" prefHeight="57.0" prefWidth="222.0" style="-fx-background-color: BC986A;" styleClass="root" stylesheets="@style/PrimaryTheme.css" text="ABOUT US" textFill="WHITE">
          <font>
             <Font name="JasmineUPC Bold" size="28.0" />
          </font>
       </Button>
+      <Label layoutX="826.0" layoutY="33.0" text="|   PROMOTION" textFill="WHITE">
+      </Label>
       <Label fx:id="errorLabel" layoutX="634.0" layoutY="437.0" text="บัญชีหรือรหัสผ่านไม่ถูกต้อง โปรดตรวจสอบใหม่อีกครั้ง" textFill="WHITE">
          <font>
             <Font name="JasmineUPC" size="16.0" />

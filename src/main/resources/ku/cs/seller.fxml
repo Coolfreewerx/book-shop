@@ -44,7 +44,7 @@
                               <Insets left="90.0" top="40.0" />
                            </GridPane.margin>
                         </ImageView>
-                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" text="ข้อมูลส่วนตัว" textFill="WHITE" GridPane.rowIndex="1">
+                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" text="ข้อมูลส่วนตัว" textFill="WHITE" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="70.0" top="10.0" />
                            </GridPane.margin>
@@ -52,7 +52,7 @@
                               <Font name="JasmineUPC" size="32.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" text="สินค้าในตะกร้า" textFill="WHITE" GridPane.rowIndex="2">
+                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" text="สินค้าในตะกร้า" textFill="WHITE" GridPane.rowIndex="2">
                            <font>
                               <Font name="JasmineUPC" size="32.0" />
                            </font>
@@ -60,7 +60,7 @@
                               <Insets left="70.0" top="10.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" text="ข้อมูลการขาย" textFill="WHITE" GridPane.rowIndex="3">
+                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" text="ข้อมูลการขาย" textFill="WHITE" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets left="70.0" top="10.0" />
                            </GridPane.margin>
@@ -68,7 +68,7 @@
                               <Font name="JasmineUPC" size="32.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" text="ประวัติการซื้อ" textFill="WHITE" GridPane.rowIndex="4">
+                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" text="ประวัติการซื้อ" textFill="WHITE" GridPane.rowIndex="4">
                            <font>
                               <Font name="JasmineUPC" size="32.0" />
                            </font>
@@ -130,12 +130,12 @@
                      </font>
                   </Label>
                   <TextField fx:id="bookDetailTextField" layoutX="55.0" layoutY="545.0" prefHeight="125.0" prefWidth="439.0" style="-fx-background-color: FFFCF1; -fx-background-radius: 10; -fx-effect: shadow;" />
-                  <Button fx:id="addBookButton" layoutX="530.0" layoutY="575.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="125.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="เพิ่มสินค้า" textFill="WHITE">
+                  <Button fx:id="addBookButton" layoutX="530.0" layoutY="575.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="125.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" styleClass="font_jasmine_16pt" stylesheets="@style/PrimaryTheme.css" text="เพิ่มสินค้า" textFill="WHITE">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Button>
-                  <Button fx:id="allBookButton" layoutX="530.0" layoutY="630.0" mnemonicParsing="false" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="สินค้าทั้งหมด" textFill="WHITE">
+                  <Button fx:id="allBookButton" layoutX="530.0" layoutY="630.0" mnemonicParsing="false" style="-fx-background-color: F99F28; -fx-background-radius: 10;" styleClass="font_jasmine_16pt" stylesheets="@style/PrimaryTheme.css" text="สินค้าทั้งหมด" textFill="WHITE">
                      <font>
                         <Font size="20.0" />
                      </font>

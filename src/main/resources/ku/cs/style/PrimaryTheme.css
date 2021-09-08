@@ -13,3 +13,23 @@
     -fx-font-family: 'RSU_Regular';
 }
 
+.font_jasmine_20pt {
+    -fx-font-family: 'JasmineUPC';
+    -fx-font-size: 20pt;
+}
+
+.font_rsu_12pt {
+    -fx-font-family: 'RSU_Regular' ;
+    -fx-font-size : 12pt;
+}
+
+.font_rsu_18pt {
+    -fx-font-family: 'RSU_Regular' ;
+    -fx-font-size : 18pt;
+}
+
+.font_jasmine_16pt {
+    -fx-font-family: 'JasmineUPC';
+    -fx-font-size: 16pt;
+}
+
