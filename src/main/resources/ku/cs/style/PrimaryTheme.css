@@ -1,0 +1,15 @@
+
+@font-face
+{
+    font-family: 'RSU_Regular';
+    font-style: normal;
+    src: url('../font/RSU_Regular.ttf');
+
+}
+
+.root {
+    -fx-font-size: 20pt;
+    -fx-background-color:  #F99F28;
+    -fx-font-family: 'RSU_Regular';
+}
+

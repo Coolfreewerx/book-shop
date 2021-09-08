@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="paneVerNoLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="69.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.HeadController">
+<AnchorPane fx:id="paneVerNoLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="69.0" prefWidth="1024.0" styleClass="root" stylesheets="@style/PrimaryTheme.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.HeadController">
    <children>
       <HBox fx:id="headVerNoLogin" layoutX="84.0" layoutY="5.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -45,12 +45,12 @@
                   <Insets left="80.0" top="20.0" />
                </HBox.margin>
             </Label>
-            <Label text="login" textFill="#bc986a">
+            <Label styleClass="root" stylesheets="@style/PrimaryTheme.css" text="login" textFill="#bc986a">
                <font>
-                  <Font name="JasmineUPC" size="36.0" />
+                  <Font name="JasmineUPC" size="24.0" />
                </font>
                <HBox.margin>
-                  <Insets left="80.0" top="20.0" />
+                  <Insets left="80.0" top="15.0" />
                </HBox.margin>
             </Label>
             <ImageView fitHeight="37.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">

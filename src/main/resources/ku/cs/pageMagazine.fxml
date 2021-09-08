@@ -52,7 +52,7 @@
          </image>
       </ImageView>
       <Button layoutX="523.0" layoutY="23.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="143.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" />
-      <Label fx:id="userName" layoutX="546.0" layoutY="31.0" text="username" textFill="WHITE">
+      <Label fx:id="userName" layoutX="537.0" layoutY="27.0" styleClass="root" stylesheets="@style/PrimaryTheme.css" text="username" textFill="WHITE">
          <font>
             <Font name="JasmineUPC" size="38.0" />
          </font>

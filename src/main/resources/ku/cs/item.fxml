@@ -40,9 +40,9 @@
                         <Font name="JasmineUPC" size="18.0" />
                      </font>
                   </Text>
-                  <Label fx:id="bookNameLabel" text="booknameLabel">
+                  <Label fx:id="bookNameLabel" text="โฮริมิยะ สาวมั่นกับนายมืดมน">
                      <font>
-                        <Font name="JasmineUPC" size="18.0" />
+                        <Font name="JasmineUPC" size="13.0" />
                      </font>
                      <HBox.margin>
                         <Insets bottom="3.0" left="10.0" />
@@ -60,7 +60,7 @@
                         <Insets left="10.0" />
                      </HBox.margin>
                   </Text>
-                  <Label fx:id="bookPriceLabel" text="bookPriceLabel">
+                  <Label fx:id="bookPriceLabel" text="80.25 Bahts.">
                      <font>
                         <Font name="JasmineUPC" size="18.0" />
                      </font>
@@ -80,7 +80,7 @@
                         <Insets left="10.0" />
                      </HBox.margin>
                   </Text>
-                  <Label fx:id="bookShopLabel" text="bookShopLabel">
+                  <Label fx:id="bookShopLabel" text="TamTam Shop">
                      <font>
                         <Font name="JasmineUPC" size="19.0" />
                      </font>

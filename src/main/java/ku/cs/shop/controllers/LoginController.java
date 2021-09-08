@@ -28,11 +28,11 @@ public class LoginController {
     }
 
     @FXML
-    public void handleToAboutUsButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า หนังสือทั้งหมด (เพจหลัก)
+    public void handleToAboutUsButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า about us
         try {
             com.github.saacsos.FXRouter.goTo("aboutUs");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า register ไม่ได้");
+            System.err.println("ไปที่หน้า aboutUs ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
