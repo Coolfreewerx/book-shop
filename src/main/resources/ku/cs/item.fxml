@@ -13,9 +13,9 @@
 
 <AnchorPane prefHeight="305.0" prefWidth="200.0" style="-fx-background-color: #fffcf1; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.ItemController">
    <children>
-      <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox prefHeight="305.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox alignment="CENTER" prefHeight="200.0" prefWidth="500.0">
+            <HBox alignment="CENTER" prefHeight="200.0" prefWidth="500.0" spacing="10.0">
                <children>
                   <ImageView fx:id="img" fitHeight="150.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
                      <HBox.margin>
@@ -40,9 +40,9 @@
                         <Font name="JasmineUPC" size="18.0" />
                      </font>
                   </Text>
-                  <Label fx:id="bookNameLabel" text="โฮริมิยะ สาวมั่นกับนายมืดมน">
+                  <Label fx:id="bookNameLabel" text="bookNameLabel" wrapText="true">
                      <font>
-                        <Font name="JasmineUPC" size="13.0" />
+                        <Font name="JasmineUPC" size="18.0" />
                      </font>
                      <HBox.margin>
                         <Insets bottom="3.0" left="10.0" />
@@ -60,12 +60,12 @@
                         <Insets left="10.0" />
                      </HBox.margin>
                   </Text>
-                  <Label fx:id="bookPriceLabel" text="80.25 Bahts.">
+                  <Label fx:id="bookPriceLabel" text="bookPriceLabel">
                      <font>
                         <Font name="JasmineUPC" size="18.0" />
                      </font>
                      <HBox.margin>
-                        <Insets bottom="3.0" left="27.0" />
+                        <Insets bottom="3.0" left="35.0" />
                      </HBox.margin>
                   </Label>
                </children>
@@ -80,12 +80,12 @@
                         <Insets left="10.0" />
                      </HBox.margin>
                   </Text>
-                  <Label fx:id="bookShopLabel" text="TamTam Shop">
+                  <Label fx:id="bookShopLabel" text="bookShopLabel">
                      <font>
                         <Font name="JasmineUPC" size="19.0" />
                      </font>
                      <HBox.margin>
-                        <Insets bottom="3.0" left="23.0" />
+                        <Insets bottom="3.0" left="25.0" />
                      </HBox.margin>
                   </Label>
                </children>

@@ -90,6 +90,14 @@ public class Book {
         }
     }
 
+    public String getPicturePath() {
+        return new File(System.getProperty("user.dir")
+                + File.separator
+                + "images"
+                + File.separator
+                + bookImg).toURI().toString();
+    }
+
 
 
     // increase method

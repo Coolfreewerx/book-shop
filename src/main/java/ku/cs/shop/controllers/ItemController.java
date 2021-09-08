@@ -3,6 +3,7 @@ package ku.cs.shop.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import ku.cs.shop.models.Book;
 import ku.cs.shop.controllers.HomeController;
@@ -19,7 +20,6 @@ public class ItemController {
     @FXML private Label bookShopLabel;
     @FXML private ImageView img;
 
-
     @FXML
     public void handleSeeFullDetailButton(ActionEvent actionEvent) {
         try {
@@ -31,5 +31,14 @@ public class ItemController {
     }
 
     public void setData(Book book) {
+        this.book = book;
+    }
+
+    public void changeData() {
+        bookNameLabel.setText(book.getBookName());
+        bookPriceLabel.setText(book.getBookPrice() + "");
+        bookShopLabel.setText(book.getBookShop());
+
+        img.setImage(new Image(book.getPicturePath()));
     }
 }

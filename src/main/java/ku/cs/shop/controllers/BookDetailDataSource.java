@@ -5,9 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
+
+import com.opencsv.CSVReader;
 import ku.cs.shop.models.Book;
-import ku.cs.shop.models.BookList;
 
 public class BookDetailDataSource {
     private String filename;
@@ -17,17 +17,16 @@ public class BookDetailDataSource {
 
     public ArrayList<Book> readData()
     {
-        ArrayList<Book> bookInformations = new ArrayList<>();
+        ArrayList<Book> bookList = new ArrayList<>();
 
         try
         {
             FileReader file = new FileReader(filename);
-            BufferedReader buffer = new BufferedReader(file);
-            String line = null;
+            CSVReader reader = new CSVReader(file);
+            String[] data = null;
 
-            while ((line = buffer.readLine()) != null)
+            while ((data = reader.readNext()) != null)
             {
-                String[] data = line.split(",");
                 String bookName = data[0].trim();
                 String bookShop = data[1].trim();
                 String bookAuthor = data[2].trim();
@@ -43,7 +42,7 @@ public class BookDetailDataSource {
                 double bookPrice = Double.parseDouble(data[12].trim());
 
                 Book bookInformation = new Book(bookName,bookShop,bookAuthor,bookISBN,bookType,bookDetail,bookPublisher,bookStatus,bookImg,bookStock,bookPage,leastStock,bookPrice);
-                bookInformations.add(bookInformation);
+                bookList.add(bookInformation);
             }
 
         } catch (FileNotFoundException e) {
@@ -52,7 +51,7 @@ public class BookDetailDataSource {
             System.err.println("Error reading from file");
         }
 
-        return bookInformations;
+        return bookList;
     }
 
 }

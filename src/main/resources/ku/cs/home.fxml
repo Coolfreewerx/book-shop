@@ -51,7 +51,7 @@
                         </ImageView>
                      </children>
                   </HBox>
-                  <GridPane fx:id="grid" GridPane.rowIndex="2">
+                  <GridPane fx:id="grid" vgap="10.0" GridPane.rowIndex="2">
                     <rowConstraints>
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>

@@ -53,6 +53,7 @@ public class LoginController {
         try {
             com.github.saacsos.FXRouter.goTo("home");
         } catch (IOException e) {
+            e.printStackTrace();
             System.err.println("ไปที่หน้า home ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
