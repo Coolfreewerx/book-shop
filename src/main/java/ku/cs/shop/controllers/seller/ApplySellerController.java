@@ -3,6 +3,9 @@ package ku.cs.shop.controllers.seller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import ku.cs.shop.models.Seller;
 
@@ -15,9 +18,5 @@ public class ApplySellerController {
     @FXML private TextField telShopTextField;
     @FXML private TextField bankShopTextField;
     @FXML private Button submitButton;
-
-    @FXML
-    public void initialize () {}
-
 
 }

@@ -1,9 +1,6 @@
 package ku.cs.shop.services;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 import com.opencsv.CSVReader;
@@ -52,6 +49,30 @@ public class BookDetailDataSource {
         }
 
         return bookList;
+    }
+
+    public void writeData(ArrayList<Book> bookArrayList){
+        String path = filename;
+        File file = new File(path);
+
+        FileWriter writer = null;
+        BufferedWriter buffer = null;
+
+        try {
+            writer = new FileWriter(file);
+            buffer = new BufferedWriter(writer);
+
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }finally {
+            try {
+                buffer.close();
+                writer.close();
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }
     }
 
 }

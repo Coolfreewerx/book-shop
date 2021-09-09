@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -18,7 +19,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.seller.ApplyToBeASeller">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.seller.ApplySellerController">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -166,72 +167,94 @@
             </HBox>
          </left>
          <center>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Label layoutX="40.0" layoutY="40.0" text="ผู้ขายสินค้า" textFill="#a05e07">
-                     <font>
-                        <Font name="JasmineUPC" size="40.0" />
-                     </font>
-                  </Label>
-                  <Line endX="513.066650390625" endY="-7.62939453125E-6" layoutX="140.0" layoutY="80.0" startX="-100.0" stroke="#a05e07" strokeMiterLimit="100.0" />
-                  <ImageView fitHeight="179.0" fitWidth="238.0" layoutX="240.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@image/profile.jpg" />
-                     </image>
-                  </ImageView>
-                  <Button fx:id="addImgButton" graphicTextGap="2.0" layoutX="382.0" layoutY="261.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="15.0" style="-fx-background-color: F99F28; -fx-background-radius: 10; -fx-border-color: ffffff; -fx-border-width: 2; -fx-border-radius: 10;" text="+" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Button>
-                  <Label layoutX="50.0" layoutY="330.0" text="ชื่อสินค้า">
-                     <font>
-                        <Font name="JasmineUPC" size="32.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="375.0" layoutY="330.0" text="ราคาสินค้า">
-                     <font>
-                        <Font name="JasmineUPC" size="32.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="bookNameTextField" layoutX="55.0" layoutY="360.0" prefHeight="40.0" prefWidth="270.0" style="-fx-background-color: FFFCF1; -fx-background-radius: 10; -fx-effect: shadow;" />
-                  <TextField fx:id="bookPriceTextField" layoutX="380.0" layoutY="360.0" prefHeight="40.0" prefWidth="270.0" style="-fx-background-color: FFFCF1; -fx-background-radius: 10; -fx-effect: shadow;" />
-                  <Label layoutX="50.0" layoutY="425.0" text="จำนวนสินค้าในคลัง">
-                     <font>
-                        <Font name="JasmineUPC" size="32.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="375.0" layoutY="425.0" text="หมวดหมู่ของสินค้า">
-                     <font>
-                        <Font name="JasmineUPC" size="32.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="bookStockTextField" layoutX="55.0" layoutY="455.0" prefHeight="40.0" prefWidth="270.0" style="-fx-background-color: FFFCF1; -fx-background-radius: 10; -fx-effect: shadow;" />
-                  <TextField fx:id="bookTypeTextField" layoutX="380.0" layoutY="455.0" prefHeight="40.0" prefWidth="270.0" style="-fx-background-color: FFFCF1; -fx-background-radius: 10; -fx-effect: shadow;" />
-                  <Label layoutX="50.0" layoutY="515.0" text="รายละเอียดสินค้า">
-                     <font>
-                        <Font name="JasmineUPC" size="32.0" />
-                     </font>
-                  </Label>
-                  <Button fx:id="addBookButton" layoutX="375.0" layoutY="597.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="125.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" styleClass="font_jasmine_16pt" stylesheets="@style/PrimaryTheme.css" text="เพิ่มสินค้า" textFill="WHITE">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Button>
-                  <Label layoutX="375.0" layoutY="515.0" text="หมวดหมู่ของสินค้า">
-                     <font>
-                        <Font name="JasmineUPC" size="32.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="bookStockTextField" layoutX="380.0" layoutY="545.0" prefHeight="40.0" prefWidth="270.0" style="-fx-background-color: FFFCF1; -fx-background-radius: 10; -fx-effect: shadow;" />
-                  <Button fx:id="addBookButton1" layoutX="375.0" layoutY="640.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="125.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" styleClass="font_jasmine_16pt" stylesheets="@style/PrimaryTheme.css" text="สินค้าทั้งหมด" textFill="WHITE">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Button>
-                  <TextArea fx:id="bookDetailTextArea" layoutX="55.0" layoutY="545.0" prefHeight="130.0" prefWidth="270.0" style="-fx-background-color: FFFCF1; -fx-background-radius: 10;" />
-               </children>
-            </AnchorPane>
+            <ScrollPane prefHeight="774.0" prefWidth="698.0" BorderPane.alignment="CENTER">
+               <content>
+                  <AnchorPane prefHeight="1058.0" prefWidth="690.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label layoutX="40.0" layoutY="40.0" text="ผู้ขายสินค้า" textFill="#a05e07">
+                           <font>
+                              <Font name="JasmineUPC" size="40.0" />
+                           </font>
+                        </Label>
+                        <Line endX="513.066650390625" endY="-7.62939453125E-6" layoutX="140.0" layoutY="80.0" startX="-100.0" stroke="#a05e07" strokeMiterLimit="100.0" />
+                        <ImageView fitHeight="179.0" fitWidth="238.0" layoutX="240.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@image/profile.jpg" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="addImgButton" graphicTextGap="2.0" layoutX="382.0" layoutY="261.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="15.0" style="-fx-background-color: F99F28; -fx-background-radius: 10; -fx-border-color: ffffff; -fx-border-width: 2; -fx-border-radius: 10;" text="+" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="50.0" layoutY="330.0" text="ชื่อสินค้า">
+                           <font>
+                              <Font name="JasmineUPC" size="32.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="375.0" layoutY="330.0" text="ราคาสินค้า">
+                           <font>
+                              <Font name="JasmineUPC" size="32.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="bookNameTextField" layoutX="55.0" layoutY="360.0" prefHeight="40.0" prefWidth="270.0" style="-fx-background-color: FFFCF1; -fx-background-radius: 10; -fx-effect: shadow;" />
+                        <TextField fx:id="bookPriceTextField" layoutX="380.0" layoutY="360.0" prefHeight="40.0" prefWidth="270.0" style="-fx-background-color: FFFCF1; -fx-background-radius: 10; -fx-effect: shadow;" />
+                        <Label layoutX="50.0" layoutY="425.0" text="จำนวนสินค้าในคลัง">
+                           <font>
+                              <Font name="JasmineUPC" size="32.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="375.0" layoutY="425.0" text="หมวดหมู่ของสินค้า">
+                           <font>
+                              <Font name="JasmineUPC" size="32.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="bookStockTextField" layoutX="55.0" layoutY="455.0" prefHeight="40.0" prefWidth="270.0" style="-fx-background-color: FFFCF1; -fx-background-radius: 10; -fx-effect: shadow;" />
+                        <TextField fx:id="bookTypeTextField" layoutX="380.0" layoutY="455.0" prefHeight="40.0" prefWidth="270.0" style="-fx-background-color: FFFCF1; -fx-background-radius: 10; -fx-effect: shadow;" />
+                        <Label layoutX="50.0" layoutY="840.0" text="รายละเอียดสินค้า">
+                           <font>
+                              <Font name="JasmineUPC" size="32.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="addBookButton" layoutX="375.0" layoutY="880.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="125.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" styleClass="font_jasmine_16pt" stylesheets="@style/PrimaryTheme.css" text="เพิ่มสินค้า" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="375.0" layoutY="520.0" text="หมวดหมู่ของสินค้า">
+                           <font>
+                              <Font name="JasmineUPC" size="32.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="bookStockTextField" layoutX="380.0" layoutY="550.0" prefHeight="40.0" prefWidth="270.0" style="-fx-background-color: FFFCF1; -fx-background-radius: 10; -fx-effect: shadow;" />
+                        <Button fx:id="addBookButton1" layoutX="375.0" layoutY="920.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="125.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" styleClass="font_jasmine_16pt" stylesheets="@style/PrimaryTheme.css" text="สินค้าทั้งหมด" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                        <TextArea fx:id="bookDetailTextArea" layoutX="55.0" layoutY="850.0" prefHeight="130.0" prefWidth="270.0" style="-fx-background-color: FFFCF1; -fx-background-radius: 10;" />
+                        <Label layoutX="50.0" layoutY="520.0" text="จำนวนสินค้าในคลัง">
+                           <font>
+                              <Font name="JasmineUPC" size="32.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="bookStockTextField1" layoutX="55.0" layoutY="550.0" prefHeight="40.0" prefWidth="270.0" style="-fx-background-color: FFFCF1; -fx-background-radius: 10; -fx-effect: shadow;" />
+                        <Label layoutX="50.0" layoutY="615.0" text="จำนวนสินค้าในคลัง">
+                           <font>
+                              <Font name="JasmineUPC" size="32.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="375.0" layoutY="615.0" text="หมวดหมู่ของสินค้า">
+                           <font>
+                              <Font name="JasmineUPC" size="32.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="bookStockTextField11" layoutX="55.0" layoutY="645.0" prefHeight="40.0" prefWidth="270.0" style="-fx-background-color: FFFCF1; -fx-background-radius: 10; -fx-effect: shadow;" />
+                        <TextField fx:id="bookStockTextField2" layoutX="390.0" layoutY="645.0" prefHeight="40.0" prefWidth="270.0" style="-fx-background-color: FFFCF1; -fx-background-radius: 10; -fx-effect: shadow;" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
          </center>
       </BorderPane>
    </children>
