@@ -101,16 +101,10 @@ public class Book {
 
 
     // increase method
-    public void increaseStock (int newAmountBookStock)
-    {
-        setBookStock(this.bookStock + newAmountBookStock);
-    }
+    public void increaseStock () { setBookStock(this.bookStock + 1); }
 
     // decrease method
-    public void decreaseStock (int newAmountBookStock) { setBookStock(this.bookStock - newAmountBookStock); }
-
-    // edit method
-    public void editStock (int newAmountBookStock) { setBookStock(this.bookStock + newAmountBookStock); }
+    public void decreaseStock () { setBookStock(this.bookStock - 1); }
 
 
 

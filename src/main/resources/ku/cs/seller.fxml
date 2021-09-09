@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -212,17 +213,23 @@
                         <Font name="JasmineUPC" size="32.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="bookDetailTextField" layoutX="55.0" layoutY="545.0" prefHeight="125.0" prefWidth="439.0" style="-fx-background-color: FFFCF1; -fx-background-radius: 10; -fx-effect: shadow;" />
-                  <Button fx:id="addBookButton" layoutX="530.0" layoutY="575.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="125.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" styleClass="font_jasmine_16pt" stylesheets="@style/PrimaryTheme.css" text="เพิ่มสินค้า" textFill="WHITE">
+                  <Button fx:id="addBookButton" layoutX="375.0" layoutY="597.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="125.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" styleClass="font_jasmine_16pt" stylesheets="@style/PrimaryTheme.css" text="เพิ่มสินค้า" textFill="WHITE">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Button>
-                  <Button fx:id="allBookButton" layoutX="530.0" layoutY="630.0" mnemonicParsing="false" style="-fx-background-color: F99F28; -fx-background-radius: 10;" styleClass="font_jasmine_16pt" stylesheets="@style/PrimaryTheme.css" text="สินค้าทั้งหมด" textFill="WHITE">
+                  <Label layoutX="375.0" layoutY="515.0" text="หมวดหมู่ของสินค้า">
+                     <font>
+                        <Font name="JasmineUPC" size="32.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="bookStockTextField" layoutX="380.0" layoutY="545.0" prefHeight="40.0" prefWidth="270.0" style="-fx-background-color: FFFCF1; -fx-background-radius: 10; -fx-effect: shadow;" />
+                  <Button fx:id="addBookButton1" layoutX="375.0" layoutY="640.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="125.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" styleClass="font_jasmine_16pt" stylesheets="@style/PrimaryTheme.css" text="สินค้าทั้งหมด" textFill="WHITE">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Button>
+                  <TextArea fx:id="bookDetailTextArea" layoutX="55.0" layoutY="545.0" prefHeight="130.0" prefWidth="270.0" style="-fx-background-color: FFFCF1; -fx-background-radius: 10;" />
                </children>
             </AnchorPane>
          </center>

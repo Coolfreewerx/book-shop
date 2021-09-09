@@ -14,7 +14,7 @@
    <children>
       <VBox layoutX="22.0" layoutY="34.0" prefHeight="250.0" prefWidth="173.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="525.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fx:id="BookImageView" fitHeight="222.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="bookImageView" fitHeight="222.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true">
                <VBox.margin>
                   <Insets left="15.0" top="20.0" />
                </VBox.margin>
@@ -34,7 +34,7 @@
                   <Insets top="20.0" />
                </VBox.margin>
             </Label>
-            <Label fx:id="BookNameLabel" text="โฮริมิยะ สาวมั่นกับนายมืดมน">
+            <Label fx:id="bookNameLabel" text="โฮริมิยะ สาวมั่นกับนายมืดมน">
                <font>
                   <Font name="JasmineUPC" size="24.0" />
                </font>
@@ -50,7 +50,7 @@
                   <Insets top="20.0" />
                </VBox.margin>
             </Label>
-            <Label fx:id="BookTypeLabel" text="หนังสือการ์ตูน">
+            <Label fx:id="bookTypeLabel" text="หนังสือการ์ตูน">
                <font>
                   <Font name="JasmineUPC" size="24.0" />
                </font>
@@ -66,7 +66,7 @@
                   <Insets top="20.0" />
                </VBox.margin>
             </Label>
-            <Label fx:id="BookPriceLabel" text="80.25  บาท">
+            <Label fx:id="bookPriceLabel" text="80.25  บาท">
                <font>
                   <Font name="JasmineUPC" size="24.0" />
                </font>
@@ -77,17 +77,17 @@
          </children>
       </VBox>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f3efef" height="76.0" layoutX="384.0" layoutY="104.0" stroke="#f3efef" strokeType="INSIDE" width="241.0" />
-      <Button fx:id="increaseButton" layoutX="394.0" layoutY="122.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="-">
+      <Button fx:id="increaseButton" layoutX="394.0" layoutY="122.0" mnemonicParsing="false" onAction="#handleIncreaseButton" prefHeight="40.0" prefWidth="40.0" text="-">
          <font>
             <Font name="JasmineUPC Bold" size="32.0" />
          </font>
       </Button>
-      <Button fx:id="decreaseButton" layoutX="557.0" layoutY="122.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="+">
+      <Button fx:id="decreaseButton" layoutX="557.0" layoutY="122.0" mnemonicParsing="false" onAction="#handleDecreaseButton" prefHeight="40.0" prefWidth="40.0" text="+">
          <font>
             <Font name="JasmineUPC Bold" size="32.0" />
          </font>
       </Button>
-      <Label fx:id="BookStockLabel" layoutX="487.0" layoutY="130.0" text="10" textAlignment="CENTER">
+      <Label fx:id="bookStockLabel" layoutX="487.0" layoutY="130.0" text="10" textAlignment="CENTER">
          <font>
             <Font name="JasmineUPC Bold" size="36.0" />
          </font>
@@ -97,5 +97,6 @@
             <Font name="JasmineUPC" size="18.0" />
          </font>
       </Button>
+      <Label fx:id="notificationForStock" layoutX="382.0" layoutY="185.0" textFill="#fc0606" />
    </children>
 </AnchorPane>
