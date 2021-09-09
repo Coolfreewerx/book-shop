@@ -20,10 +20,7 @@ import java.util.ResourceBundle;
 
 public class HomeController implements Initializable {
 
-    @FXML private HBox head;
-    @FXML private GridPane gridHead;
     @FXML private GridPane grid;
-    @FXML private AnchorPane pane;
     @FXML private Label bookNameLabel;
     @FXML private Label bookPriceLabel;
     @FXML private Label bookShopLabel;
@@ -32,14 +29,6 @@ public class HomeController implements Initializable {
     private ArrayList<Book> books = data.readData();
 
         public void initialize (URL location, ResourceBundle resource){
-            try {
-                FXMLLoader fxmlLoaderHead = new FXMLLoader();
-                fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/headWhenLogin.fxml"));
-                gridHead.add(fxmlLoaderHead.load(), 0, 0);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
             int column = 1;
             int row = 1;
             try {

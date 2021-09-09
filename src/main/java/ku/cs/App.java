@@ -36,11 +36,10 @@ public class App extends Application
         FXRouter.when("sellerStock", packageStr + "sellerStock.fxml");
         FXRouter.when("applyToBeASeller", packageStr + "applyToBeASeller.fxml");
         FXRouter.when("item",packageStr + "item.fxml");
-        FXRouter.when("headWhenLogin",packageStr + "headWhenLogin.fxml");
-        FXRouter.when("headNoLogin",packageStr + "headNoLogin.fxml");
         FXRouter.when("detailUser",packageStr + "editPasswordDetail.fxml");
         FXRouter.when("aboutUs",packageStr + "aboutUs.fxml");
-        FXRouter.when("information",packageStr + "aboutUsInformation.fxml");
+        FXRouter.when("aboutUsInformation",packageStr + "aboutUsInformation.fxml");
+        FXRouter.when("editInformation",packageStr + "information.fxml");
     }
 
     public static void setRoot(String fxml) throws IOException {
