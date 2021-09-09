@@ -1,14 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="ku.cs.shop.controllers.scene.AddImageController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="450.0" prefWidth="400.0" style="-fx-background-color: FFFCF1;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.scene.AddImageController">
+   <children>
+      <Text fill="#828282" layoutX="79.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paste Your Image Here">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <VBox layoutX="61.0" layoutY="26.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="400.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="useImageButton" mnemonicParsing="false" onAction="#handleUseButton" prefHeight="50.0" prefWidth="350.0" style="-fx-background-color: c9ad88; -fx-background-radius: 0;" text="ใช้รูปภาพนี้" textFill="WHITE">
+                     <font>
+                        <Font name="JasmineUPC" size="24.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#handleCancelButton" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: c9ad88; -fx-background-radius: 0;" text="X" textFill="WHITE">
+                     <font>
+                        <Font name="Symbol" size="24.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
 </AnchorPane>
