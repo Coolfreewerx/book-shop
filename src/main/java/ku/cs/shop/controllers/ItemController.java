@@ -36,8 +36,7 @@ public class ItemController {
 
     public void changeData() {
         bookNameLabel.setText(book.getBookName());
-        bookPriceLabel.setText(book.getBookPrice() + "");
-        bookShopLabel.setText(book.getBookShop());
+        bookPriceLabel.setText(book.getBookPrice() + "" + "Bahts.");
 
         img.setImage(new Image(book.getPicturePath()));
     }

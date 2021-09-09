@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import ku.cs.shop.models.Book;
+import ku.cs.shop.services.BookDetailDataSource;
 
 import java.io.IOException;
 import java.util.ArrayList;
