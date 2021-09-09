@@ -1,4 +1,4 @@
-package ku.cs.shop.controllers.sence;
+package ku.cs.shop.controllers.scene;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

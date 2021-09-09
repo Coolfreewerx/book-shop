@@ -12,8 +12,8 @@ module ku.cs {
     opens ku.cs.shop.services to javafx.fxml;
     exports ku.cs.shop.controllers.seller;
     opens ku.cs.shop.controllers.seller to javafx.fxml;
-    exports ku.cs.shop.controllers.sence;
-    opens ku.cs.shop.controllers.sence to javafx.fxml;
+    exports ku.cs.shop.controllers.scene;
+    opens ku.cs.shop.controllers.scene to javafx.fxml;
     exports ku.cs.shop.controllers.system;
     opens ku.cs.shop.controllers.system to javafx.fxml;
     exports ku.cs.shop.controllers.user;
