@@ -1,4 +1,4 @@
-package ku.cs.shop.controllers;
+package ku.cs.shop.controllers.system;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

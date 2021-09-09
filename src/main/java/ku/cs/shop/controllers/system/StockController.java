@@ -1,16 +1,10 @@
-package ku.cs.shop.controllers;
+package ku.cs.shop.controllers.system;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import ku.cs.shop.models.Book;
-import ku.cs.shop.controllers.SellerController;
-
-import java.util.ArrayList;
 
 public class StockController {
     @FXML

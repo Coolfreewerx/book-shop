@@ -1,4 +1,4 @@
-package ku.cs.shop.controllers;
+package ku.cs.shop.controllers.user;
 
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;

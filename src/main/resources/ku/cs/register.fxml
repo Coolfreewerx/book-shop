@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.RegisterController">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.user.RegisterController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c9ad88" height="768.0" stroke="BLACK" strokeType="INSIDE" width="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#fcfcfc" height="625.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="378.0" AnchorPane.leftAnchor="324.0" AnchorPane.topAnchor="55.0" />

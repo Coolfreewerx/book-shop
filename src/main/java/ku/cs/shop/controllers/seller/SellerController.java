@@ -1,4 +1,4 @@
-package ku.cs.shop.controllers;
+package ku.cs.shop.controllers.seller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +9,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import ku.cs.shop.controllers.system.StockController;
+import ku.cs.shop.controllers.system.HeadController;
 import ku.cs.shop.models.Book;
 import ku.cs.shop.services.BookDetailDataSource;
 

@@ -1,4 +1,4 @@
-package ku.cs.shop.controllers;
+package ku.cs.shop.controllers.system;
 
 import com.github.saacsos.FXRouter;
 import javafx.event.ActionEvent;
@@ -6,10 +6,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import ku.cs.shop.controllers.system.ItemController;
 import ku.cs.shop.models.Book;
 import ku.cs.shop.services.BookDetailDataSource;
 

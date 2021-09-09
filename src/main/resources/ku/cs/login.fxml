@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: BC986A;" stylesheets="@style/PrimaryTheme.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.LoginController">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: BC986A;" stylesheets="@style/PrimaryTheme.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.user.LoginController">
    <children>
       <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#fffae9" height="338.0" layoutX="-7.0" layoutY="430.0" stroke="#fffae9" strokeType="INSIDE" width="1050.0" />
       <QuadCurve controlX="54.26666259765625" controlY="-129.99998474121094" endX="155.13330078125" endY="-6.66668701171875" fill="#fffae9" layoutX="62.0" layoutY="448.0" startX="-83.80001831054688" startY="-16.26666259765625" stroke="#fffae9" strokeType="INSIDE" />
