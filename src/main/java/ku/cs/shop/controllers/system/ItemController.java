@@ -15,7 +15,6 @@ public class ItemController {
 
     @FXML private Label bookNameLabel;
     @FXML private Label bookPriceLabel;
-    @FXML private Label bookShopLabel;
     @FXML private ImageView img;
 
     @FXML
@@ -34,7 +33,7 @@ public class ItemController {
 
     public void changeData() {
         bookNameLabel.setText(book.getBookName());
-        bookPriceLabel.setText(book.getBookPrice() + "" + "Bahts.");
+        bookPriceLabel.setText(String.format("%.02f",book.getBookPrice()) + " Bahts.");
 
         img.setImage(new Image(book.getPicturePath()));
     }

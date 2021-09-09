@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
@@ -20,9 +21,6 @@ import java.util.ResourceBundle;
 public class HomeController implements Initializable {
 
     @FXML private GridPane grid;
-    @FXML private Label bookNameLabel;
-    @FXML private Label bookPriceLabel;
-    @FXML private Label bookShopLabel;
 
     private BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
     private ArrayList<Book> books = data.readData();
@@ -47,6 +45,9 @@ public class HomeController implements Initializable {
                     grid.setMinHeight(Region.USE_COMPUTED_SIZE);
                     grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
                     grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
+                    grid.setHgap(10);
+                    grid.setVgap(10);
+                    grid.setPadding(new Insets(10, 10, 10, 10));
                 }
 
             } catch (IOException e) {
