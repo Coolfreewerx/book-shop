@@ -1,10 +1,7 @@
-package ku.cs.shop.controllers;
+package ku.cs.shop.controllers.scene;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.GridPane;
-
-import java.io.IOException;
 
 public class AboutUsChoiceController {
 

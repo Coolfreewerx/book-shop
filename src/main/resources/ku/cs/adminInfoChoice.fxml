@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="651.0" prefWidth="940.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.AdminInfoChoiceController">
+<AnchorPane prefHeight="651.0" prefWidth="940.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.scene.AdminInfoChoiceController">
     <children>
       <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>

@@ -1,4 +1,4 @@
-package ku.cs.shop.controllers;
+package ku.cs.shop.controllers.system;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -6,10 +6,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import ku.cs.shop.models.Book;
-import ku.cs.shop.controllers.HomeController;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class ItemController {
 
@@ -36,8 +34,7 @@ public class ItemController {
 
     public void changeData() {
         bookNameLabel.setText(book.getBookName());
-        bookPriceLabel.setText(book.getBookPrice() + "");
-        bookShopLabel.setText(book.getBookShop());
+        bookPriceLabel.setText(book.getBookPrice() + "" + "Bahts.");
 
         img.setImage(new Image(book.getPicturePath()));
     }

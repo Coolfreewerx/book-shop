@@ -1,4 +1,4 @@
-package ku.cs.shop.controllers;
+package ku.cs.shop.services;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

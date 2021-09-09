@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="200.0" prefWidth="702.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.BasketItemController">
+<AnchorPane prefHeight="200.0" prefWidth="702.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.BasketItemController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f7f7f7" height="44.0" layoutX="376.0" layoutY="65.0" stroke="WHITE" strokeType="INSIDE" width="223.0" />
       <ImageView fitHeight="149.0" fitWidth="115.0" layoutX="37.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">

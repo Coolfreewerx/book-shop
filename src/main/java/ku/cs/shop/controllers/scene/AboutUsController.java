@@ -1,12 +1,9 @@
-package ku.cs.shop.controllers;
+package ku.cs.shop.controllers.scene;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Region;
 
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package ku.cs.shop.controllers;
+package ku.cs.shop.controllers.seller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
