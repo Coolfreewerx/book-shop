@@ -1,7 +1,10 @@
 package ku.cs.shop.models;
 
+import com.opencsv.CSVReader;
+
 import java.io.*;
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 public class User {
@@ -14,6 +17,7 @@ public class User {
     private String birthMonth ;
     private String birthYear ;
     private boolean passwordCheck = false, passwordCondition = false, dataCheck = false, userNameCheck = false ;
+    private String filename;
 
     //เก็บค่าเริ่มต้น
     public User(){}
@@ -25,6 +29,9 @@ public class User {
         this.birthDay = birthDay ;
         this.birthMonth = birthMonth ;
         this.birthYear = birthYear ;
+    }
+    public User(String filename){
+        this.filename = filename;
     }
 
     public String getFirstName() {
@@ -187,5 +194,33 @@ public class User {
             e.printStackTrace();
         }
         return false;
+    }
+
+    public ArrayList<User> readData(){ //อ่านข้อมูลใน user
+        ArrayList<User> usersList = new ArrayList<>();
+
+        try{
+            FileReader file = new FileReader(filename);
+            CSVReader reader = new CSVReader(file);
+            String[] data = null;
+
+            while ((data = reader.readNext()) != null){
+                String userNameInArrayList = data[0].trim();
+                String firstNameInArrayList = data[1].trim();
+                String lastNameInArrayList = data[2].trim();
+                String passwordInArrayList = data[3].trim();
+                String birthDayInArrayList = data[4].trim();
+                String birthMonthInArrayList = data[5].trim();
+                String birthYearInArrayList = data[6].trim();
+
+                User detailUser = new User(userNameInArrayList, firstNameInArrayList, lastNameInArrayList, passwordInArrayList, birthDayInArrayList, birthMonthInArrayList, birthYearInArrayList);
+                usersList.add(detailUser);
+            }
+        } catch (FileNotFoundException e) {
+            System.err.println("Cannot read information in file " + filename);
+        } catch (IOException e) {
+            System.err.println("Error reading from file");
+        }
+        return usersList;
     }
 }

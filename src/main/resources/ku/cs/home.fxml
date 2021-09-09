@@ -62,7 +62,7 @@
                         <Insets left="80.0" top="20.0" />
                      </HBox.margin>
                   </Label>
-                  <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="157.0" style="-fx-background-color: F99F28;">
+                  <Button mnemonicParsing="false" onAction="#handleToInformationButton" prefHeight="37.0" prefWidth="157.0" style="-fx-background-color: F99F28;">
                      <font>
                         <Font size="15.0" />
                      </font>
