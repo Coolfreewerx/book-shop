@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="250.0" prefWidth="420.0" styleClass="backgroundColor3" stylesheets="@style/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.BasketController">
+   <children>
+      <Label layoutX="138.0" layoutY="37.0" styleClass="font_rsu_12pt" stylesheets="@style/PrimaryTheme.css" text="เพิ่มหนังสือลงตะกร้าแล้ว" />
+      <Button layoutX="52.0" layoutY="77.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="315.0" style="-fx-background-radius: 10;" text="เลือกซื้อหนังสือเล่มอื่นต่อ">
+         <stylesheets>
+            <URL value="@style/PrimaryTheme.css" />
+            <URL value="@style/style.css" />
+         </stylesheets>
+         <styleClass>
+            <String fx:value="font_rsu_18pt" />
+            <String fx:value="font_rsu_16pt" />
+            <String fx:value="backgroundColorButton" />
+         </styleClass>
+      </Button>
+      <Button layoutX="52.0" layoutY="149.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="315.0" style="-fx-background-radius: 10;" text="ชำระเงิน">
+         <stylesheets>
+            <URL value="@style/PrimaryTheme.css" />
+            <URL value="@style/style.css" />
+         </stylesheets>
+         <styleClass>
+            <String fx:value="font_rsu_18pt" />
+            <String fx:value="font_rsu_16pt" />
+            <String fx:value="backgroundColorButton" />
+         </styleClass>
+      </Button>
+   </children>
+</AnchorPane>
