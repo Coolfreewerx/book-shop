@@ -16,8 +16,9 @@ public class User {
     private String birthDay ;
     private String birthMonth ;
     private String birthYear ;
-    private boolean passwordCheck = false, passwordCondition = false, dataCheck = false, userNameCheck = false ;
     private String filename;
+    private static String userLogin ;
+    private boolean passwordCheck = false, passwordCondition = false, dataCheck = false, userNameCheck = false ;
 
     //เก็บค่าเริ่มต้น
     public User(){}
@@ -59,6 +60,10 @@ public class User {
     public boolean getPasswordCheck() { return passwordCheck; }
     public boolean getDataCheck() {return dataCheck; }
     public boolean getUserNameCheck() {return userNameCheck; }
+
+    public static String getUserLogin() {
+        return userLogin;
+    }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -184,6 +189,7 @@ public class User {
                 String[] arr = line.split(","); //อ่าน username
                 if (arr[0].equals(userName)) {
                     if (arr[3].equals(password)) {
+                        this.userLogin = userName ;
                         return true;
                     }
                 }
@@ -193,6 +199,7 @@ public class User {
         catch (IOException e){
             e.printStackTrace();
         }
+
         return false;
     }
 
