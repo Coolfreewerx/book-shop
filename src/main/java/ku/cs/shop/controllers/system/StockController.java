@@ -29,17 +29,22 @@ public class StockController {
         bookPriceLabel.setText(book.getBookPrice() + "");
         bookTypeLabel.setText(book.getBookType());
         bookStockLabel.setText(book.getBookStock() + "");
-        if (book.getBookStock() <= 5){
+        if (book.getBookStock() <= book.getLeastStock()){
             notificationForStock.setText("** มีสินค้าจำนวนน้อยในคลัง ** ");
+        }
+        else{
+            notificationForStock.setText("");
         }
         bookImageView.setImage(new Image(book.getPicturePath()));
     }
 
-    public void handleIncreaseButton(ActionEvent actionEvent){
+    @FXML public void handleIncreaseButton(ActionEvent actionEvent){
         book.increaseStock();
+        changeData();
     }
-    public void handleDecreaseButton(ActionEvent actionEvent){
+    @FXML public void handleDecreaseButton(ActionEvent actionEvent){
         book.decreaseStock();
+        changeData();
     }
 
 }

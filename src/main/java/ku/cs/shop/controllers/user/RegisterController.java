@@ -7,7 +7,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+import ku.cs.shop.controllers.scene.AddImageController;
 import ku.cs.shop.models.User ;
 
 import java.io.*;
@@ -29,6 +32,8 @@ public class RegisterController {
     @FXML private Label registerErrorLabel ;
     @FXML private Label passwordConditionCheckLabel ;
     @FXML private Label userNameCheckLabel ;
+    @FXML private ImageView image ;
+    @FXML private GridPane addImageGrid ;
 
     private ObservableList dayList = FXCollections.observableArrayList() ;
     private ObservableList monthList = FXCollections.observableArrayList() ;
@@ -38,6 +43,27 @@ public class RegisterController {
     public void initialize () {
         lodeYearData();
     }
+
+    @FXML
+    public void handleAddImageButton (ActionEvent actionEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader() ;
+            fxmlLoader.setLocation(getClass().getResource("/ku/cs/addImage.fxml"));
+            addImageGrid.add(fxmlLoader.load(), 0, 0) ;
+            AddImageController addImageController = fxmlLoader.getController() ;
+            addImageController.setRegisterController(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void handleUseButton () {
+        addImageGrid.getChildren().remove(0) ;
+    }
+    public void handleCancelButton () {
+        addImageGrid.getChildren().remove(0) ;
+    }
+
     @FXML //ทำงานเมื่อกรอก username
     public void handleKeyUserName() {
         userNameCheckLabel.setText(user.checkUserNameCondition(userNameTextField.getText()));

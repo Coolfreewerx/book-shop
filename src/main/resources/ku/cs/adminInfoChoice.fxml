@@ -227,10 +227,10 @@
                       </GridPane>
                   </children>
               </HBox>
-            <Pane maxHeight="30.0" minHeight="30.0" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+            <Pane maxHeight="6.0" minHeight="6.0" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
             <Pane maxHeight="371.0" minHeight="371.0" prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <GridPane fx:id="gridInfo" prefHeight="0.0" prefWidth="748.0">
+                  <GridPane fx:id="gridInfo" alignment="CENTER" prefHeight="6.0" prefWidth="0.0">
                     <rowConstraints>
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>

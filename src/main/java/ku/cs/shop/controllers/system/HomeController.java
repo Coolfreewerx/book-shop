@@ -11,6 +11,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import ku.cs.shop.controllers.system.ItemController;
+import ku.cs.shop.controllers.user.DetailUser;
 import ku.cs.shop.models.Book;
 import ku.cs.shop.services.BookDetailDataSource;
 
@@ -83,6 +84,16 @@ public class HomeController implements Initializable {
     public void handleAllTypeBookButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า หนังสือทั้งหมด (เพจหลัก)
         try {
             FXRouter.goTo("home");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้าเพจหลักไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
+    public void handleToInformationButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า หนังสือทั้งหมด (เพจหลัก)
+        try {
+            FXRouter.goTo("editPasswordDetail");
         } catch (IOException e) {
             System.err.println("ไปที่หน้าเพจหลักไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");

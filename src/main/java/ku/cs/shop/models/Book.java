@@ -22,7 +22,9 @@ public class Book {
     //เก็บค่าเริ่มต้น
     public Book() {}
 
-    public Book(String bookName, String bookShop, String bookAuthor, String bookISBN, String bookType, String bookDetail, String bookPublisher, String bookStatus, String bookImg, int bookStock, String bookPage, int leastStock, double bookPrice) {
+    public Book(String bookName, String bookShop, String bookAuthor, String bookISBN, String bookType,
+                String bookDetail, String bookPublisher, String bookStatus, String bookImg,
+                int bookStock, String bookPage, int leastStock, double bookPrice) {
         this.bookName = bookName;
         this.bookShop = bookShop;
         this.bookAuthor = bookAuthor;
@@ -37,6 +39,7 @@ public class Book {
         this.leastStock = leastStock;
         this.bookPrice = bookPrice;
     }
+
 
     public Book(String bookName, double bookPrice, String bookShop) {
         this.bookName = bookName;
@@ -103,6 +106,15 @@ public class Book {
 
     // decrease method
     public void decreaseStock () { setBookStock(this.bookStock - 1); }
+
+    public String toCsv(){
+        String result = "";
+        result = bookName + "," + bookShop+ "," + bookAuthor + "," + bookISBN+ "," + bookType +
+                "," + bookDetail + "," + bookPublisher+ "," + bookStatus+ "," + bookImg +
+                "," + bookStock+ "," + bookPage+ "," + leastStock+ "," + bookPrice + "\n" ;
+        return result;
+    }
+
 
 
 
