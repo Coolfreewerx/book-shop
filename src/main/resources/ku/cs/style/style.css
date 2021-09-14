@@ -1,15 +1,21 @@
 .backgroundColor1{
     -fx-background-color: linear-gradient(#FFE4C4,#FFEFD5);
 }
-.backgroundColor2{
-    -fx-background-color: linear-gradient(#FFFAF0,#FFFAF0);
+.backgroundColorAndBorderColor{
+    -fx-background-color: #FFFAF0;
+    -fx-border-color:  #1d3557;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
 }
 .borderColor{
-    -fx-border-color: linear-gradient(#1d3557, #1d3557);
+    -fx-border-color: #1d3557;
 }
 .backgroundColorButton{
-    -fx-background-color: linear-gradient(#C9AD88, #C9AD88);
+    -fx-background-color: #C9AD88;
+}
+.backgroundColor2{
+    -fx-background-color: linear-gradient(#FEEBD3, #FFF1DE);
 }
 .backgroundColor3{
-    -fx-background-color: linear-gradient(#FEEBD3, #FFF1DE);
+    -fx-background-color: linear-gradient(#FFF1DE, #FFFFFF);
 }
