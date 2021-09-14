@@ -181,7 +181,7 @@
                         <Insets bottom="10.0" left="20.0" top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <ScrollPane fx:id="scoll" prefHeight="664.0" prefWidth="698.0" style="-fx-background-color: ffffff;" VBox.vgrow="ALWAYS">
+                  <ScrollPane fx:id="scoll" prefHeight="500.0" prefWidth="698.0" style="-fx-background-color: fffff;" VBox.vgrow="ALWAYS">
                      <content>
                         <GridPane fx:id="grid">
                           <columnConstraints>
@@ -193,6 +193,26 @@
                         </GridPane>
                      </content>
                   </ScrollPane>
+                  <HBox prefHeight="81.0" prefWidth="698.0">
+                     <children>
+                        <Button fx:id="orderListButtonn" mnemonicParsing="false" onAction="#handleOrderListButton" prefHeight="45.0" prefWidth="150.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="รายการสั่งซื้อ" textFill="WHITE">
+                           <font>
+                              <Font name="JasmineUPC" size="28.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="360.0" top="15.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="addStockButton" mnemonicParsing="false" onAction="#handleAddStockButton" prefHeight="45.0" prefWidth="150.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="เพิ่มสินค้า" textFill="WHITE">
+                           <font>
+                              <Font name="JasmineUPC" size="28.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" top="15.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
                </children>
             </VBox>
          </center>

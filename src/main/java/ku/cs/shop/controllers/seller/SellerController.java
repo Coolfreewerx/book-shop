@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
@@ -26,6 +27,8 @@ public class SellerController implements Initializable {
     @FXML private Label userNameLabel;
     @FXML private ScrollPane scoll;
     @FXML private GridPane grid;
+    @FXML private Button orderListButtonn;
+    @FXML private Button addStockButton;
     @FXML void handleAllTypeBookButton(ActionEvent event) { }
     @FXML void handleCartoonBookButton(ActionEvent event) { }
     @FXML void handleMagazineButton(ActionEvent event) { }
@@ -66,6 +69,26 @@ public class SellerController implements Initializable {
 
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void handleAddStockButton(){
+        try {
+            com.github.saacsos.FXRouter.goTo("seller");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า sellerStock ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
+    public void handleOrderListButton(){
+        try {
+            com.github.saacsos.FXRouter.goTo("seller");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า sellerStock ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
 
