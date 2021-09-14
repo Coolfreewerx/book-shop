@@ -1,20 +1,21 @@
 package ku.cs.shop.controllers.user;
 
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
+import javafx.scene.effect.ImageInput;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
-import ku.cs.shop.controllers.scene.AddImageController;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import ku.cs.shop.models.User ;
 
 import java.io.*;
-import java.util.ArrayList;
 
 public class RegisterController {
 
@@ -32,8 +33,8 @@ public class RegisterController {
     @FXML private Label registerErrorLabel ;
     @FXML private Label passwordConditionCheckLabel ;
     @FXML private Label userNameCheckLabel ;
-    @FXML private ImageView image ;
-    @FXML private GridPane addImageGrid ;
+    @FXML private ImageView imageView ;
+    @FXML private AnchorPane registerAnchorPane ;
 
     private ObservableList dayList = FXCollections.observableArrayList() ;
     private ObservableList monthList = FXCollections.observableArrayList() ;
@@ -46,22 +47,15 @@ public class RegisterController {
 
     @FXML
     public void handleAddImageButton (ActionEvent actionEvent) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader() ;
-            fxmlLoader.setLocation(getClass().getResource("/ku/cs/addImage.fxml"));
-            addImageGrid.add(fxmlLoader.load(), 0, 0) ;
-            AddImageController addImageController = fxmlLoader.getController() ;
-            addImageController.setRegisterController(this);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select Profile Picture");
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files", "*.png", "*jpg"));
+        File file = fileChooser.showOpenDialog(null);
 
-    public void handleUseButton () {
-        addImageGrid.getChildren().remove(0) ;
-    }
-    public void handleCancelButton () {
-        addImageGrid.getChildren().remove(0) ;
+        if (file != null) {
+            Image image = new Image(file.toURI().toString());
+            imageView.setImage(image);
+        }
     }
 
     @FXML //ทำงานเมื่อกรอก username

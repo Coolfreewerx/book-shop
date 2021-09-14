@@ -5,7 +5,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import ku.cs.shop.controllers.scene.AddImageController;
 import ku.cs.shop.models.Seller;
 
 
