@@ -2,14 +2,12 @@ package ku.cs.shop.controllers.seller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
-import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.paint.Color;
 import ku.cs.shop.controllers.scene.AddImageController;
 import ku.cs.shop.models.Seller;
+
 
 import java.io.IOException;
 
@@ -50,31 +48,51 @@ public class ApplySellerController {
     @FXML private Label NotificationBookPage;
     @FXML private Label NotificationBookStock;
     @FXML private Label NotificationLeastStock;
-    public void handleAddBookButton(){
+    @FXML private Label NotificationCantAdd;
+
+    @FXML
+    public void handleAddBookButton(ActionEvent actionEvent){
         bookName = bookNameTextField.getText();
         bookAuthor = bookAuthorTextField.getText();
         bookISBN = bookISBNTextField.getText();
         NotificationBookISBN.setText(seller.checkBookISBNCorrect(bookISBN));
-        if(!seller.isBookISBNCorrect(bookISBN)){ bookISBN = null; }
+        if(!seller.isBookISBNCorrect(bookISBN)){ bookISBN = ""; }
         bookType = bookTypeTextField.getText();
         bookPage = bookPageTextField.getText();
         NotificationBookPage.setText(seller.checkNumber(bookPage));
-        if(! seller.isNumber(bookPage)){bookPage = null;}
+        if(! seller.isNumber(bookPage)){bookPage = "";}
         bookDetail = bookDetailTextArea.getText();
         bookPublisher = bookPublisherTextField.getText();
         bookStock = bookStockTextField.getText();
         NotificationBookStock.setText(seller.checkNumber(bookStock));
-        if(! seller.isNumber(bookStock)){bookStock = null;}
+        if(! seller.isNumber(bookStock)){bookStock = "";}
         leastStock = leastStockTextField.getText();
         NotificationLeastStock.setText(seller.checkNumber(bookStock));
-        if(!seller.isNumber(bookStock)){leastStock = null;}
+        if(!seller.isNumber(bookStock)){leastStock = "";}
         bookStatus = bookStatusTextField.getText();
         bookPrice = bookPriceTextField.getText();
 
-//        if (!(seller.getDataCheck(bookName,"Temporary",bookAuthor,bookISBN,bookType,bookDetail,bookPublisher,bookStatus,"Just test", bookStock,bookPage,leastStock,bookPrice))) {
-//            return;
+//        try {
+//            com.github.saacsos.FXRouter.goTo("sellerStock");
+//        } catch (IOException e) {
+//            System.err.println("ไปที่หน้า sellerStock ไม่ได้");
+//            System.err.println("ให้ตรวจสอบการกำหนด route");
 //        }
-//        else
+
+        if (seller.getDataCheck(bookName,"Temporary",bookAuthor,bookISBN,bookType,bookDetail,bookPublisher,bookStatus,"Just test", bookStock,bookPage,leastStock,bookPrice)) {
+            seller.writeSeller(bookName,"Temporary",bookAuthor,bookISBN,bookType,bookDetail,bookPublisher,bookStatus,"Just test", bookStock,bookPage,leastStock,bookPrice);
+            NotificationCantAdd.setText("Can Add merchandise");
+
+            try {
+                com.github.saacsos.FXRouter.goTo("sellerStock");
+            } catch (IOException e) {
+                System.err.println("ไปที่หน้า sellerStock ไม่ได้");
+                System.err.println("ให้ตรวจสอบการกำหนด route");
+            }
+        }
+        else{
+            NotificationCantAdd.setText("Cant Add merchandise");
+        }
 
     }
 

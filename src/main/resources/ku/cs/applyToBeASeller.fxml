@@ -34,12 +34,12 @@
                   </ImageView>
                   <MenuButton mnemonicParsing="false" prefHeight="35.0" prefWidth="134.0" style="-fx-background-color: #c9ad88;" text="ประเภท" textFill="WHITE">
                      <items>
-                        <MenuItem mnemonicParsing="false" onAction="#handleCartoonBookButton" text="หนังสือการ์ตูน" />
-                        <MenuItem mnemonicParsing="false" onAction="#handleMagazineButton" text="นิตยสาร" />
-                        <MenuItem mnemonicParsing="false" onAction="#handleMagazineButton" text="นิยาย" />
-                        <MenuItem mnemonicParsing="false" onAction="#handleCartoonBookButton" text="หนังสือเรียน" />
-                        <MenuItem mnemonicParsing="false" onAction="#handleCartoonBookButton" text="e-book" />
-                        <MenuItem mnemonicParsing="false" onAction="#handleAllTypeBookButton" text="ทั้งหมด" />
+<!--                        <MenuItem mnemonicParsing="false" onAction="#handleCartoonBookButton" text="หนังสือการ์ตูน" />-->
+<!--                        <MenuItem mnemonicParsing="false" onAction="#handleMagazineButton" text="นิตยสาร" />-->
+<!--                        <MenuItem mnemonicParsing="false" onAction="#handleMagazineButton" text="นิยาย" />-->
+<!--                        <MenuItem mnemonicParsing="false" onAction="#handleCartoonBookButton" text="หนังสือเรียน" />-->
+<!--                        <MenuItem mnemonicParsing="false" onAction="#handleCartoonBookButton" text="e-book" />-->
+<!--                        <MenuItem mnemonicParsing="false" onAction="#handleAllTypeBookButton" text="ทั้งหมด" />-->
                      </items>
                      <font>
                         <Font name="JasmineUPC" size="25.0" />
