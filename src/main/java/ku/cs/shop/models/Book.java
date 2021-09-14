@@ -98,8 +98,6 @@ public class Book {
                 + bookImg).toURI().toString();
     }
 
-
-
     // increase method
     public void increaseStock () { setBookStock(this.bookStock + 1); }
 

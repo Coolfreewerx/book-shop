@@ -28,8 +28,34 @@
     -fx-font-size : 18pt;
 }
 
+.font_rsu_16pt {
+    -fx-font-family: 'RSU_Regular';
+    -fx-font-size: 16pt;
+}
+
 .font_jasmine_16pt {
     -fx-font-family: 'JasmineUPC';
     -fx-font-size: 16pt;
 }
+
+.bevel-grey {
+    -fx-color-one: #B78748;
+    -fx-color-two: #B78748;
+    -fx-color-three: #B78748;
+    -fx-background-radius: 20;
+    -fx-background-color:
+            linear-gradient(#fcfcfc 0%, -fx-color-two 20%, -fx-color-one 100%),
+            linear-gradient(#dddddd 0%, -fx-color-three 50%);
+    -fx-background-radius: 8, 7, 6;
+    -fx-background-insets: 0, 1, 2;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
+}
+
+.bevel-grey:hover {
+    -fx-color-one: rgba(149, 138, 132, 0.88);
+    -fx-color-two: rgba(149, 138, 132, 0.88);
+    -fx-color-three: rgba(149, 138, 132, 0.88);
+}
+
 

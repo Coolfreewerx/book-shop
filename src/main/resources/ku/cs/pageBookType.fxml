@@ -18,7 +18,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.PageBookType">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.TypeBookController">
    <children>
       <BorderPane layoutY="52.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -26,94 +26,92 @@
                <children>
                   <HBox prefHeight="69.0" prefWidth="1024.0">
                      <children>
-                        <ImageView fitHeight="68.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@image/javapai.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <MenuButton mnemonicParsing="false" prefHeight="35.0" prefWidth="134.0" style="-fx-background-color: #c9ad88;" text="ประเภท" textFill="WHITE">
-                           <items>
-                              <MenuItem mnemonicParsing="false" onAction="#handleCartoonBookButton" text="หนังสือการ์ตูน" />
-                              <MenuItem mnemonicParsing="false" onAction="#handleMagazineButton" text="นิตยสาร" />
-                              <MenuItem mnemonicParsing="false" onAction="#handleMagazineButton" text="นิยาย" />
-                              <MenuItem mnemonicParsing="false" onAction="#handleCartoonBookButton" text="หนังสือเรียน" />
-                              <MenuItem mnemonicParsing="false" onAction="#handleCartoonBookButton" text="e-book" />
-                              <MenuItem mnemonicParsing="false" onAction="#handleAllTypeBookButton" text="ทั้งหมด" />
-                           </items>
-                           <font>
-                              <Font name="JasmineUPC" size="25.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="40.0" top="15.0" />
-                           </HBox.margin>
-                        </MenuButton>
-                        <Label prefHeight="27.0" prefWidth="75.0" text="ขายดี" textAlignment="CENTER" textFill="#bc986a">
-                           <font>
-                              <Font name="JasmineUPC" size="36.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="80.0" top="20.0" />
-                           </HBox.margin>
-                        </Label>
-                        <Label prefHeight="27.0" prefWidth="87.0" text="แนะนำ" textAlignment="CENTER" textFill="#bc986a">
-                           <font>
-                              <Font name="JasmineUPC" size="36.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="80.0" top="20.0" />
-                           </HBox.margin>
-                        </Label>
-                        <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="157.0" style="-fx-background-color: F99F28;">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                           <graphic>
-                              <Label fx:id="userNameLabel" prefHeight="27.0" prefWidth="100.0" stylesheets="@style/PrimaryTheme.css" text="Username" textFill="WHITE" wrapText="true">
+                        <HBox fx:id="head" prefHeight="69.0" prefWidth="1024.0">
+                           <children>
+                              <ImageView fitHeight="68.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@image/javapai.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <MenuButton mnemonicParsing="false" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: #c9ad88; -fx-background-radius: 20;" text="ประเภท" textFill="WHITE">
+                                 <items>
+                                    <MenuItem fx:id="MenuItemCartoon" mnemonicParsing="false" onAction="#handleTypeBookButton" text="หนังสือการ์ตูน" />
+                                    <MenuItem mnemonicParsing="false" onAction="#handleTypeBookButton" text="นิตยสาร" />
+                                    <MenuItem mnemonicParsing="false" onAction="#handleTypeBookButton" text="นิยาย" />
+                                    <MenuItem mnemonicParsing="false" onAction="#handleTypeBookButton" text="หนังสือเรียน" />
+                                    <MenuItem mnemonicParsing="false" onAction="#handleTypeBookButton" text="e-book" />
+                                 </items>
                                  <font>
-                                    <Font name="JasmineUPC" size="36.0" />
+                                    <Font name="JasmineUPC" size="25.0" />
                                  </font>
-                              </Label>
-                           </graphic>
-                           <HBox.margin>
-                              <Insets left="40.0" right="40.0" top="15.0" />
-                           </HBox.margin>
-                        </Button>
-                        <ImageView fitHeight="38.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@image/heart.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets top="15.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <ImageView fitHeight="38.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@image/basket.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets top="15.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <TextField prefHeight="36.0" prefWidth="159.0" promptText="ค้นหาข้อมูล" style="-fx-background-color: BC986A;">
-                           <font>
-                              <Font name="JasmineUPC" size="24.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets right="20.0" top="15.0" />
-                           </HBox.margin>
-                        </TextField>
+                                 <HBox.margin>
+                                    <Insets left="40.0" top="13.0" />
+                                 </HBox.margin>
+                              </MenuButton>
+                              <Button mnemonicParsing="false" onAction="#handleAllTypeBookButton" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #c9ad88; -fx-background-radius: 20;" text="หนังสือทั้งหมด" textFill="WHITE">
+                                 <font>
+                                    <Font name="JasmineUPC" size="25.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="30.0" right="-20.0" top="13.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="174.0" style="-fx-background-color: F99F28; -fx-background-radius: 20;">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                                 <graphic>
+                                    <Label fx:id="userNameLabel" prefHeight="27.0" prefWidth="100.0" style="-fx-background-radius: 20;" stylesheets="@style/PrimaryTheme.css" text="Username" textFill="WHITE" wrapText="true">
+                                       <font>
+                                          <Font name="JasmineUPC" size="36.0" />
+                                       </font>
+                                    </Label>
+                                 </graphic>
+                                 <HBox.margin>
+                                    <Insets left="55.0" right="40.0" top="13.0" />
+                                 </HBox.margin>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Button>
+                              <ImageView fitHeight="38.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@image/heart.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets top="15.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <ImageView fitHeight="38.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@image/basket.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets top="15.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <TextField prefHeight="36.0" prefWidth="248.0" promptText="ค้นหาข้อมูล" style="-fx-background-color: #e7e1e1; -fx-background-radius: 20;">
+                                 <font>
+                                    <Font name="JasmineUPC" size="24.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="20.0" top="15.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
                      </children></HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="1024.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="71.0" prefWidth="1024.0">
                      <children>
                         <Text fill="#a05e07" strokeType="OUTSIDE" strokeWidth="0.0" text="ประเภทของหนังสือ">
                            <HBox.margin>
-                              <Insets left="20.0" />
+                              <Insets left="20.0" top="20.0" />
                            </HBox.margin>
                            <font>
-                              <Font name="JasmineUPC" size="28.0" />
+                              <Font name="JasmineUPC" size="30.0" />
                            </font>
                         </Text>
                         <Text fill="#b09f9f" strokeType="OUTSIDE" strokeWidth="0.0" text="|">
@@ -121,18 +119,42 @@
                               <Font name="JasmineUPC Bold" size="36.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="5.0" />
+                              <Insets left="5.0" top="20.0" />
                            </HBox.margin>
                         </Text>
-                        <Label fx:id="bookTypeLabel" text="การ์ตูน" textFill="#b09f9f">
+                        <Label fx:id="bookTypeLabel" text="หนังสือการ์ตูน" textFill="#b09f9f">
                            <HBox.margin>
-                              <Insets left="5.0" />
+                              <Insets left="5.0" top="20.0" />
                            </HBox.margin>
                            <font>
                               <Font name="JasmineUPC" size="24.0" />
                            </font>
                         </Label>
+                        <HBox prefHeight="42.0" prefWidth="122.0" />
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
+                        <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="122.0" style="-fx-background-radius: 20;" text="ราคาน้อยไปมาก">
+                           <font>
+                              <Font name="JasmineUPC" size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="30.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="122.0" style="-fx-background-radius: 20;" text="ราคามากไปน้อย">
+                           <font>
+                              <Font name="JasmineUPC" size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </Button>
                      </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
                   </HBox>
                </children>
             </VBox>
@@ -140,9 +162,9 @@
          <center>
             <ScrollPane prefHeight="669.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="668.0" prefWidth="1024.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="643.0" prefWidth="1024.0">
                      <children>
-                        <GridPane prefHeight="0.0" prefWidth="0.0" AnchorPane.bottomAnchor="668.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1024.0" AnchorPane.topAnchor="0.0">
+                        <GridPane fx:id="gridBook" prefHeight="0.0" prefWidth="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <rowConstraints>
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
