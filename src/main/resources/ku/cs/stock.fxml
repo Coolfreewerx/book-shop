@@ -77,12 +77,12 @@
          </children>
       </VBox>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f3efef" height="76.0" layoutX="384.0" layoutY="104.0" stroke="#f3efef" strokeType="INSIDE" width="241.0" />
-      <Button fx:id="increaseButton" layoutX="394.0" layoutY="122.0" mnemonicParsing="false" onAction="#handleIncreaseButton" prefHeight="40.0" prefWidth="40.0" text="-">
+      <Button fx:id="decreaseButton" layoutX="394.0" layoutY="122.0" mnemonicParsing="false" onAction="#handleDecreaseButton" prefHeight="40.0" prefWidth="40.0" text="-">
          <font>
             <Font name="JasmineUPC Bold" size="32.0" />
          </font>
       </Button>
-      <Button fx:id="decreaseButton" layoutX="557.0" layoutY="122.0" mnemonicParsing="false" onAction="#handleDecreaseButton" prefHeight="40.0" prefWidth="40.0" text="+">
+      <Button fx:id="increaseButton" layoutX="557.0" layoutY="122.0" mnemonicParsing="false" onAction="#handleIncreaseButton" prefHeight="40.0" prefWidth="40.0" text="+">
          <font>
             <Font name="JasmineUPC Bold" size="32.0" />
          </font>
