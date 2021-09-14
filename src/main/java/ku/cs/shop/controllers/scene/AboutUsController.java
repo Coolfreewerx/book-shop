@@ -18,6 +18,7 @@ public class AboutUsController {
             gridHeadChoice.add(fxmlLoaderHead.load(), 0, 1);
         } catch (IOException e) {
             e.printStackTrace();
+            System.err.println("โหลด Choice กลุ่มผู้พัฒนาไม่ได้ ตรวจสอบ Path");
         }
     }
 
@@ -30,6 +31,7 @@ public class AboutUsController {
             gridHeadChoice.add(fxmlLoaderHead.load(), 0, 1);
         } catch (IOException e) {
             e.printStackTrace();
+            System.err.println("โหลด Choice กลุ่มผู้พัฒนาไม่ได้ ตรวจสอบ Path");
         }
     }
 
@@ -42,6 +44,17 @@ public class AboutUsController {
             gridHeadChoice.add(fxmlLoaderHead.load(), 0, 1);
         } catch (IOException e) {
             e.printStackTrace();
+            System.err.println("โหลด Choice ข้อมูลผู้พัฒนาไม่ได้ ตรวจสอบ Path");
+        }
+    }
+
+    @FXML
+    public  void handleBackToHome () {
+        try {
+            com.github.saacsos.FXRouter.goTo("login");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า login ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
 
