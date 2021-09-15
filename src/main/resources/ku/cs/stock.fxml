@@ -12,6 +12,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.StockController">
    <children>
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#fffcf1" height="250.0" stroke="WHITE" strokeType="INSIDE" width="700.0" />
       <VBox layoutX="22.0" layoutY="34.0" prefHeight="250.0" prefWidth="173.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="525.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fx:id="bookImageView" fitHeight="222.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true">
@@ -76,15 +77,15 @@
             </Label>
          </children>
       </VBox>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f3efef" height="76.0" layoutX="384.0" layoutY="104.0" stroke="#f3efef" strokeType="INSIDE" width="241.0" />
-      <Button fx:id="decreaseButton" layoutX="394.0" layoutY="122.0" mnemonicParsing="false" onAction="#handleDecreaseButton" prefHeight="40.0" prefWidth="40.0" text="-">
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#f3efef" height="76.0" layoutX="384.0" layoutY="104.0" stroke="#f3efef" strokeType="INSIDE" width="241.0" />
+      <Button fx:id="decreaseButton" layoutX="403.0" layoutY="117.0" mnemonicParsing="false" onAction="#handleDecreaseButton" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #f3efef;" text="-">
          <font>
-            <Font name="JasmineUPC Bold" size="32.0" />
+            <Font name="JasmineUPC Bold" size="36.0" />
          </font>
       </Button>
-      <Button fx:id="increaseButton" layoutX="557.0" layoutY="122.0" mnemonicParsing="false" onAction="#handleIncreaseButton" prefHeight="40.0" prefWidth="40.0" text="+">
+      <Button fx:id="increaseButton" layoutX="545.0" layoutY="116.0" mnemonicParsing="false" onAction="#handleIncreaseButton" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #f3efef;" text="+">
          <font>
-            <Font name="JasmineUPC Bold" size="32.0" />
+            <Font name="JasmineUPC Bold" size="36.0" />
          </font>
       </Button>
       <Label fx:id="bookStockLabel" layoutX="487.0" layoutY="130.0" text="10" textAlignment="CENTER">
@@ -92,7 +93,7 @@
             <Font name="JasmineUPC Bold" size="36.0" />
          </font>
       </Label>
-      <Button layoutX="573.0" layoutY="194.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="102.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="แก้ไขข้อมูล" textFill="WHITE">
+      <Button layoutX="560.0" layoutY="194.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="102.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="แก้ไขข้อมูล" textFill="WHITE">
          <font>
             <Font name="JasmineUPC" size="18.0" />
          </font>

@@ -5,10 +5,6 @@ import java.util.regex.Pattern;
 
 public class Seller extends Book {
 
-    private String addressShop;
-    private String mailShop;
-    private String telShop;
-    private String bankShopAccount;
     private boolean bookShopCheck;
 
     public Seller() {
@@ -20,37 +16,6 @@ public class Seller extends Book {
         super(bookName, bookShop, bookAuthor, bookISBN, bookType, bookDetail, bookPublisher, bookStatus, bookImg, bookStock, bookPage, leastStock, bookPrice);
     }
 
-    public String getAddressShop() {
-        return addressShop;
-    }
-
-    public String getMailShop() {
-        return mailShop;
-    }
-
-    public String getTelShop() {
-        return telShop;
-    }
-
-    public String getBankShopAccount() {
-        return bankShopAccount;
-    }
-
-    public void setAddressShop(String addressShop) {
-        this.addressShop = addressShop;
-    }
-
-    public void setMailShop(String mailShop) {
-        this.mailShop = mailShop;
-    }
-
-    public void setTelShop(String telShop) {
-        this.telShop = telShop;
-    }
-
-    public void setBankShopAccount(String bankShopAccount) {
-        this.bankShopAccount = bankShopAccount;
-    }
 
     public String isBookShopNameCanUsed(String bookshop) {
         if (isNameBookShopHaveUsed(bookshop)) {

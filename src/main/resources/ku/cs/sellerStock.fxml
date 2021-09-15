@@ -173,14 +173,18 @@
          <center>
             <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label prefHeight="31.0" prefWidth="234.0" text="รายการสินค้า" textFill="#b4875e">
-                     <font>
-                        <Font name="JasmineUPC" size="42.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="10.0" left="20.0" top="10.0" />
-                     </VBox.margin>
-                  </Label>
+                  <HBox prefHeight="80.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="31.0" prefWidth="234.0" text="สินค้าทั้งหมด" textFill="#b4875e">
+                           <font>
+                              <Font name="JasmineUPC" size="42.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" top="20.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
                   <ScrollPane fx:id="scoll" prefHeight="500.0" prefWidth="698.0" style="-fx-background-color: fffff;" VBox.vgrow="ALWAYS">
                      <content>
                         <GridPane fx:id="grid">
@@ -193,14 +197,14 @@
                         </GridPane>
                      </content>
                   </ScrollPane>
-                  <HBox prefHeight="81.0" prefWidth="698.0">
+                  <HBox prefHeight="80.0" prefWidth="698.0">
                      <children>
                         <Button fx:id="orderListButtonn" mnemonicParsing="false" onAction="#handleOrderListButton" prefHeight="45.0" prefWidth="150.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="รายการสั่งซื้อ" textFill="WHITE">
                            <font>
                               <Font name="JasmineUPC" size="28.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="360.0" top="15.0" />
+                              <Insets left="360.0" top="10.0" />
                            </HBox.margin>
                         </Button>
                         <Button fx:id="addStockButton" mnemonicParsing="false" onAction="#handleAddStockButton" prefHeight="45.0" prefWidth="150.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="เพิ่มสินค้า" textFill="WHITE">
@@ -208,7 +212,7 @@
                               <Font name="JasmineUPC" size="28.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="20.0" top="15.0" />
+                              <Insets left="20.0" top="10.0" />
                            </HBox.margin>
                         </Button>
                      </children>

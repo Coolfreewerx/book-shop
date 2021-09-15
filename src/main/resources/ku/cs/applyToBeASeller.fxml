@@ -175,7 +175,7 @@
 
       <Line endX="500.666748046875" endY="1.52587890625E-5" layoutX="450.0" layoutY="161.0" startX="-100.0" stroke="#7e4811" />
 
-                  <Button fx:id="submitButton" layoutX="560.0" layoutY="600.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="194.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="สมัครเป็นผู้ขาย" textFill="WHITE">
+                  <Button fx:id="submitButton" layoutX="560.0" layoutY="600.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="194.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="สมัครเป็นผู้ขาย" textFill="WHITE" onAction="#handleAddSellerStockButton">
          <font>
             <Font name="JasmineUPC" size="30.0" />
          </font>
