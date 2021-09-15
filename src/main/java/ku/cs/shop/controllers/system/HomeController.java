@@ -99,7 +99,7 @@ public class HomeController implements Initializable {
     public void handleToInformationButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า หนังสือทั้งหมด (เพจหลัก)
         try {
 
-            FXRouter.goTo("editPasswordDetail");
+            FXRouter.goTo("detailUser");
         } catch (IOException e) {
             System.err.println("ไปที่หน้าเพจหลักไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");

@@ -14,7 +14,6 @@ import java.util.ResourceBundle;
 
 public class DetailUser extends User {
     @FXML private HBox hBoxSellerStock;
-    @FXML private Label usernameInHeadLabel;
     @FXML private Label birthdayLabel;
     @FXML private Label birthMonthLabel;
     @FXML private Label birthYearLabel;
@@ -26,16 +25,13 @@ public class DetailUser extends User {
     @FXML private Label usernameLabel;
 
 
-    public String showData(){
-        if(super.getUserName().equals(readData())){
-           usernameInHeadLabel.setText(getUserName());
-        }
-        return null;
-    }
-
-    public void initialize(){
-        showData();
-    }
+//    public String showData(){
+//        return null;
+//    }
+//
+//    public void initialize(){
+//        showData();
+//    }
 
     @FXML
     public void handleCartoonBookButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าหนังสือขายดี
@@ -48,7 +44,37 @@ public class DetailUser extends User {
     }
 
     @FXML
-    public void handleMagazineButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าหนังสือขายดี
+    public void handleMagazineBookButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าหนังสือขายดี
+        try {
+            com.github.saacsos.FXRouter.goTo("home");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า profile ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
+    public void handleNovelBookButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าหนังสือขายดี
+        try {
+            com.github.saacsos.FXRouter.goTo("home");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า profile ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
+    public void handleEducationalBookButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าหนังสือขายดี
+        try {
+            com.github.saacsos.FXRouter.goTo("home");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า profile ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
+    public void handleEBookButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าหนังสือขายดี
         try {
             com.github.saacsos.FXRouter.goTo("home");
         } catch (IOException e) {
@@ -67,4 +93,13 @@ public class DetailUser extends User {
         }
     }
 
+    @FXML
+    public void handleToHomeButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า home
+        try {
+            com.github.saacsos.FXRouter.goTo("home");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า profile ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
 }
