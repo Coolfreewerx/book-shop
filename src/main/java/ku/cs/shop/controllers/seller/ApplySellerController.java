@@ -95,6 +95,15 @@ public class ApplySellerController {
 
     }
 
+    @FXML public void handleSellerStockButton(){
+        try {
+            com.github.saacsos.FXRouter.goTo("sellerStock");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า sellerStock ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
 
 
 
