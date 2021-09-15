@@ -18,7 +18,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.TypeBookController">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.TypeBookController">
    <children>
       <BorderPane layoutY="52.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -36,9 +36,9 @@
                                     <Insets left="10.0" />
                                  </HBox.margin>
                               </ImageView>
-                              <MenuButton mnemonicParsing="false" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: #c9ad88; -fx-background-radius: 20;" text="ประเภท" textFill="WHITE">
+                              <MenuButton mnemonicParsing="false" onAction="#handleTypeBookButton" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: #c9ad88; -fx-background-radius: 20;" text="ประเภท" textFill="WHITE">
                                  <items>
-                                    <MenuItem fx:id="MenuItemCartoon" mnemonicParsing="false" onAction="#handleTypeBookButton" text="หนังสือการ์ตูน" />
+                                    <MenuItem mnemonicParsing="false" onAction="#handleTypeBookButton" text="หนังสือการ์ตูน" />
                                     <MenuItem mnemonicParsing="false" onAction="#handleTypeBookButton" text="นิตยสาร" />
                                     <MenuItem mnemonicParsing="false" onAction="#handleTypeBookButton" text="นิยาย" />
                                     <MenuItem mnemonicParsing="false" onAction="#handleTypeBookButton" text="หนังสือเรียน" />
@@ -51,7 +51,7 @@
                                     <Insets left="40.0" top="13.0" />
                                  </HBox.margin>
                               </MenuButton>
-                              <Button mnemonicParsing="false" onAction="#handleAllTypeBookButton" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #c9ad88; -fx-background-radius: 20;" text="หนังสือทั้งหมด" textFill="WHITE">
+                              <Button mnemonicParsing="false" onAction="#handleAllTypeBookButton" prefHeight="38.0" prefWidth="165.0" style="-fx-background-color: #c9ad88; -fx-background-radius: 20;" text="หนังสือทั้งหมด" textFill="WHITE">
                                  <font>
                                     <Font name="JasmineUPC" size="25.0" />
                                  </font>
@@ -59,46 +59,47 @@
                                     <Insets left="30.0" right="-20.0" top="13.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="174.0" style="-fx-background-color: F99F28; -fx-background-radius: 20;">
+                              <Button mnemonicParsing="false" onAction="#handleToInformationButton" prefHeight="38.0" prefWidth="119.0" style="-fx-background-color: F99F28; -fx-background-radius: 20;" text="ข้อมูลผู้ใช้" textFill="WHITE">
                                  <font>
-                                    <Font size="15.0" />
+                                    <Font name="JasmineUPC" size="25.0" />
                                  </font>
-                                 <graphic>
-                                    <Label fx:id="userNameLabel" prefHeight="27.0" prefWidth="100.0" style="-fx-background-radius: 20;" stylesheets="@style/PrimaryTheme.css" text="Username" textFill="WHITE" wrapText="true">
-                                       <font>
-                                          <Font name="JasmineUPC" size="36.0" />
-                                       </font>
-                                    </Label>
-                                 </graphic>
-                                 <HBox.margin>
-                                    <Insets left="55.0" right="40.0" top="13.0" />
-                                 </HBox.margin>
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
+                                 <HBox.margin>
+                                    <Insets left="55.0" right="40.0" top="13.0" />
+                                 </HBox.margin>
                               </Button>
-                              <ImageView fitHeight="38.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@image/heart.png" />
-                                 </image>
+                              <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: white;">
+                                 <graphic>
+                                    <ImageView fitHeight="38.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@image/heart.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
                                  <HBox.margin>
-                                    <Insets top="15.0" />
+                                    <Insets top="13.0" />
                                  </HBox.margin>
-                              </ImageView>
-                              <ImageView fitHeight="38.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@image/basket.png" />
-                                 </image>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: white;" textAlignment="RIGHT">
+                                 <graphic>
+                                    <ImageView fitHeight="38.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@image/basket.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
                                  <HBox.margin>
-                                    <Insets top="15.0" />
+                                    <Insets top="13.0" />
                                  </HBox.margin>
-                              </ImageView>
+                              </Button>
                               <TextField prefHeight="36.0" prefWidth="248.0" promptText="ค้นหาข้อมูล" style="-fx-background-color: #e7e1e1; -fx-background-radius: 20;">
                                  <font>
                                     <Font name="JasmineUPC" size="24.0" />
                                  </font>
                                  <HBox.margin>
-                                    <Insets right="20.0" top="15.0" />
+                                    <Insets left="20.0" right="20.0" top="13.0" />
                                  </HBox.margin>
                               </TextField>
                            </children>
@@ -164,7 +165,7 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="643.0" prefWidth="1024.0">
                      <children>
-                        <GridPane fx:id="gridBook" prefHeight="0.0" prefWidth="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <GridPane fx:id="gridBook" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <rowConstraints>
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>

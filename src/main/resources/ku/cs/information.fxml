@@ -33,7 +33,6 @@
                         <URL value="@style/PrimaryTheme.css" />
                      </stylesheets>
                      <styleClass>
-                        <String fx:value="backgroundColor2" />
                         <String fx:value="backgroundColorAndBorderColor" />
                         <String fx:value="font_rsu_12pt" />
                      </styleClass>
@@ -60,7 +59,6 @@
                         <URL value="@style/PrimaryTheme.css" />
                      </stylesheets>
                      <styleClass>
-                        <String fx:value="backgroundColor2" />
                         <String fx:value="backgroundColorAndBorderColor" />
                         <String fx:value="font_rsu_12pt" />
                      </styleClass>
@@ -110,9 +108,9 @@
                         <Font name="JasmineUPC" size="20.0" />
                      </font>
                      <styleClass>
-                        <String fx:value="backgroundColor2" />
                         <String fx:value="borderColor" />
                         <String fx:value="font_rsu_12pt" />
+                        <String fx:value="backgroundColorAndBorderColor" />
                      </styleClass>
                      <stylesheets>
                         <URL value="@style/style.css" />

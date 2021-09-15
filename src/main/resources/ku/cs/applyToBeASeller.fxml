@@ -32,75 +32,77 @@
                         <Insets left="10.0" />
                      </HBox.margin>
                   </ImageView>
-                  <MenuButton mnemonicParsing="false" prefHeight="35.0" prefWidth="134.0" style="-fx-background-color: #c9ad88;" text="ประเภท" textFill="WHITE">
+                  <MenuButton mnemonicParsing="false" onAction="#handleTypeBookButton" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: #c9ad88; -fx-background-radius: 20;" text="ประเภท" textFill="WHITE">
                      <items>
-<!--                        <MenuItem mnemonicParsing="false" onAction="#handleCartoonBookButton" text="หนังสือการ์ตูน" />-->
-<!--                        <MenuItem mnemonicParsing="false" onAction="#handleMagazineButton" text="นิตยสาร" />-->
-<!--                        <MenuItem mnemonicParsing="false" onAction="#handleMagazineButton" text="นิยาย" />-->
-<!--                        <MenuItem mnemonicParsing="false" onAction="#handleCartoonBookButton" text="หนังสือเรียน" />-->
-<!--                        <MenuItem mnemonicParsing="false" onAction="#handleCartoonBookButton" text="e-book" />-->
-<!--                        <MenuItem mnemonicParsing="false" onAction="#handleAllTypeBookButton" text="ทั้งหมด" />-->
+                        <MenuItem mnemonicParsing="false" onAction="#handleTypeBookButton" text="หนังสือการ์ตูน" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleTypeBookButton" text="นิตยสาร" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleTypeBookButton" text="นิยาย" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleTypeBookButton" text="หนังสือเรียน" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleTypeBookButton" text="e-book" />
                      </items>
                      <font>
                         <Font name="JasmineUPC" size="25.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="40.0" top="15.0" />
+                        <Insets left="40.0" top="13.0" />
                      </HBox.margin>
                   </MenuButton>
-                  <Label prefHeight="27.0" prefWidth="75.0" text="ขายดี" textAlignment="CENTER" textFill="#bc986a">
+                  <Button mnemonicParsing="false" onAction="#handleAllTypeBookButton" prefHeight="38.0" prefWidth="165.0" style="-fx-background-color: #c9ad88; -fx-background-radius: 20;" text="หนังสือทั้งหมด" textFill="WHITE">
                      <font>
-                        <Font name="JasmineUPC" size="36.0" />
+                        <Font name="JasmineUPC" size="25.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="80.0" top="20.0" />
+                        <Insets left="30.0" right="-20.0" top="13.0" />
                      </HBox.margin>
-                  </Label>
-                  <Label prefHeight="27.0" prefWidth="87.0" text="แนะนำ" textAlignment="CENTER" textFill="#bc986a">
-                     <font>
-                        <Font name="JasmineUPC" size="36.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="80.0" top="20.0" />
-                     </HBox.margin>
-                  </Label>
-                  <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="157.0" style="-fx-background-color: F99F28;">
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#handleToInformationButton" prefHeight="38.0" prefWidth="119.0" style="-fx-background-color: F99F28; -fx-background-radius: 20;">
                      <font>
                         <Font size="15.0" />
                      </font>
                      <graphic>
-                        <Label fx:id="userNameLabel" prefHeight="27.0" prefWidth="100.0" stylesheets="@style/PrimaryTheme.css" text="Username" textFill="WHITE" wrapText="true">
+                        <Label fx:id="usernameLabel" alignment="CENTER" prefHeight="27.0" prefWidth="72.0" style="-fx-background-radius: 20;" styleClass="font_jasmine_16pt" stylesheets="@style/PrimaryTheme.css" text="ข้อมูลผู้ใช้" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true">
                            <font>
                               <Font name="JasmineUPC" size="36.0" />
                            </font>
                         </Label>
                      </graphic>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
                      <HBox.margin>
-                        <Insets left="40.0" right="40.0" top="15.0" />
+                        <Insets left="55.0" right="40.0" top="13.0" />
                      </HBox.margin>
                   </Button>
-                  <ImageView fitHeight="38.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@image/heart.png" />
-                     </image>
+                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: white;">
+                     <graphic>
+                        <ImageView fitHeight="38.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@image/heart.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                      <HBox.margin>
-                        <Insets top="15.0" />
+                        <Insets top="13.0" />
                      </HBox.margin>
-                  </ImageView>
-                  <ImageView fitHeight="38.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@image/basket.png" />
-                     </image>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: white;" textAlignment="RIGHT">
+                     <graphic>
+                        <ImageView fitHeight="38.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@image/basket.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                      <HBox.margin>
-                        <Insets top="15.0" />
+                        <Insets top="13.0" />
                      </HBox.margin>
-                  </ImageView>
-                  <TextField prefHeight="36.0" prefWidth="159.0" promptText="ค้นหาข้อมูล" style="-fx-background-color: BC986A;">
+                  </Button>
+                  <TextField prefHeight="36.0" prefWidth="248.0" promptText="ค้นหาข้อมูล" style="-fx-background-color: #e7e1e1; -fx-background-radius: 20;">
                      <font>
                         <Font name="JasmineUPC" size="24.0" />
                      </font>
                      <HBox.margin>
-                        <Insets right="20.0" top="15.0" />
+                        <Insets left="20.0" right="20.0" top="13.0" />
                      </HBox.margin>
                   </TextField>
                </children></HBox>
@@ -175,7 +177,7 @@
 
       <Line endX="500.666748046875" endY="1.52587890625E-5" layoutX="450.0" layoutY="161.0" startX="-100.0" stroke="#7e4811" />
 
-                  <Button fx:id="submitButton" layoutX="560.0" layoutY="600.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="194.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="สมัครเป็นผู้ขาย" textFill="WHITE" onAction="#handleAddSellerStockButton">
+                  <Button fx:id="submitButton" layoutX="560.0" layoutY="600.0" mnemonicParsing="false" onAction="#handleAddSellerStockButton" prefHeight="51.0" prefWidth="194.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="สมัครเป็นผู้ขาย" textFill="WHITE">
          <font>
             <Font name="JasmineUPC" size="30.0" />
          </font>

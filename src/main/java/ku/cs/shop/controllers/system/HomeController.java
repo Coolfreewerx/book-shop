@@ -33,7 +33,6 @@ public class HomeController implements Initializable {
     private ArrayList<Book> books = data.readData();
 
         public void initialize (URL location, ResourceBundle resource){
-            usernameLabel.setText(User.getUserLogin());
             int column = 1;
             int row = 1;
             try {

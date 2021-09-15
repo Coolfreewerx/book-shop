@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
 <?import java.net.URL?>
@@ -6,28 +6,27 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
+
 <AnchorPane prefHeight="250.0" prefWidth="420.0" styleClass="backgroundColor3" stylesheets="@style/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.BasketController">
    <children>
-      <Label layoutX="138.0" layoutY="37.0" styleClass="font_rsu_12pt" stylesheets="@style/PrimaryTheme.css" text="เพิ่มหนังสือลงตะกร้าแล้ว" />
-      <Button layoutX="52.0" layoutY="77.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="315.0" style="-fx-background-radius: 10;" text="เลือกซื้อหนังสือเล่มอื่นต่อ">
+      <Label layoutX="138.0" layoutY="44.0" styleClass="font_jasmine_16pt" stylesheets="@style/PrimaryTheme.css" text="เพิ่มสินค้าลงตะกร้าแล้ว" AnchorPane.leftAnchor="138.4" AnchorPane.rightAnchor="138.4" AnchorPane.topAnchor="50.0" />
+      <Button layoutX="95.5" layoutY="99.0" mnemonicParsing="false" text="เลือกซื้อหนังสือเล่มอื่นต่อ" textFill="WHITE" AnchorPane.leftAnchor="95.5" AnchorPane.rightAnchor="95.5">
          <stylesheets>
             <URL value="@style/PrimaryTheme.css" />
             <URL value="@style/style.css" />
          </stylesheets>
          <styleClass>
-            <String fx:value="font_rsu_18pt" />
-            <String fx:value="font_rsu_16pt" />
+            <String fx:value="font_jasmine_20pt" />
             <String fx:value="backgroundColorButton" />
          </styleClass>
       </Button>
-      <Button layoutX="52.0" layoutY="149.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="315.0" style="-fx-background-radius: 10;" text="ชำระเงิน">
+      <Button layoutX="95.0" layoutY="157.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="229.0" text="ชำระเงิน" textFill="WHITE" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="95.5" AnchorPane.rightAnchor="95.5">
          <stylesheets>
             <URL value="@style/PrimaryTheme.css" />
             <URL value="@style/style.css" />
          </stylesheets>
          <styleClass>
-            <String fx:value="font_rsu_18pt" />
-            <String fx:value="font_rsu_16pt" />
+            <String fx:value="font_jasmine_20pt" />
             <String fx:value="backgroundColorButton" />
          </styleClass>
       </Button>
