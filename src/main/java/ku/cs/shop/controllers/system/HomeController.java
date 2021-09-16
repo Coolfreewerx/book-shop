@@ -101,8 +101,9 @@ public class HomeController implements Initializable {
 
             FXRouter.goTo("detailUser");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้าเพจหลักไม่ได้");
+            System.err.println("ไปที่หน้า detailUser ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
+            e.printStackTrace();
         }
     }
 }

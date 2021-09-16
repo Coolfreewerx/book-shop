@@ -5,6 +5,7 @@ import com.opencsv.CSVReader;
 import java.io.*;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.regex.Pattern;
 
 public class User {
@@ -47,9 +48,7 @@ public class User {
     public String getPassword() {
         return password;
     }
-    public String getBirthDay() {
-        return birthDay;
-    }
+    public String getBirthDay() { return birthDay; }
     public String getBirthMonth() {
         return birthMonth;
     }
@@ -61,9 +60,7 @@ public class User {
     public boolean getDataCheck() {return dataCheck; }
     public boolean getUserNameCheck() {return userNameCheck; }
 
-    public static String getUserLogin() {
-        return userLogin;
-    }
+    public static String getUserLogin() { return userLogin; }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -207,21 +204,25 @@ public class User {
         ArrayList<User> usersList = new ArrayList<>();
 
         try{
+            System.out.println(filename);
             FileReader file = new FileReader(filename);
+
             CSVReader reader = new CSVReader(file);
             String[] data = null;
 
             while ((data = reader.readNext()) != null){
-                String userNameInArrayList = data[0].trim();
-                String firstNameInArrayList = data[1].trim();
-                String lastNameInArrayList = data[2].trim();
-                String passwordInArrayList = data[3].trim();
-                String birthDayInArrayList = data[4].trim();
-                String birthMonthInArrayList = data[5].trim();
-                String birthYearInArrayList = data[6].trim();
+                String userNameInArrayList = data[0];
+                String firstNameInArrayList = data[1];
+                String lastNameInArrayList = data[2];
+                String passwordInArrayList = data[3];
+                String birthDayInArrayList = data[4];
+                String birthMonthInArrayList = data[5];
+                String birthYearInArrayList = data[6];
 
-                User detailUser = new User(userNameInArrayList, firstNameInArrayList, lastNameInArrayList, passwordInArrayList, birthDayInArrayList, birthMonthInArrayList, birthYearInArrayList);
+                User detailUser = new User(firstNameInArrayList, lastNameInArrayList, userNameInArrayList, passwordInArrayList, birthDayInArrayList, birthMonthInArrayList, birthYearInArrayList);
                 usersList.add(detailUser);
+                System.out.println(Arrays.stream(data).toArray());
+                //public User(String firstName, String lastName, String userName, String password, String birthDay, String birthMonth, String birthYear)
             }
         } catch (FileNotFoundException e) {
             System.err.println("Cannot read information in file " + filename);
