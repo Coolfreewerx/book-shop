@@ -5,9 +5,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import ku.cs.shop.models.User;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -24,6 +27,7 @@ public class DetailUser extends User {
     @FXML private Label firstnameLabel;
     @FXML private Label passwordLabel;
     @FXML private Label usernameLabel;
+    @FXML private ImageView img;
     private ArrayList<User> usersList = new ArrayList<>();
 
     public String showData(){
@@ -34,9 +38,13 @@ public class DetailUser extends User {
             System.out.println(usersList.get(i).getUserName() + " "+ getUserLogin());
             if(usersList.get(i).getUserName().equals(getUserLogin())){
                 usernameLabel.setText(usersList.get(i).getUserName());
+                firstnameLabel.setText(usersList.get(i).getFirstName());
+                LastnameLabel.setText(usersList.get(i).getLastName());
                 birthdayLabel.setText(usersList.get(i).getBirthDay());
                 birthMonthLabel.setText(usersList.get(i).getBirthMonth());
                 birthYearLabel.setText(usersList.get(i).getBirthYear());
+                img.setImage(new Image(user.getPicturePath()));
+//                img.setImage(usersList.get(i).getUserImg(new Image(user.getPicturePath())));
             }
         }
         return null;

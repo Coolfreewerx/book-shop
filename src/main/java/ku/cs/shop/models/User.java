@@ -30,7 +30,7 @@ public class User {
     private String shopName ;
     private static String userLogin ;
     private boolean passwordCheck = false, passwordCondition = false, dataCheck = false, userNameCheck = false ;
-
+    private String userImg;
     //เก็บค่าเริ่มต้น
     public User(){
         this.imageName = "default.png" ;
@@ -38,7 +38,7 @@ public class User {
         this.sex = "null" ;
         this.shopName = "null" ;
     }
-    public User(String firstName, String lastName, String userName, String password, String birthDay, String birthMonth, String birthYear){
+    public User(String firstName, String lastName, String userName, String password, String birthDay, String birthMonth, String birthYear, String userImg){
         this.firstName = firstName ;
         this.lastName = lastName ;
         this.userName = userName ;
@@ -46,6 +46,7 @@ public class User {
         this.birthDay = birthDay ;
         this.birthMonth = birthMonth ;
         this.birthYear = birthYear ;
+        this.userImg = userImg;
     }
     public User(String filename){
         this.filename = filename;
@@ -74,6 +75,7 @@ public class User {
     public boolean getPasswordCheck() { return passwordCheck; }
     public boolean getDataCheck() {return dataCheck; }
     public boolean getUserNameCheck() {return userNameCheck; }
+    public String getUserImg() { return userImg; }
 
     public static String getUserLogin() { return userLogin; }
 
@@ -91,6 +93,7 @@ public class User {
         this.password = password;
     }
     public void setImageName(String imageName) { this.imageName = imageName; }
+    public void setUserImg(String userImg){ this.userImg = userImg; }
 
     public String checkUserNameCondition(String userName) {
         //ตรวจสอบ username ว่าตรงเงื่อนไขมั้ย
@@ -252,11 +255,12 @@ public class User {
                 String birthDayInArrayList = data[4];
                 String birthMonthInArrayList = data[5];
                 String birthYearInArrayList = data[6];
+                String userImgInList = data[7];
 
-                User detailUser = new User(firstNameInArrayList, lastNameInArrayList, userNameInArrayList, passwordInArrayList, birthDayInArrayList, birthMonthInArrayList, birthYearInArrayList);
+                User detailUser = new User(firstNameInArrayList, lastNameInArrayList, userNameInArrayList, passwordInArrayList, birthDayInArrayList, birthMonthInArrayList, birthYearInArrayList, userImgInList);
                 usersList.add(detailUser);
                 System.out.println(Arrays.stream(data).toArray());
-                //public User(String firstName, String lastName, String userName, String password, String birthDay, String birthMonth, String birthYear)
+                //String firstName, String lastName, String userName, String password, String birthDay, String birthMonth, String birthYear, String userImg
             }
         } catch (FileNotFoundException e) {
             System.err.println("Cannot read information in file " + filename);
@@ -264,5 +268,13 @@ public class User {
             System.err.println("Error reading from file");
         }
         return usersList;
+    }
+
+    public String getPicturePath() {
+        return new File(System.getProperty("user.dir")
+                + File.separator
+                + "/user_images"
+                + File.separator
+                + userImg).toURI().toString();
     }
 }
