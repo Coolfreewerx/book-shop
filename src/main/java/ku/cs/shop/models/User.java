@@ -4,6 +4,12 @@ import com.opencsv.CSVReader;
 
 import java.io.*;
 import java.io.FileReader;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.regex.Pattern;
@@ -18,11 +24,20 @@ public class User {
     private String birthMonth ;
     private String birthYear ;
     private String filename;
+    private String imageName ;
+    private String phone ;
+    private String sex ;
+    private String shopName ;
     private static String userLogin ;
     private boolean passwordCheck = false, passwordCondition = false, dataCheck = false, userNameCheck = false ;
 
     //เก็บค่าเริ่มต้น
-    public User(){}
+    public User(){
+        this.imageName = "default.png" ;
+        this.phone = "null" ;
+        this.sex = "null" ;
+        this.shopName = "null" ;
+    }
     public User(String firstName, String lastName, String userName, String password, String birthDay, String birthMonth, String birthYear){
         this.firstName = firstName ;
         this.lastName = lastName ;
@@ -75,6 +90,7 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+    public void setImageName(String imageName) { this.imageName = imageName; }
 
     public String checkUserNameCondition(String userName) {
         //ตรวจสอบ username ว่าตรงเงื่อนไขมั้ย
@@ -138,15 +154,41 @@ public class User {
         //นำข้อมูล String เก็บใน FieldClass และบันทึกลง CSV
         File userData = new File("src/main/java/ku/cs/shop/userData.csv");
 
-        FileWriter writer;
+        FileWriter writer = null;
         try {
             writer = new FileWriter(userData, true);
-            writer.write(userName + "," + firstName + "," + lastName + "," + password + "," +
-                    birthDay + "," + birthMonth + "," + birthYear + "\r\n");
-            writer.close();
+            writer.write(userName + ","
+                    + firstName + ","
+                    + lastName + ","
+                    + password + ","
+                    + birthDay + ","
+                    + birthMonth + ","
+                    + birthYear + ","
+                    + imageName + ","
+                    + phone + ","
+                    + sex + ","
+                    + shopName
+                    + "\r\n");
         } catch (IOException e) {
             e.printStackTrace();
             System.err.println("สมัครไม่สำเร็จ");
+        } finally {
+            try {
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    //เก็บรูปภาพ
+    public void copyImageToPackage(File image, String imageName) {
+        File file = new File("user-images") ;
+        Path desPath = FileSystems.getDefault().getPath(file.getAbsolutePath() + "\\" + imageName);
+        try {
+            Files.copy(image.toPath(), desPath, StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -167,14 +209,6 @@ public class User {
             return " ";
         }
     }
-
-//    Clipboard clipboard = Clipboard.getSystemClipboard();
-//    ClipboardContent content = new ClipboardContent();
-////for paste as image, e.g. in GIMP
-//content.putImage(image); // the image you want, as javafx.scene.image.Image
-//// for paste as file, e.g. in Windows Explorer
-//content.putFiles(java.util.Collections.singletonList(new File("C:\\Users\\Admin\\Desktop\\my\\mysql.gif")));
-//clipboard.setContent(content);
 
     //ล็อกอินเข้าสู่ระบบ
     public boolean login(String userName, String password){

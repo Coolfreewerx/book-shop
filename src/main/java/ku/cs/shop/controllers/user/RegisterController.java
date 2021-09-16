@@ -16,6 +16,12 @@ import javafx.stage.Stage;
 import ku.cs.shop.models.User ;
 
 import java.io.*;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class RegisterController {
 
@@ -36,6 +42,9 @@ public class RegisterController {
     @FXML private ImageView imageView ;
     @FXML private AnchorPane registerAnchorPane ;
 
+    private File selectedImage ;
+    private String imageName ;
+
     private ObservableList dayList = FXCollections.observableArrayList() ;
     private ObservableList monthList = FXCollections.observableArrayList() ;
     private ObservableList yearList = FXCollections.observableArrayList() ;
@@ -50,10 +59,10 @@ public class RegisterController {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Select Profile Picture");
         fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files", "*.png", "*jpg"));
-        File file = fileChooser.showOpenDialog(null);
+        selectedImage = fileChooser.showOpenDialog(null);
 
-        if (file != null) {
-            Image image = new Image(file.toURI().toString());
+        if (selectedImage != null) {
+            Image image = new Image(selectedImage.toURI().toString());
             imageView.setImage(image);
         }
     }
@@ -163,6 +172,17 @@ public class RegisterController {
 
         if (!(user.getDataCheck())) {
             return;
+        }
+
+        if (selectedImage != null) {
+            imageName =  userNameTextField.getText() + "-"
+                    + LocalDate.now().getYear() + "-"
+                    + LocalDate.now().getMonth() + "-"
+                    + LocalDate.now().getDayOfMonth() + "-"
+                    + LocalDateTime.now().getHour() + LocalDateTime.now().getMinute() + LocalDateTime.now().getSecond() + ".png" ;
+
+            user.copyImageToPackage(selectedImage , imageName) ;
+            user.setImageName(imageName);
         }
 
         user.writeUserInfo();
