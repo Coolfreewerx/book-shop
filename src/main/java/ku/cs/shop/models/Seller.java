@@ -3,18 +3,11 @@ package ku.cs.shop.models;
 import java.io.*;
 import java.util.regex.Pattern;
 
-public class Seller extends Book {
+public class Seller{
 
     private boolean bookShopCheck;
-
-    public Seller() {
-    }
-
-    ;
-
-    public Seller(String bookName, String bookShop, String bookAuthor, String bookISBN, String bookType, String bookDetail, String bookPublisher, String bookStatus, String bookImg, int bookStock, String bookPage, int leastStock, double bookPrice) {
-        super(bookName, bookShop, bookAuthor, bookISBN, bookType, bookDetail, bookPublisher, bookStatus, bookImg, bookStock, bookPage, leastStock, bookPrice);
-    }
+    private Book book;
+    public Seller() { }
 
 
     public String isBookShopNameCanUsed(String bookshop) {
