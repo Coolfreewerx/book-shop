@@ -78,7 +78,7 @@ public class HomeController implements Initializable {
         try {
             FXRouter.goTo("pageBookType");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้าเพจของ  ไม่ได้");
+            System.err.println("ไปที่หน้าเพจ pageBookType ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }

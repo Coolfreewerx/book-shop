@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -18,79 +17,83 @@
    <children>
       <HBox layoutX="33.0" layoutY="17.0" prefHeight="69.0" prefWidth="1024.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#handleToHomeButton" style="-fx-background-color: white;">
-               <graphic>
-                  <ImageView fitHeight="68.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@image/javapai.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <MenuButton mnemonicParsing="false" onAction="#handleTypeBookButton" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: #c9ad88; -fx-background-radius: 20;" text="ประเภท" textFill="WHITE">
+            <ImageView fitHeight="68.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/javapai.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </ImageView>
+            <MenuButton mnemonicParsing="false" prefHeight="36.0" prefWidth="142.0" style="-fx-background-color: #c9ad88;" text="ประเภท" textFill="WHITE">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#handleTypeBookButton" text="หนังสือการ์ตูน" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleTypeBookButton" text="นิตยสาร" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleTypeBookButton" text="นิยาย" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleTypeBookButton" text="หนังสือเรียน" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleTypeBookButton" text="e-book" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleCartoonBookButton" text="หนังสือการ์ตูน" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleMagazineButton" text="นิตยสาร" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleMagazineButton" text="นิยาย" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleCartoonBookButton" text="หนังสือเรียน" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleCartoonBookButton" text="e-book" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleAllTypeBookButton" text="ทั้งหมด" />
                </items>
                <font>
                   <Font name="JasmineUPC" size="25.0" />
                </font>
                <HBox.margin>
-                  <Insets left="40.0" top="13.0" />
+                  <Insets left="40.0" top="15.0" />
                </HBox.margin>
             </MenuButton>
-            <Button mnemonicParsing="false" onAction="#handleAllTypeBookButton" prefHeight="38.0" prefWidth="165.0" style="-fx-background-color: #c9ad88; -fx-background-radius: 20;" text="หนังสือทั้งหมด" textFill="WHITE">
+            <Label prefHeight="27.0" prefWidth="95.0" text="ขายดี" textAlignment="CENTER" textFill="#bc986a">
                <font>
-                  <Font name="JasmineUPC" size="25.0" />
+                  <Font name="JasmineUPC" size="36.0" />
                </font>
                <HBox.margin>
-                  <Insets left="30.0" right="-20.0" top="13.0" />
+                  <Insets left="75.0" top="20.0" />
                </HBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#handleToInformationButton" prefHeight="38.0" prefWidth="119.0" style="-fx-background-color: F99F28; -fx-background-radius: 20;" text="ข้อมูลผู้ใช้" textFill="WHITE">
+            </Label>
+            <Label prefHeight="27.0" prefWidth="108.0" text="แนะนำ" textAlignment="CENTER" textFill="#bc986a">
                <font>
-                  <Font name="JasmineUPC" size="25.0" />
+                  <Font name="JasmineUPC" size="36.0" />
                </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
                <HBox.margin>
-                  <Insets left="55.0" right="40.0" top="13.0" />
+                  <Insets left="75.0" top="20.0" />
                </HBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: white;">
+            </Label>
+            <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="157.0" style="-fx-background-color: F99F28;">
+               <font>
+                  <Font size="15.0" />
+               </font>
                <graphic>
-                  <ImageView fitHeight="38.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@image/heart.png" />
-                     </image>
-                  </ImageView>
+                  <Label fx:id="userNameLabel" prefHeight="27.0" prefWidth="100.0" stylesheets="@style/PrimaryTheme.css" text="Username" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="JasmineUPC" size="36.0" />
+                     </font>
+                  </Label>
                </graphic>
                <HBox.margin>
-                  <Insets top="13.0" />
+                  <Insets left="40.0" right="40.0" top="15.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: white;" textAlignment="RIGHT">
-               <graphic>
-                  <ImageView fitHeight="38.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@image/basket.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
+            <ImageView fitHeight="38.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/heart.png" />
+               </image>
                <HBox.margin>
-                  <Insets top="13.0" />
+                  <Insets top="15.0" />
                </HBox.margin>
-            </Button>
-            <TextField prefHeight="36.0" prefWidth="248.0" promptText="ค้นหาข้อมูล" style="-fx-background-color: #e7e1e1; -fx-background-radius: 20;">
+            </ImageView>
+            <ImageView fitHeight="38.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/basket.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="15.0" />
+               </HBox.margin>
+            </ImageView>
+            <TextField prefHeight="36.0" prefWidth="159.0" promptText="ค้นหาข้อมูล" style="-fx-background-color: BC986A;">
                <font>
                   <Font name="JasmineUPC" size="24.0" />
                </font>
                <HBox.margin>
-                  <Insets left="20.0" right="20.0" top="13.0" />
+                  <Insets right="20.0" top="15.0" />
                </HBox.margin>
             </TextField>
          </children></HBox>
@@ -99,31 +102,23 @@
             <Font name="JasmineUPC" size="36.0" />
          </font>
       </Label>
-      <Label fx:id="typeLabel" layoutX="210.0" layoutY="90.0" text="typeLabel" textFill="#a05e07">
+      <Label fx:id="typeLabel" layoutX="210.0" layoutY="90.0" text="bookType" textFill="#a05e07">
          <font>
             <Font name="JasmineUPC" size="36.0" />
          </font>
       </Label>
-      <ImageView fitHeight="420.0" fitWidth="278.0" layoutX="37.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="97.0" fitWidth="88.0" layoutX="36.0" layoutY="578.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="97.0" fitWidth="85.0" layoutX="231.0" layoutY="580.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="97.0" fitWidth="85.0" layoutX="136.0" layoutY="579.0" pickOnBounds="true" preserveRatio="true" />
-      <Label layoutX="371.0" layoutY="157.0" text="ชื่อสินค้า" textFill="#f99f28">
+      <ImageView fitHeight="459.0" fitWidth="299.0" layoutX="39.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="371.0" layoutY="157.0" text="ชื่อหนังสือ" textFill="#f99f28">
          <font>
             <Font name="JasmineUPC" size="28.0" />
          </font>
       </Label>
-      <Label layoutX="371.0" layoutY="189.0" text="ประเภท" textFill="#f99f28">
+      <Label layoutX="371.0" layoutY="189.0" text="ชื่อร้านค้า" textFill="#f99f28">
          <font>
             <Font name="JasmineUPC" size="28.0" />
          </font>
       </Label>
-      <Label layoutX="371.0" layoutY="225.0" text="ชื่อร้านค้า" textFill="#f99f28">
-         <font>
-            <Font name="JasmineUPC" size="28.0" />
-         </font>
-      </Label>
-      <Label layoutX="370.0" layoutY="258.0" text="สถานะสินค้า" textFill="#f99f28">
+      <Label layoutX="371.0" layoutY="255.0" text="สถานะสินค้า" textFill="#f99f28">
          <font>
             <Font name="JasmineUPC" size="28.0" />
          </font>
@@ -133,43 +128,33 @@
             <Font name="JasmineUPC" size="28.0" />
          </font>
       </Label>
-      <Label fx:id="bookType" layoutX="498.0" layoutY="190.0" text="bookType">
+      <Label fx:id="bookShop" layoutX="498.0" layoutY="189.0" text="bookShop">
          <font>
             <Font name="JasmineUPC" size="28.0" />
          </font>
       </Label>
-      <Label fx:id="shopName" layoutX="498.0" layoutY="225.0" text="shopName">
-         <font>
-            <Font name="JasmineUPC" size="28.0" />
-         </font>
-      </Label>
-      <Label fx:id="readyOrNot" layoutX="498.0" layoutY="258.0" text="ready/not">
+      <Label fx:id="bookStatus" layoutX="498.0" layoutY="255.0" text="bookStatus">
          <font>
             <Font name="JasmineUPC" size="28.0" />
          </font>
       </Label>
       <Line endX="519.1333618164062" endY="3.0517578125E-5" layoutX="471.0" layoutY="295.0" startX="-98.46664428710938" startY="3.0517578125E-5" stroke="#bc986a" />
-      <Label layoutX="370.0" layoutY="309.0" text="รายละเอียดสินค้า" textFill="#f99f28">
+      <Label layoutX="370.0" layoutY="309.0" text="รายละเอียดหนังสือ" textFill="#f99f28">
          <font>
             <Font name="JasmineUPC" size="28.0" />
          </font>
       </Label>
-      <Label layoutX="402.0" layoutY="345.0" text="หมวดหมู่ :">
+      <Label layoutX="402.0" layoutY="345.0" text="ประเภท :">
          <font>
             <Font name="JasmineUPC" size="28.0" />
          </font>
       </Label>
-      <Label layoutX="402.0" layoutY="379.0" text="ประเภท :">
+      <Label layoutX="402.0" layoutY="380.0" text="ISBN :">
          <font>
             <Font name="JasmineUPC" size="28.0" />
          </font>
       </Label>
-      <Label layoutX="404.0" layoutY="411.0" text="ISBN :">
-         <font>
-            <Font name="JasmineUPC" size="28.0" />
-         </font>
-      </Label>
-      <Label layoutX="403.0" layoutY="444.0" text="หน้า :">
+      <Label layoutX="402.0" layoutY="414.0" text="หน้า :">
          <font>
             <Font name="JasmineUPC" size="28.0" />
          </font>
@@ -190,37 +175,32 @@
             <Font name="JasmineUPC" size="28.0" />
          </font>
       </Label>
-      <Label fx:id="story" layoutX="405.0" layoutY="604.0" text="story">
+      <Label fx:id="bookDetail" layoutX="405.0" layoutY="604.0" text="bookDetail">
          <font>
             <Font name="JasmineUPC" size="28.0" />
          </font>
       </Label>
-      <Label fx:id="category" layoutX="521.0" layoutY="345.0" text="หมวดหมู่">
+      <Label fx:id="bookType" layoutX="520.0" layoutY="345.0" text="bookType">
          <font>
             <Font name="JasmineUPC" size="28.0" />
          </font>
       </Label>
-      <Label fx:id="booktype1" layoutX="522.0" layoutY="379.0" text="ประเภท">
+      <Label fx:id="bookISBN" layoutX="520.0" layoutY="380.0" text="bookISBN">
          <font>
             <Font name="JasmineUPC" size="28.0" />
          </font>
       </Label>
-      <Label fx:id="isbn" layoutX="523.0" layoutY="411.0" text="ISBN">
+      <Label fx:id="bookPage" layoutX="520.0" layoutY="414.0" text="bookPage">
          <font>
             <Font name="JasmineUPC" size="28.0" />
          </font>
       </Label>
-      <Label fx:id="pages" layoutX="522.0" layoutY="444.0" text="จำนวนหน้า">
+      <Label fx:id="bookPublisher" layoutX="522.0" layoutY="479.0" text="bookPublisher">
          <font>
             <Font name="JasmineUPC" size="28.0" />
          </font>
       </Label>
-      <Label fx:id="publisherName" layoutX="522.0" layoutY="479.0" text="ชื่อสำนักพิมพิ์">
-         <font>
-            <Font name="JasmineUPC" size="28.0" />
-         </font>
-      </Label>
-      <Label fx:id="authorName" layoutX="522.0" layoutY="512.0" text="ชื่อผู้แต่ง">
+      <Label fx:id="bookAuthor" layoutX="522.0" layoutY="512.0" text="bookAuthor">
          <font>
             <Font name="JasmineUPC" size="28.0" />
          </font>
@@ -230,6 +210,15 @@
             <Font name="JasmineUPC" size="28.0" />
          </font>
       </Button>
-      <ScrollBar layoutX="1003.0" layoutY="84.0" orientation="VERTICAL" prefHeight="671.0" prefWidth="14.0" style="-fx-background-color: F99F28;" />
+      <Label layoutX="371.0" layoutY="223.0" text="ราคาหนังสือ" textFill="#f99f28">
+         <font>
+            <Font name="JasmineUPC" size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="bookPrice" layoutX="498.0" layoutY="223.0" text="bookPrice">
+         <font>
+            <Font name="JasmineUPC" size="28.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

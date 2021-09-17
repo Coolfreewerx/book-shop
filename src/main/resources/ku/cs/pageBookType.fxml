@@ -52,7 +52,7 @@
                                     <Insets left="40.0" top="13.0" />
                                  </HBox.margin>
                               </MenuButton>
-                              <Button mnemonicParsing="false" onAction="#handleAllTypeBookButton" prefHeight="38.0" prefWidth="165.0" style="-fx-background-color: #c9ad88; -fx-background-radius: 20;" text="หนังสือทั้งหมด" textFill="WHITE">
+                              <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="165.0" style="-fx-background-color: #c9ad88; -fx-background-radius: 20;" text="หนังสือทั้งหมด" textFill="WHITE">
                                  <font>
                                     <Font name="JasmineUPC" size="25.0" />
                                  </font>
@@ -60,7 +60,7 @@
                                     <Insets left="30.0" right="-20.0" top="13.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#handleToInformationButton" prefHeight="38.0" prefWidth="119.0" style="-fx-background-color: F99F28; -fx-background-radius: 20;" text="ข้อมูลผู้ใช้" textFill="WHITE">
+                              <Button mnemonicParsing="false"  prefHeight="38.0" prefWidth="119.0" style="-fx-background-color: F99F28; -fx-background-radius: 20;" text="ข้อมูลผู้ใช้" textFill="WHITE">
                                  <font>
                                     <Font name="JasmineUPC" size="25.0" />
                                  </font>
@@ -124,7 +124,7 @@
                               <Insets left="5.0" top="20.0" />
                            </HBox.margin>
                         </Text>
-                        <Label fx:id="bookTypeLabel" text="หนังสือการ์ตูน" textFill="#b09f9f">
+                        <Label fx:id="bookType" text="bookType" textFill="#b09f9f">
                            <HBox.margin>
                               <Insets left="5.0" top="20.0" />
                            </HBox.margin>
