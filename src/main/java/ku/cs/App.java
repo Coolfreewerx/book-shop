@@ -20,12 +20,8 @@ public class App extends Application
     public void start(Stage stage) throws IOException {
         FXRouter.bind(this, stage, "JAVAPAI",1024.0,768.0);
         configRoute();
-<<<<<<< HEAD
         FXRouter.goTo("home");
 //        FXRouter.goTo("sellerStock");
-=======
-        FXRouter.goTo("login");
->>>>>>> da2651cd494662d5b483b32f52aaa7623f13ad3c
     }
 
     private static void configRoute() {
