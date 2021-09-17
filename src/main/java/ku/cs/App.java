@@ -20,20 +20,14 @@ public class App extends Application
     public void start(Stage stage) throws IOException {
         FXRouter.bind(this, stage, "JAVAPAI",1024.0,768.0);
         configRoute();
-<<<<<<< HEAD
-        FXRouter.goTo("login");
+        FXRouter.goTo("home");
 //        FXRouter.goTo("sellerStock");
-=======
-        FXRouter.goTo("applyToBeASeller");
->>>>>>> 66bf39fbe3ebf300f9d5c3b353b4487563e3d87c
     }
 
     private static void configRoute() {
         String packageStr = "ku/cs/";
         FXRouter.when("bookDetail", packageStr + "bookDetail.fxml");
         FXRouter.when("home",packageStr + "home.fxml");
-        FXRouter.when("pageBookCartoon",packageStr + "pageBookCartoon.fxml");
-        FXRouter.when("pageMagazine",packageStr + "pageMagazine.fxml");
         FXRouter.when("basket", packageStr + "basket.fxml");
         FXRouter.when("login",packageStr + "login.fxml");
         FXRouter.when("register" , packageStr + "register.fxml");

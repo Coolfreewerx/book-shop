@@ -26,6 +26,21 @@ public class OrderListController implements Initializable {
     @FXML private GridPane grid;
     @FXML private Button allSellerStockButtonn;
 
+    @FXML
+    void handleAllTypeBookButton(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleToInformationButton(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleTypeBookButton(ActionEvent event) {
+
+    }
+
     private BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
     private ArrayList<Book> books = data.readData();
 
