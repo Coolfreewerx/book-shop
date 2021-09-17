@@ -38,24 +38,23 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
 
                 gridBook.add(fxmlLoader.load(), column, row++); // child,col,row
                 ItemController itemController = fxmlLoader.getController();
+//                if(books.getBookType() == "Cartoon Book") {
+                itemController.setData(books.get(i));
+                itemController.changeData();
 
-                if(books.get(i).getBookType() == "Cartoon Book") {
-                    itemController.setData(books.get(i));
-                    itemController.changeData();
+                gridBook.setMinWidth(Region.USE_COMPUTED_SIZE);
+                gridBook.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                gridBook.setMaxWidth(Region.USE_COMPUTED_SIZE);
 
-                    gridBook.setMinWidth(Region.USE_COMPUTED_SIZE);
-                    gridBook.setPrefWidth(Region.USE_COMPUTED_SIZE);
-                    gridBook.setMaxWidth(Region.USE_COMPUTED_SIZE);
-
-                    gridBook.setMinHeight(Region.USE_COMPUTED_SIZE);
-                    gridBook.setPrefHeight(Region.USE_COMPUTED_SIZE);
-                    gridBook.setMaxHeight(Region.USE_COMPUTED_SIZE);
-                    gridBook.setHgap(10);
-                    gridBook.setVgap(10);
-                    gridBook.setPadding(new Insets(0, 10, 10, 10));
+                gridBook.setMinHeight(Region.USE_COMPUTED_SIZE);
+                gridBook.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                gridBook.setMaxHeight(Region.USE_COMPUTED_SIZE);
+                gridBook.setHgap(10);
+                gridBook.setVgap(10);
+                gridBook.setPadding(new Insets(0, 10, 10, 10));
 
                 }
-            }
+//            }
 
         } catch (IOException e) {
             e.printStackTrace();

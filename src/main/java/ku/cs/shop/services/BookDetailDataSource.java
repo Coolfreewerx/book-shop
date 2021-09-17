@@ -14,7 +14,7 @@ public class BookDetailDataSource {
 
     public ArrayList<Book> readData()
     {
-        ArrayList<Book> bookList = new ArrayList<>();
+        ArrayList<Book> bookList = new ArrayList<>(); // ไม่ควรใช้ arraylist
 
         try
         {
