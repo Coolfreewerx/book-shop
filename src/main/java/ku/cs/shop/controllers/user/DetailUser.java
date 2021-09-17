@@ -4,13 +4,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import ku.cs.shop.models.User;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.ResourceBundle;
 
 public class DetailUser extends User {
@@ -24,9 +25,19 @@ public class DetailUser extends User {
     @FXML private Label firstnameLabel;
     @FXML private Label passwordLabel;
     @FXML private Label usernameLabel;
+    @FXML private Label birthdayInEditInformationLabel;
+    @FXML private Label birthMonthInEditInformationLabel;
+    @FXML private Label birthYearInEditInformationLabel;
+    @FXML private Label usernameInEditInformationLabel;
+    @FXML private TextField lastnameTextField;
+    @FXML private TextField firstnameTextField;
+    @FXML private TextField phoneNumberTextField;
+    @FXML private PasswordField passwordTextField;
+    @FXML private PasswordField recheckPasswordTextField;
+    @FXML private MenuButton sexChoice;
     private ArrayList<User> usersList = new ArrayList<>();
 
-    public String showData(){
+    public String showData(){ // โชว์ข้อมูลส่วนตัวของผู้ใช้ระบบ
         User user = new User("src/main/java/ku/cs/shop/userData.csv");
         usersList = user.readData();
 
@@ -115,4 +126,26 @@ public class DetailUser extends User {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
+
+//    public void setSexChoiceMenuButton(ActionEvent event) { // set ตัวเลือกเพศให้แสดงเพศที่เลือก
+//        sexChoice.setValue("เดือน");
+//        birthMonthChoice.getItems().removeAll(monthList) ;
+//        birthDayChoice.getItems().removeAll(dayList) ;
+//        monthList.removeAll(monthList) ;
+//        lodeMonthData();
+//    }
+
+//    private void lodeSex() {
+//        sexChoice.getItems().removeAll(monthList);
+//        monthList.removeAll(monthList) ;
+//        String sex = "หญิง,ชาย,ไม่ระบุ" ;
+//        String[] arr = sex.split(",") ;
+//        int i = 0 ;
+//
+//        while ( i < 12){
+//            monthList.add(arr[i]) ;
+//            i++ ;
+//        }
+//        birthMonthChoice.getItems().addAll(monthList) ;
+//    }
 }

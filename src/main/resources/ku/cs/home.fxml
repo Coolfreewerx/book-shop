@@ -130,22 +130,26 @@
                                 <Insets bottom="10.0" left="10.0" top="-5.0" />
                             </GridPane.margin>
                         </GridPane>
-                        <Label prefHeight="22.0" prefWidth="201.0" text="          หนังสือใหม่" textAlignment="CENTER" textFill="RED" GridPane.rowIndex="1">
-                            <font>
-                                <Font name="JasmineUPC" size="28.0" />
-                            </font>
-                            <GridPane.margin>
-                                <Insets top="25.0" />
-                            </GridPane.margin>
-                        </Label>
-                        <Label prefHeight="30.0" prefWidth="321.0" text="                          | ซื้อก่อนใครได้ที่นี้!" GridPane.rowIndex="1">
-                            <font>
-                                <Font name="JasmineUPC" size="28.0" />
-                            </font>
-                            <GridPane.margin>
-                                <Insets top="25.0" />
-                            </GridPane.margin>
-                        </Label>
+                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                     <children>
+                              <Label prefHeight="22.0" prefWidth="100.0" text="หนังสือใหม่" textAlignment="CENTER" textFill="RED">
+                                  <font>
+                                      <Font name="JasmineUPC" size="28.0" />
+                                  </font>
+                           <HBox.margin>
+                              <Insets left="40.0" top="20.0" />
+                           </HBox.margin>
+                              </Label>
+                              <Label prefHeight="30.0" prefWidth="173.0" text="| ซื้อก่อนใครได้ที่นี้!">
+                                  <font>
+                                      <Font name="JasmineUPC" size="28.0" />
+                                  </font>
+                           <HBox.margin>
+                              <Insets top="16.0" />
+                           </HBox.margin>
+                              </Label>
+                     </children>
+                  </HBox>
                     </children>
                 </GridPane>
             </center>
