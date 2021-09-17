@@ -27,7 +27,6 @@ public class ApplySellerController {
     private String leastStock;
     private String bookPrice;
 
-
     @FXML private Label userNameLabel;
     @FXML private Button addImgButton;
     @FXML private TextField bookNameTextField;

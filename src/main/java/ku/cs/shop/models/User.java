@@ -146,7 +146,15 @@ public class User {
             this.passwordCheck = false ;
             return "รหัสผ่านไม่ตรงกัน โปรดตรวจสอบรหัสผ่าน";
         }
+    }
 
+    public Boolean comparePasswordBoolean(String password, String passwordRecheck) {
+        if (password.equals(passwordRecheck)) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     //เก็บข้อมูลของ user
@@ -167,7 +175,7 @@ public class User {
                     + imageName + ","
                     + phone + ","
                     + sex + ","
-                    + shopName
+                    + shopName // 10
                     + "\r\n");
         } catch (IOException e) {
             e.printStackTrace();
@@ -265,4 +273,56 @@ public class User {
         }
         return usersList;
     }
+
+    public void writeToEditUserInfo(User user) {
+        File userData = new File("src/main/java/ku/cs/shop/userData.csv");
+        FileWriter writer = null;
+        try {
+            writer = new FileWriter(userData, true);
+            writer.write(userName + ","
+                    + firstName + ","
+                    + lastName + ","
+                    + password + ","
+                    + birthDay + ","
+                    + birthMonth + ","
+                    + birthYear + ","
+                    + imageName + ","
+                    + phone + ","
+                    + sex + ","
+                    + shopName // 10
+                    + "\r\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.err.println("สมัครไม่สำเร็จ");
+        } finally {
+            try {
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public String checkShopNameCondition(String shopName) {
+        if (checkShopNameHaveUsed(shopName)) { return "** ชื่อร้านค้านี้ถูกใช้งานแล้ว **" ; }
+        else { return "** ชื่อร้านค้านี้สามารถใช้งานได้ **" ; }
+    }
+
+    public boolean checkShopNameHaveUsed(String shopName) {
+        File userData = new File("src/main/java/ku/cs/shop/userData.csv");
+        try {
+            BufferedReader buffer = new BufferedReader(new FileReader(userData));
+            String line;
+            while ((line = buffer.readLine()) != null) {
+                String[] arr = line.split(",");
+                if (arr[10].equals(shopName)) { return true ;}
+            }
+            buffer.close();
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+        return false ;
+    }
+
 }

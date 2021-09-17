@@ -33,40 +33,40 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <MenuButton mnemonicParsing="false" onAction="#handleTypeBookButton" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: #c9ad88; -fx-background-radius: 20;" text="ประเภท" textFill="WHITE">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#handleTypeBookButton" text="หนังสือการ์ตูน" />
-                        <MenuItem mnemonicParsing="false" onAction="#handleTypeBookButton" text="นิตยสาร" />
-                        <MenuItem mnemonicParsing="false" onAction="#handleTypeBookButton" text="นิยาย" />
-                        <MenuItem mnemonicParsing="false" onAction="#handleTypeBookButton" text="หนังสือเรียน" />
-                        <MenuItem mnemonicParsing="false" onAction="#handleTypeBookButton" text="e-book" />
-                     </items>
-                     <font>
-                        <Font name="JasmineUPC" size="25.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="40.0" top="13.0" />
-                     </HBox.margin>
-                  </MenuButton>
-                  <Button mnemonicParsing="false" onAction="#handleAllTypeBookButton" prefHeight="38.0" prefWidth="165.0" style="-fx-background-color: #c9ad88; -fx-background-radius: 20;" text="หนังสือทั้งหมด" textFill="WHITE">
-                     <font>
-                        <Font name="JasmineUPC" size="25.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="30.0" right="-20.0" top="13.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#handleToInformationButton" prefHeight="38.0" prefWidth="119.0" style="-fx-background-color: F99F28; -fx-background-radius: 20;" text="ข้อมูลผู้ใช้" textFill="WHITE">
-                     <font>
-                        <Font name="JasmineUPC" size="25.0" />
-                     </font>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <HBox.margin>
-                        <Insets left="55.0" right="40.0" top="13.0" />
-                     </HBox.margin>
-                  </Button>
+<!--                  <MenuButton mnemonicParsing="false" onAction="#handleTypeBookButton" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: #c9ad88; -fx-background-radius: 20;" text="ประเภท" textFill="WHITE">-->
+<!--                     <items>-->
+<!--                        <MenuItem mnemonicParsing="false" onAction="#handleTypeBookButton" text="หนังสือการ์ตูน" />-->
+<!--                        <MenuItem mnemonicParsing="false" onAction="#handleTypeBookButton" text="นิตยสาร" />-->
+<!--                        <MenuItem mnemonicParsing="false" onAction="#handleTypeBookButton" text="นิยาย" />-->
+<!--                        <MenuItem mnemonicParsing="false" onAction="#handleTypeBookButton" text="หนังสือเรียน" />-->
+<!--                        <MenuItem mnemonicParsing="false" onAction="#handleTypeBookButton" text="e-book" />-->
+<!--                     </items>-->
+<!--                     <font>-->
+<!--                        <Font name="JasmineUPC" size="25.0" />-->
+<!--                     </font>-->
+<!--                     <HBox.margin>-->
+<!--                        <Insets left="40.0" top="13.0" />-->
+<!--                     </HBox.margin>-->
+<!--                  </MenuButton>-->
+<!--                  <Button mnemonicParsing="false" onAction="#handleAllTypeBookButton" prefHeight="38.0" prefWidth="165.0" style="-fx-background-color: #c9ad88; -fx-background-radius: 20;" text="หนังสือทั้งหมด" textFill="WHITE">-->
+<!--                     <font>-->
+<!--                        <Font name="JasmineUPC" size="25.0" />-->
+<!--                     </font>-->
+<!--                     <HBox.margin>-->
+<!--                        <Insets left="30.0" right="-20.0" top="13.0" />-->
+<!--                     </HBox.margin>-->
+<!--                  </Button>-->
+<!--                  <Button mnemonicParsing="false" onAction="#handleToInformationButton" prefHeight="38.0" prefWidth="119.0" style="-fx-background-color: F99F28; -fx-background-radius: 20;" text="ข้อมูลผู้ใช้" textFill="WHITE">-->
+<!--                     <font>-->
+<!--                        <Font name="JasmineUPC" size="25.0" />-->
+<!--                     </font>-->
+<!--                     <opaqueInsets>-->
+<!--                        <Insets />-->
+<!--                     </opaqueInsets>-->
+<!--                     <HBox.margin>-->
+<!--                        <Insets left="55.0" right="40.0" top="13.0" />-->
+<!--                     </HBox.margin>-->
+<!--                  </Button>-->
                   <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: white;">
                      <graphic>
                         <ImageView fitHeight="38.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
