@@ -13,6 +13,7 @@ import javafx.scene.layout.Region;
 import ku.cs.shop.controllers.system.ItemController;
 import ku.cs.shop.controllers.user.DetailUser;
 import ku.cs.shop.models.Book;
+import ku.cs.shop.models.User;
 import ku.cs.shop.services.BookDetailDataSource;
 
 import java.io.IOException;
@@ -23,6 +24,10 @@ import java.util.ResourceBundle;
 public class HomeController implements Initializable {
 
     @FXML private GridPane grid;
+    @FXML private Label usernameLabel ;
+
+
+
 
     private BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
     private ArrayList<Book> books = data.readData();
@@ -93,10 +98,12 @@ public class HomeController implements Initializable {
     @FXML
     public void handleToInformationButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า หนังสือทั้งหมด (เพจหลัก)
         try {
-            FXRouter.goTo("editPasswordDetail");
+
+            FXRouter.goTo("detailUser");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้าเพจหลักไม่ได้");
+            System.err.println("ไปที่หน้า detailUser ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
+            e.printStackTrace();
         }
     }
 }

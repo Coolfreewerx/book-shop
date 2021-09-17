@@ -3,54 +3,12 @@ package ku.cs.shop.models;
 import java.io.*;
 import java.util.regex.Pattern;
 
-public class Seller extends Book {
+public class Seller{
 
-    private String addressShop;
-    private String mailShop;
-    private String telShop;
-    private String bankShopAccount;
     private boolean bookShopCheck;
+    private Book book;
+    public Seller() { }
 
-    public Seller() {
-    }
-
-    ;
-
-    public Seller(String bookName, String bookShop, String bookAuthor, String bookISBN, String bookType, String bookDetail, String bookPublisher, String bookStatus, String bookImg, int bookStock, String bookPage, int leastStock, double bookPrice) {
-        super(bookName, bookShop, bookAuthor, bookISBN, bookType, bookDetail, bookPublisher, bookStatus, bookImg, bookStock, bookPage, leastStock, bookPrice);
-    }
-
-    public String getAddressShop() {
-        return addressShop;
-    }
-
-    public String getMailShop() {
-        return mailShop;
-    }
-
-    public String getTelShop() {
-        return telShop;
-    }
-
-    public String getBankShopAccount() {
-        return bankShopAccount;
-    }
-
-    public void setAddressShop(String addressShop) {
-        this.addressShop = addressShop;
-    }
-
-    public void setMailShop(String mailShop) {
-        this.mailShop = mailShop;
-    }
-
-    public void setTelShop(String telShop) {
-        this.telShop = telShop;
-    }
-
-    public void setBankShopAccount(String bankShopAccount) {
-        this.bankShopAccount = bankShopAccount;
-    }
 
     public String isBookShopNameCanUsed(String bookshop) {
         if (isNameBookShopHaveUsed(bookshop)) {

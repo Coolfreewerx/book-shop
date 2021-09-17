@@ -4,7 +4,14 @@ import com.opencsv.CSVReader;
 
 import java.io.*;
 import java.io.FileReader;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.regex.Pattern;
 
 public class User {
@@ -16,12 +23,22 @@ public class User {
     private String birthDay ;
     private String birthMonth ;
     private String birthYear ;
-    private boolean passwordCheck = false, passwordCondition = false, dataCheck = false, userNameCheck = false ;
     private String filename;
-
+    private String imageName ;
+    private String phone ;
+    private String sex ;
+    private String shopName ;
+    private static String userLogin ;
+    private boolean passwordCheck = false, passwordCondition = false, dataCheck = false, userNameCheck = false ;
+    private String userImg;
     //เก็บค่าเริ่มต้น
-    public User(){}
-    public User(String firstName, String lastName, String userName, String password, String birthDay, String birthMonth, String birthYear){
+    public User(){
+        this.imageName = "default.png" ;
+        this.phone = "null" ;
+        this.sex = "null" ;
+        this.shopName = "null" ;
+    }
+    public User(String firstName, String lastName, String userName, String password, String birthDay, String birthMonth, String birthYear, String userImg){
         this.firstName = firstName ;
         this.lastName = lastName ;
         this.userName = userName ;
@@ -29,6 +46,7 @@ public class User {
         this.birthDay = birthDay ;
         this.birthMonth = birthMonth ;
         this.birthYear = birthYear ;
+        this.userImg = userImg;
     }
     public User(String filename){
         this.filename = filename;
@@ -46,9 +64,7 @@ public class User {
     public String getPassword() {
         return password;
     }
-    public String getBirthDay() {
-        return birthDay;
-    }
+    public String getBirthDay() { return birthDay; }
     public String getBirthMonth() {
         return birthMonth;
     }
@@ -59,6 +75,9 @@ public class User {
     public boolean getPasswordCheck() { return passwordCheck; }
     public boolean getDataCheck() {return dataCheck; }
     public boolean getUserNameCheck() {return userNameCheck; }
+    public String getUserImg() { return userImg; }
+
+    public static String getUserLogin() { return userLogin; }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -73,6 +92,8 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+    public void setImageName(String imageName) { this.imageName = imageName; }
+    public void setUserImg(String userImg){ this.userImg = userImg; }
 
     public String checkUserNameCondition(String userName) {
         //ตรวจสอบ username ว่าตรงเงื่อนไขมั้ย
@@ -128,7 +149,15 @@ public class User {
             this.passwordCheck = false ;
             return "รหัสผ่านไม่ตรงกัน โปรดตรวจสอบรหัสผ่าน";
         }
+    }
 
+    public Boolean comparePasswordBoolean(String password, String passwordRecheck) {
+        if (password.equals(passwordRecheck)) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     //เก็บข้อมูลของ user
@@ -136,15 +165,41 @@ public class User {
         //นำข้อมูล String เก็บใน FieldClass และบันทึกลง CSV
         File userData = new File("src/main/java/ku/cs/shop/userData.csv");
 
-        FileWriter writer;
+        FileWriter writer = null;
         try {
             writer = new FileWriter(userData, true);
-            writer.write(userName + "," + firstName + "," + lastName + "," + password + "," +
-                    birthDay + "," + birthMonth + "," + birthYear + "\r\n");
-            writer.close();
+            writer.write(userName + ","
+                    + firstName + ","
+                    + lastName + ","
+                    + password + ","
+                    + birthDay + ","
+                    + birthMonth + ","
+                    + birthYear + ","
+                    + imageName + ","
+                    + phone + ","
+                    + sex + ","
+                    + shopName // 10
+                    + "\r\n");
         } catch (IOException e) {
             e.printStackTrace();
             System.err.println("สมัครไม่สำเร็จ");
+        } finally {
+            try {
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    //เก็บรูปภาพ
+    public void copyImageToPackage(File image, String imageName) {
+        File file = new File("user-images") ;
+        Path desPath = FileSystems.getDefault().getPath(file.getAbsolutePath() + "\\" + imageName);
+        try {
+            Files.copy(image.toPath(), desPath, StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -166,14 +221,6 @@ public class User {
         }
     }
 
-//    Clipboard clipboard = Clipboard.getSystemClipboard();
-//    ClipboardContent content = new ClipboardContent();
-////for paste as image, e.g. in GIMP
-//content.putImage(image); // the image you want, as javafx.scene.image.Image
-//// for paste as file, e.g. in Windows Explorer
-//content.putFiles(java.util.Collections.singletonList(new File("C:\\Users\\Admin\\Desktop\\my\\mysql.gif")));
-//clipboard.setContent(content);
-
     //ล็อกอินเข้าสู่ระบบ
     public boolean login(String userName, String password){
         File userData = new File("src/main/java/ku/cs/shop/userData.csv");
@@ -184,6 +231,7 @@ public class User {
                 String[] arr = line.split(","); //อ่าน username
                 if (arr[0].equals(userName)) {
                     if (arr[3].equals(password)) {
+                        this.userLogin = userName ;
                         return true;
                     }
                 }
@@ -193,6 +241,7 @@ public class User {
         catch (IOException e){
             e.printStackTrace();
         }
+
         return false;
     }
 
@@ -200,21 +249,26 @@ public class User {
         ArrayList<User> usersList = new ArrayList<>();
 
         try{
+            System.out.println(filename);
             FileReader file = new FileReader(filename);
+
             CSVReader reader = new CSVReader(file);
             String[] data = null;
 
             while ((data = reader.readNext()) != null){
-                String userNameInArrayList = data[0].trim();
-                String firstNameInArrayList = data[1].trim();
-                String lastNameInArrayList = data[2].trim();
-                String passwordInArrayList = data[3].trim();
-                String birthDayInArrayList = data[4].trim();
-                String birthMonthInArrayList = data[5].trim();
-                String birthYearInArrayList = data[6].trim();
+                String userNameInArrayList = data[0];
+                String firstNameInArrayList = data[1];
+                String lastNameInArrayList = data[2];
+                String passwordInArrayList = data[3];
+                String birthDayInArrayList = data[4];
+                String birthMonthInArrayList = data[5];
+                String birthYearInArrayList = data[6];
+                String userImgInList = data[7];
 
-                User detailUser = new User(userNameInArrayList, firstNameInArrayList, lastNameInArrayList, passwordInArrayList, birthDayInArrayList, birthMonthInArrayList, birthYearInArrayList);
+                User detailUser = new User(firstNameInArrayList, lastNameInArrayList, userNameInArrayList, passwordInArrayList, birthDayInArrayList, birthMonthInArrayList, birthYearInArrayList, userImgInList);
                 usersList.add(detailUser);
+                System.out.println(Arrays.stream(data).toArray());
+                //String firstName, String lastName, String userName, String password, String birthDay, String birthMonth, String birthYear, String userImg
             }
         } catch (FileNotFoundException e) {
             System.err.println("Cannot read information in file " + filename);
@@ -222,5 +276,64 @@ public class User {
             System.err.println("Error reading from file");
         }
         return usersList;
+    }
+    
+    public void writeToEditUserInfo(User user) {
+        File userData = new File("src/main/java/ku/cs/shop/userData.csv");
+        FileWriter writer = null;
+        try {
+            writer = new FileWriter(userData, true);
+            writer.write(userName + ","
+                    + firstName + ","
+                    + lastName + ","
+                    + password + ","
+                    + birthDay + ","
+                    + birthMonth + ","
+                    + birthYear + ","
+                    + imageName + ","
+                    + phone + ","
+                    + sex + ","
+                    + shopName // 10
+                    + "\r\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.err.println("สมัครไม่สำเร็จ");
+        } finally {
+            try {
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public String checkShopNameCondition(String shopName) {
+        if (checkShopNameHaveUsed(shopName)) { return "** ชื่อร้านค้านี้ถูกใช้งานแล้ว **" ; }
+        else { return "** ชื่อร้านค้านี้สามารถใช้งานได้ **" ; }
+    }
+
+    public boolean checkShopNameHaveUsed(String shopName) {
+        File userData = new File("src/main/java/ku/cs/shop/userData.csv");
+        try {
+            BufferedReader buffer = new BufferedReader(new FileReader(userData));
+            String line;
+            while ((line = buffer.readLine()) != null) {
+                String[] arr = line.split(",");
+                if (arr[10].equals(shopName)) { return true ;}
+            }
+            buffer.close();
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+        return false ;
+    }
+
+    public String getPicturePath() {
+        return new File(System.getProperty("user.dir")
+                + File.separator
+                + "/user_images"
+                + File.separator
+                + userImg).toURI().toString();
     }
 }

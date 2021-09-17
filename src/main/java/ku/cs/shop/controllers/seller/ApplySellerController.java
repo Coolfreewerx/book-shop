@@ -5,7 +5,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import ku.cs.shop.controllers.scene.AddImageController;
 import ku.cs.shop.models.Seller;
 
 
@@ -27,7 +26,6 @@ public class ApplySellerController {
     private String bookPage;
     private String leastStock;
     private String bookPrice;
-
 
     @FXML private Label userNameLabel;
     @FXML private Button addImgButton;
@@ -96,7 +94,24 @@ public class ApplySellerController {
 
     }
 
+    @FXML public void handleSellerStockButton(){
+        try {
+            com.github.saacsos.FXRouter.goTo("sellerStock");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า sellerStock ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
 
+    @FXML
+    public void handleToHomeButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า home
+        try {
+            com.github.saacsos.FXRouter.goTo("home");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้าเพจหลักไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
 
 
 

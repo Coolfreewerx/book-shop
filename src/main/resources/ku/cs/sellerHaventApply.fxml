@@ -14,16 +14,14 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.user.DetailUser">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.seller.ApplyToBeASeller">
     <children>
         <BorderPane layoutX="-22.0" layoutY="3.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
                 <HBox fx:id="hBoxSellerStock" prefHeight="69.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
-               <children>
+                    <children>
                   <Button mnemonicParsing="false" onAction="#handleToHomeButton" style="-fx-background-color: white;">
                      <graphic>
                         <ImageView fitHeight="68.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
@@ -33,13 +31,13 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <MenuButton mnemonicParsing="false" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: #c9ad88; -fx-background-radius: 20;" text="ประเภท" textFill="WHITE">
+                  <MenuButton mnemonicParsing="false" onAction="#handleTypeBookButton" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: #c9ad88; -fx-background-radius: 20;" text="ประเภท" textFill="WHITE">
                      <items>
-                        <MenuItem mnemonicParsing="false" onAction="#handleCartoonBookButton" text="หนังสือการ์ตูน" />
-                        <MenuItem mnemonicParsing="false" onAction="#handleMagazineBookButton" text="นิตยสาร" />
-                        <MenuItem mnemonicParsing="false" onAction="#handleNovelBookButton" text="นิยาย" />
-                        <MenuItem mnemonicParsing="false" onAction="#handleEducationalBookButton" text="หนังสือเรียน" />
-                        <MenuItem mnemonicParsing="false" onAction="#handleEBookButton" text="e-book" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleTypeBookButton" text="หนังสือการ์ตูน" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleTypeBookButton" text="นิตยสาร" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleTypeBookButton" text="นิยาย" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleTypeBookButton" text="หนังสือเรียน" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleTypeBookButton" text="e-book" />
                      </items>
                      <font>
                         <Font name="JasmineUPC" size="25.0" />
@@ -56,7 +54,7 @@
                         <Insets left="30.0" right="-20.0" top="13.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="119.0" style="-fx-background-color: F99F28; -fx-background-radius: 20;" text="ข้อมูลผู้ใช้" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#handleToInformationButton" prefHeight="38.0" prefWidth="119.0" style="-fx-background-color: F99F28; -fx-background-radius: 20;" text="ข้อมูลผู้ใช้" textFill="WHITE">
                      <font>
                         <Font name="JasmineUPC" size="25.0" />
                      </font>
@@ -99,7 +97,7 @@
                         <Insets left="20.0" right="20.0" top="13.0" />
                      </HBox.margin>
                   </TextField>
-               </children></HBox>
+                    </children></HBox>
             </top>
             <left>
 
@@ -135,7 +133,7 @@
                                     </font>
                                 </Button>
                                 <!--                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" text="สินค้าในตะกร้า" textFill="WHITE" GridPane.rowIndex="2">-->
-                                <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: BC986A; -fx-background-radius: 10;" text="สินค้าในตระกร้า" textFill="WHITE" GridPane.rowIndex="2">
+                                <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: BC986A; -fx-background-radius: 10;" text="สินค้าในตะกร้า" textFill="WHITE" GridPane.rowIndex="2">
                                     <font>
                                         <Font name="JasmineUPC" size="32.0" />
                                     </font>
@@ -169,107 +167,14 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#fffcf1" height="197.0" layoutX="17.0" layoutY="18.0" stroke="#fffcf1" strokeType="INSIDE" width="661.0" />
-                  <Label layoutX="47.0" layoutY="33.0" styleClass="font_rsu_18pt" stylesheets="@style/PrimaryTheme.css" text="Username">
+                  <Button fx:id="applyTobeSellerButton" layoutX="286.0" layoutY="320.0" mnemonicParsing="false" onAction="#handleApplyToBeSellerButton" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="สมัครเป็นผู้ขาย" textFill="WHITE">
                      <font>
                         <Font name="JasmineUPC" size="36.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="335.0" layoutY="34.0" styleClass="font_rsu_18pt" stylesheets="@style/PrimaryTheme.css" text="Birthday">
-                     <font>
-                        <Font name="JasmineUPC" size="36.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="48.0" layoutY="73.0" styleClass="font_rsu_18pt" stylesheets="@style/PrimaryTheme.css" text="Password">
-                     <font>
-                        <Font name="JasmineUPC" size="36.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="47.0" layoutY="117.0" styleClass="font_rsu_18pt" stylesheets="@style/PrimaryTheme.css" text="Firstname">
-                     <font>
-                        <Font name="JasmineUPC" size="36.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="47.0" layoutY="155.0" styleClass="font_rsu_18pt" stylesheets="@style/PrimaryTheme.css" text="Lastname">
-                     <font>
-                        <Font name="JasmineUPC" size="36.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="335.0" layoutY="74.0" styleClass="font_rsu_18pt" stylesheets="@style/PrimaryTheme.css" text="Phone">
-                     <font>
-                        <Font name="JasmineUPC" size="36.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="335.0" layoutY="118.0" styleClass="font_rsu_18pt" stylesheets="@style/PrimaryTheme.css" text="Sex">
-                     <font>
-                        <Font name="JasmineUPC" size="36.0" />
-                     </font>
-                  </Label>
-                  <Button layoutX="582.0" layoutY="161.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="82.0" style="-fx-background-color: F99F28;" styleClass="font_jasmine_16pt" stylesheets="@style/PrimaryTheme.css" text="แก้ไข" textFill="WHITE">
-                     <font>
-                        <Font size="18.0" />
                      </font>
                   </Button>
-                  <Label layoutX="42.0" layoutY="242.0" styleClass="font_rsu_18pt" stylesheets="@style/PrimaryTheme.css" text="Address" textFill="#a05e07">
+                  <Label layoutX="168.0" layoutY="250.0" text="ไม่พบข้อมูลการเป็นผู้ขาย" textFill="#ff0101">
                      <font>
-                        <Font name="JasmineUPC" size="36.0" />
-                     </font>
-                  </Label>
-                  <Line endX="451.73321533203125" endY="-3.0517578125E-5" layoutX="180.0" layoutY="279.0" startX="-134.93331909179688" startY="-3.0517578125E-5" />
-                  <Button layoutX="279.0" layoutY="328.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="153.0" style="-fx-background-color: F99F28;" styleClass="font_jasmine_16pt" stylesheets="@style/PrimaryTheme.css" text="เพิ่มข้อมูลที่อยู่" textFill="WHITE">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
-                  <Label layoutX="44.0" layoutY="415.0" styleClass="font_rsu_18pt" stylesheets="@style/PrimaryTheme.css" text="My voucher" textFill="#a05e07">
-                     <font>
-                        <Font name="JasmineUPC" size="36.0" />
-                     </font>
-                  </Label>
-                  <Line endX="451.73321533203125" endY="-3.0517578125E-5" layoutX="190.0" layoutY="456.0" startX="-134.93331909179688" startY="-3.0517578125E-5" />
-                  <Label fx:id="birthdayLabel" layoutX="454.0" layoutY="41.0" styleClass="font_rsu_12pt" stylesheets="@style/PrimaryTheme.css" text="Birthday" textAlignment="CENTER">
-                     <font>
-                        <Font name="JasmineUPC" size="25.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="birthMonthLabel" layoutX="518.0" layoutY="41.0" styleClass="font_rsu_12pt" stylesheets="@style/PrimaryTheme.css" text="Birthmonth" textAlignment="CENTER">
-                     <font>
-                        <Font name="JasmineUPC" size="25.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="birthYearLabel" layoutX="604.0" layoutY="41.0" styleClass="font_rsu_12pt" stylesheets="@style/PrimaryTheme.css" text="Birthyear" textAlignment="CENTER">
-                     <font>
-                        <Font name="JasmineUPC" size="25.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="sexLabel" layoutX="455.0" layoutY="126.0" styleClass="font_rsu_12pt" stylesheets="@style/PrimaryTheme.css" text="เพศ">
-                     <font>
-                        <Font name="JasmineUPC" size="25.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="phoneLabel" layoutX="455.0" layoutY="82.0" styleClass="font_rsu_12pt" stylesheets="@style/PrimaryTheme.css" text="เบอร์โทรศัพท์">
-                     <font>
-                        <Font name="JasmineUPC" size="25.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="LastnameLabel" layoutX="180.0" layoutY="163.0" styleClass="font_rsu_12pt" stylesheets="@style/PrimaryTheme.css" text="Lastname">
-                     <font>
-                        <Font name="JasmineUPC" size="25.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="firstnameLabel" layoutX="180.0" layoutY="125.0" styleClass="font_rsu_12pt" stylesheets="@style/PrimaryTheme.css" text="Firstname">
-                     <font>
-                        <Font name="JasmineUPC" size="25.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="passwordLabel" layoutX="181.0" layoutY="81.0" styleClass="font_rsu_12pt" stylesheets="@style/PrimaryTheme.css" text="Password">
-                     <font>
-                        <Font name="JasmineUPC" size="25.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="usernameLabel" layoutX="181.0" layoutY="41.0" styleClass="font_rsu_12pt" stylesheets="@style/PrimaryTheme.css" text="Username">
-                     <font>
-                        <Font name="JasmineUPC" size="25.0" />
+                        <Font name="JasmineUPC Bold" size="55.0" />
                      </font>
                   </Label>
                </children>
