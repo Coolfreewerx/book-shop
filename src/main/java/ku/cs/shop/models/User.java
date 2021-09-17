@@ -29,15 +29,12 @@ public class User {
     private String sex ;
     private String shopName ;
     private static String userLogin ;
-    private boolean passwordCheck = false, passwordCondition = false, dataCheck = false, userNameCheck = false ;
-    private String userImg;
+    private static boolean passwordCheck = false ;
+    private static boolean passwordCondition = false ;
+    private static boolean userNameCheck = false ;
+
     //เก็บค่าเริ่มต้น
-    public User(){
-        this.imageName = "default.png" ;
-        this.phone = "null" ;
-        this.sex = "null" ;
-        this.shopName = "null" ;
-    }
+    public User() {}
     public User(String firstName, String lastName, String userName, String password, String birthDay, String birthMonth, String birthYear, String userImg){
         this.firstName = firstName ;
         this.lastName = lastName ;
@@ -46,7 +43,10 @@ public class User {
         this.birthDay = birthDay ;
         this.birthMonth = birthMonth ;
         this.birthYear = birthYear ;
-        this.userImg = userImg;
+        this.imageName = userImg;
+        this.phone = "null" ;
+        this.sex = "null" ;
+        this.shopName = "null" ;
     }
     public User(String filename){
         this.filename = filename;
@@ -71,11 +71,12 @@ public class User {
     public String getBirthYear() {
         return birthYear;
     }
-    public boolean getPasswordCondition() { return  passwordCondition; }
-    public boolean getPasswordCheck() { return passwordCheck; }
-    public boolean getDataCheck() {return dataCheck; }
-    public boolean getUserNameCheck() {return userNameCheck; }
-    public String getUserImg() { return userImg; }
+    public String getImageName() { return imageName; }
+
+    public static boolean getPasswordCondition() { return  passwordCondition; }
+    public static boolean getPasswordCheck() { return passwordCheck; }
+    public static boolean getUserNameCheck() {return userNameCheck; }
+
 
     public static String getUserLogin() { return userLogin; }
 
@@ -86,32 +87,24 @@ public class User {
         this.lastName = lastName;
     }
     public void setUserName(String userName) { this.userName = userName; }
-    public void setBirthDay(String birthDay) { this.birthDay = birthDay; }
-    public void setBirthMonth(String birthMonth) { this.birthMonth = birthMonth; }
-    public void setBirthYear(String birthYear) { this.birthYear = birthYear; }
-    public void setPassword(String password) {
-        this.password = password;
-    }
-    public void setImageName(String imageName) { this.imageName = imageName; }
-    public void setUserImg(String userImg){ this.userImg = userImg; }
 
-    public String checkUserNameCondition(String userName) {
+    public static String checkUserNameCondition(String userName) {
         //ตรวจสอบ username ว่าตรงเงื่อนไขมั้ย
         if (!Pattern.matches("[a-zA-Z0-9]+", userName)) {
-            this.userNameCheck = false ;
+            userNameCheck = false ;
             return "ชื่อผู้ใช้ไม่ตรงตามรูปแบบที่กำหนด" ;
         }
         else if (checkUserNameHaveUsed(userName)) {
-            this.userNameCheck = false ;
+            userNameCheck = false ;
             return "ชื่อผู้ใช้นี้ถูกใช้งานไปแล้ว" ;
         }
         else {
-            this.userNameCheck = true ;
+            userNameCheck = true ;
             return "ชื่อผู้ใช้นี้สามารถใช้งานได้" ; }
     }
 
     //ตรวจสอบ username ว่าซ้ำมั้ย
-    public boolean checkUserNameHaveUsed(String userName) {
+    public static boolean checkUserNameHaveUsed(String userName) {
         File userData = new File("src/main/java/ku/cs/shop/userData.csv");
         try {
             BufferedReader buffer = new BufferedReader(new FileReader(userData));
@@ -129,24 +122,24 @@ public class User {
     }
 
     //ตรวจสอบรหัสผ่านตามเงื่อนไข
-    public boolean checkPasswordCondition (String password)  {
+    public static boolean checkPasswordCondition (String password)  {
         if (password.length()<8 || !(Pattern.matches("[a-zA-Z0-9]+", password)&&!Pattern.matches("[a-zA-Z]+", password)&&!Pattern.matches("[0-9]+", password))) {
-            this.passwordCondition = false ;
+            passwordCondition = false ;
             return false ;
         }
         else {
-            this.passwordCondition = true ;
+            passwordCondition = true ;
             return true ; }
     }
 
     //ตรวจสอบการยืนยันรหัสผ่าน
-    public String comparePassword(String password, String passwordRecheck) {
+    public static String comparePassword(String password, String passwordRecheck) {
         if (password.equals(passwordRecheck)) {
-            this.passwordCheck = true ;
+            passwordCheck = true ;
             return "";
         }
         else {
-            this.passwordCheck = false ;
+            passwordCheck = false ;
             return "รหัสผ่านไม่ตรงกัน โปรดตรวจสอบรหัสผ่าน";
         }
     }
@@ -185,7 +178,9 @@ public class User {
             System.err.println("สมัครไม่สำเร็จ");
         } finally {
             try {
-                writer.close();
+                if (writer != null) {
+                    writer.close();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -193,31 +188,13 @@ public class User {
     }
 
     //เก็บรูปภาพ
-    public void copyImageToPackage(File image, String imageName) {
+    public static void copyImageToPackage(File image, String imageName) {
         File file = new File("user-images") ;
         Path desPath = FileSystems.getDefault().getPath(file.getAbsolutePath() + "\\" + imageName);
         try {
             Files.copy(image.toPath(), desPath, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
             e.printStackTrace();
-        }
-    }
-
-    //เช็คการกรอกข้อมูลก่อนสมัคร
-    public String dataCheck() {
-        // ตรวจสอบว่าทุกช่องมีข้อมูล
-        if ((firstName.equals("")||lastName.equals("")||userName.equals("")||password.equals("")||
-                birthDay.equals("")||birthMonth.equals("")||birthYear.equals(""))) {
-            this.dataCheck = false ;
-            return "ข้อมูลไม่ครบถ้วน โปรดตรวจสอบข้อมูลอีกครั้ง";
-        }
-        else if (!(this.passwordCheck && this.passwordCondition && this.userNameCheck )) {
-            this.dataCheck = false ;
-            return "ข้อมูลมีข้อผิดพลาดโปรดตรวจสอบข้อมูลอีกครั้ง" ;
-        }
-        else {
-            this.dataCheck = true ;
-            return " ";
         }
     }
 
@@ -334,6 +311,6 @@ public class User {
                 + File.separator
                 + "/user_images"
                 + File.separator
-                + userImg).toURI().toString();
+                + imageName).toURI().toString();
     }
 }
