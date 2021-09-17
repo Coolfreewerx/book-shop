@@ -12,6 +12,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import ku.cs.shop.controllers.system.OrderController;
 import ku.cs.shop.models.Book;
+import ku.cs.shop.models.BookList;
 import ku.cs.shop.services.BookDetailDataSource;
 
 import java.io.IOException;
@@ -42,7 +43,7 @@ public class OrderListController implements Initializable {
     }
 
     private BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
-    private ArrayList<Book> books = data.readData();
+    private BookList books = data.readData();
 
     public void initialize (URL location, ResourceBundle resource){
         int column = 0;
@@ -54,7 +55,7 @@ public class OrderListController implements Initializable {
 
                 grid.add(fxmlLoader.load(), column, row++); // child,col,row
                 OrderController orderController = fxmlLoader.getController();
-                orderController.setData(books.get(i));
+                orderController.setData(books.getBook(i));
                 orderController.changeData();
 
                 grid.setMinWidth(Region.USE_COMPUTED_SIZE);

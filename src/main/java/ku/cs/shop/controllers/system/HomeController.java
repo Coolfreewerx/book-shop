@@ -13,6 +13,7 @@ import javafx.scene.layout.Region;
 import ku.cs.shop.controllers.system.ItemController;
 import ku.cs.shop.controllers.user.DetailUser;
 import ku.cs.shop.models.Book;
+import ku.cs.shop.models.BookList;
 import ku.cs.shop.models.User;
 import ku.cs.shop.services.BookDetailDataSource;
 
@@ -30,9 +31,10 @@ public class HomeController implements Initializable {
 
 
     private BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
-    private ArrayList<Book> books = data.readData();
+    private BookList books = data.readData();
 
         public void initialize (URL location, ResourceBundle resource){
+            data.writeData(books);
             int column = 1;
             int row = 1;
             try {
@@ -42,7 +44,7 @@ public class HomeController implements Initializable {
 
                     grid.add(fxmlLoader.load(), column++, row); // child,col,row
                     ItemController itemController = fxmlLoader.getController();
-                    itemController.setData(books.get(i));
+                    itemController.setData(books.getBook(i));
                     itemController.changeData();
 
                     grid.setMinWidth(Region.USE_COMPUTED_SIZE);
