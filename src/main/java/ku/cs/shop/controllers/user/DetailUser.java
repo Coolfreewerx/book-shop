@@ -14,14 +14,14 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.ResourceBundle;
 
-public class DetailUser extends User {
+public class DetailUser {
     @FXML private HBox hBoxSellerStock;
     @FXML private Label birthdayLabel;
     @FXML private Label birthMonthLabel;
     @FXML private Label birthYearLabel;
     @FXML private Label sexLabel;
     @FXML private Label phoneLabel;
-    @FXML private Label LastnameLabel;
+    @FXML private Label lastnameLabel;
     @FXML private Label firstnameLabel;
     @FXML private Label passwordLabel;
     @FXML private Label usernameLabel;
@@ -37,25 +37,26 @@ public class DetailUser extends User {
     @FXML private MenuButton sexChoice;
     private ArrayList<User> usersList = new ArrayList<>();
 
-    public String showData(){ // โชว์ข้อมูลส่วนตัวของผู้ใช้ระบบ
-        User user = new User("src/main/java/ku/cs/shop/userData.csv");
-        usersList = user.readData();
-
-        for(int i = 0; i < usersList.size(); i++){
-            System.out.println(usersList.get(i).getUserName() + " "+ getUserLogin());
-            if(usersList.get(i).getUserName().equals(getUserLogin())){
-                usernameLabel.setText(usersList.get(i).getUserName());
-                birthdayLabel.setText(usersList.get(i).getBirthDay());
-                birthMonthLabel.setText(usersList.get(i).getBirthMonth());
-                birthYearLabel.setText(usersList.get(i).getBirthYear());
-            }
-        }
-        return null;
-    }
+    private User  user ;
 
     public void initialize(){
+        user = (User)com.github.saacsos.FXRouter.getData();
         showData();
     }
+
+    public void showData(){ // โชว์ข้อมูลส่วนตัวของผู้ใช้ระบบ
+        usernameLabel.setText(user.getUserName());
+        firstnameLabel.setText(user.getFirstName());
+        lastnameLabel.setText(user.getLastName());
+        birthdayLabel.setText(user.getBirthDay());
+        birthMonthLabel.setText(user.getBirthMonth());
+        birthYearLabel.setText(user.getBirthYear());
+        sexLabel.setText(user.getSex());
+        phoneLabel.setText(user.getPhone());
+        //userImage.setImage(new Image(user.getImagePath())) ;
+    }
+
+
 
     @FXML
     public void handleCartoonBookButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าหนังสือการ์ตูน

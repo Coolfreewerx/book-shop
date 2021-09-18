@@ -35,7 +35,19 @@ public class User {
 
     //เก็บค่าเริ่มต้น
     public User() {}
-    public User(String firstName, String lastName, String userName, String password, String birthDay, String birthMonth, String birthYear, String userImg){
+
+    public User(String firstName, String lastName, String userName, String password,
+                String birthDay, String birthMonth, String birthYear,
+                String imageName){
+
+        this(firstName, lastName, userName, password, birthDay, birthMonth, birthYear,
+                imageName, " ", " ", "ยังไม่ได้สมัครเป็นผู้ขาย" ) ;
+
+    }
+    public User(String firstName, String lastName, String userName, String password,
+                String birthDay, String birthMonth, String birthYear,
+                String imageName, String phone, String sex, String shopName) {
+
         this.firstName = firstName ;
         this.lastName = lastName ;
         this.userName = userName ;
@@ -43,11 +55,14 @@ public class User {
         this.birthDay = birthDay ;
         this.birthMonth = birthMonth ;
         this.birthYear = birthYear ;
-        this.imageName = userImg;
-        this.phone = "null" ;
-        this.sex = "null" ;
-        this.shopName = "null" ;
+        this.imageName = imageName ;
+        this.phone = phone ;
+        this.sex = sex ;
+        this.shopName = shopName ;
+
     }
+
+
     public User(String filename){
         this.filename = filename;
     }
@@ -72,12 +87,13 @@ public class User {
         return birthYear;
     }
     public String getImageName() { return imageName; }
+    public String getPhone() { return phone; }
+    public String getSex() { return sex; }
+    public String getShopName() { return shopName; }
 
     public static boolean getPasswordCondition() { return  passwordCondition; }
     public static boolean getPasswordCheck() { return passwordCheck; }
     public static boolean getUserNameCheck() {return userNameCheck; }
-
-
     public static String getUserLogin() { return userLogin; }
 
     public void setFirstName(String firstName) {
@@ -141,15 +157,6 @@ public class User {
         else {
             passwordCheck = false ;
             return "รหัสผ่านไม่ตรงกัน โปรดตรวจสอบรหัสผ่าน";
-        }
-    }
-
-    public Boolean comparePasswordBoolean(String password, String passwordRecheck) {
-        if (password.equals(passwordRecheck)) {
-            return true;
-        }
-        else {
-            return false;
         }
     }
 
@@ -306,11 +313,25 @@ public class User {
         return false ;
     }
 
-    public String getPicturePath() {
+    public String getImagePath() {
         return new File(System.getProperty("user.dir")
                 + File.separator
-                + "/user_images"
+                + "user-images"
                 + File.separator
                 + imageName).toURI().toString();
+    }
+
+    public String toCsv() {
+        return userName + ",\""
+                + firstName.replace("\"", "\"\"") + "\",\""
+                + lastName.replace("\"", "\"\"") + "\","
+                + password + ","
+                + birthDay + ","
+                + birthMonth + ","
+                + birthYear + ","
+                + imageName + ","
+                + phone + ","
+                + sex + ","
+                + shopName ;
     }
 }
