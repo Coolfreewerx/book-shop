@@ -37,7 +37,8 @@ public class UserDataSource implements DataSource<UserList> {
                 String sex = data[9].trim() ;
                 String shopName = data[10].trim() ;
 
-                User userInformation = new User(filename) ;
+                User userInformation = new User(firstName, lastName, userName, password,
+                        birthDay, birthMonth, birthYear, imageName, phone, sex, shopName) ;
                 userList.addUser(userInformation);
             }
 
