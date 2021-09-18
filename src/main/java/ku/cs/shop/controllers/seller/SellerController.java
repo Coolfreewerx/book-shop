@@ -14,7 +14,6 @@ import ku.cs.shop.controllers.system.StockController;
 import ku.cs.shop.controllers.system.HeadController;
 import ku.cs.shop.models.Book;
 
-import ku.cs.shop.models.BookList;
 import ku.cs.shop.services.BookDetailDataSource;
 
 import java.io.IOException;
@@ -35,9 +34,18 @@ public class SellerController implements Initializable {
     @FXML void handleMagazineButton(ActionEvent event) { }
 
     private BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
-    private BookList books = data.readData();
+    private ArrayList<Book> books = data.readData();
+
+    private HeadController headController = new HeadController();
 
     public void initialize (URL location, ResourceBundle resource){
+//        try {
+//            FXMLLoader fxmlLoaderHead = new FXMLLoader();
+//            fxmlLoaderHead.setLocation(getClass().getResource(headController.pagesHeader()));
+//            gridHead.add(fxmlLoaderHead.load(),0,0);
+//        }catch(IOException e){
+//            e.printStackTrace();
+//        }
         int column = 0;
         int row = 1;
         try {
@@ -47,7 +55,7 @@ public class SellerController implements Initializable {
 
                 grid.add(fxmlLoader.load(), column, row++); // child,col,row
                 StockController stockController = fxmlLoader.getController();
-                stockController.setData(books.getBook(i));
+                stockController.setData(books.get(i));
                 stockController.changeData();
 
                 grid.setMinWidth(Region.USE_COMPUTED_SIZE);

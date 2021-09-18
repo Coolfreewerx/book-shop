@@ -26,6 +26,7 @@ import java.time.LocalDateTime;
 public class RegisterController {
 
     // controller เชื่อมต่อกับ view เพื่อรับข้อมูล
+    User user = new User();
     @FXML private TextField firstNameTextField ;
     @FXML private TextField lastNameTextField ;
     @FXML private TextField userNameTextField ;
@@ -68,8 +69,8 @@ public class RegisterController {
 
     @FXML //ทำงานเมื่อกรอก username
     public void handleKeyUserName() {
-        userNameCheckLabel.setText(User.checkUserNameCondition(userNameTextField.getText()));
-        if (User.getUserNameCheck()){
+        userNameCheckLabel.setText(user.checkUserNameCondition(userNameTextField.getText()));
+        if (user.getUserNameCheck()){
             userNameCheckLabel.setTextFill(Color.rgb(21, 117, 84));
         }
         else {
@@ -78,7 +79,7 @@ public class RegisterController {
     }
     @FXML //ทำงานเมื่อกรอกรหัส
     public void handleKeyPassword() {
-        if (User.checkPasswordCondition(passwordField.getText())){
+        if (user.checkPasswordCondition(passwordField.getText())){
             passwordConditionCheckLabel.setText("รหัสผ่านนี้สามารถใช้ได้") ;
             passwordConditionCheckLabel.setTextFill(Color.rgb(21, 117, 84));
         }
@@ -89,7 +90,7 @@ public class RegisterController {
     }
     @FXML //ทำงานเมื่อกรอกยืนยันรหัส
     public void handleKeyCheckPassword() {
-        passwordCompareLabel.setText(User.comparePassword(passwordField.getText(), checkPasswordField.getText()));
+        passwordCompareLabel.setText(user.comparePassword(passwordField.getText(), checkPasswordField.getText()));
     }
 
     private void lodeYearData() {
@@ -152,61 +153,45 @@ public class RegisterController {
     @FXML
     public void handleRegisterButton(ActionEvent actionEvent) {
 
-        registerErrorLabel.setText(checkData());
-        if (!(checkData().equals(" "))) {
+        String firstNameStr = firstNameTextField.getText() ;
+        String lastNameStr = lastNameTextField.getText() ;
+        String userNameStr = userNameTextField.getText() ;
+        String passwordStr = passwordField.getText() ;
+        String birthDayStr = birthDayChoice.getValue() ;
+        String birthMonthStr = birthMonthChoice.getValue() ;
+        String birthYearStr = birthYearChoice.getValue() ;
+        user.setFirstName(firstNameStr);
+        user.setLastName(lastNameStr);
+        user.setUserName(userNameStr);
+        user.setPassword(passwordStr);
+        user.setBirthDay(birthDayStr);
+        user.setBirthMonth(birthMonthStr);
+        user.setBirthYear(birthYearStr);
+
+        registerErrorLabel.setText(user.dataCheck());
+
+        if (!(user.getDataCheck())) {
             return;
         }
-        setImageName();
-        sendDataToWrite();
 
-        try {
-            com.github.saacsos.FXRouter.goTo("login");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า login ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
-    }
-
-    public void sendDataToWrite() {
-        User user = new User(
-                firstNameTextField.getText(),
-                lastNameTextField.getText(),
-                userNameTextField.getText(),
-                passwordField.getText(),
-                birthDayChoice.getValue(),
-                birthMonthChoice.getValue(),
-                birthYearChoice.getValue(),
-                imageName ) ;
-
-        user.writeUserInfo();
-    }
-
-    public void setImageName() {
         if (selectedImage != null) {
             imageName =  userNameTextField.getText() + "-"
                     + LocalDate.now().getYear() + "-"
                     + LocalDate.now().getMonth() + "-"
                     + LocalDate.now().getDayOfMonth() + "-"
                     + LocalDateTime.now().getHour() + LocalDateTime.now().getMinute() + LocalDateTime.now().getSecond() + ".png" ;
-            User.copyImageToPackage(selectedImage , imageName) ;
-        } else {
-            imageName = "default.png" ;
-        }
-    }
 
-    //เช็คการกรอกข้อมูลก่อนสมัคร
-    public String checkData() {
-        // ตรวจสอบว่าทุกช่องมีข้อมูล
-        if ((firstNameTextField.getText().equals("") || lastNameTextField.getText().equals("")
-                || userNameTextField.getText().equals("") || passwordField.getText().equals("")
-                || birthDayChoice.getValue().equals("") || birthMonthChoice.getValue().equals("") || birthYearChoice.getValue().equals(""))) {
-            return "ข้อมูลไม่ครบถ้วน โปรดตรวจสอบข้อมูลอีกครั้ง";
+            user.copyImageToPackage(selectedImage , imageName) ;
+            user.setImageName(imageName);
         }
-        else if (!(User.getPasswordCheck() && User.getPasswordCondition() && User.getUserNameCheck() )) {
-            return "ข้อมูลมีข้อผิดพลาดโปรดตรวจสอบข้อมูลอีกครั้ง" ;
-        }
-        else {
-            return " ";
+
+        user.writeUserInfo();
+
+        try {
+            com.github.saacsos.FXRouter.goTo("login");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า login ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
 

@@ -1,18 +1,16 @@
 package ku.cs.shop.controllers.seller;
 
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import ku.cs.shop.controllers.system.OrderController;
 import ku.cs.shop.models.Book;
-import ku.cs.shop.models.BookList;
 import ku.cs.shop.services.BookDetailDataSource;
 
 import java.io.IOException;
@@ -22,10 +20,24 @@ import java.util.ResourceBundle;
 
 public class OrderListController implements Initializable {
     @FXML private HBox hBoxSellerStock;
+    @FXML private ToggleGroup toggleGroup1;
+    @FXML private ToggleGroup toggleGroup2;
     @FXML private Label userNameLabel;
     @FXML private ScrollPane scoll;
     @FXML private GridPane grid;
     @FXML private Button allSellerStockButtonn;
+
+//    public void changed(ObservableValue<? extends Toggle> ov, Toggle toggle, Toggle new_toggle) {
+//        if (new_toggle == null) {
+//            //rect.setFill(Color.WHITE);
+//            //put method for change data
+//        }
+//        else {
+//            //rect.setFill((Color) group.getSelectedToggle().getUserData());
+//            //put method for change data
+//        }
+//    }
+
 
     @FXML
     void handleAllTypeBookButton(ActionEvent event) {
@@ -43,7 +55,8 @@ public class OrderListController implements Initializable {
     }
 
     private BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
-    private BookList books = data.readData();
+    private ArrayList<Book> books = data.readData();
+
 
     public void initialize (URL location, ResourceBundle resource){
         int column = 0;
@@ -55,7 +68,7 @@ public class OrderListController implements Initializable {
 
                 grid.add(fxmlLoader.load(), column, row++); // child,col,row
                 OrderController orderController = fxmlLoader.getController();
-                orderController.setData(books.getBook(i));
+                orderController.setData(books.get(i));
                 orderController.changeData();
 
                 grid.setMinWidth(Region.USE_COMPUTED_SIZE);

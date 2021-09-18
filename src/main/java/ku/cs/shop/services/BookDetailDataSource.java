@@ -5,17 +5,16 @@ import java.util.ArrayList;
 
 import com.opencsv.CSVReader;
 import ku.cs.shop.models.Book;
-import ku.cs.shop.models.BookList;
 
-public class BookDetailDataSource implements DataSource<BookList> {
+public class BookDetailDataSource {
     private String filename;
 
 
     public BookDetailDataSource(String filename) { this.filename = filename; }
 
-    public BookList readData()
+    public ArrayList<Book> readData()
     {
-        BookList bookList = new BookList(); // ไม่ควรใช้ arraylist
+        ArrayList<Book> bookList = new ArrayList<>(); // ไม่ควรใช้ arraylist
 
         try
         {
@@ -32,14 +31,15 @@ public class BookDetailDataSource implements DataSource<BookList> {
                 String bookType = data[4].trim();
                 String bookDetail = data[5].trim();
                 String bookPublisher = data[6].trim();
-                String bookImg = data[7].trim();
-                int bookStock = Integer.parseInt(data[8].trim());
-                String bookPage = data[9].trim();
-                int leastStock = Integer.parseInt(data[10].trim());
-                double bookPrice = Double.parseDouble(data[11].trim());
+                String bookStatus = data[7].trim();
+                String bookImg = data[8].trim();
+                int bookStock = Integer.parseInt(data[9].trim());
+                String bookPage = data[10].trim();
+                int leastStock = Integer.parseInt(data[11].trim());
+                double bookPrice = Double.parseDouble(data[12].trim());
 
-                Book bookInformation = new Book(bookName,bookShop,bookAuthor,bookISBN,bookType,bookDetail,bookPublisher,bookImg,bookStock,bookPage,leastStock,bookPrice);
-                bookList.addBook(bookInformation);
+                Book bookInformation = new Book(bookName,bookShop,bookAuthor,bookISBN,bookType,bookDetail,bookPublisher,bookStatus,bookImg,bookStock,bookPage,leastStock,bookPrice);
+                bookList.add(bookInformation);
             }
 
         } catch (FileNotFoundException e) {
@@ -51,7 +51,7 @@ public class BookDetailDataSource implements DataSource<BookList> {
         return bookList;
     }
 
-    public void writeData(BookList bookList){
+    public void writeData(ArrayList<Book> bookArrayList){
         String path = filename;
         File file = new File(path);
 
@@ -61,7 +61,7 @@ public class BookDetailDataSource implements DataSource<BookList> {
         try {
             writer = new FileWriter(file);
             buffer = new BufferedWriter(writer);
-            buffer.write(bookList.toCSV());
+
 
         }catch (IOException e){
             e.printStackTrace();

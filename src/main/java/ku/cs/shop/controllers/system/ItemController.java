@@ -20,7 +20,7 @@ public class ItemController {
     @FXML
     public void handleSeeFullDetailButton(ActionEvent actionEvent) {
         try {
-            com.github.saacsos.FXRouter.goTo("bookDetail",book);
+            com.github.saacsos.FXRouter.goTo("bookDetail");
         } catch (IOException e) {
             System.err.println("ไปที่หน้า bookDetail ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
@@ -28,14 +28,13 @@ public class ItemController {
     }
 
     public void setData(Book book) {
-
         this.book = book;
-        changeData();
     }
 
     public void changeData() {
         bookNameLabel.setText(book.getBookName());
         bookPriceLabel.setText(String.format("%.02f",book.getBookPrice()) + " Bahts.");
+
         img.setImage(new Image(book.getPicturePath()));
     }
 }

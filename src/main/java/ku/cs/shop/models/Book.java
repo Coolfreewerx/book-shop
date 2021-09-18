@@ -12,6 +12,7 @@ public class Book {
     private String bookType;
     private String bookDetail;
     private String bookPublisher;
+    private String bookStatus;
     private String bookImg;
     private int bookStock;
     private String bookPage;
@@ -22,7 +23,7 @@ public class Book {
     public Book() {}
 
     public Book(String bookName, String bookShop, String bookAuthor, String bookISBN, String bookType,
-                String bookDetail, String bookPublisher, String bookImg,
+                String bookDetail, String bookPublisher, String bookStatus, String bookImg,
                 int bookStock, String bookPage, int leastStock, double bookPrice) {
         this.bookName = bookName;
         this.bookShop = bookShop;
@@ -31,6 +32,7 @@ public class Book {
         this.bookType = bookType;
         this.bookDetail = bookDetail;
         this.bookPublisher = bookPublisher;
+        this.bookStatus = bookStatus;
         this.bookImg = bookImg;
         this.bookStock = bookStock;
         this.bookPage = bookPage;
@@ -52,14 +54,9 @@ public class Book {
     public String getBookType() { return bookType; }
     public String getBookDetail() { return bookDetail; }
     public String getBookPublisher() { return bookPublisher; }
+    public String getBookStatus() { return bookStatus; }
     public String getBookImg() { return bookImg; }
     public int getBookStock() { return bookStock; }
-    public String getBookStatus()
-    {
-        if (bookStock > 0) return "พร้อมส่ง";
-        return "สินค้าหมด";
-    };
-
     public String getBookPage() { return bookPage; }
     public int getLeastStock() { return leastStock; }
     public double getBookPrice() { return bookPrice; }
@@ -71,10 +68,30 @@ public class Book {
     public void setBookType(String bookType) { this.bookType = bookType; }
     public void setBookDetail(String bookDetail) { this.bookDetail = bookDetail; }
     public void setBookPublisher(String bookPublisher) { this.bookPublisher = bookPublisher; }
+    public void setBookStatus(String bookStatus) { this.bookStatus = bookStatus; }
     public void setBookImg(String bookImg) { this.bookImg = bookImg; }
     public void setBookStock(int bookStock) { this.bookStock = bookStock; }
     public void setLeastStock(int leastStock) { this.leastStock = leastStock; }
     public void setBookPrice(double bookPrice) { this.bookPrice = bookPrice; }
+
+    //เก็บข้อมูลของ book
+    public void writeBookInfo() {
+        //นำข้อมูลของหนังสือ เก็บใน FieldClass และบันทึกลง CSV
+        File bookDetail = new File("src/main/java/ku/cs/shop/bookDetail.csv");
+
+        FileWriter writer;
+        try {
+            writer = new FileWriter(bookDetail, true);
+            writer.write(bookName + "," + bookShop + "," + bookAuthor + "," + bookISBN + "," +
+                    bookType + "," + bookDetail + "," + bookPublisher + "," + bookStatus + "," +
+                    bookImg + "," + bookStock + "," + leastStock + "," + bookPrice + "\r\n");
+            writer.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.err.println("สมัครไม่สำเร็จ");
+        }
+    }
 
     public String getPicturePath() {
         return new File(System.getProperty("user.dir")
@@ -92,19 +109,9 @@ public class Book {
 
     public String toCsv(){
         String result = "";
-        result = "\"" + bookName.replace("\"","\"\"") + "\""  + ","
-                + "\"" + bookShop.replace("\"","\"\"") + "\"" +  ","
-                + "\"" + bookAuthor.replace("\"","\"\"")  + "\"" + ","
-                + bookISBN + ","
-                + "\"" + bookType.replace("\"","\"\"")  + "\"" + ","
-                + "\"" + bookDetail.replace("\"","\"\"")  + "\"" + ","
-                + "\"" + bookPublisher.replace("\"","\"\"") + "\"" + ","
-                + bookImg + ","
-                + bookStock+ ","
-                + bookPage+ ","
-                + leastStock+ ","
-                + bookPrice + "\n" ;
-
+        result = bookName + "," + bookShop+ "," + bookAuthor + "," + bookISBN+ "," + bookType +
+                "," + bookDetail + "," + bookPublisher+ "," + bookStatus+ "," + bookImg +
+                "," + bookStock+ "," + bookPage+ "," + leastStock+ "," + bookPrice + "\n" ;
         return result;
     }
 

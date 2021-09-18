@@ -3,10 +3,7 @@ package ku.cs.shop.controllers.system;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import ku.cs.shop.models.Book;
-import ku.cs.shop.models.BookList;
 import ku.cs.shop.services.BookDetailDataSource;
 
 import java.io.IOException;
@@ -15,44 +12,37 @@ import java.util.ArrayList;
 public class BookDetailController
 {
     BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
-
-    @FXML private Label bookName;
-    @FXML private Label bookShop;
-    @FXML private Label bookStatus;
-    @FXML private Label bookDetail;
-    @FXML private Label bookType;
-    @FXML private Label bookISBN;
-    @FXML private Label bookPage;
-    @FXML private Label bookPublisher;
-    @FXML private Label bookAuthor;
-    @FXML private Label bookPrice;
-    @FXML private Label typeLabel;
-    @FXML private ImageView bookImg;
+    @FXML private Label bookNameLabel;
+    @FXML private Label bookShopLabel;
+    @FXML private Label bookStatusLabel;
+    @FXML private Label bookTypeLabel;
+    @FXML private Label bookPageLabel;
+    @FXML private Label bookISBNLabel;
+    @FXML private Label bookPublisherLabel;
+    @FXML private Label bookAuthorLabel;
+    @FXML private Label bookDetailLabel;
+    @FXML private Label bookPriceLabel;
 
 
-
-    private Book book;
+    private ArrayList<Book> booksList = new ArrayList<>();
 
     @FXML
     public void initialize()
     {
-        book = (Book)com.github.saacsos.FXRouter.getData();
-        showData();
-    }
+        BookDetailDataSource bookDetaildataSource = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
+        booksList = bookDetaildataSource.readData();
 
-    public void showData() {
-        bookName.setText(book.getBookName());
-        bookShop.setText(book.getBookShop());
-        bookStatus.setText(book.getBookStatus());
-        bookDetail.setText(book.getBookDetail());
-        bookType.setText(book.getBookType());
-        bookISBN.setText(book.getBookISBN());
-        bookPage.setText(book.getBookPage());
-        bookPublisher.setText(book.getBookPublisher());
-        bookAuthor.setText(book.getBookAuthor());
-        typeLabel.setText(book.getBookType());
-        bookImg.setImage(new Image(book.getPicturePath()));
-        bookPrice.setText(String.format("%.02f",book.getBookPrice()) + " Bahts.");
+        bookNameLabel.setText(booksList.get(0).getBookName());
+        bookShopLabel.setText(booksList.get(0).getBookShop());
+        bookStatusLabel.setText(booksList.get(0).getBookStatus());
+        bookTypeLabel.setText(booksList.get(0).getBookType());
+        bookPageLabel.setText(booksList.get(0).getBookPage());
+        bookISBNLabel.setText(booksList.get(0).getBookISBN());
+        bookPublisherLabel.setText(booksList.get(0).getBookPublisher());
+        bookAuthorLabel.setText(booksList.get(0).getBookAuthor());
+        bookDetailLabel.setText(booksList.get(0).getBookDetail());
+        bookPriceLabel.setText(Double.toString(booksList.get(0).getBookPrice()) + " Baht.");
+
     }
 
 

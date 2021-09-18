@@ -13,7 +13,6 @@ import javafx.scene.layout.Region;
 import ku.cs.shop.controllers.system.ItemController;
 import ku.cs.shop.controllers.user.DetailUser;
 import ku.cs.shop.models.Book;
-import ku.cs.shop.models.BookList;
 import ku.cs.shop.models.User;
 import ku.cs.shop.services.BookDetailDataSource;
 
@@ -31,10 +30,9 @@ public class HomeController implements Initializable {
 
 
     private BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
-    private BookList books = data.readData();
+    private ArrayList<Book> books = data.readData();
 
         public void initialize (URL location, ResourceBundle resource){
-            data.writeData(books);
             int column = 1;
             int row = 1;
             try {
@@ -44,7 +42,7 @@ public class HomeController implements Initializable {
 
                     grid.add(fxmlLoader.load(), column++, row); // child,col,row
                     ItemController itemController = fxmlLoader.getController();
-                    itemController.setData(books.getBook(i));
+                    itemController.setData(books.get(i));
                     itemController.changeData();
 
                     grid.setMinWidth(Region.USE_COMPUTED_SIZE);
@@ -80,7 +78,7 @@ public class HomeController implements Initializable {
         try {
             FXRouter.goTo("pageBookType");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้าเพจ pageBookType ไม่ได้");
+            System.err.println("ไปที่หน้าเพจของ  ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }

@@ -6,15 +6,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.text.Text;
 import ku.cs.shop.models.Book;
-import ku.cs.shop.models.BookList;
 import ku.cs.shop.services.BookDetailDataSource;
 
 import java.io.IOException;
@@ -25,56 +21,55 @@ import java.util.ResourceBundle;
 
 public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initializable {
 
-    @FXML private HBox head;
-    @FXML private Label bookType;
-    @FXML private FlowPane bookListFlowPane;
-    @FXML private MenuButton bookTypeMenuItem;
-
-    private String currentType;
+//    @FXML private Label bookTypeLabel;
+    @FXML private GridPane gridHead;
+    @FXML private GridPane gridBook;
 
     private BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
-    private BookList books = data.readData();
+    private ArrayList<Book> books = data.readData();
 
     public void initialize (URL location, ResourceBundle resource){
-        changeBookType("หนังสือการ์ตูน");
-        addBookTypeToMenuItem();
-    }
-
-    public void addBookTypeToMenuItem() {
-
-        for (String type : books.getBookType()) {
-            MenuItem subBookTypeMenuItem = new MenuItem(type);
-            bookTypeMenuItem.getItems().add(subBookTypeMenuItem);
-            subBookTypeMenuItem.setOnAction(this :: handleSubBookTypeMenuItem);
-        }
-    }
-
-    public void handleSubBookTypeMenuItem(ActionEvent actionEvent) {
-        MenuItem menuItem = (MenuItem) actionEvent.getSource();
-        changeBookType(menuItem.getText());
-    }
-
-    public void changeBookType(String type) {
-        currentType = type;
-        bookType.setText(currentType);
-        bookListFlowPane.getChildren().clear();
-        ArrayList<Book> bookByType = books.getBookByType(type);
-
+        int column = 1;
+        int row = 1;
         try {
-            for (Book book : bookByType) {
+            for (int i = 0; i < 3; i++) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/ku/cs/item.fxml"));
 
-                bookListFlowPane.getChildren().add(fxmlLoader.load()); // child,col,row
+                gridBook.add(fxmlLoader.load(), column, row++); // child,col,row
                 ItemController itemController = fxmlLoader.getController();
-                itemController.setData(book);
-            }
+//                if(books.getBookType() == "Cartoon Book") {
+                itemController.setData(books.get(i));
+                itemController.changeData();
+
+                gridBook.setMinWidth(Region.USE_COMPUTED_SIZE);
+                gridBook.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                gridBook.setMaxWidth(Region.USE_COMPUTED_SIZE);
+
+                gridBook.setMinHeight(Region.USE_COMPUTED_SIZE);
+                gridBook.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                gridBook.setMaxHeight(Region.USE_COMPUTED_SIZE);
+                gridBook.setHgap(10);
+                gridBook.setVgap(10);
+                gridBook.setPadding(new Insets(0, 10, 10, 10));
+
+                }
+//            }
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+<<<<<<< HEAD
+=======
+
+
+//    Text bookTypeLabel = new Text;
+//    bookTypeLabel.setText("Cartoon Book");
+
+
+>>>>>>> 57b7276c23ad965ae8ce5a44e878f6de6887811f
     public void handleTypeBookButton(ActionEvent actionEvent) {
         try {
             com.github.saacsos.FXRouter.goTo("pageBookType");

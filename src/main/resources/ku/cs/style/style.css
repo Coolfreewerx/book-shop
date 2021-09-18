@@ -19,3 +19,6 @@
 .backgroundColor3{
     -fx-background-color: linear-gradient(#FFE0B8, #FFF1DE);
 }
+.toggle-buttonColor1{
+    -fx-background-color: #c9ad88;
+}
