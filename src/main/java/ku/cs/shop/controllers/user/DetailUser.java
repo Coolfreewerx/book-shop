@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import ku.cs.shop.models.User;
 
@@ -35,12 +37,15 @@ public class DetailUser {
     @FXML private PasswordField passwordTextField;
     @FXML private PasswordField recheckPasswordTextField;
     @FXML private MenuButton sexChoice;
+    @FXML private ImageView userImageView ;
+
+
     private ArrayList<User> usersList = new ArrayList<>();
 
     private User  user ;
 
     public void initialize(){
-        user = (User)com.github.saacsos.FXRouter.getData();
+        user = User.getUserLogin();
         showData();
     }
 
@@ -53,7 +58,7 @@ public class DetailUser {
         birthYearLabel.setText(user.getBirthYear());
         sexLabel.setText(user.getSex());
         phoneLabel.setText(user.getPhone());
-        //userImage.setImage(new Image(user.getImagePath())) ;
+        userImageView.setImage(new Image(user.getImagePath())) ;
     }
 
 

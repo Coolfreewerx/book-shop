@@ -28,7 +28,7 @@ public class User {
     private String phone ;
     private String sex ;
     private String shopName ;
-    private static String userLogin ;
+    private static User userLogin ;
     private static boolean passwordCheck = false ;
     private static boolean passwordCondition = false ;
     private static boolean userNameCheck = false ;
@@ -94,7 +94,7 @@ public class User {
     public static boolean getPasswordCondition() { return  passwordCondition; }
     public static boolean getPasswordCheck() { return passwordCheck; }
     public static boolean getUserNameCheck() {return userNameCheck; }
-    public static String getUserLogin() { return userLogin; }
+    public static User getUserLogin() { return userLogin; }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -215,7 +215,7 @@ public class User {
                 String[] arr = line.split(","); //อ่าน username
                 if (arr[0].equals(userName)) {
                     if (arr[3].equals(password)) {
-                        this.userLogin = userName ;
+                        this.userLogin = new User(arr[1], arr[2], arr[0], arr[3], arr[4], arr[5], arr[6], arr[7]) ;
                         return true;
                     }
                 }
