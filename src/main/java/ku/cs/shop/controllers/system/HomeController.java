@@ -15,6 +15,7 @@ import ku.cs.shop.controllers.user.DetailUser;
 import ku.cs.shop.models.Book;
 import ku.cs.shop.models.BookList;
 import ku.cs.shop.models.User;
+import ku.cs.shop.models.UserList;
 import ku.cs.shop.services.BookDetailDataSource;
 
 import java.io.IOException;
@@ -27,13 +28,14 @@ public class HomeController implements Initializable {
     @FXML private GridPane grid;
     @FXML private Label usernameLabel ;
 
-
+    private UserList userList ;
 
 
     private BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
     private BookList books = data.readData();
 
         public void initialize (URL location, ResourceBundle resource){
+            userList = (UserList) FXRouter.getData() ;
             data.writeData(books);
             int column = 1;
             int row = 1;
@@ -101,7 +103,7 @@ public class HomeController implements Initializable {
     public void handleToInformationButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า หนังสือทั้งหมด (เพจหลัก)
         try {
 
-            FXRouter.goTo("detailUser");
+            FXRouter.goTo("detailUser", userList);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า detailUser ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");

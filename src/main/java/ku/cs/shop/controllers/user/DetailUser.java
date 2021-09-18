@@ -2,6 +2,7 @@ package ku.cs.shop.controllers.user;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import com.github.saacsos.FXRouter;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -9,6 +10,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import ku.cs.shop.models.User;
+import ku.cs.shop.models.UserList;
 
 import java.io.IOException;
 import java.net.URL;
@@ -42,10 +44,12 @@ public class DetailUser {
 
     private ArrayList<User> usersList = new ArrayList<>();
 
-    private User  user ;
+    private UserList userList ;
+    private User user ;
 
     public void initialize(){
-        user = User.getUserLogin();
+        userList = (UserList)FXRouter.getData() ;
+        user = userList.getCurrentUser() ;
         showData();
     }
 

@@ -28,7 +28,6 @@ public class User {
     private String phone ;
     private String sex ;
     private String shopName ;
-    private static User userLogin ;
     private static boolean passwordCheck = false ;
     private static boolean passwordCondition = false ;
     private static boolean userNameCheck = false ;
@@ -90,11 +89,9 @@ public class User {
     public String getPhone() { return phone; }
     public String getSex() { return sex; }
     public String getShopName() { return shopName; }
-
     public static boolean getPasswordCondition() { return  passwordCondition; }
     public static boolean getPasswordCheck() { return passwordCheck; }
     public static boolean getUserNameCheck() {return userNameCheck; }
-    public static User getUserLogin() { return userLogin; }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -148,30 +145,6 @@ public class User {
         }
     }
 
-    //ล็อกอินเข้าสู่ระบบ
-    public boolean login(String userName, String password){
-        File userData = new File("src/main/java/ku/cs/shop/userData.csv");
-        try {
-            BufferedReader buffer = new BufferedReader(new FileReader(userData));
-            String line;
-            while ((line = buffer.readLine()) != null) {
-                String[] arr = line.split(","); //อ่าน username
-                if (arr[0].equals(userName)) {
-                    if (arr[3].equals(password)) {
-                        this.userLogin = new User(arr[1], arr[2], arr[0], arr[3], arr[4], arr[5], arr[6], arr[7]) ;
-                        return true;
-                    }
-                }
-            }
-            buffer.close();
-        }
-        catch (IOException e){
-            e.printStackTrace();
-        }
-
-        return false;
-    }
-
     public ArrayList<User> readData(){ //อ่านข้อมูลใน user
         ArrayList<User> usersList = new ArrayList<>();
 
@@ -203,35 +176,6 @@ public class User {
             System.err.println("Error reading from file");
         }
         return usersList;
-    }
-    
-    public void writeToEditUserInfo(User user) {
-        File userData = new File("src/main/java/ku/cs/shop/userData.csv");
-        FileWriter writer = null;
-        try {
-            writer = new FileWriter(userData, true);
-            writer.write(userName + ","
-                    + firstName + ","
-                    + lastName + ","
-                    + password + ","
-                    + birthDay + ","
-                    + birthMonth + ","
-                    + birthYear + ","
-                    + imageName + ","
-                    + phone + ","
-                    + sex + ","
-                    + shopName // 10
-                    + "\r\n");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("สมัครไม่สำเร็จ");
-        } finally {
-            try {
-                writer.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
     }
 
     public String checkShopNameCondition(String shopName) {
