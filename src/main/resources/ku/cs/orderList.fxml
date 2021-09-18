@@ -8,6 +8,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -180,13 +181,27 @@
                               <Insets bottom="10.0" left="20.0" top="20.0" />
                            </HBox.margin>
                               </Label>
-                        <ToggleButton mnemonicParsing="false" prefHeight="15.0" prefWidth="310.0" style="-fx-background-color: F99F28; -fx-background-radius: 20;" text="ToggleButton" textFill="WHITE">
+                        <ToggleButton mnemonicParsing="false" prefHeight="31.0" prefWidth="190.0" style="-fx-background-color: F99F28; -fx-background-radius: 20;" text="จัดส่งแล้ว" textFill="WHITE">
                            <HBox.margin>
-                              <Insets left="160.0" top="10.0" />
+                              <Insets left="100.0" top="10.0" />
                            </HBox.margin>
                            <font>
-                              <Font name="JasmineUPC" size="32.0" />
+                              <Font name="JasmineUPC" size="28.0" />
                            </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="toggleGroup1" />
+                           </toggleGroup>
+                        </ToggleButton>
+                        <ToggleButton mnemonicParsing="false" prefHeight="30.0" prefWidth="190.0" style="-fx-background-color: F99F28; -fx-background-radius: 20;" text="รายการสั่งซื้อใหม่" textFill="WHITE">
+                           <font>
+                              <Font name="JasmineUPC" size="28.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="toggleGroup2" />
+                           </toggleGroup>
                         </ToggleButton>
                      </children>
                   </HBox>

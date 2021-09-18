@@ -277,7 +277,7 @@ public class User {
         }
         return usersList;
     }
-    
+
     public void writeToEditUserInfo(User user) {
         File userData = new File("src/main/java/ku/cs/shop/userData.csv");
         FileWriter writer = null;
