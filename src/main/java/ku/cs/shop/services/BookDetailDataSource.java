@@ -54,14 +54,14 @@ public class BookDetailDataSource implements DataSource<BookList> {
     }
 
     public void writeData(BookList bookList){
-        String path = "src/main/java/ku/cs/shop/bookDetail.csv";
+        String path = filename;
         File file = new File(path);
 
         FileWriter writer = null;
         BufferedWriter buffer = null;
 
         try {
-            writer = new FileWriter(file,true);
+            writer = new FileWriter(file);
             buffer = new BufferedWriter(writer);
             buffer.write(bookList.toCSV());
 

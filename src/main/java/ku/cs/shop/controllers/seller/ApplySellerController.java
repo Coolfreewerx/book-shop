@@ -148,9 +148,10 @@ public class ApplySellerController {
             double bookPricePara = Double.parseDouble(bookPrice);
 
             Book book = new Book(bookName,"nanazenShop",bookAuthor,bookISBN,bookType,bookDetail,bookPublisher,bookImg,bookStockPara,bookPage,leastStockPara,bookPricePara);
+
             DataSource<BookList> dataSource;
-            dataSource = new BookDetailDataSource();
-            BookList bookList = new BookList();
+            dataSource = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
+            BookList bookList = dataSource.readData();
             bookList.addBook(book);
             dataSource.writeData(bookList);
 
