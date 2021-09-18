@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.user.DetailUser">
+   <children>
+      <HBox layoutX="65.0" layoutY="236.0" prefHeight="250.0" prefWidth="1024.0" AnchorPane.leftAnchor="0.0">
+         <children>
+            <AnchorPane prefHeight="200.0" prefWidth="700.0" style="-fx-background-radius: 10;" styleClass="backgroundColor1" stylesheets="@style/style.css">
+               <children>
+                  <Button layoutX="615.0" layoutY="166.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="74.0" style="-fx-background-color: F99F28;" styleClass="font_jasmine_16pt" stylesheets="@style/PrimaryTheme.css" text="บันทึก" textFill="WHITE">
+                     <font>
+                        <Font name="JasmineUPC" size="20.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="lastnameTextField" layoutX="163.0" layoutY="145.0" prefHeight="31.0" prefWidth="144.0" promptText="Lastname">
+                     <font>
+                        <Font name="JasmineUPC" size="20.0" />
+                     </font>
+                     <stylesheets>
+                        <URL value="@style/style.css" />
+                        <URL value="@style/PrimaryTheme.css" />
+                     </stylesheets>
+                     <styleClass>
+                        <String fx:value="backgroundColorAndBorderColor" />
+                        <String fx:value="font_rsu_12pt" />
+                     </styleClass>
+                  </TextField>
+                  <TextField fx:id="firstnameTextField" layoutX="163.0" layoutY="101.0" prefHeight="31.0" prefWidth="144.0" promptText="Firstname">
+                     <font>
+                        <Font name="JasmineUPC" size="20.0" />
+                     </font>
+                     <stylesheets>
+                        <URL value="@style/style.css" />
+                        <URL value="@style/PrimaryTheme.css" />
+                     </stylesheets>
+                     <styleClass>
+                        <String fx:value="backgroundColorAndBorderColor" />
+                        <String fx:value="font_rsu_12pt" />
+                     </styleClass>
+                  </TextField>
+                  <TextField fx:id="phoneNumberTextField" layoutX="457.0" layoutY="103.0" prefHeight="31.0" prefWidth="144.0" promptText="หมายเลขโทรศัพท์">
+                     <font>
+                        <Font name="JasmineUPC" size="20.0" />
+                     </font>
+                     <stylesheets>
+                        <URL value="@style/style.css" />
+                        <URL value="@style/PrimaryTheme.css" />
+                     </stylesheets>
+                     <styleClass>
+                        <String fx:value="backgroundColorAndBorderColor" />
+                        <String fx:value="font_rsu_12pt" />
+                     </styleClass>
+                  </TextField>
+                  <Label layoutX="42.0" layoutY="16.0" styleClass="font_rsu_18pt" stylesheets="@style/PrimaryTheme.css" text="Username">
+                     <font>
+                        <Font name="JasmineUPC" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="343.0" layoutY="16.0" styleClass="font_rsu_18pt" stylesheets="@style/PrimaryTheme.css" text="Birthday">
+                     <font>
+                        <Font name="JasmineUPC" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="42.0" layoutY="58.0" styleClass="font_rsu_18pt" stylesheets="@style/PrimaryTheme.css" text="Password">
+                     <font>
+                        <Font name="JasmineUPC" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="42.0" layoutY="102.0" styleClass="font_rsu_18pt" stylesheets="@style/PrimaryTheme.css" text="Firstname">
+                     <font>
+                        <Font name="JasmineUPC" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="42.0" layoutY="147.0" styleClass="font_rsu_18pt" stylesheets="@style/PrimaryTheme.css" text="Lastname">
+                     <font>
+                        <Font name="JasmineUPC" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="343.0" layoutY="105.0" styleClass="font_rsu_18pt" stylesheets="@style/PrimaryTheme.css" text="Phone">
+                     <font>
+                        <Font name="JasmineUPC" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="344.0" layoutY="149.0" styleClass="font_rsu_18pt" stylesheets="@style/PrimaryTheme.css" text="Sex">
+                     <font>
+                        <Font name="JasmineUPC" size="36.0" />
+                     </font>
+                  </Label>
+                  <MenuButton fx:id="sexChoice" layoutX="483.0" layoutY="148.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="92.0" style="-fx-background-radius: 5; -fx-border-radius: 5;" text="เพศ">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="หญิง" />
+                      <MenuItem mnemonicParsing="false" text="ชาย" />
+                        <MenuItem mnemonicParsing="false" text="ไม่ระบุ" />
+                    </items>
+                     <font>
+                        <Font name="JasmineUPC" size="20.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="borderColor" />
+                        <String fx:value="font_rsu_12pt" />
+                        <String fx:value="backgroundColorAndBorderColor" />
+                     </styleClass>
+                     <stylesheets>
+                        <URL value="@style/style.css" />
+                        <URL value="@style/PrimaryTheme.css" />
+                     </stylesheets>
+                  </MenuButton>
+                  <PasswordField fx:id="passwordTextField" layoutX="163.0" layoutY="56.0" prefHeight="32.0" prefWidth="144.0" promptText="password">
+                     <font>
+                        <Font name="JasmineUPC" size="20.0" />
+                     </font>
+                     <stylesheets>
+                        <URL value="@style/style.css" />
+                        <URL value="@style/PrimaryTheme.css" />
+                     </stylesheets>
+                     <styleClass>
+                        <String fx:value="backgroundColorAndBorderColor" />
+                        <String fx:value="font_rsu_12pt" />
+                     </styleClass>
+                  </PasswordField>
+                  <Label fx:id="birthdayInEditInformationLabel" layoutX="457.0" layoutY="23.0" styleClass="font_rsu_12pt" stylesheets="@style/PrimaryTheme.css" text="Birthday" textAlignment="CENTER">
+                     <font>
+                        <Font name="JasmineUPC" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="birthMonthInEditInformationLabel" layoutX="519.0" layoutY="23.0" styleClass="font_rsu_12pt" stylesheets="@style/PrimaryTheme.css" text="Birthmonth" textAlignment="CENTER">
+                     <font>
+                        <Font name="JasmineUPC" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="birthYearInEditInformationLabel" layoutX="601.0" layoutY="23.0" styleClass="font_rsu_12pt" stylesheets="@style/PrimaryTheme.css" text="Birthyear" textAlignment="CENTER">
+                     <font>
+                        <Font name="JasmineUPC" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="usernameInEditInformationLabel" layoutX="174.0" layoutY="23.0" styleClass="font_rsu_12pt" stylesheets="@style/PrimaryTheme.css" text="Username">
+                     <font>
+                        <Font name="JasmineUPC" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="342.0" layoutY="58.0" styleClass="font_rsu_18pt" stylesheets="@style/PrimaryTheme.css" text="Password">
+                     <font>
+                        <Font name="JasmineUPC" size="36.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="recheckPasswordTextField" layoutX="458.0" layoutY="56.0" prefHeight="32.0" prefWidth="144.0" promptText="recheckPassword">
+                     <font>
+                        <Font name="JasmineUPC" size="20.0" />
+                     </font>
+                     <stylesheets>
+                        <URL value="@style/style.css" />
+                        <URL value="@style/PrimaryTheme.css" />
+                     </stylesheets>
+                     <styleClass>
+                        <String fx:value="backgroundColorAndBorderColor" />
+                        <String fx:value="font_rsu_12pt" />
+                     </styleClass>
+                  </PasswordField>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="25.0" left="165.0" top="20.0" />
+               </HBox.margin>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
