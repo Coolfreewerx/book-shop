@@ -75,11 +75,6 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
         }
     }
 
-
-//    Text bookTypeLabel = new Text;
-//    bookTypeLabel.setText("Cartoon Book");
-
-
     public void handleTypeBookButton(ActionEvent actionEvent) {
         try {
             com.github.saacsos.FXRouter.goTo("pageBookType");
@@ -107,17 +102,4 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
-
-
-
-//    public void initialize () {
-//        try {
-//            FXMLLoader fxmlLoaderHead = new FXMLLoader();
-//            fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/headNoLogin.fxml"));
-//            gridHead.add(fxmlLoaderHead.load(), 0, 0);
-//        } catch (
-//                IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
 }

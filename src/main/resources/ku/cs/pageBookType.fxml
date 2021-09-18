@@ -145,7 +145,7 @@
                         </HBox>
                         <HBox spacing="20.0" GridPane.columnIndex="1">
                            <children>
-                              <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="132.0" style="-fx-background-radius: 20;" text="ราคามากไปน้อย">
+                              <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="132.0" style="-fx-background-radius: 20;" text="ราคามากไปน้อย">
                                  <font>
                                     <Font name="JasmineUPC" size="20.0" />
                                  </font>
