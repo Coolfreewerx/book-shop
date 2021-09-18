@@ -44,4 +44,6 @@ public class BookList {
         }
         return csv;
     }
+
+    public int getBookListCount(){return this.books.size();}
 }

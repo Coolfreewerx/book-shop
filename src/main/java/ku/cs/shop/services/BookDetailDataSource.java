@@ -10,6 +10,8 @@ import ku.cs.shop.models.BookList;
 public class BookDetailDataSource implements DataSource<BookList> {
     private String filename;
 
+    public BookDetailDataSource(){}
+
 
     public BookDetailDataSource(String filename) { this.filename = filename; }
 
@@ -52,14 +54,14 @@ public class BookDetailDataSource implements DataSource<BookList> {
     }
 
     public void writeData(BookList bookList){
-        String path = filename;
+        String path = "src/main/java/ku/cs/shop/bookDetail.csv";
         File file = new File(path);
 
         FileWriter writer = null;
         BufferedWriter buffer = null;
 
         try {
-            writer = new FileWriter(file);
+            writer = new FileWriter(file,true);
             buffer = new BufferedWriter(writer);
             buffer.write(bookList.toCSV());
 

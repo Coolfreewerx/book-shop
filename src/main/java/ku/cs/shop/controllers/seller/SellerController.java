@@ -36,12 +36,13 @@ public class SellerController implements Initializable {
 
     private BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
     private BookList books = data.readData();
-
+    private BookList bookList;
     public void initialize (URL location, ResourceBundle resource){
         int column = 0;
         int row = 1;
+
         try {
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < 4 ; i++) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/ku/cs/stock.fxml"));
 

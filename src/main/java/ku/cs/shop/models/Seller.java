@@ -1,6 +1,10 @@
 package ku.cs.shop.models;
 
 import java.io.*;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.util.regex.Pattern;
 
 public class Seller{
@@ -79,18 +83,13 @@ public class Seller{
             return true;
     }
 
-    public void writeSeller(String bookName, String bookShop, String bookAuthor, String bookISBN, String bookType, String bookDetail,
-                            String bookPublisher, String bookStatus, String bookImg, String bookStock, String bookPage, String leastStock, String bookPrice){
-        File bookDetailData = new File("src/main/java/ku/cs/shop/bookDetail.csv");
-        FileWriter writer;
+    public static void copyImageToPackage(File image, String imageName) {
+        File file = new File("images") ;
+        Path desPath = FileSystems.getDefault().getPath(file.getAbsolutePath() + "\\" + imageName);
         try {
-            writer = new FileWriter(bookDetailData, true);
-            writer.write(bookName + "," + bookShop + "," + bookAuthor + "," + bookISBN + "," + bookType + "," + bookDetail + "," +
-                    bookPublisher + "," +  bookStatus + "," + bookImg + "," +  bookStock + "," + bookPage + "," +  leastStock + "," + bookPrice + "\r\n");
-            writer.close();
+            Files.copy(image.toPath(), desPath, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
             e.printStackTrace();
-            System.err.println("ลงข้อมูลสินค้าไม่สำเร็จ");
         }
     }
 

@@ -5,13 +5,25 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
+import ku.cs.shop.models.Book;
+import ku.cs.shop.models.BookList;
 import ku.cs.shop.models.Seller;
+import ku.cs.shop.models.User;
+import ku.cs.shop.services.BookDetailDataSource;
+import ku.cs.shop.services.DataSource;
 
 
+import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class ApplySellerController {
     Seller seller = new Seller();
+    BookDetailDataSource bookDetailDataSource;
 
     private String bookName;
     private String bookShop;
@@ -21,7 +33,7 @@ public class ApplySellerController {
     private String bookDetail;
     private String bookPublisher;
     private String bookStatus;
-    private String bookImg;
+    private String bookImg = "";
     private String bookStock;
     private String bookPage;
     private String leastStock;
@@ -47,29 +59,79 @@ public class ApplySellerController {
     @FXML private Label NotificationBookStock;
     @FXML private Label NotificationLeastStock;
     @FXML private Label NotificationCantAdd;
+    @FXML private ImageView imageView;
+    private File selectedImage;
+    private String imageName;
+
+    @FXML
+    public void handleKeyBookISBN(){
+        bookISBN = bookISBNTextField.getText();
+        NotificationBookISBN.setText(seller.checkBookISBNCorrect(bookISBN));
+        if(!seller.isBookISBNCorrect(bookISBN)){ bookISBN = ""; }
+    }
+
+    @FXML
+    public void handleKeyBookPage(){
+        bookPage = bookPageTextField.getText();
+        NotificationBookPage.setText(seller.checkNumber(bookPage));
+        if(! seller.isNumber(bookPage)){bookPage = "";}
+    }
+
+    @FXML
+    public void handleKeyBookStock(){
+        bookStock = bookStockTextField.getText();
+        NotificationBookStock.setText(seller.checkNumber(bookStock));
+        if(! seller.isNumber(bookStock)){bookStock = "";}
+    }
+
+    @FXML
+    public void handleKeyLeastStock(){
+        leastStock = leastStockTextField.getText();
+        NotificationLeastStock.setText(seller.checkNumber(bookStock));
+        if(!seller.isNumber(bookStock)){leastStock = "";}
+    }
+
+    @FXML
+    public void handleKeyBookPrice(ActionEvent actionEvent){}
+
+    @FXML
+    public void handleAddImageButton (ActionEvent actionEvent) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select Profile Picture");
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files", "*.png", "*jpg"));
+        selectedImage = fileChooser.showOpenDialog(null);
+        if (selectedImage != null) {
+            Image image = new Image(selectedImage.toURI().toString());
+            imageView.setImage(image);
+        }
+        bookImg = "Haveimage";
+    }
+    public void setImageName() {
+        if (!selectedImage.equals("")) {
+            imageName =  bookNameTextField.getText() + "-"
+                    + LocalDate.now().getYear() + "-"
+                    + LocalDate.now().getMonth() + "-"
+                    + LocalDate.now().getDayOfMonth() + "-"
+                    + LocalDateTime.now().getHour() + LocalDateTime.now().getMinute() + LocalDateTime.now().getSecond() + ".png" ;
+            seller.copyImageToPackage(selectedImage , imageName) ;
+        } else {
+            imageName = "default.png" ;
+        }
+    }
 
     @FXML
     public void handleAddBookButton(ActionEvent actionEvent){
         bookName = bookNameTextField.getText();
         bookAuthor = bookAuthorTextField.getText();
         bookISBN = bookISBNTextField.getText();
-        NotificationBookISBN.setText(seller.checkBookISBNCorrect(bookISBN));
-        if(!seller.isBookISBNCorrect(bookISBN)){ bookISBN = ""; }
         bookType = bookTypeTextField.getText();
         bookPage = bookPageTextField.getText();
-        NotificationBookPage.setText(seller.checkNumber(bookPage));
-        if(! seller.isNumber(bookPage)){bookPage = "";}
         bookDetail = bookDetailTextArea.getText();
         bookPublisher = bookPublisherTextField.getText();
         bookStock = bookStockTextField.getText();
-        NotificationBookStock.setText(seller.checkNumber(bookStock));
-        if(! seller.isNumber(bookStock)){bookStock = "";}
         leastStock = leastStockTextField.getText();
-        NotificationLeastStock.setText(seller.checkNumber(bookStock));
-        if(!seller.isNumber(bookStock)){leastStock = "";}
         bookStatus = bookStatusTextField.getText();
         bookPrice = bookPriceTextField.getText();
-
 //        try {
 //            com.github.saacsos.FXRouter.goTo("sellerStock");
 //        } catch (IOException e) {
@@ -77,9 +139,20 @@ public class ApplySellerController {
 //            System.err.println("ให้ตรวจสอบการกำหนด route");
 //        }
 
-        if (seller.getDataCheck(bookName,"Temporary",bookAuthor,bookISBN,bookType,bookDetail,bookPublisher,bookStatus,"Just test", bookStock,bookPage,leastStock,bookPrice)) {
-            seller.writeSeller(bookName,"Temporary",bookAuthor,bookISBN,bookType,bookDetail,bookPublisher,bookStatus,"Just test", bookStock,bookPage,leastStock,bookPrice);
+        if (seller.getDataCheck(bookName,"nanazenShop",bookAuthor,bookISBN,bookType,bookDetail,bookPublisher,bookStatus,bookImg, bookStock,bookPage,leastStock,bookPrice)) {
             NotificationCantAdd.setText("Can Add merchandise");
+            setImageName();
+            bookImg = imageName;
+            int bookStockPara = Integer.parseInt(bookStock);
+            int leastStockPara = Integer.parseInt(leastStock);
+            double bookPricePara = Double.parseDouble(bookPrice);
+
+            Book book = new Book(bookName,"nanazenShop",bookAuthor,bookISBN,bookType,bookDetail,bookPublisher,bookImg,bookStockPara,bookPage,leastStockPara,bookPricePara);
+            DataSource<BookList> dataSource;
+            dataSource = new BookDetailDataSource();
+            BookList bookList = new BookList();
+            bookList.addBook(book);
+            dataSource.writeData(bookList);
 
             try {
                 com.github.saacsos.FXRouter.goTo("sellerStock");
