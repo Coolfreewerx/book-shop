@@ -14,6 +14,8 @@ import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import ku.cs.shop.models.User ;
+import ku.cs.shop.models.UserList;
+import ku.cs.shop.services.UserDataSource;
 
 import java.io.*;
 import java.nio.file.FileSystems;
@@ -43,6 +45,8 @@ public class RegisterController {
 
     private File selectedImage ;
     private String imageName ;
+    private UserList userList ;
+    private UserDataSource userDataSource ;
 
     private ObservableList dayList = FXCollections.observableArrayList() ;
     private ObservableList monthList = FXCollections.observableArrayList() ;
@@ -50,6 +54,8 @@ public class RegisterController {
 
     @FXML
     public void initialize () {
+        userDataSource = new UserDataSource("src/main/java/ku/cs/shop/userData.csv") ;
+        userList = userDataSource.readData() ;
         lodeYearData();
     }
 
@@ -68,9 +74,16 @@ public class RegisterController {
 
     @FXML //ทำงานเมื่อกรอก username
     public void handleKeyUserName() {
-        userNameCheckLabel.setText(User.checkUserNameCondition(userNameTextField.getText()));
+        String userName = userNameTextField.getText() ;
+        userNameCheckLabel.setText(User.checkUserNameCondition(userName));
         if (User.getUserNameCheck()){
-            userNameCheckLabel.setTextFill(Color.rgb(21, 117, 84));
+            if (userList.checkUserNameHaveUsed(userName)) {
+                userNameCheckLabel.setText("ชื่อผู้ใช้นี้ถูกใช้งานไปแล้ว") ;
+                userNameCheckLabel.setTextFill(Color.rgb(210, 39, 30));
+            } else {
+                userNameCheckLabel.setText("ชื่อผู้ใช้นี้สามารถใช้งานได้") ;
+                userNameCheckLabel.setTextFill(Color.rgb(21, 117, 84));
+            }
         }
         else {
             userNameCheckLabel.setTextFill(Color.rgb(210, 39, 30));
@@ -168,6 +181,7 @@ public class RegisterController {
     }
 
     public void sendDataToWrite() {
+        //UserDataSource
         User user = new User(
                 firstNameTextField.getText(),
                 lastNameTextField.getText(),
@@ -178,7 +192,8 @@ public class RegisterController {
                 birthYearChoice.getValue(),
                 imageName ) ;
 
-        user.writeUserInfo();
+        userList.addUser(user);
+        userDataSource.writeData(userList) ;
     }
 
     public void setImageName() {

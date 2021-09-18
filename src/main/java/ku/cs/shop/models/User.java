@@ -110,31 +110,8 @@ public class User {
             userNameCheck = false ;
             return "ชื่อผู้ใช้ไม่ตรงตามรูปแบบที่กำหนด" ;
         }
-        else if (checkUserNameHaveUsed(userName)) {
-            userNameCheck = false ;
-            return "ชื่อผู้ใช้นี้ถูกใช้งานไปแล้ว" ;
-        }
-        else {
-            userNameCheck = true ;
-            return "ชื่อผู้ใช้นี้สามารถใช้งานได้" ; }
-    }
-
-    //ตรวจสอบ username ว่าซ้ำมั้ย
-    public static boolean checkUserNameHaveUsed(String userName) {
-        File userData = new File("src/main/java/ku/cs/shop/userData.csv");
-        try {
-            BufferedReader buffer = new BufferedReader(new FileReader(userData));
-            String line;
-            while ((line = buffer.readLine()) != null) {
-                String[] arr = line.split(","); //อ่าน username
-                if (arr[0].equals(userName)) { return true ;}
-            }
-            buffer.close();
-        }
-        catch (IOException e){
-            e.printStackTrace();
-        }
-        return false ;
+        userNameCheck = true ;
+        return null ;
     }
 
     //ตรวจสอบรหัสผ่านตามเงื่อนไข
@@ -157,40 +134,6 @@ public class User {
         else {
             passwordCheck = false ;
             return "รหัสผ่านไม่ตรงกัน โปรดตรวจสอบรหัสผ่าน";
-        }
-    }
-
-    //เก็บข้อมูลของ user
-    public void writeUserInfo() {
-        //นำข้อมูล String เก็บใน FieldClass และบันทึกลง CSV
-        File userData = new File("src/main/java/ku/cs/shop/userData.csv");
-
-        FileWriter writer = null;
-        try {
-            writer = new FileWriter(userData, true);
-            writer.write(userName + ","
-                    + firstName + ","
-                    + lastName + ","
-                    + password + ","
-                    + birthDay + ","
-                    + birthMonth + ","
-                    + birthYear + ","
-                    + imageName + ","
-                    + phone + ","
-                    + sex + ","
-                    + shopName // 10
-                    + "\r\n");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("สมัครไม่สำเร็จ");
-        } finally {
-            try {
-                if (writer != null) {
-                    writer.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
     }
 
