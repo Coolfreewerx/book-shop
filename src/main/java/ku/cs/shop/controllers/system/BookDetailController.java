@@ -3,6 +3,8 @@ package ku.cs.shop.controllers.system;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import ku.cs.shop.models.Book;
@@ -28,7 +30,7 @@ public class BookDetailController
     @FXML private Label bookPrice;
     @FXML private Label typeLabel;
     @FXML private ImageView bookImg;
-
+    @FXML private MenuButton bookTypeMenuItem;
 
 
     private Book book;
@@ -55,24 +57,12 @@ public class BookDetailController
         bookPrice.setText(String.format("%.02f",book.getBookPrice()) + " Bahts.");
     }
 
-
-
     @FXML
     public void handleCartoonBookButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าหนังสือการ์ตูน
         try {
-            com.github.saacsos.FXRouter.goTo("pageBookCartoon");
+            com.github.saacsos.FXRouter.goTo("pageBookType");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้าเพจของหนังสือการ์ตูนไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
-    }
-
-    @FXML
-    public void handleMagazineButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า Magazine
-        try {
-            com.github.saacsos.FXRouter.goTo("pageMagazine");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้าเพจของ Magazine ไม่ได้");
+            System.err.println("ไปที่หน้า pageBoookType ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
@@ -82,17 +72,64 @@ public class BookDetailController
         try {
             com.github.saacsos.FXRouter.goTo("home");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้าเพจหลักไม่ได้");
+            System.err.println("ไปที่หน้า home ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
-    @FXML
-    public void handleToHomeButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า home
+
+    public void handleTypeBookButton(ActionEvent actionEvent) {
         try {
-            com.github.saacsos.FXRouter.goTo("home");
+            com.github.saacsos.FXRouter.goTo("pageBookType");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้าเพจหลักไม่ได้");
+            System.err.println("ไปที่หน้า pageBookType ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
+
+    public void handleNovelBookButton(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("pageBookType");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า pageBookType ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    public void handleEducationalBookButton(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("pageBookType");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า pageBookType ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    public void handleEBookButton(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("pageBookType");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า pageBookType ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    public void handleMagazineBookButton(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("pageBookType");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า pageBookType ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    public void handleToInformationButton(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("detailUser");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า pageBookType ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+
 }
