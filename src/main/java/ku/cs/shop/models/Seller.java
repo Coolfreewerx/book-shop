@@ -43,7 +43,7 @@ public class Seller{
     }
 
     public boolean isBookISBNCorrect(String bookISBN) {
-        if (bookISBN.length() == 10) {
+        if (bookISBN.length() == 10 && Pattern.matches("[0-9]+",bookISBN)) {
             return true;
         } else {
             return false;
@@ -54,12 +54,13 @@ public class Seller{
         if (isBookISBNCorrect(bookISBN)) {
             return "";
         } else {
-            return "รหัส ISBN นี้ไม่ถูกต้อง";
+            return "กรุณากรอกให้ครบ 10 หลัก รหัส ISBN นี้ไม่ถูกต้อง ";
         }
     }
 
     public boolean isNumber(String num) {
-        if (Pattern.matches("[0-9]+", num)) {
+        double number = Double.parseDouble(num);
+        if (number >= 0) {
             return true;
         } else {
             return false;
@@ -70,7 +71,7 @@ public class Seller{
         if (isNumber(num)) {
             return "";
         } else {
-            return "ข้อมูลผิดพลาด กรูณาใส่ตัวเลข 0 - 9 ";
+            return "ข้อมูลผิดพลาด กรูณาใส่ตัวเลขจำนวนเต็มบวก";
         }
     }
 

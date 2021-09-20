@@ -25,8 +25,7 @@ public class BookDetailDataSource implements DataSource<BookList> {
             CSVReader reader = new CSVReader(file);
             String[] data = null;
 
-            while ((data = reader.readNext()) != null)
-            {
+            while ((data = reader.readNext()) != null) {
                 String bookName = data[0].trim();
                 String bookShop = data[1].trim();
                 String bookAuthor = data[2].trim();

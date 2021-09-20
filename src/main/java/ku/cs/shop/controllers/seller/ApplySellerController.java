@@ -29,7 +29,7 @@ public class ApplySellerController {
     private String bookShop;
     private String bookAuthor;
     private String bookISBN;
-    private String bookType;
+    private String bookType = "";
     private String bookDetail;
     private String bookPublisher;
     private String bookStatus;
@@ -44,7 +44,6 @@ public class ApplySellerController {
     @FXML private TextField bookNameTextField;
     @FXML private TextField bookAuthorTextField;
     @FXML private TextField bookISBNTextField;
-    @FXML private TextField bookTypeTextField;
     @FXML private Button addBookButton;
     @FXML private TextField bookPageTextField;
     @FXML private Button goToSellerStockButton;
@@ -52,14 +51,16 @@ public class ApplySellerController {
     @FXML private TextField bookPublisherTextField;
     @FXML private TextField bookStockTextField;
     @FXML private TextField leastStockTextField;
-    @FXML private TextField bookStatusTextField;
     @FXML private TextField bookPriceTextField;
     @FXML private Label NotificationBookISBN;
     @FXML private Label NotificationBookPage;
     @FXML private Label NotificationBookStock;
     @FXML private Label NotificationLeastStock;
+    @FXML private Label NotificationBookPrice;
     @FXML private Label NotificationCantAdd;
     @FXML private ImageView imageView;
+    @FXML private MenuButton menuButton;
+
     private File selectedImage;
     private String imageName;
 
@@ -82,6 +83,7 @@ public class ApplySellerController {
         bookStock = bookStockTextField.getText();
         NotificationBookStock.setText(seller.checkNumber(bookStock));
         if(! seller.isNumber(bookStock)){bookStock = "";}
+        bookStatus = "พร้อมส่ง";
     }
 
     @FXML
@@ -92,7 +94,37 @@ public class ApplySellerController {
     }
 
     @FXML
-    public void handleKeyBookPrice(ActionEvent actionEvent){}
+    public void handleKeyBookPrice(ActionEvent actionEvent){
+        bookPrice = bookPriceTextField.getText();
+        NotificationBookPrice.setText(seller.checkNumber(bookPrice));
+        if(!seller.isNumber(bookPrice)){bookPrice = "";}
+    }
+
+    @FXML
+    public void handleCartoonMenuButton(ActionEvent actionEvent){
+        bookType = "หนังสือการ์ตูน";
+        menuButton.setText("หนังสือการ์ตูน");
+    }
+    @FXML
+    public void handleMegazineMenuButton(ActionEvent actionEvent){
+        bookType = "นิตยสาร";
+        menuButton.setText("นิตยสาร");
+    }
+    @FXML
+    public void handleNovelMenuButton(ActionEvent actionEvent){
+        bookType = "นิยาย";
+        menuButton.setText("นิยาย");
+    }
+    @FXML
+    public void handleStudyBookMenuButton(ActionEvent actionEvent){
+        bookType = "หนังสือเรียน";
+        menuButton.setText("หนังสือเรียน");
+    }
+    @FXML
+    public void handleEBookMenuButton(ActionEvent actionEvent){
+        bookType = "e-book";
+        menuButton.setText("e-book");
+    }
 
     @FXML
     public void handleAddImageButton (ActionEvent actionEvent) {
@@ -124,30 +156,23 @@ public class ApplySellerController {
         bookName = bookNameTextField.getText();
         bookAuthor = bookAuthorTextField.getText();
         bookISBN = bookISBNTextField.getText();
-        bookType = bookTypeTextField.getText();
         bookPage = bookPageTextField.getText();
         bookDetail = bookDetailTextArea.getText();
         bookPublisher = bookPublisherTextField.getText();
         bookStock = bookStockTextField.getText();
         leastStock = leastStockTextField.getText();
-        bookStatus = bookStatusTextField.getText();
         bookPrice = bookPriceTextField.getText();
-//        try {
-//            com.github.saacsos.FXRouter.goTo("sellerStock");
-//        } catch (IOException e) {
-//            System.err.println("ไปที่หน้า sellerStock ไม่ได้");
-//            System.err.println("ให้ตรวจสอบการกำหนด route");
-//        }
 
         if (seller.getDataCheck(bookName,"nanazenShop",bookAuthor,bookISBN,bookType,bookDetail,bookPublisher,bookStatus,bookImg, bookStock,bookPage,leastStock,bookPrice)) {
             NotificationCantAdd.setText("Can Add merchandise");
+
             setImageName();
             bookImg = imageName;
             int bookStockPara = Integer.parseInt(bookStock);
             int leastStockPara = Integer.parseInt(leastStock);
             double bookPricePara = Double.parseDouble(bookPrice);
 
-            Book book = new Book(bookName,"nanazenShop",bookAuthor,bookISBN,bookType,bookDetail,bookPublisher,bookImg,bookStockPara,bookPage,leastStockPara,bookPricePara);
+            Book book = new Book(bookName,"Shop",bookAuthor,bookISBN,bookType,bookDetail,bookPublisher,bookImg,bookStockPara,bookPage,leastStockPara,bookPricePara);
 
             DataSource<BookList> dataSource;
             dataSource = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
