@@ -33,7 +33,7 @@
          <font>
             <Font name="JasmineUPC" size="13.0" />
          </font></TextField>
-      <Button cache="true" cacheHint="SCALE" layoutX="699.0" layoutY="466.0" mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="52.0" prefWidth="127.0" styleClass="bevel-grey" stylesheets="@style/PrimaryTheme.css" text="เข้าสู่ระบบ" textAlignment="CENTER" textFill="WHITE">
+      <Button cache="true" cacheHint="SCALE" layoutX="699.0" layoutY="466.0" mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="52.0" prefWidth="127.0" style="-fx-background-radius: 30;" styleClass="bevel-grey" stylesheets="@style/PrimaryTheme.css" text="เข้าสู่ระบบ" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="JasmineUPC Bold" size="24.0" />
          </font>
@@ -56,23 +56,11 @@
             <Image url="@image/javapaiver.brown.png" />
          </image>
       </ImageView>
-      <Button layoutX="125.0" layoutY="539.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="330.0" style="-fx-background-color: ffffff; -fx-background-radius: 20;" text="| ชื่อนักเขียน , นิยาย                                           ">
-         <font>
-            <Font name="JasmineUPC" size="20.0" />
-         </font>
-      </Button>
-      <Button layoutX="309.0" layoutY="544.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="137.0" style="-fx-background-color: F99F28; -fx-background-radius: 20;" text="ค้นหา" textFill="WHITE">
-         <font>
-            <Font name="JasmineUPC" size="25.0" />
-         </font>
-      </Button>
-      <Button layoutX="632.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleToAboutUsButton" prefHeight="57.0" prefWidth="222.0" style="-fx-background-color: BC986A;" styleClass="root" stylesheets="@style/PrimaryTheme.css" text="ABOUT US" textFill="WHITE">
+      <Button layoutX="821.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleToAboutUsButton" prefHeight="57.0" prefWidth="222.0" style="-fx-background-color: BC986A;" styleClass="root" stylesheets="@style/PrimaryTheme.css" text="ABOUT US" textFill="WHITE">
          <font>
             <Font name="JasmineUPC Bold" size="28.0" />
          </font>
       </Button>
-      <Label layoutX="826.0" layoutY="33.0" text="|   PROMOTION" textFill="WHITE">
-      </Label>
       <Label fx:id="errorLabel" layoutX="634.0" layoutY="437.0" text="บัญชีหรือรหัสผ่านไม่ถูกต้อง โปรดตรวจสอบใหม่อีกครั้ง" textFill="WHITE">
          <font>
             <Font name="JasmineUPC" size="16.0" />
