@@ -100,6 +100,8 @@ public class User {
         this.lastName = lastName;
     }
     public void setUserName(String userName) { this.userName = userName; }
+    public void setPassword(String password) { this.password = password; }
+    public void setShopName(String shopName) { this.shopName = shopName; }
 
     public static String checkUserNameCondition(String userName) {
         //ตรวจสอบ username ว่าตรงเงื่อนไขมั้ย

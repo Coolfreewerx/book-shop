@@ -7,12 +7,18 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import ku.cs.shop.models.BookList;
 import ku.cs.shop.models.User;
+import ku.cs.shop.models.UserList;
+import ku.cs.shop.services.BookDetailDataSource;
+import ku.cs.shop.services.DataSource;
+import ku.cs.shop.services.UserDataSource;
 
 import java.io.IOException;
 
 public class ApplyToBeASeller{ //สมัครเป็นผู้ขายสินค้า
-    private User user;
+    private User user = new User("Freshmin", "Na", "justmeka", "13082000",
+         "15", "11", "2001", "Temporary", "0823341025", "Women", "");
     private String shopName;
     private String password;
     private String passwordRecheck;
@@ -22,7 +28,8 @@ public class ApplyToBeASeller{ //สมัครเป็นผู้ขาย�
     @FXML private PasswordField passwordTextField1;
     @FXML private PasswordField passwordTextField2;
     @FXML private Label notificationShopName;
-    @FXML private Label notificationPassword;
+    @FXML private Label notificationPassword1;
+    @FXML private Label notificationPassword2;
 
 
     @FXML
@@ -30,8 +37,12 @@ public class ApplyToBeASeller{ //สมัครเป็นผู้ขาย�
         notificationShopName.setText(user.checkShopNameCondition(nameShopTextField.getText()));
     }
     @FXML
+    public void handleKeyPassword() {
+        notificationPassword1.setText(user.comparePassword(passwordTextField1.getText(),user.getPassword()));
+    }
+    @FXML
     public void handleKeyCheckPassword() {
-        notificationPassword.setText(user.comparePassword(passwordTextField1.getText(),passwordTextField2.getText()));
+        notificationPassword2.setText(user.comparePassword(passwordTextField1.getText(),passwordTextField2.getText()));
     }
 
     @FXML
@@ -39,15 +50,27 @@ public class ApplyToBeASeller{ //สมัครเป็นผู้ขาย�
         shopName = nameShopTextField.getText();
         password = passwordTextField1.getText();
         passwordRecheck = passwordTextField1.getText();
-//        if ( !(user.checkShopNameHaveUsed(shopName)) && (user.comparePasswordBoolean(password,passwordRecheck))){
-            try {
-                com.github.saacsos.FXRouter.goTo("sellerStock");
-            } catch (IOException e) {
-                System.err.println("ไปที่หน้า sellerStock ไม่ได้");
-                System.err.println("ให้ตรวจสอบการกำหนด route");
-            }
-//        }
-//        else { return;}
+        user.setShopName(shopName);
+
+//        DataSource<BookList> dataSource;
+//        dataSource = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
+//        BookList bookList = dataSource.readData();
+//        bookList.addBook(book);
+//        dataSource.writeData(bookList);
+
+        DataSource<UserList> dataSource;
+        dataSource = new UserDataSource("src/main/java/ku/cs/shop/userData.csv");
+        UserList userList = dataSource.readData();
+        userList.addUser(user);
+        dataSource.writeData(userList);
+
+        try {
+            com.github.saacsos.FXRouter.goTo("seller");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า seller ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+
     }
 
     @FXML
