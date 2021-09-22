@@ -9,6 +9,7 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import ku.cs.shop.controllers.system.ItemController;
 import ku.cs.shop.controllers.user.DetailUser;
@@ -26,8 +27,7 @@ import java.util.ResourceBundle;
 public class HomeController implements Initializable {
 
     @FXML private GridPane grid;
-    @FXML private Label usernameLabel ;
-
+    @FXML private HBox head;
     private UserList userList ;
 
 
@@ -87,8 +87,6 @@ public class HomeController implements Initializable {
         }
     }
 
-
-
     @FXML
     public void handleAllTypeBookButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า หนังสือทั้งหมด (เพจหลัก)
         try {
@@ -110,4 +108,9 @@ public class HomeController implements Initializable {
             e.printStackTrace();
         }
     }
+
+//    private void showData(){
+//            head = (HBox) FXMLLoader.load("headPage.fxml");
+//        head.getChildren().setAll(FXMLLoader.load("headPage.fxml"));
+//    }
 }

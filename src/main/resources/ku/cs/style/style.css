@@ -10,6 +10,9 @@
 .borderColor{
     -fx-border-color: #1d3557;
 }
+.backgroundColorStatus{
+    -fx-background-color: #868686;
+}
 .backgroundColorButton{
     -fx-background-color: #C9AD88;
 }
