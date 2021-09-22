@@ -180,7 +180,7 @@
 
       <Line endX="500.666748046875" endY="1.52587890625E-5" layoutX="450.0" layoutY="161.0" startX="-100.0" stroke="#7e4811" />
 
-                  <Button fx:id="submitButton" layoutX="560.0" layoutY="600.0" mnemonicParsing="false" onAction="#handleAddSellerStockButton" prefHeight="51.0" prefWidth="194.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="สมัครเป็นผู้ขาย" textFill="WHITE">
+                  <Button fx:id="submitButton" layoutX="560.0" layoutY="650.0" mnemonicParsing="false" onAction="#handleAddSellerStockButton" prefHeight="51.0" prefWidth="194.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="สมัครเป็นผู้ขาย" textFill="WHITE">
          <font>
             <Font name="JasmineUPC" size="30.0" />
          </font>
@@ -203,21 +203,26 @@
             <Font name="JasmineUPC" size="18.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="passwordTextField1" layoutX="380.0" layoutY="440.0" onAction="#handleKeyCheckPassword" prefHeight="40.0" prefWidth="550.0" promptText="password" style="-fx-background-color: FFFCF1; -fx-effect: shadow; -fx-background-radius: 10;" />
-      <Label layoutX="380.0" layoutY="420.0" text="* กรุณากรอกรหัสผ่านเพื่อยืนยัน" textFill="#fc0202">
+      <PasswordField fx:id="passwordTextField1" layoutX="380.0" layoutY="440.0" onKeyReleased="#handleKeyPassword" prefHeight="40.0" prefWidth="550.0" promptText="password" style="-fx-background-color: FFFCF1; -fx-effect: shadow; -fx-background-radius: 10;" />
+      <Label layoutX="380.0" layoutY="420.0" text="* กรุณากรอกรหัสผ่านเพื่อยืนยัน" textFill="#03841d">
          <font>
             <Font name="JasmineUPC" size="18.0" />
          </font>
       </Label>
-      <PasswordField fx:id="passwordTextField2" layoutX="380.0" layoutY="520.0" prefHeight="40.0" prefWidth="550.0" promptText="password" style="-fx-background-color: FFFCF1; -fx-effect: shadow; -fx-background-radius: 10;" />
-      <Label layoutX="380.0" layoutY="500.0" text="* กรุณากรอกรหัสผ่านเพื่อยืนยันอีกครั้ง" textFill="#fc0202">
+      <PasswordField fx:id="passwordTextField2" layoutX="380.0" layoutY="570.0" onKeyReleased="#handleKeyCheckPassword" prefHeight="40.0" prefWidth="550.0" promptText="password" style="-fx-background-color: FFFCF1; -fx-effect: shadow; -fx-background-radius: 10;" />
+      <Label layoutX="380.0" layoutY="550.0" text="* กรุณากรอกรหัสผ่านเพื่อยืนยันอีกครั้ง" textFill="#03841d">
          <font>
             <Font name="JasmineUPC" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="notificationPassword" layoutX="390.0" layoutY="570.0" textFill="#f40606">
+      <Label fx:id="notificationPassword2" layoutX="390.0" layoutY="620.0" textFill="#f40606">
          <font>
             <Font name="JasmineUPC" size="18.0" />
          </font></Label>
+      <Label fx:id="notificationPassword1" layoutX="390.0" layoutY="490.0" textFill="#f40606">
+         <font>
+            <Font name="JasmineUPC" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
