@@ -11,10 +11,12 @@ import javafx.scene.layout.*;
 import ku.cs.shop.models.User;
 import com.github.saacsos.FXRouter;
 import java.io.IOException;
+import ku.cs.shop.models.UserList;
 
 public class HeadController {
     private User user;
     private Pane view;
+    private UserList userList ;
     @FXML private HBox hBoxHeadPage;
     @FXML private Button status;
     @FXML private Label usernameInHead;
@@ -27,25 +29,19 @@ public class HeadController {
     @FXML
     public void initialize() {
         System.out.println("initialize HeadController");
-        user = (User)FXRouter.getData();
-    }
-
-    public String pagesHeader() {
-        String pane = "/ku/cs/headPage.fxml";
-        return pane;
-    }
-
-    private void showDataInHead() {
+        userList = (UserList)FXRouter.getData() ;
+        user = userList.getCurrentUser() ;
         pagesHeader();
+    }
+
+    public void pagesHeader() {
         usernameInHead.setText(user.getUserName());
         img.setImage(new Image(user.getImagePath()));
-        if (user.getShopName() != " "){
+        if(user.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")){
+            status.setText("User");
+        }else{
             status.setText("Seller");
         }
-        if (user.getShopName() == " "){
-            status.setText("User");
-        }
-//        status.setText();
     }
 
     @FXML
@@ -58,6 +54,18 @@ public class HeadController {
         }
     }
 
+    @FXML
+    public void handleToInformationButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า หนังสือทั้งหมด (เพจหลัก)
+        try {
+
+            FXRouter.goTo("detailUser", userList);
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า detailUser ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+            e.printStackTrace();
+        }
+    }
+
 //    public void initialize(URL location, ResourceBundle resource) {
 //        FXMLLoader fxmlLoader = new FXMLLoader();
 //        fxmlLoader.setLocation(getClass().getResource("/ku/cs/head.fxml"));
@@ -66,6 +74,4 @@ public class HeadController {
 //    public FXMLLoader getFxmlLoader() {
 //        return fxmlLoader;
 //    }
-
-
 }

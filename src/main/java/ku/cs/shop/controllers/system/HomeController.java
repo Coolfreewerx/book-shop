@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
@@ -27,7 +28,9 @@ import java.util.ResourceBundle;
 public class HomeController implements Initializable {
 
     @FXML private GridPane grid;
+    @FXML private GridPane gridPaneInHead;
     @FXML private HBox head;
+    private HeadController headController;
     private UserList userList ;
 
 
@@ -64,6 +67,7 @@ public class HomeController implements Initializable {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            showHead();
         }
 
 
@@ -109,8 +113,14 @@ public class HomeController implements Initializable {
         }
     }
 
-//    private void showData(){
-//            head = (HBox) FXMLLoader.load("headPage.fxml");
-//        head.getChildren().setAll(FXMLLoader.load("headPage.fxml"));
-//    }
+    @FXML
+    public void showHead(){
+            try{
+                FXMLLoader fxmlLoaderHead = new FXMLLoader();
+                fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/headPage.fxml"));
+                gridPaneInHead.add(fxmlLoaderHead.load(), 0,0);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+    }
 }

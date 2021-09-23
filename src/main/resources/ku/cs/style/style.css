@@ -11,9 +11,9 @@
     -fx-border-color: #1d3557;
 }
 .backgroundColorStatus{
-    -fx-background-color: #868686;
+    -fx-background-color: #bbbaba;
 }
-.backgroundColorButton{
+.backgroundColorLightBrownButton{
     -fx-background-color: #C9AD88;
 }
 .backgroundColor2{
@@ -21,4 +21,13 @@
 }
 .backgroundColor3{
     -fx-background-color: linear-gradient(#FFE0B8, #FFF1DE);
+}
+.backgroundColorInHeadPages{
+    -fx-background-color: #ffe6c9;
+}
+.radius{
+    -fx-border-radius: 5;
+}
+.backgroundColorOrange{
+    -fx-background-color: #F99F28;
 }
