@@ -35,12 +35,11 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
     private BookList books = data.readData();
 
     public void initialize (URL location, ResourceBundle resource){
-        changeBookType("หนังสือการ์ตูน");
+    //    changeBookType("หนังสือการ์ตูน");
         addBookTypeToMenuItem();
     }
 
     public void addBookTypeToMenuItem() {
-
         for (String type : books.getBookType()) {
             MenuItem subBookTypeMenuItem = new MenuItem(type);
             bookTypeMenuItem.getItems().add(subBookTypeMenuItem);

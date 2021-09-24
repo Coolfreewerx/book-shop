@@ -85,10 +85,10 @@ public class Book {
     }
 
     // increase method
-    public void increaseStock () { setBookStock(this.bookStock + 1); }
+    public void increaseStock () { this.setBookStock(this.bookStock + 1); }
 
     // decrease method
-    public void decreaseStock () { setBookStock(this.bookStock - 1); }
+    public void decreaseStock () { this.setBookStock(this.bookStock - 1); }
 
     public String toCsv(){
         String result = "";

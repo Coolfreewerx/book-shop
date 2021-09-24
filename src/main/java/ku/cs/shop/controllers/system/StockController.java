@@ -7,6 +7,9 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import ku.cs.shop.models.Book;
+import ku.cs.shop.models.BookList;
+import ku.cs.shop.services.BookDetailDataSource;
+import ku.cs.shop.services.DataSource;
 
 public class StockController {
     @FXML private ImageView bookImageView;
@@ -28,6 +31,7 @@ public class StockController {
         bookNameLabel.setText(book.getBookName());
         bookPriceLabel.setText(book.getBookPrice() + "");
         bookTypeLabel.setText(book.getBookType());
+        bookImageView.setImage(new Image(book.getPicturePath()));
         bookStockLabel.setText(book.getBookStock() + "");
         if (book.getBookStock() <= book.getLeastStock()){
             notificationForStock.setText("** มีสินค้าจำนวนน้อยในคลัง ** ");
@@ -35,7 +39,11 @@ public class StockController {
         else{
             notificationForStock.setText("");
         }
-        bookImageView.setImage(new Image(book.getPicturePath()));
+        DataSource<BookList> dataSource;
+        dataSource = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
+        BookList bookList = dataSource.readData();
+        dataSource.writeData(bookList);
+
     }
 
     @FXML public void handleIncreaseButton(ActionEvent actionEvent){

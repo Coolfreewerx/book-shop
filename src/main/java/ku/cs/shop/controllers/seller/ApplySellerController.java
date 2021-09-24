@@ -20,10 +20,13 @@ import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class ApplySellerController {
     Seller seller = new Seller();
     BookDetailDataSource bookDetailDataSource;
+    private BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
+    private BookList books = data.readData();
 
     private String bookName;
     private String bookShop;

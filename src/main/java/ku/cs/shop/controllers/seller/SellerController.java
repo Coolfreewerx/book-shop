@@ -10,6 +10,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import ku.cs.shop.controllers.system.ItemController;
 import ku.cs.shop.controllers.system.StockController;
 import ku.cs.shop.controllers.system.HeadController;
 import ku.cs.shop.models.Book;
@@ -36,13 +37,12 @@ public class SellerController implements Initializable {
 
     private BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
     private BookList books = data.readData();
-    private BookList bookList;
     public void initialize (URL location, ResourceBundle resource){
         int column = 0;
         int row = 1;
 
         try {
-            for (int i = 0; i < 4 ; i++) {
+            for (int i = 0; i < books.getBookListCount() ; i++) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/ku/cs/stock.fxml"));
 
@@ -50,6 +50,7 @@ public class SellerController implements Initializable {
                 StockController stockController = fxmlLoader.getController();
                 stockController.setData(books.getBook(i));
                 stockController.changeData();
+
 
                 grid.setMinWidth(Region.USE_COMPUTED_SIZE);
                 grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
