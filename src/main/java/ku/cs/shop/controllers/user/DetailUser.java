@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import ku.cs.shop.models.User;
 import ku.cs.shop.models.UserList;
@@ -19,7 +20,7 @@ import java.util.Comparator;
 import java.util.ResourceBundle;
 
 public class DetailUser {
-    @FXML private HBox hBoxSellerStock;
+    @FXML private GridPane gridPaneInHead;
     @FXML private Label birthdayLabel;
     @FXML private Label birthMonthLabel;
     @FXML private Label birthYearLabel;
@@ -29,16 +30,6 @@ public class DetailUser {
     @FXML private Label firstnameLabel;
     @FXML private Label passwordLabel;
     @FXML private Label usernameLabel;
-    @FXML private Label birthdayInEditInformationLabel;
-    @FXML private Label birthMonthInEditInformationLabel;
-    @FXML private Label birthYearInEditInformationLabel;
-    @FXML private Label usernameInEditInformationLabel;
-    @FXML private TextField lastnameTextField;
-    @FXML private TextField firstnameTextField;
-    @FXML private TextField phoneNumberTextField;
-    @FXML private PasswordField passwordTextField;
-    @FXML private PasswordField recheckPasswordTextField;
-    @FXML private MenuButton sexChoice;
     @FXML private ImageView userImageView ;
 
 
@@ -50,6 +41,7 @@ public class DetailUser {
     public void initialize(){
         userList = (UserList)FXRouter.getData() ;
         user = userList.getCurrentUser() ;
+        showHead();
         showData();
     }
 
@@ -128,34 +120,23 @@ public class DetailUser {
     }
 
     @FXML
-    public void handleToHomeButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า home
+    public void handleToEditInformationPageButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าแก้ไขข้อมูลส่วนตัว
         try {
-            com.github.saacsos.FXRouter.goTo("home");
+            com.github.saacsos.FXRouter.goTo("editInformation");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า home ไม่ได้");
+            System.err.println("ไปที่หน้า editInformation ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
 
-//    public void setSexChoiceMenuButton(ActionEvent event) { // set ตัวเลือกเพศให้แสดงเพศที่เลือก
-//        sexChoice.setValue("เดือน");
-//        birthMonthChoice.getItems().removeAll(monthList) ;
-//        birthDayChoice.getItems().removeAll(dayList) ;
-//        monthList.removeAll(monthList) ;
-//        lodeMonthData();
-//    }
-
-//    private void lodeSex() {
-//        sexChoice.getItems().removeAll(monthList);
-//        monthList.removeAll(monthList) ;
-//        String sex = "หญิง,ชาย,ไม่ระบุ" ;
-//        String[] arr = sex.split(",") ;
-//        int i = 0 ;
-//
-//        while ( i < 12){
-//            monthList.add(arr[i]) ;
-//            i++ ;
-//        }
-//        birthMonthChoice.getItems().addAll(monthList) ;
-//    }
+    @FXML
+    public void showHead(){ //แสดงหัวเพจ
+        try{
+            FXMLLoader fxmlLoaderHead = new FXMLLoader();
+            fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/headPage.fxml"));
+            gridPaneInHead.add(fxmlLoaderHead.load(), 0,0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

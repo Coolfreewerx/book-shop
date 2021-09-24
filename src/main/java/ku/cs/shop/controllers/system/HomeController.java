@@ -29,8 +29,6 @@ public class HomeController implements Initializable {
 
     @FXML private GridPane grid;
     @FXML private GridPane gridPaneInHead;
-    @FXML private HBox head;
-    private HeadController headController;
     private UserList userList ;
 
 
@@ -114,7 +112,7 @@ public class HomeController implements Initializable {
     }
 
     @FXML
-    public void showHead(){
+    public void showHead(){ //แสดงหัวเพจ
             try{
                 FXMLLoader fxmlLoaderHead = new FXMLLoader();
                 fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/headPage.fxml"));

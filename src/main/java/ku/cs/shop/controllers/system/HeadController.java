@@ -34,7 +34,7 @@ public class HeadController {
         pagesHeader();
     }
 
-    public void pagesHeader() {
+    public void pagesHeader() { // กำหนดข้อมูลตรงส่วน head page
         usernameInHead.setText(user.getUserName());
         img.setImage(new Image(user.getImagePath()));
         if(user.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")){
@@ -65,13 +65,4 @@ public class HeadController {
             e.printStackTrace();
         }
     }
-
-//    public void initialize(URL location, ResourceBundle resource) {
-//        FXMLLoader fxmlLoader = new FXMLLoader();
-//        fxmlLoader.setLocation(getClass().getResource("/ku/cs/head.fxml"));
-//    }
-//
-//    public FXMLLoader getFxmlLoader() {
-//        return fxmlLoader;
-//    }
 }
