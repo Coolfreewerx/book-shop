@@ -75,6 +75,7 @@ public class Book {
     public void setBookStock(int bookStock) { this.bookStock = bookStock; }
     public void setLeastStock(int leastStock) { this.leastStock = leastStock; }
     public void setBookPrice(double bookPrice) { this.bookPrice = bookPrice; }
+    public void setBookPage(String bookPage) { this.bookPage = bookPage; }
 
     public String getPicturePath() {
         return new File(System.getProperty("user.dir")

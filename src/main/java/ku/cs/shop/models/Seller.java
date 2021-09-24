@@ -75,13 +75,11 @@ public class Seller{
         }
     }
 
-    public boolean getDataCheck(String bookName, String bookShop, String bookAuthor, String bookISBN, String bookType, String bookDetail,
-                                String bookPublisher, String bookStatus, String bookImg, String bookStock, String bookPage, String leastStock, String bookPrice) {
-        if (bookName.equals("") || bookShop.equals("") || bookAuthor.equals("") || bookISBN.equals("") || bookType.equals("") || bookDetail.equals("") ||
-                bookPublisher.equals("") || bookStatus.equals("") || bookImg.equals("") || bookStock.equals("") || bookPage.equals("") || leastStock.equals("") || bookPrice.equals("")) {
+    public boolean getDataCheck(Book book) {
+        if (book.getBookName().equals("") || book.getBookShop().equals("") || book.getBookAuthor().equals("") || book.getBookISBN().equals("") || book.getBookType().equals("") || book.getBookDetail().equals("") ||
+                book.getBookPublisher().equals("") || book.getBookStatus().equals("") || book.getBookImg().equals("") || (book.getBookStock() == -1) || book.getBookPage().equals("") || (book.getLeastStock() == -1) || (book.getBookPrice() == -1) ){
             return false;
-        } else
-            return true;
+        } else{ return true;}
     }
 
     public static void copyImageToPackage(File image, String imageName) {

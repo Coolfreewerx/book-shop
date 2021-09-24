@@ -168,7 +168,7 @@
                <content>
                   <AnchorPane prefHeight="1058.0" prefWidth="690.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
                      <children>
-                        <Label layoutX="40.0" layoutY="40.0" text="ผู้ขายสินค้า" textFill="#a05e07">
+                        <Label layoutX="40.0" layoutY="44.0" text="แก้ไขข้อมูลสินค้า" textFill="#a05e07">
                            <font>
                               <Font name="JasmineUPC" size="40.0" />
                            </font>
@@ -215,7 +215,7 @@
                               <Font name="JasmineUPC" size="32.0" />
                            </font>
                         </Label>
-                        <Button fx:id="addBookButton" layoutX="375.0" layoutY="800.0" mnemonicParsing="false" onAction="#handleAddBookButton" prefHeight="40.0" prefWidth="125.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" styleClass="font_jasmine_16pt" stylesheets="@style/PrimaryTheme.css" text="เพิ่มสินค้า" textFill="WHITE">
+                        <Button fx:id="addBookButton" layoutX="375.0" layoutY="800.0" mnemonicParsing="false" onAction="#handleAddBookButton" prefHeight="40.0" prefWidth="125.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" styleClass="font_jasmine_16pt" stylesheets="@style/PrimaryTheme.css" text="แก้ไขสินค้า" textFill="WHITE">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -255,7 +255,7 @@
                               <Font name="JasmineUPC" size="32.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="bookPriceTextField" layoutX="380.0" layoutY="740.0" prefHeight="40.0" prefWidth="270.0" style="-fx-background-color: FFFCF1; -fx-background-radius: 10;" onKeyReleased="#handleKeyBookPrice" />
+                        <TextField fx:id="bookPriceTextField" layoutX="380.0" layoutY="740.0" prefHeight="40.0" prefWidth="270.0" style="-fx-background-color: FFFCF1; -fx-background-radius: 10;" />
                         <Label fx:id="NotificationBookISBN" layoutX="55.0" layoutY="495.0" textFill="#f20505">
                            <font>
                               <Font name="JasmineUPC" size="12.0" />
@@ -281,7 +281,7 @@
                               <Font name="JasmineUPC" size="24.0" />
                            </font>
                         </Label>
-                        <Label fx:id="NotificationBookPrice" layoutX="387.0" layoutY="781.0" textFill="#f20505" >
+                        <Label fx:id="NotificationBookPrice" layoutX="387.0" layoutY="781.0" textFill="#f20505">
                            <font>
                               <Font name="JasmineUPC" size="12.0" />
                            </font>
@@ -298,6 +298,16 @@
                               <Font size="18.0" />
                            </font>
                         </MenuButton>
+                        <Label fx:id="bookNameTopicLabel" layoutX="255.0" layoutY="48.0" text="booknameTopicLabel" textFill="#c9ad88">
+                           <font>
+                              <Font name="JasmineUPC" size="32.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="bookNameTopicLabel1" layoutX="229.0" layoutY="34.0" text="|" textFill="#a05e07">
+                           <font>
+                              <Font name="JasmineUPC" size="60.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
                </content>

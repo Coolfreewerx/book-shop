@@ -11,6 +11,8 @@ import ku.cs.shop.models.BookList;
 import ku.cs.shop.services.BookDetailDataSource;
 import ku.cs.shop.services.DataSource;
 
+import java.io.IOException;
+
 public class StockController {
     @FXML private ImageView bookImageView;
     @FXML private Label bookNameLabel;
@@ -53,6 +55,16 @@ public class StockController {
     @FXML public void handleDecreaseButton(ActionEvent actionEvent){
         book.decreaseStock();
         changeData();
+    }
+
+    @FXML
+    public void handleEditBookButton(ActionEvent actionEvent){
+        try {
+            com.github.saacsos.FXRouter.goTo("editBook");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า sellerStock ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
     }
 
 }
