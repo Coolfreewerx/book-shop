@@ -26,15 +26,12 @@ import java.util.ResourceBundle;
 
 public class HomeController implements Initializable {
 
-//    @FXML private GridPane grid;
+    @FXML private GridPane grid;
     @FXML private GridPane gridPaneInHead;
-<<<<<<< Updated upstream
-=======
     @FXML private HBox head;
     @FXML private FlowPane bookListFlowPane;
     @FXML private MenuButton bookTypeMenuItem;
     private HeadController headController;
->>>>>>> Stashed changes
     private UserList userList ;
 
 
@@ -61,7 +58,8 @@ public class HomeController implements Initializable {
 
                 } catch (IOException e) {
                     e.printStackTrace();
-                } showHead();
+                }
+                showHead();
         }
 
 //    public void addBookTypeToMenuItem() {

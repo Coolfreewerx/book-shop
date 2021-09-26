@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
@@ -29,6 +30,8 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
     @FXML private Label bookType;
     @FXML private FlowPane bookListFlowPane;
     @FXML private MenuButton bookTypeMenuItem;
+    @FXML private Button MaxPriceToLowPriceButton;
+    @FXML private Button lowPriceToMaxPriceButton;
 
     private String currentType;
     private UserList userList ;

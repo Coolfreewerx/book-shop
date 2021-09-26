@@ -55,7 +55,7 @@ public class HeadController {
     @FXML
     public void initialize() {
         System.out.println("initialize HeadController");
-        userList = (UserList)FXRouter.getData() ;
+        userList = (UserList) FXRouter.getData() ;
         user = userList.getCurrentUser() ;
         pagesHeader();
     }
