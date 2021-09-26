@@ -138,7 +138,7 @@ public class User {
 
     //เก็บรูปภาพ
     public static void copyImageToPackage(File image, String imageName) {
-        File file = new File("user-images") ;
+        File file = new File("account-images") ;
         Path desPath = FileSystems.getDefault().getPath(file.getAbsolutePath() + "\\" + imageName);
         try {
             Files.copy(image.toPath(), desPath, StandardCopyOption.REPLACE_EXISTING);
@@ -205,7 +205,7 @@ public class User {
     public String getImagePath() {
         return new File(System.getProperty("user.dir")
                 + File.separator
-                + "user-images"
+                + "account-images"
                 + File.separator
                 + imageName).toURI().toString();
     }
