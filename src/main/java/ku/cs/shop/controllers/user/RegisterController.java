@@ -54,7 +54,7 @@ public class RegisterController {
 
     @FXML
     public void initialize () {
-        userDataSource = new UserDataSource("src/main/java/ku/cs/shop/userData.csv") ;
+        userDataSource = new UserDataSource("csv-data/userData.csv") ;
         userList = userDataSource.readData() ;
         lodeYearData();
     }

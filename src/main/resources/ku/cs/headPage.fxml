@@ -18,6 +18,7 @@
    <children>
       <HBox fx:id="hBoxHeadPage" layoutX="20.0" layoutY="20.0" prefHeight="68.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
+<<<<<<< Updated upstream
             <Button mnemonicParsing="false" onAction="#handleToHomeButton" styleClass="backgroundColorInHeadPages" stylesheets="@style/style.css">
                <graphic>
                   <ImageView fitHeight="59.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
@@ -28,12 +29,19 @@
                </graphic>
             </Button>
             <MenuButton mnemonicParsing="false" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: #c9ad88; -fx-background-radius: 20;" text="ประเภท" textFill="WHITE">
+=======
+            <ImageView fitHeight="59.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/logoverLightBrown.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <MenuButton fx:id="bookTypeMenuItem" mnemonicParsing="false" onAction="#handlePageBookTypeButton" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: #c9ad88; -fx-background-radius: 20;" text="ประเภท" textFill="WHITE">
+>>>>>>> Stashed changes
                <items>
-                  <MenuItem mnemonicParsing="false" text="หนังสือการ์ตูน" />
-                  <MenuItem mnemonicParsing="false" text="นิตยสาร" />
-                  <MenuItem mnemonicParsing="false" text="นิยาย" />
-                  <MenuItem mnemonicParsing="false" text="หนังสือเรียน" />
-                  <MenuItem mnemonicParsing="false" text="e-book" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleSubTypeBookButton" text="ดูรายละเอียด" />
                </items>
                <font>
                   <Font name="JasmineUPC" size="25.0" />

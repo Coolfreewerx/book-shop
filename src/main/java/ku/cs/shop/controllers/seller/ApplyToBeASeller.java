@@ -59,7 +59,7 @@ public class ApplyToBeASeller{ //สมัครเป็นผู้ขาย�
 //        dataSource.writeData(bookList);
 
         DataSource<UserList> dataSource;
-        dataSource = new UserDataSource("src/main/java/ku/cs/shop/userData.csv");
+        dataSource = new UserDataSource("csv-data/userData.csv");
         UserList userList = dataSource.readData();
         userList.addUser(user);
         dataSource.writeData(userList);

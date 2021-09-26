@@ -7,11 +7,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.MenuButton;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Region;
+import javafx.scene.layout.*;
 import ku.cs.shop.controllers.system.ItemController;
 import ku.cs.shop.controllers.user.DetailUser;
 import ku.cs.shop.models.Book;
@@ -27,46 +26,56 @@ import java.util.ResourceBundle;
 
 public class HomeController implements Initializable {
 
-    @FXML private GridPane grid;
+//    @FXML private GridPane grid;
     @FXML private GridPane gridPaneInHead;
+<<<<<<< Updated upstream
+=======
+    @FXML private HBox head;
+    @FXML private FlowPane bookListFlowPane;
+    @FXML private MenuButton bookTypeMenuItem;
+    private HeadController headController;
+>>>>>>> Stashed changes
     private UserList userList ;
 
 
-    private BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
+    private BookDetailDataSource data = new BookDetailDataSource("csv-data/bookDetail.csv");
     private BookList books = data.readData();
+    private int bookAllType = books.getBookListCount();
 
         public void initialize (URL location, ResourceBundle resource){
-            userList = (UserList) FXRouter.getData() ;
+            userList = (UserList) FXRouter.getData();
             data.writeData(books);
-            int column = 1;
-            int row = 1;
-            try {
-                for (int i = 0; i < 3; i++) {
-                    FXMLLoader fxmlLoader = new FXMLLoader();
-                    fxmlLoader.setLocation(getClass().getResource("/ku/cs/item.fxml"));
-
-                    grid.add(fxmlLoader.load(), column++, row); // child,col,row
-                    ItemController itemController = fxmlLoader.getController();
-                    itemController.setData(books.getBook(i));
-                    itemController.changeData();
-
-                    grid.setMinWidth(Region.USE_COMPUTED_SIZE);
-                    grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
-                    grid.setMaxWidth(Region.USE_COMPUTED_SIZE);
-
-                    grid.setMinHeight(Region.USE_COMPUTED_SIZE);
-                    grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
-                    grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
-                    grid.setHgap(10);
-                    grid.setVgap(10);
-                    grid.setPadding(new Insets(0, 10, 10, 10));
-                }
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            showHead();
+            addItemToProgram();
+//            addBookTypeToMenuItem();
         }
+            public void addItemToProgram() {
+                try {
+                    for (int i = 0 ; i < bookAllType; i++) {
+                        FXMLLoader fxmlLoader = new FXMLLoader();
+                        fxmlLoader.setLocation(getClass().getResource("/ku/cs/item.fxml"));
+
+                        bookListFlowPane.getChildren().add(fxmlLoader.load()); // child,col,row
+                        ItemController itemController = fxmlLoader.getController();
+                        itemController.setData(books.getBook(i));
+                    }
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } showHead();
+        }
+
+//    public void addBookTypeToMenuItem() {
+//        for (String type : books.getBookType()) {
+//            MenuItem subBookTypeMenuItem = new MenuItem(type);
+//            bookTypeMenuItem.getItems().add(subBookTypeMenuItem);
+//            subBookTypeMenuItem.setOnAction(this :: handleSubBookTypeMenuItem);
+//        }
+//    }
+//
+//    public void handleSubBookTypeMenuItem(ActionEvent actionEvent) {
+//        MenuItem menuItem = (MenuItem) actionEvent.getSource();
+//    }
+
 
 
     @FXML
@@ -102,7 +111,6 @@ public class HomeController implements Initializable {
     @FXML
     public void handleToInformationButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า หนังสือทั้งหมด (เพจหลัก)
         try {
-
             FXRouter.goTo("detailUser", userList);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า detailUser ไม่ได้");

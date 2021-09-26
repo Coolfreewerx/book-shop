@@ -35,7 +35,7 @@ public class SellerController implements Initializable {
     @FXML void handleCartoonBookButton(ActionEvent event) { }
     @FXML void handleMagazineButton(ActionEvent event) { }
 
-    private BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
+    private BookDetailDataSource data = new BookDetailDataSource("csv-data/bookDetail.csv");
     private BookList books = data.readData();
     public void initialize (URL location, ResourceBundle resource){
         int column = 0;

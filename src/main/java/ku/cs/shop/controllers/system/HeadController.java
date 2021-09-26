@@ -24,8 +24,34 @@ public class HeadController {
 
     @FXML
     void handleAllTypeBookButton(ActionEvent event) {
-
+        try {
+            com.github.saacsos.FXRouter.goTo("allBookInProgram");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า pageBookType ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
     }
+
+    @FXML
+    void handlePageBookTypeButton(ActionEvent event) {
+        try {
+            com.github.saacsos.FXRouter.goTo("seller");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า pageBookType ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
+    void handleSubTypeBookButton(ActionEvent event) {
+        try {
+            com.github.saacsos.FXRouter.goTo("pageBookType");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า pageBookType ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
     @FXML
     public void initialize() {
         System.out.println("initialize HeadController");

@@ -15,6 +15,7 @@ import javafx.scene.layout.Region;
 import javafx.scene.text.Text;
 import ku.cs.shop.models.Book;
 import ku.cs.shop.models.BookList;
+import ku.cs.shop.models.UserList;
 import ku.cs.shop.services.BookDetailDataSource;
 
 import java.io.IOException;
@@ -30,8 +31,9 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
     @FXML private MenuButton bookTypeMenuItem;
 
     private String currentType;
+    private UserList userList ;
 
-    private BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
+    private BookDetailDataSource data = new BookDetailDataSource("csv-data/bookDetail.csv");
     private BookList books = data.readData();
 
     public void initialize (URL location, ResourceBundle resource){
@@ -82,11 +84,11 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
         }
     }
 
-    public void handleAllTypeBookButton(ActionEvent actionEvent) {
+    public void handlePageAllTypeBookButton(ActionEvent actionEvent) {
         try {
-            com.github.saacsos.FXRouter.goTo("pageBookType");
+            com.github.saacsos.FXRouter.goTo("allBookInProgram");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า basket ไม่ได้");
+            System.err.println("ไปที่หน้าแสดงหนังสือทั้งหมดไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
@@ -100,4 +102,16 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
+
+    @FXML
+    public void handleDetailUserButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า home
+        try {
+            com.github.saacsos.FXRouter.goTo("detailUser", userList);
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้าเพจหลักไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+
 }

@@ -25,7 +25,7 @@ public class Seller{
     }
 
     public boolean isNameBookShopHaveUsed(String bookshop) {
-        File bookData = new File("src/main/java/ku/cs/shop/bookDetail.csv");
+        File bookData = new File("csv-data/bookDetail.csv");
         try {
             BufferedReader buffer = new BufferedReader(new FileReader(bookData));
             String line;

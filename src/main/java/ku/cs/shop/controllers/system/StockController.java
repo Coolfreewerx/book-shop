@@ -45,7 +45,7 @@ public class StockController {
             notificationForStock.setText("");
         }
         DataSource<BookList> dataSource;
-        dataSource = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
+        dataSource = new BookDetailDataSource("csv-data/bookDetail.csv");
         BookList bookList = dataSource.readData();
         dataSource.writeData(bookList);
     }

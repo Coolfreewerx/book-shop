@@ -54,6 +54,7 @@ public class Book {
     public String getBookPublisher() { return bookPublisher; }
     public String getBookImg() { return bookImg; }
     public int getBookStock() { return bookStock; }
+
     public String getBookStatus()
     {
         if (bookStock > 0) return "พร้อมส่ง";

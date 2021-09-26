@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class BookDetailController
 {
-    BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
+    BookDetailDataSource data = new BookDetailDataSource("csv-data/bookDetail.csv");
 
     @FXML private Label bookName;
     @FXML private Label bookShop;
