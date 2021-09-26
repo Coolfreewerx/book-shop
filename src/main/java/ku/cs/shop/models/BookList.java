@@ -7,11 +7,13 @@ import java.util.Set;
 public class BookList {
 
     private Set<String> bookTypes;
+    private Set<String> bookNames;
     private ArrayList<Book> books;
 
     public BookList() {
         books = new ArrayList<>();
         bookTypes = new HashSet<>(); // hashset implement set
+        bookNames = new HashSet<>();
     }
 
     public void addBook(Book book) {
@@ -31,6 +33,27 @@ public class BookList {
             }
         }
         return bookByType;
+    }
+
+    public ArrayList<Book> getBookByName(String name) {
+        ArrayList<Book> bookByName = new ArrayList<>();
+        for (Book book : books){
+            if (book.getBookName().equals(name)){
+                bookByName.add(book);
+            }
+        }
+        return bookByName;
+    }
+
+    public void editIndexBookByName(String name, Book newDetailbook) {
+        int index = 0;
+        for (Book book : books){
+            if (book.getBookName().equals(name)){
+                this.books.set(index, newDetailbook);
+                break;
+            }
+            index++;
+        }
     }
 
     public Set<String> getBookType() {

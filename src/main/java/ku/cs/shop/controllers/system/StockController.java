@@ -54,6 +54,7 @@ public class StockController  {
         DataSource<BookList> dataSource;
         dataSource = new BookDetailDataSource("csv-data/bookDetail.csv");
         BookList bookList = dataSource.readData();
+        bookList.editIndexBookByName(book.getBookName(),book);
         dataSource.writeData(bookList);
     }
 

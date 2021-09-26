@@ -22,6 +22,7 @@ import java.util.ResourceBundle;
 public class EditBookController {
     private Seller seller = new Seller();
     private Book book;
+    private String startedBookname;
     public void setData(Book book) { this.book = book; }
 
     private BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
@@ -56,6 +57,7 @@ public class EditBookController {
 
     @FXML public void initialize(){
         book = (Book) com.github.saacsos.FXRouter.getData();
+        startedBookname = book.getBookName();
         bookNameTopicLabel.setText(book.getBookName());
         bookNameTextField.setText(book.getBookName());
         bookAuthorTextField.setText(book.getBookAuthor());
@@ -66,8 +68,9 @@ public class EditBookController {
         bookStockTextField.setText(String.valueOf(book.getBookStock()));
         leastStockTextField.setText(String.valueOf(book.getLeastStock()));
         bookPriceTextField.setText(String.valueOf(book.getBookPrice()));
-//        Image image = new Image(book.getBookImg());
-//        imageView.setImage(image);
+        menuButton.setText(book.getBookType());
+//        System.out.println(book.getBookImg());
+        imageView.setImage(new Image(book.getPicturePath()));
     }
 
     @FXML
@@ -137,7 +140,8 @@ public class EditBookController {
             Image image = new Image(selectedImage.toURI().toString());
             imageView.setImage(image);
         }
-        book.setBookImg("Haveimage");
+        setImageName();
+        book.setBookImg(imageName);
     }
     public void setImageName() {
         if (!selectedImage.equals("")) {
@@ -166,13 +170,18 @@ public class EditBookController {
         book.setLeastStock(Integer.parseInt(leastStockTextField.getText()));
         book.setBookPrice(Double.parseDouble(bookPriceTextField.getText()));
 
+
         if (seller.getDataCheck(book)) {
             NotificationCantAdd.setText("Can Add merchandise");
-            setImageName();
+            System.out.println("Can Edit merchadise");
             book.setBookImg(imageName);
+
             DataSource<BookList> dataSource;
-            dataSource = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
+            dataSource = new BookDetailDataSource("csv-data/bookDetail.csv");
             BookList bookList = dataSource.readData();
+            bookList.editIndexBookByName(startedBookname ,book);
+            System.out.println("Can Edit booklist");
+
             dataSource.writeData(bookList);
             try {
                 com.github.saacsos.FXRouter.goTo("sellerStock");
