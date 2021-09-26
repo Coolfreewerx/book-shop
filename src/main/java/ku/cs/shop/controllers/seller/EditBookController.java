@@ -21,13 +21,9 @@ import java.util.ResourceBundle;
 
 public class EditBookController {
     private Seller seller = new Seller();
-    private Book book = new Book();
-//    public void setData(Book book) {
-//        this.book = book;
-//    }
-    public void changeData() {
-        bookNameTopicLabel.setText(book.getBookName());
-    }
+    private Book book;
+    public void setData(Book book) { this.book = book; }
+
     private BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
     private BookList books = data.readData();
 
@@ -59,10 +55,31 @@ public class EditBookController {
     private String imageName;
 
     @FXML public void initialize(){
-        //book.setBookName("Fairy tale");
+        book = (Book) com.github.saacsos.FXRouter.getData();
         bookNameTopicLabel.setText(book.getBookName());
-        System.out.println(this.book.getBookName());
+        bookNameTextField.setText(book.getBookName());
+        bookAuthorTextField.setText(book.getBookAuthor());
+        bookISBNTextField.setText(book.getBookISBN());
+        bookPageTextField.setText(book.getBookPage());
+        bookDetailTextArea.setText(book.getBookDetail());
+        bookPublisherTextField.setText(book.getBookPublisher());
+        bookStockTextField.setText(String.valueOf(book.getBookStock()));
+        leastStockTextField.setText(String.valueOf(book.getLeastStock()));
+        bookPriceTextField.setText(String.valueOf(book.getBookPrice()));
+//        Image image = new Image(book.getBookImg());
+//        imageView.setImage(image);
     }
+
+    @FXML
+    public void handleKeyBookName(){
+        book.setBookName(bookNameTextField.getText());
+    }
+
+    @FXML
+    public void handleKeyBookAuthor(){
+        book.setBookAuthor(bookAuthorTextField.getText());
+    }
+
 
     @FXML public void handleKeyBookISBN(){
         book.setBookISBN(bookISBNTextField.getText());
@@ -74,6 +91,16 @@ public class EditBookController {
         book.setBookPage(bookPageTextField.getText());
         if(! seller.isNumber(book.getBookPage())){book.setBookPage("");}
         NotificationBookPage.setText(seller.checkNumber(book.getBookPage()));
+    }
+
+    @FXML
+    public void handleKeyBookDetail(){
+        book.setBookDetail(bookDetailTextArea.getText());
+    }
+
+    @FXML
+    public void handleKeyBookPublisher(){
+        book.setBookPublisher(bookPublisherTextField.getText());
     }
 
     @FXML public void handleKeyBookStock(){
@@ -126,7 +153,7 @@ public class EditBookController {
     }
 
     @FXML
-    public void handleAddBookButton(ActionEvent actionEvent){
+    public void handleEditBookButton(ActionEvent actionEvent){
         book.setBookName(bookNameTextField.getText());
         book.setBookAuthor(bookAuthorTextField.getText());
         book.setBookDetail(bookDetailTextArea.getText());
@@ -146,7 +173,6 @@ public class EditBookController {
             DataSource<BookList> dataSource;
             dataSource = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
             BookList bookList = dataSource.readData();
-            bookList.addBook(book);
             dataSource.writeData(bookList);
             try {
                 com.github.saacsos.FXRouter.goTo("sellerStock");

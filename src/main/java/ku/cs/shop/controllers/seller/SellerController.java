@@ -51,7 +51,6 @@ public class SellerController implements Initializable {
                 stockController.setData(books.getBook(i));
                 stockController.changeData();
 
-
                 grid.setMinWidth(Region.USE_COMPUTED_SIZE);
                 grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
                 grid.setMaxWidth(Region.USE_COMPUTED_SIZE);
