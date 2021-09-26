@@ -2,10 +2,13 @@ package ku.cs.shop.controllers.system;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Region;
+import ku.cs.shop.controllers.seller.EditBookController;
 import ku.cs.shop.models.Book;
 import ku.cs.shop.models.BookList;
 import ku.cs.shop.services.BookDetailDataSource;
@@ -45,7 +48,6 @@ public class StockController {
         dataSource = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
         BookList bookList = dataSource.readData();
         dataSource.writeData(bookList);
-
     }
 
     @FXML public void handleIncreaseButton(ActionEvent actionEvent){
@@ -59,10 +61,15 @@ public class StockController {
 
     @FXML
     public void handleEditBookButton(ActionEvent actionEvent){
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("src/main/resources/ku/cs/editStock.fxml"));
+        EditBookController editBookController = new EditBookController(book);
+//        editBookController.setData(book);
+        //editBookController.changeData();
         try {
-            com.github.saacsos.FXRouter.goTo("editBook");
+            com.github.saacsos.FXRouter.goTo("editStock");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า sellerStock ไม่ได้");
+            System.err.println("ไปที่หน้า editStock ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
