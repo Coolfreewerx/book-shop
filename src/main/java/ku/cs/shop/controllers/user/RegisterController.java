@@ -13,8 +13,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import ku.cs.shop.models.User ;
-import ku.cs.shop.models.UserList;
+import ku.cs.shop.models.*;
+import ku.cs.shop.services.AccountDataSource;
 import ku.cs.shop.services.UserDataSource;
 
 import java.io.*;
@@ -47,6 +47,8 @@ public class RegisterController {
     private String imageName ;
     private UserList userList ;
     private UserDataSource userDataSource ;
+//    private AccountList accountList ;
+//    private AccountDataSource accountDataSource ;
 
     private ObservableList dayList = FXCollections.observableArrayList() ;
     private ObservableList monthList = FXCollections.observableArrayList() ;
@@ -56,6 +58,8 @@ public class RegisterController {
     public void initialize () {
         userDataSource = new UserDataSource("csv-data/userData.csv") ;
         userList = userDataSource.readData() ;
+//        accountDataSource = new AccountDataSource("csv-data/accountData.csv") ;
+//        accountList = accountDataSource.readData() ;
         lodeYearData();
     }
 
@@ -194,6 +198,18 @@ public class RegisterController {
 
         userList.addUser(user);
         userDataSource.writeData(userList) ;
+//        Account account = new UserAccount(
+//                firstNameTextField.getText(),
+//                lastNameTextField.getText(),
+//                userNameTextField.getText(),
+//                passwordField.getText(),
+//                birthDayChoice.getValue(),
+//                birthMonthChoice.getValue(),
+//                birthYearChoice.getValue(),
+//                imageName ) ;
+//
+//        accountList.addAccount(account);
+//        accountDataSource.writeData(accountList) ;
     }
 
     public void setImageName() {
@@ -203,7 +219,7 @@ public class RegisterController {
                     + LocalDate.now().getMonth() + "-"
                     + LocalDate.now().getDayOfMonth() + "-"
                     + LocalDateTime.now().getHour() + LocalDateTime.now().getMinute() + LocalDateTime.now().getSecond() + ".png" ;
-            User.copyImageToPackage(selectedImage , imageName) ;
+            Account.copyImageToPackage(selectedImage , imageName) ;
         } else {
             imageName = "default.png" ;
         }

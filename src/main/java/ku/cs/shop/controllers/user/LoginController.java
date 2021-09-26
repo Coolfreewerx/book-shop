@@ -6,8 +6,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import ku.cs.shop.models.Account;
+import ku.cs.shop.models.AccountList;
 import ku.cs.shop.models.User;
 import ku.cs.shop.models.UserList;
+import ku.cs.shop.services.AccountDataSource;
 import ku.cs.shop.services.UserDataSource;
 
 import java.io.IOException;
@@ -20,11 +23,15 @@ public class LoginController {
 
     private UserList userList ;
     private UserDataSource userDataSource ;
+//    private AccountList accountList ;
+//    private AccountDataSource accountDataSource ;
 
     @FXML
     public void initialize () {
         userDataSource = new UserDataSource("csv-data/userData.csv") ;
         userList = userDataSource.readData() ;
+//        accountDataSource = new AccountDataSource(("csv-data/accountData.csv")) ;
+//        accountList = accountDataSource.readData() ;
     }
 
     @FXML
@@ -52,6 +59,7 @@ public class LoginController {
         String userName = usernameTextField.getText() ;
         String password = passwordField.getText() ;
         User user = userList.login(userName, password) ;
+        //Account account = accountList.login(userName, password) ;
         if (user != null) {
             errorLabel.setTextFill(Color.rgb(255, 255, 255));
             goToHome();
@@ -65,6 +73,7 @@ public class LoginController {
     public void goToHome() { //ไปหน้า หนังสือทั้งหมด (เพจหลัก)
         try {
             com.github.saacsos.FXRouter.goTo("home", userList);
+            //com.github.saacsos.FXRouter.goTo("home", accountList);
         } catch (IOException e) {
             e.printStackTrace();
             System.err.println("ไปที่หน้า home ไม่ได้");

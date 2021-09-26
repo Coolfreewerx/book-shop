@@ -13,10 +13,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import ku.cs.shop.controllers.system.ItemController;
 import ku.cs.shop.controllers.user.DetailUser;
-import ku.cs.shop.models.Book;
-import ku.cs.shop.models.BookList;
-import ku.cs.shop.models.User;
-import ku.cs.shop.models.UserList;
+import ku.cs.shop.models.*;
 import ku.cs.shop.services.BookDetailDataSource;
 
 import java.io.IOException;
@@ -33,6 +30,7 @@ public class HomeController implements Initializable {
     @FXML private MenuButton bookTypeMenuItem;
     private HeadController headController;
     private UserList userList ;
+//    private AccountList accountList ;
 
 
     private BookDetailDataSource data = new BookDetailDataSource("csv-data/bookDetail.csv");
@@ -41,6 +39,7 @@ public class HomeController implements Initializable {
 
         public void initialize (URL location, ResourceBundle resource){
             userList = (UserList) FXRouter.getData();
+//            accountList = (AccountList) FXRouter.getData() ;
             data.writeData(books);
             addItemToProgram();
 //            addBookTypeToMenuItem();
@@ -110,6 +109,7 @@ public class HomeController implements Initializable {
     public void handleToInformationButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า หนังสือทั้งหมด (เพจหลัก)
         try {
             FXRouter.goTo("detailUser", userList);
+//            FXRouter.goTo("detailUser", accountList);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า detailUser ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");

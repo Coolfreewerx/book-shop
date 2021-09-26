@@ -21,18 +21,9 @@
             <Font name="JasmineUPC" size="14.0" />
          </font>
       </Text>
-      <TextField fx:id="firstNameTextField" layoutX="348.0" layoutY="244.0" prefHeight="28.0" prefWidth="150.0" promptText="ชื่อ" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88; -fx-border-radius: 5;">
-         <font>
-            <Font name="JasmineUPC" size="16.0" />
-         </font></TextField>
-      <TextField fx:id="lastNameTextField" layoutX="521.0" layoutY="244.0" prefHeight="28.0" prefWidth="150.0" promptText="นามสกุล" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88; -fx-border-radius: 5;">
-         <font>
-            <Font name="JasmineUPC" size="16.0" />
-         </font></TextField>
-      <TextField fx:id="userNameTextField" layoutX="348.0" layoutY="298.0" onKeyReleased="#handleKeyUserName" prefHeight="28.0" prefWidth="324.0" promptText="ชื่อผู้ใช้ (username)" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88; -fx-border-radius: 5;">
-         <font>
-            <Font name="JasmineUPC" size="16.0" />
-         </font></TextField>
+      <TextField fx:id="firstNameTextField" layoutX="348.0" layoutY="244.0" prefHeight="28.0" prefWidth="150.0" promptText="ชื่อ" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88; -fx-border-radius: 5;" />
+      <TextField fx:id="lastNameTextField" layoutX="521.0" layoutY="244.0" prefHeight="28.0" prefWidth="150.0" promptText="นามสกุล" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88; -fx-border-radius: 5;" />
+      <TextField fx:id="userNameTextField" layoutX="348.0" layoutY="298.0" onKeyReleased="#handleKeyUserName" prefHeight="28.0" prefWidth="324.0" promptText="ชื่อผู้ใช้ (username)" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88; -fx-border-radius: 5;" />
       <Text fill="#828282" layoutX="349.0" layoutY="473.0" strokeType="OUTSIDE" strokeWidth="0.0" text="วันเกิด">
          <font>
             <Font name="JasmineUPC" size="18.0" />
@@ -80,14 +71,8 @@
          <font>
             <Font name="JasmineUPC" size="13.0" />
          </font></Label>
-      <PasswordField fx:id="passwordField" layoutX="348.0" layoutY="360.0" onKeyReleased="#handleKeyPassword" prefHeight="28.0" prefWidth="324.0" promptText="รหัสผ่าน" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88; -fx-border-radius: 5;">
-         <font>
-            <Font name="JasmineUPC" size="16.0" />
-         </font></PasswordField>
-      <PasswordField fx:id="checkPasswordField" layoutX="348.0" layoutY="407.0" onKeyReleased="#handleKeyCheckPassword" prefHeight="28.0" prefWidth="324.0" promptText="ยืนยันรหัสผ่าน" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88; -fx-border-radius: 5;">
-         <font>
-            <Font name="JasmineUPC" size="16.0" />
-         </font></PasswordField>
+      <PasswordField fx:id="passwordField" layoutX="348.0" layoutY="360.0" onKeyReleased="#handleKeyPassword" prefHeight="28.0" prefWidth="324.0" promptText="รหัสผ่าน" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88; -fx-border-radius: 5;" />
+      <PasswordField fx:id="checkPasswordField" layoutX="348.0" layoutY="407.0" onKeyReleased="#handleKeyCheckPassword" prefHeight="28.0" prefWidth="324.0" promptText="ยืนยันรหัสผ่าน" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88; -fx-border-radius: 5;" />
       <Label fx:id="registerErrorLabel" layoutX="415.0" layoutY="621.0" textAlignment="CENTER" textFill="#d2271e">
          <font>
             <Font name="JasmineUPC" size="14.0" />
