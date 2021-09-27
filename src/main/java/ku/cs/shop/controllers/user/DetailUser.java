@@ -4,20 +4,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import com.github.saacsos.FXRouter;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import ku.cs.shop.models.User;
-import ku.cs.shop.models.UserList;
+import ku.cs.shop.models.Account;
+import ku.cs.shop.models.AccountList;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.ResourceBundle;
 
 public class DetailUser {
     @FXML private GridPane gridPaneInHead;
@@ -33,28 +28,27 @@ public class DetailUser {
     @FXML private ImageView userImageView ;
 
 
-    private ArrayList<User> usersList = new ArrayList<>();
-
-    private UserList userList ;
-    private User user ;
+    private ArrayList<Account> accountsList = new ArrayList<>();
+    private AccountList accountList ;
+    private Account account ;
 
     public void initialize(){
-        userList = (UserList)FXRouter.getData() ;
-        user = userList.getCurrentUser() ;
+        accountList = (AccountList) FXRouter.getData() ;
+        account = accountList.getCurrentAccount() ;
         showHead();
         showData();
     }
 
     public void showData(){ // โชว์ข้อมูลส่วนตัวของผู้ใช้ระบบ
-        usernameLabel.setText(user.getUserName());
-        firstnameLabel.setText(user.getFirstName());
-        lastnameLabel.setText(user.getLastName());
-        birthdayLabel.setText(user.getBirthDay());
-        birthMonthLabel.setText(user.getBirthMonth());
-        birthYearLabel.setText(user.getBirthYear());
-        sexLabel.setText(user.getSex());
-        phoneLabel.setText(user.getPhone());
-        userImageView.setImage(new Image(user.getImagePath())) ;
+        usernameLabel.setText(account.getUserName());
+        firstnameLabel.setText(account.getFirstName());
+        lastnameLabel.setText(account.getLastName());
+        birthdayLabel.setText(account.getBirthDay());
+        birthMonthLabel.setText(account.getBirthMonth());
+        birthYearLabel.setText(account.getBirthYear());
+        sexLabel.setText(account.getSex());
+        phoneLabel.setText(account.getPhone());
+        userImageView.setImage(new Image(account.getImagePath())) ;
     }
 
 

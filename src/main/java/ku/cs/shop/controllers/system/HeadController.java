@@ -8,15 +8,16 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import ku.cs.shop.models.User;
 import com.github.saacsos.FXRouter;
+import ku.cs.shop.models.Account;
+import ku.cs.shop.models.AccountList;
+
 import java.io.IOException;
-import ku.cs.shop.models.UserList;
 
 public class HeadController {
-    private User user;
+    private Account account;
     private Pane view;
-    private UserList userList ;
+    private AccountList accountList ;
     @FXML private HBox hBoxHeadPage;
     @FXML private Button status;
     @FXML private Label usernameInHead;
@@ -55,15 +56,15 @@ public class HeadController {
     @FXML
     public void initialize() {
         System.out.println("initialize HeadController");
-        userList = (UserList) FXRouter.getData() ;
-        user = userList.getCurrentUser() ;
+        accountList = (AccountList) FXRouter.getData() ;
+        account = accountList.getCurrentAccount() ;
         pagesHeader();
     }
 
     public void pagesHeader() { // กำหนดข้อมูลตรงส่วน head page
-        usernameInHead.setText(user.getUserName());
-        img.setImage(new Image(user.getImagePath()));
-        if(user.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")){
+        usernameInHead.setText(account.getUserName());
+        img.setImage(new Image(account.getImagePath()));
+        if(account.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")){
             status.setText("User");
         }else{
             status.setText("Seller");
@@ -84,7 +85,7 @@ public class HeadController {
     public void handleToInformationButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า หนังสือทั้งหมด (เพจหลัก)
         try {
 
-            FXRouter.goTo("detailUser", userList);
+            FXRouter.goTo("detailUser", accountList);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า detailUser ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");

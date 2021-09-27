@@ -5,23 +5,15 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.effect.ImageInput;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 import ku.cs.shop.models.*;
 import ku.cs.shop.services.AccountDataSource;
-import ku.cs.shop.services.UserDataSource;
 
 import java.io.*;
-import java.nio.file.FileSystems;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.StandardCopyOption;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -45,10 +37,8 @@ public class RegisterController {
 
     private File selectedImage ;
     private String imageName ;
-    private UserList userList ;
-    private UserDataSource userDataSource ;
-//    private AccountList accountList ;
-//    private AccountDataSource accountDataSource ;
+    private AccountList accountList ;
+    private AccountDataSource accountDataSource ;
 
     private ObservableList dayList = FXCollections.observableArrayList() ;
     private ObservableList monthList = FXCollections.observableArrayList() ;
@@ -56,10 +46,8 @@ public class RegisterController {
 
     @FXML
     public void initialize () {
-        userDataSource = new UserDataSource("csv-data/userData.csv") ;
-        userList = userDataSource.readData() ;
-//        accountDataSource = new AccountDataSource("csv-data/accountData.csv") ;
-//        accountList = accountDataSource.readData() ;
+        accountDataSource = new AccountDataSource("csv-data/accountData.csv") ;
+        accountList = accountDataSource.readData() ;
         lodeYearData();
     }
 
@@ -79,9 +67,9 @@ public class RegisterController {
     @FXML //ทำงานเมื่อกรอก username
     public void handleKeyUserName() {
         String userName = userNameTextField.getText() ;
-        userNameCheckLabel.setText(User.checkUserNameCondition(userName));
-        if (User.getUserNameCheck()){
-            if (userList.checkUserNameHaveUsed(userName)) {
+        userNameCheckLabel.setText(Account.checkUserNameCondition(userName));
+        if (Account.getUserNameCheck()){
+            if (accountList.checkUserNameHaveUsed(userName)) {
                 userNameCheckLabel.setText("ชื่อผู้ใช้นี้ถูกใช้งานไปแล้ว") ;
                 userNameCheckLabel.setTextFill(Color.rgb(210, 39, 30));
             } else {
@@ -95,7 +83,7 @@ public class RegisterController {
     }
     @FXML //ทำงานเมื่อกรอกรหัส
     public void handleKeyPassword() {
-        if (User.checkPasswordCondition(passwordField.getText())){
+        if (Account.checkPasswordCondition(passwordField.getText())){
             passwordConditionCheckLabel.setText("รหัสผ่านนี้สามารถใช้ได้") ;
             passwordConditionCheckLabel.setTextFill(Color.rgb(21, 117, 84));
         }
@@ -106,7 +94,7 @@ public class RegisterController {
     }
     @FXML //ทำงานเมื่อกรอกยืนยันรหัส
     public void handleKeyCheckPassword() {
-        passwordCompareLabel.setText(User.comparePassword(passwordField.getText(), checkPasswordField.getText()));
+        passwordCompareLabel.setText(Account.comparePassword(passwordField.getText(), checkPasswordField.getText()));
     }
 
     private void lodeYearData() {
@@ -186,7 +174,7 @@ public class RegisterController {
 
     public void sendDataToWrite() {
         //UserDataSource
-        User user = new User(
+        Account account = new UserAccount(
                 firstNameTextField.getText(),
                 lastNameTextField.getText(),
                 userNameTextField.getText(),
@@ -196,20 +184,8 @@ public class RegisterController {
                 birthYearChoice.getValue(),
                 imageName ) ;
 
-        userList.addUser(user);
-        userDataSource.writeData(userList) ;
-//        Account account = new UserAccount(
-//                firstNameTextField.getText(),
-//                lastNameTextField.getText(),
-//                userNameTextField.getText(),
-//                passwordField.getText(),
-//                birthDayChoice.getValue(),
-//                birthMonthChoice.getValue(),
-//                birthYearChoice.getValue(),
-//                imageName ) ;
-//
-//        accountList.addAccount(account);
-//        accountDataSource.writeData(accountList) ;
+        accountList.addAccount(account);
+        accountDataSource.writeData(accountList) ;
     }
 
     public void setImageName() {
@@ -233,7 +209,7 @@ public class RegisterController {
                 || birthDayChoice.getValue().equals("") || birthMonthChoice.getValue().equals("") || birthYearChoice.getValue().equals(""))) {
             return "ข้อมูลไม่ครบถ้วน โปรดตรวจสอบข้อมูลอีกครั้ง";
         }
-        else if (!(User.getPasswordCheck() && User.getPasswordCondition() && User.getUserNameCheck() )) {
+        else if (!(Account.getPasswordCheck() && Account.getPasswordCondition() && Account.getUserNameCheck() )) {
             return "ข้อมูลมีข้อผิดพลาดโปรดตรวจสอบข้อมูลอีกครั้ง" ;
         }
         else {

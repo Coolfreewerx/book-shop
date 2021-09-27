@@ -11,12 +11,11 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
+import ku.cs.shop.models.Account;
+import ku.cs.shop.models.AccountList;
 import ku.cs.shop.models.Book;
 import ku.cs.shop.models.BookList;
-import ku.cs.shop.models.User;
-import ku.cs.shop.models.UserList;
 import ku.cs.shop.services.BookDetailDataSource;
 import ku.cs.shop.services.BookLowPriceToMaxPriceComparator;
 import ku.cs.shop.services.BookMaxPriceToLowPriceComparator;
@@ -37,16 +36,16 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
     @FXML private ImageView img;
 
     private String currentType;
-    private User user;
-    private UserList userList ;
+    private Account account;
+    private AccountList accountList;
 
     private BookDetailDataSource data = new BookDetailDataSource("csv-data/bookDetail.csv");
     private BookList books = data.readData();
 
     public void initialize (URL location, ResourceBundle resource){
         System.out.println("Welcome to  Market Book Page");
-        userList = (UserList) com.github.saacsos.FXRouter.getData() ;
-        user = userList.getCurrentUser() ;
+        accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
+        account = accountList.getCurrentAccount() ;
         pagesHeader();
 
         bookHeadLabel.setText("หนังสือทั้งหมด");
@@ -55,9 +54,9 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
     }
 
     public void pagesHeader() { // กำหนดข้อมูลตรงส่วน head page
-        usernameInHead.setText(user.getUserName());
-        img.setImage(new Image(user.getImagePath()));
-        if(user.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")){
+        usernameInHead.setText(account.getUserName());
+        img.setImage(new Image(account.getImagePath()));
+        if(account.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")){
             status.setText("User");
         }else{
             status.setText("Seller");
@@ -134,7 +133,7 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
     @FXML
     public void handleToInformationButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า home
         try {
-            com.github.saacsos.FXRouter.goTo("detailUser", userList);
+            com.github.saacsos.FXRouter.goTo("detailUser", accountList);
         } catch (IOException e) {
             System.err.println("ไปที่หน้าเพจหลักไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");

@@ -4,6 +4,8 @@ import com.opencsv.CSVReader;
 import ku.cs.shop.models.*;
 
 import java.io.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class AccountDataSource implements DataSource<AccountList> {
     private String filename ;
@@ -57,10 +59,11 @@ public class AccountDataSource implements DataSource<AccountList> {
                     String address = data[11].trim() ;
                     String shopName = data[12].trim() ;
                     String status = data[13] ;
+                    LocalDateTime loginTime = LocalDateTime.parse(data[14].trim(), DateTimeFormatter.ISO_LOCAL_DATE_TIME);
                     accountList.addAccount(new UserAccount(
                             firstName, lastName, userName, password,
                             birthDay, birthMonth, birthYear,
-                            imageName, phone, sex, address, shopName, status ));
+                            imageName, phone, sex, address, shopName, status, loginTime ));
                 }
 
             }

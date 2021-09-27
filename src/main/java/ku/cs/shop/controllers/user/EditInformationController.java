@@ -6,20 +6,21 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.paint.Color;
-import ku.cs.shop.models.User;
-import ku.cs.shop.models.UserList;
-import ku.cs.shop.services.UserDataSource;
+import ku.cs.shop.models.Account;
+import ku.cs.shop.models.AccountList;
+import ku.cs.shop.models.UserAccount;
+import ku.cs.shop.services.AccountDataSource;
 import com.github.saacsos.FXRouter;
 
 import java.io.File;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class EditInformationController {
-    private User user;
-    private UserList userList ;
-    private UserDataSource userDataSource ;
+
+    private Account account;
+    private AccountList accountList;
+    private AccountDataSource accountDataSource;
 
     @FXML private TextField lastnameTextField;
     @FXML private TextField firstnameTextField;
@@ -41,20 +42,20 @@ public class EditInformationController {
 
     @FXML
     public void initialize(){
-        userList = (UserList) com.github.saacsos.FXRouter.getData() ;
-        user = userList.getCurrentUser() ;
+        accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
+        account = accountList.getCurrentAccount() ;
         showData();
     }
     public void showData(){
-        usernameInEditInformationLabel.setText(user.getUserName());
-        birthdayInEditInformationLabel.setText(user.getBirthDay());
-        birthMonthInEditInformationLabel.setText(user.getBirthMonth());
-        birthYearInEditInformationLabel.setText(user.getBirthYear());
+        usernameInEditInformationLabel.setText(account.getUserName());
+        birthdayInEditInformationLabel.setText(account.getBirthDay());
+        birthMonthInEditInformationLabel.setText(account.getBirthMonth());
+        birthYearInEditInformationLabel.setText(account.getBirthYear());
     }
 
     @FXML //ทำงานเมื่อกรอกรหัส
     public void handleKeyPassword() {
-        if (User.checkPasswordCondition(passwordField.getText())){
+        if (Account.checkPasswordCondition(passwordField.getText())){
             passwordConditionCheckLabel.setText("รหัสผ่านนี้สามารถใช้ได้") ;
             passwordConditionCheckLabel.setTextFill(Color.rgb(21, 117, 84));
         }
@@ -65,7 +66,7 @@ public class EditInformationController {
     }
     @FXML //ทำงานเมื่อกรอกยืนยันรหัส
     public void handleKeyCheckPassword() {
-        passwordCompareLabel.setText(User.comparePassword(passwordField.getText(), recheckPasswordField.getText()));
+        passwordCompareLabel.setText(Account.comparePassword(passwordField.getText(), recheckPasswordField.getText()));
     }
 
     public void setSexChoice(ActionEvent event) {
@@ -112,7 +113,7 @@ public class EditInformationController {
 
     public void sendDataToWrite() {
         //UserDataSource
-        User user = new User(
+        Account account = new UserAccount(
                 firstnameTextField.getText(),
                 lastnameTextField.getText(),
                 usernameInEditInformationLabel.getText(),
@@ -123,9 +124,17 @@ public class EditInformationController {
                 imageName,
                 phoneNumberTextField.getText(),
                 sexChoice.getValue(),
-                " ") ;
+                "null",
+                "ยังไม่สมัครเป็นผู้ขาย",
+                "working",
+                LocalDateTime.now() ) ;
 
-        userList.addUser(user);
-        userDataSource.writeData(userList) ;
+//        (String firstName, String lastName, String userName, String password,
+//                String birthDay, String birthMonth, String birthYear,
+//                String imageName, String phone, String sex, String address, String shopName,
+//                String status, LocalDateTime loginTime )
+
+        accountList.addAccount(account);
+        accountDataSource.writeData(accountList) ;
     }
 }

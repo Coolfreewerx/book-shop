@@ -29,8 +29,7 @@ public class HomeController implements Initializable {
     @FXML private FlowPane bookListFlowPane;
     @FXML private MenuButton bookTypeMenuItem;
     private HeadController headController;
-    private UserList userList ;
-//    private AccountList accountList ;
+    private AccountList accountList ;
 
 
     private BookDetailDataSource data = new BookDetailDataSource("csv-data/bookDetail.csv");
@@ -38,11 +37,9 @@ public class HomeController implements Initializable {
     private int bookAllType = books.getBookListCount();
 
         public void initialize (URL location, ResourceBundle resource){
-            userList = (UserList) FXRouter.getData();
-//            accountList = (AccountList) FXRouter.getData() ;
+            accountList = (AccountList) FXRouter.getData() ;
             data.writeData(books);
             addItemToProgram();
-//            addBookTypeToMenuItem();
         }
             public void addItemToProgram() {
                 try {
@@ -71,7 +68,6 @@ public class HomeController implements Initializable {
 //            subBookTypeMenuItem.setOnAction(this :: handleSubBookTypeMenuItem);
 //        }
 //    }
-//
 //    public void handleSubBookTypeMenuItem(ActionEvent actionEvent) {
 //        MenuItem menuItem = (MenuItem) actionEvent.getSource();
 //    }
@@ -111,7 +107,7 @@ public class HomeController implements Initializable {
     @FXML
     public void handleToInformationButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า หนังสือทั้งหมด (เพจหลัก)
         try {
-            FXRouter.goTo("detailUser", userList);
+            FXRouter.goTo("detailUser", accountList);
 //            FXRouter.goTo("detailUser", accountList);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า detailUser ไม่ได้");

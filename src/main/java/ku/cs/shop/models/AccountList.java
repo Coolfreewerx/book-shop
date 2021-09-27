@@ -17,10 +17,20 @@ public class AccountList {
         accounts.add(account) ;
     }
 
-    //ตรวจสอบ username ว่าซ้ำมั้ย
+    //ตรวจสอบ userName ว่าซ้ำมั้ย
     public boolean checkUserNameHaveUsed(String userName) {
         for (Account account: this.accounts) {
             if (account.getUserName().equals(userName) ) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //ตรวจสอบ shopName ว่าซ้ำมั้ย
+    public boolean checkShopNameHaveUsed(String shopName) {
+        for (Account account: this.accounts) {
+            if (account.getShopName().equals(shopName) ) {
                 return true;
             }
         }

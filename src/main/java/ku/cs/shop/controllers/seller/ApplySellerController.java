@@ -11,7 +11,6 @@ import javafx.stage.FileChooser;
 import ku.cs.shop.models.Book;
 import ku.cs.shop.models.BookList;
 import ku.cs.shop.models.Seller;
-import ku.cs.shop.models.User;
 import ku.cs.shop.services.BookDetailDataSource;
 import ku.cs.shop.services.DataSource;
 
@@ -20,7 +19,6 @@ import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 
 public class ApplySellerController {
     Seller seller = new Seller();
