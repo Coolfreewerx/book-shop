@@ -2,10 +2,12 @@ package ku.cs.shop.controllers.seller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import ku.cs.shop.models.Account;
 import ku.cs.shop.models.AccountList;
 import ku.cs.shop.models.UserAccount;
@@ -27,6 +29,8 @@ public class ApplyToBeASeller{ //สมัครเป็นผู้ขาย�
     @FXML private Label notificationShopName;
     @FXML private Label notificationPassword1;
     @FXML private Label notificationPassword2;
+    @FXML private GridPane gridpane;
+    @FXML private GridPane gridPaneInHead;
 
     private Account account = new UserAccount ("Freshmin", "Na", "justmeka", "13082000",
             "15", "11", "2001", "default.png", "0823341025", "Women",
@@ -39,12 +43,11 @@ public class ApplyToBeASeller{ //สมัครเป็นผู้ขาย�
     private AccountList accountList ;
 //    private Account account ;
 //
-//    public void initialize(){
-//        accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
-//        account = accountList.getCurrentAccount() ;
-//        showHead();
-//        showData();
-//    }
+    public void initialize(){
+        accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
+        account = accountList.getCurrentAccount() ;
+        showHead();
+    }
 
     @FXML
     public void handleKeyCheckShopName(){
@@ -101,4 +104,15 @@ public class ApplyToBeASeller{ //สมัครเป็นผู้ขาย�
         }
     }
 
+    @FXML
+    public void showHead(){ //แสดงหัวเพจ
+        try{
+            FXMLLoader fxmlLoaderHead = new FXMLLoader();
+            fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/headPage.fxml"));
+            gridpane.add(fxmlLoaderHead.load(), 0,0);
+            gridPaneInHead.add(fxmlLoaderHead.load(), 0,0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

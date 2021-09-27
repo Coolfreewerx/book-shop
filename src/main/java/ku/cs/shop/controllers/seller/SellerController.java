@@ -31,6 +31,7 @@ public class SellerController implements Initializable {
     @FXML private GridPane grid;
     @FXML private Button orderListButtonn;
     @FXML private Button addStockButton;
+    @FXML private GridPane gridPaneInHead;
     @FXML void handleAllTypeBookButton(ActionEvent event) { }
     @FXML void handleCartoonBookButton(ActionEvent event) { }
     @FXML void handleMagazineButton(ActionEvent event) { }
@@ -63,6 +64,7 @@ public class SellerController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        showHead();
     }
 
     @FXML
@@ -95,6 +97,14 @@ public class SellerController implements Initializable {
         }
     }
 
-
-
+    @FXML
+    public void showHead(){ //แสดงหัวเพจ
+        try{
+            FXMLLoader fxmlLoaderHead = new FXMLLoader();
+            fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/headPage.fxml"));
+            gridPaneInHead.add(fxmlLoaderHead.load(), 0,0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

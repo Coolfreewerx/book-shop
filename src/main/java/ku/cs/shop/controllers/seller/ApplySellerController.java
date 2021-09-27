@@ -2,11 +2,13 @@ package ku.cs.shop.controllers.seller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 import ku.cs.shop.models.Book;
 import ku.cs.shop.models.BookList;
@@ -48,6 +50,7 @@ public class ApplySellerController {
     @FXML private Label NotificationCantAdd;
     @FXML private ImageView imageView;
     @FXML private MenuButton menuButton;
+    @FXML private GridPane gridPaneInHead;
 
     private File selectedImage;
     private String imageName;
@@ -169,4 +172,17 @@ public class ApplySellerController {
         }
     }
 
+    public void initialize(){
+        showHead();
+    }
+    @FXML
+    public void showHead(){ //แสดงหัวเพจ
+        try{
+            FXMLLoader fxmlLoaderHead = new FXMLLoader();
+            fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/headPage.fxml"));
+            gridPaneInHead.add(fxmlLoaderHead.load(), 0,0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

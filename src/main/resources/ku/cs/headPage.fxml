@@ -90,6 +90,7 @@
                   <String fx:value="backgroundColorLightBrownButton" />
                </styleClass>
             </Button>
+            <Button mnemonicParsing="false" text="Button" />
          </children>
       </HBox>
    </children>

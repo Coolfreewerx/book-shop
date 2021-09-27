@@ -107,7 +107,7 @@ public class HomeController implements Initializable {
     @FXML
     public void handleToInformationButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า หนังสือทั้งหมด (เพจหลัก)
         try {
-            FXRouter.goTo("detailUser", accountList);
+            FXRouter.goTo("accountDetail", accountList);
 //            FXRouter.goTo("detailUser", accountList);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า detailUser ไม่ได้");

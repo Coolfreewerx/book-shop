@@ -2,11 +2,13 @@ package ku.cs.shop.controllers.system;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import ku.cs.shop.models.Book;
 import ku.cs.shop.models.BookList;
 import ku.cs.shop.services.BookDetailDataSource;
@@ -31,6 +33,7 @@ public class BookDetailController
     @FXML private Label typeLabel;
     @FXML private ImageView bookImg;
     @FXML private MenuButton bookTypeMenuItem;
+    @FXML private GridPane gridPaneInHead;
 
 
     private Book book;
@@ -40,6 +43,7 @@ public class BookDetailController
     {
         book = (Book)com.github.saacsos.FXRouter.getData();
         showData();
+        showHead();
     }
 
     public void showData() {
@@ -141,5 +145,14 @@ public class BookDetailController
         }
     }
 
-
+    @FXML
+    public void showHead(){ //แสดงหัวเพจ
+        try{
+            FXMLLoader fxmlLoaderHead = new FXMLLoader();
+            fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/headPage.fxml"));
+            gridPaneInHead.add(fxmlLoaderHead.load(), 0,0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

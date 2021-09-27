@@ -26,6 +26,7 @@ public class OrderListController implements Initializable {
     @FXML private ScrollPane scoll;
     @FXML private GridPane grid;
     @FXML private Button allSellerStockButtonn;
+    @FXML private GridPane gridPaneInHead;
 
     @FXML
     void handleAllTypeBookButton(ActionEvent event) {
@@ -70,6 +71,7 @@ public class OrderListController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        showHead();
     }
 
 
@@ -89,6 +91,16 @@ public class OrderListController implements Initializable {
         } catch (IOException e) {
             System.err.println("ไปที่หน้าเพจหลักไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+    @FXML
+    public void showHead(){ //แสดงหัวเพจ
+        try{
+            FXMLLoader fxmlLoaderHead = new FXMLLoader();
+            fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/headPage.fxml"));
+            gridPaneInHead.add(fxmlLoaderHead.load(), 0,0);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

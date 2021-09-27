@@ -94,7 +94,7 @@ public class EditInformationController {
     public void handleGoToInformationPageWhenEditInformation(){ //ปุ่มกลับไปหน้าข้อมูลส่วนตัวหลังแก้ไขข้อมูลเสร็จ
         sendDataToWrite();
         try{
-            FXRouter.goTo("detailUser");
+            FXRouter.goTo("accountDetail");
         } catch (IOException e) {
             System.err.println("ไปที่หน้า detailUser ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
@@ -104,7 +104,7 @@ public class EditInformationController {
     @FXML
     public void handleGotoInformationPageWhenCancel(){ //ปุ่มกลับไปหน้าข้อมูลส่วนตัวเมื่อไม่ต้องการแก้ไขข้อมูลแล้ว
         try {
-            FXRouter.goTo("detailUser");
+            FXRouter.goTo("accountDetail");
         } catch (IOException e) {
             System.err.println("ไปที่หน้า detailUser ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
