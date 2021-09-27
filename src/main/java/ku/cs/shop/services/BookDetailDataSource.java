@@ -1,6 +1,8 @@
 package ku.cs.shop.services;
 
 import java.io.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import com.opencsv.CSVReader;
@@ -38,8 +40,9 @@ public class BookDetailDataSource implements DataSource<BookList> {
                 String bookPage = data[9].trim();
                 int leastStock = Integer.parseInt(data[10].trim());
                 double bookPrice = Double.parseDouble(data[11].trim());
+                LocalDateTime localDateTime = LocalDateTime.parse(data[12].trim(), DateTimeFormatter.ISO_LOCAL_DATE_TIME);
 
-                Book bookInformation = new Book(bookName,bookShop,bookAuthor,bookISBN,bookType,bookDetail,bookPublisher,bookImg,bookStock,bookPage,leastStock,bookPrice);
+                Book bookInformation = new Book(bookName,bookShop,bookAuthor,bookISBN,bookType,bookDetail,bookPublisher,bookImg,bookStock,bookPage,leastStock,bookPrice,localDateTime);
                 bookList.addBook(bookInformation);
             }
 

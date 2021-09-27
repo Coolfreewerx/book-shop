@@ -47,6 +47,9 @@ public class HomeController implements Initializable {
             public void addItemToProgram() {
                 try {
                     for (int i = 0 ; i < bookAllType; i++) {
+                        if (i > 3) {
+                            break;
+                        }
                         FXMLLoader fxmlLoader = new FXMLLoader();
                         fxmlLoader.setLocation(getClass().getResource("/ku/cs/item.fxml"));
 

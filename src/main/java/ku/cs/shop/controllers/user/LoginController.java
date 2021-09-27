@@ -72,7 +72,7 @@ public class LoginController {
     @FXML
     public void goToHome() { //ไปหน้า หนังสือทั้งหมด (เพจหลัก)
         try {
-            com.github.saacsos.FXRouter.goTo("home", userList);
+            com.github.saacsos.FXRouter.goTo("pageBookType", userList);
             //com.github.saacsos.FXRouter.goTo("home", accountList);
         } catch (IOException e) {
             e.printStackTrace();

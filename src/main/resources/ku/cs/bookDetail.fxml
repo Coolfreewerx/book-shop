@@ -46,7 +46,7 @@
             <Font name="JasmineUPC" size="28.0" />
          </font>
       </Label>
-      <Label fx:id="bookShop" layoutX="498.0" layoutY="189.0" text="bookShop">
+      <Label fx:id="bookShop" layoutX="498.0" layoutY="189.0" text="bookShop" textFill="#0f1aac" underline="true">
          <font>
             <Font name="JasmineUPC" size="28.0" />
          </font>
@@ -208,5 +208,10 @@
             </TextField>
          </children>
       </HBox>
+      <ImageView fitHeight="36.0" fitWidth="33.0" layoutX="970.0" layoutY="88.0" onMouseClicked="#handleBackToMarket" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/BackIcon.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

@@ -25,7 +25,7 @@ public class HeadController {
     @FXML
     void handleAllTypeBookButton(ActionEvent event) {
         try {
-            com.github.saacsos.FXRouter.goTo("allBookInProgram");
+            com.github.saacsos.FXRouter.goTo("pageBookType");
         } catch (IOException e) {
             System.err.println("ไปที่หน้า pageBookType ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");

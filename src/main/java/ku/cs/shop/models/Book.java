@@ -3,6 +3,8 @@ package ku.cs.shop.models;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Book {
     private String bookName;
@@ -17,13 +19,14 @@ public class Book {
     private String bookPage;
     private int leastStock;
     private double bookPrice;
+    private LocalDateTime timeOfAddingBook;
 
     //เก็บค่าเริ่มต้น
     public Book() {}
 
     public Book(String bookName, String bookShop, String bookAuthor, String bookISBN, String bookType,
                 String bookDetail, String bookPublisher, String bookImg,
-                int bookStock, String bookPage, int leastStock, double bookPrice) {
+                int bookStock, String bookPage, int leastStock, double bookPrice, LocalDateTime timeOfAddingBook) {
         this.bookName = bookName;
         this.bookShop = bookShop;
         this.bookAuthor = bookAuthor;
@@ -36,6 +39,7 @@ public class Book {
         this.bookPage = bookPage;
         this.leastStock = leastStock;
         this.bookPrice = bookPrice;
+        this.timeOfAddingBook = timeOfAddingBook;
     }
 
 
@@ -65,6 +69,10 @@ public class Book {
     public int getLeastStock() { return leastStock; }
     public double getBookPrice() { return bookPrice; }
 
+    public LocalDateTime getTimeOfAddingBook() {
+        return timeOfAddingBook;
+    }
+
     public void setBookName(String bookName) { this.bookName = bookName; }
     public void setBookShop(String bookShop) { this.bookShop = bookShop; }
     public void setBookAuthor(String bookAuthor) { this.bookAuthor = bookAuthor; }
@@ -77,6 +85,10 @@ public class Book {
     public void setLeastStock(int leastStock) { this.leastStock = leastStock; }
     public void setBookPrice(double bookPrice) { this.bookPrice = bookPrice; }
     public void setBookPage(String bookPage) { this.bookPage = bookPage; }
+
+    public void setTimeOfAddingBook(LocalDateTime timeOfAddingBook) {
+        this.timeOfAddingBook = timeOfAddingBook;
+    }
 
     public String getPicturePath() {
         return new File(System.getProperty("user.dir")
@@ -105,7 +117,8 @@ public class Book {
                 + bookStock+ ","
                 + bookPage+ ","
                 + leastStock+ ","
-                + bookPrice + "\n" ;
+                + bookPrice + ","
+                + timeOfAddingBook.toString() + "\n" ;
 
         return result;
     }

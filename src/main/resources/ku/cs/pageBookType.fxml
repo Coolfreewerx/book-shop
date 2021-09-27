@@ -38,7 +38,7 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <MenuButton fx:id="bookTypeMenuItem" mnemonicParsing="false" onAction="#handleTypeBookButton" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: #c9ad88; -fx-background-radius: 20;" text="ประเภท" textFill="WHITE">
+                              <MenuButton fx:id="bookTypeMenuItem" mnemonicParsing="false" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: #c9ad88; -fx-background-radius: 20;" text="ประเภท" textFill="WHITE">
                                  <font>
                                     <Font name="JasmineUPC" size="25.0" />
                                  </font>
@@ -114,7 +114,7 @@
                      <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="71.0" prefWidth="1024.0">
                            <children>
-                              <Text fill="#a05e07" strokeType="OUTSIDE" strokeWidth="0.0" text="ประเภทของหนังสือ">
+                              <Text fx:id="bookHeadLabel" fill="#a05e07" strokeType="OUTSIDE" strokeWidth="0.0" text="ประเภทของหนังสือ">
                                  <HBox.margin>
                                     <Insets left="50.0" top="20.0" />
                                  </HBox.margin>
@@ -145,12 +145,12 @@
                         </HBox>
                         <HBox spacing="20.0" GridPane.columnIndex="1">
                            <children>
-                              <Button fx:id="MaxPriceToLowPriceButton" mnemonicParsing="false" onAction="#handleMaxPriceToLowPrice" prefHeight="28.0" prefWidth="132.0" style="-fx-background-radius: 20;" text="ราคามากไปน้อย">
+                              <Button fx:id="MaxPriceToLowPriceButton" mnemonicParsing="false" onAction="#handleMaxPriceToLowPrice" prefHeight="28.0" prefWidth="132.0" style="-fx-background-radius: 20;" text="ราคาน้อยไปมาก">
                                  <font>
                                     <Font name="JasmineUPC" size="20.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="lowPriceToMaxPriceButton" mnemonicParsing="false" onAction="#handleLowPriceToMaxPriceButton" prefHeight="34.0" prefWidth="122.0" style="-fx-background-radius: 20;" text="ราคาน้อยไปมาก">
+                              <Button fx:id="lowPriceToMaxPriceButton" mnemonicParsing="false" onAction="#handleLowPriceToMaxPrice" prefHeight="34.0" prefWidth="122.0" style="-fx-background-radius: 20;" text="ราคามากไปน้อย">
                                  <font>
                                     <Font name="JasmineUPC" size="20.0" />
                                  </font>

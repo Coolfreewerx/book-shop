@@ -4,24 +4,20 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Region;
 import javafx.scene.text.Text;
 import ku.cs.shop.models.Book;
 import ku.cs.shop.models.BookList;
 import ku.cs.shop.models.UserList;
 import ku.cs.shop.services.BookDetailDataSource;
+import ku.cs.shop.services.BookLowPriceToMaxPriceComparator;
+import ku.cs.shop.services.BookMaxPriceToLowPriceComparator;
 
 import java.io.IOException;
 import java.net.URL;
-import java.text.StringCharacterIterator;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -30,8 +26,7 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
     @FXML private Label bookType;
     @FXML private FlowPane bookListFlowPane;
     @FXML private MenuButton bookTypeMenuItem;
-    @FXML private Button MaxPriceToLowPriceButton;
-    @FXML private Button lowPriceToMaxPriceButton;
+    @FXML private Text bookHeadLabel;
 
     private String currentType;
     private UserList userList ;
@@ -40,7 +35,9 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
     private BookList books = data.readData();
 
     public void initialize (URL location, ResourceBundle resource){
-    //    changeBookType("หนังสือการ์ตูน");
+        bookHeadLabel.setText("หนังสือทั้งหมด");
+        changeBookType("ประเภททั้งหมด");
+        userList = (UserList) com.github.saacsos.FXRouter.getData();
         addBookTypeToMenuItem();
     }
 
@@ -53,6 +50,7 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
     }
 
     public void handleSubBookTypeMenuItem(ActionEvent actionEvent) {
+        bookHeadLabel.setText("ประเภทของหนังสือ");
         MenuItem menuItem = (MenuItem) actionEvent.getSource();
         changeBookType(menuItem.getText());
     }
@@ -78,22 +76,22 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
         }
     }
 
-    public void handleTypeBookButton(ActionEvent actionEvent) {
-        try {
-            com.github.saacsos.FXRouter.goTo("pageBookType");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า basket ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
+    public void handleMaxPriceToLowPrice(ActionEvent actionEvent) {
+        BookMaxPriceToLowPriceComparator comparator = new BookMaxPriceToLowPriceComparator();
+        books.sort(comparator);
+        changeBookType(currentType);
+    }
+
+    public void handleLowPriceToMaxPrice(ActionEvent actionEvent) {
+        BookLowPriceToMaxPriceComparator comparator = new BookLowPriceToMaxPriceComparator();
+        books.sort(comparator);
+        changeBookType(currentType);
     }
 
     public void handlePageAllTypeBookButton(ActionEvent actionEvent) {
-        try {
-            com.github.saacsos.FXRouter.goTo("allBookInProgram");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้าแสดงหนังสือทั้งหมดไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
+        bookHeadLabel.setText("หนังสือทั้งหมด");
+        books.sort();
+        changeBookType("ประเภททั้งหมด");
     }
 
     @FXML
@@ -115,6 +113,5 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
-
 
 }

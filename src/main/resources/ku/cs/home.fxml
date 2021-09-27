@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -72,7 +73,14 @@
                               </Label>
                      </children>
                   </HBox>
-                  <FlowPane fx:id="bookListFlowPane" hgap="10.0" prefHeight="200.0" prefWidth="200.0" vgap="10.0" GridPane.rowIndex="2" />
+                  <ScrollPane fitToHeight="true" fitToWidth="true" maxHeight="310.0" GridPane.rowIndex="2">
+                     <content>
+                        <FlowPane fx:id="bookListFlowPane" columnHalignment="CENTER" hgap="35.0" maxHeight="310.0" vgap="20.0" />
+                     </content>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </ScrollPane>
                     </children>
                 </GridPane>
             </center>
