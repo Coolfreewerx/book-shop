@@ -4,13 +4,18 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import ku.cs.shop.models.Book;
 import ku.cs.shop.models.BookList;
+import ku.cs.shop.models.User;
 import ku.cs.shop.models.UserList;
 import ku.cs.shop.services.BookDetailDataSource;
 import ku.cs.shop.services.BookLowPriceToMaxPriceComparator;
@@ -27,18 +32,36 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
     @FXML private FlowPane bookListFlowPane;
     @FXML private MenuButton bookTypeMenuItem;
     @FXML private Text bookHeadLabel;
+    @FXML private Button status;
+    @FXML private Label usernameInHead;
+    @FXML private ImageView img;
 
     private String currentType;
+    private User user;
     private UserList userList ;
 
     private BookDetailDataSource data = new BookDetailDataSource("csv-data/bookDetail.csv");
     private BookList books = data.readData();
 
     public void initialize (URL location, ResourceBundle resource){
+        System.out.println("Welcome to  Market Book Page");
+        userList = (UserList) com.github.saacsos.FXRouter.getData() ;
+        user = userList.getCurrentUser() ;
+        pagesHeader();
+
         bookHeadLabel.setText("หนังสือทั้งหมด");
         changeBookType("ประเภททั้งหมด");
-        userList = (UserList) com.github.saacsos.FXRouter.getData();
         addBookTypeToMenuItem();
+    }
+
+    public void pagesHeader() { // กำหนดข้อมูลตรงส่วน head page
+        usernameInHead.setText(user.getUserName());
+        img.setImage(new Image(user.getImagePath()));
+        if(user.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")){
+            status.setText("User");
+        }else{
+            status.setText("Seller");
+        }
     }
 
     public void addBookTypeToMenuItem() {
@@ -53,6 +76,7 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
         bookHeadLabel.setText("ประเภทของหนังสือ");
         MenuItem menuItem = (MenuItem) actionEvent.getSource();
         changeBookType(menuItem.getText());
+        System.out.println("Click to " + currentType);
     }
 
     public void changeBookType(String type) {
@@ -76,19 +100,22 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
         }
     }
 
-    public void handleMaxPriceToLowPrice(ActionEvent actionEvent) {
-        BookMaxPriceToLowPriceComparator comparator = new BookMaxPriceToLowPriceComparator();
-        books.sort(comparator);
-        changeBookType(currentType);
-    }
-
     public void handleLowPriceToMaxPrice(ActionEvent actionEvent) {
+        System.out.println("Sort Low Price To Max Price");
         BookLowPriceToMaxPriceComparator comparator = new BookLowPriceToMaxPriceComparator();
         books.sort(comparator);
         changeBookType(currentType);
     }
 
+    public void handleMaxPriceToLowPrice(ActionEvent actionEvent) {
+        System.out.println("Sort Max Price To Low Price");
+        BookMaxPriceToLowPriceComparator comparator = new BookMaxPriceToLowPriceComparator();
+        books.sort(comparator);
+        changeBookType(currentType);
+    }
+
     public void handlePageAllTypeBookButton(ActionEvent actionEvent) {
+        System.out.println("Click to " + currentType);
         bookHeadLabel.setText("หนังสือทั้งหมด");
         books.sort();
         changeBookType("ประเภททั้งหมด");
@@ -105,7 +132,7 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
     }
 
     @FXML
-    public void handleDetailUserButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า home
+    public void handleToInformationButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า home
         try {
             com.github.saacsos.FXRouter.goTo("detailUser", userList);
         } catch (IOException e) {
