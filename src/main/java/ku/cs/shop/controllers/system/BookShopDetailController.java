@@ -44,9 +44,9 @@ public class BookShopDetailController<MenuItemCartoon, bookTypeLabel> implements
 
     public void initialize (URL location, ResourceBundle resource){
         System.out.println("Welcome to  Seller Book Page");
-        accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
-        account = accountList.getCurrentAccount() ;
-        pagesHeader();
+//        accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
+//        account = accountList.getCurrentAccount() ;
+//        pagesHeader();
 
         bookHeadLabel.setText("หน้าของผู้ขาย");
         changeBookType("ประเภททั้งหมด");
