@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.user.UserListForAdminController">
+    <children>
+        <BorderPane layoutX="-1.0" layoutY="1.0" prefHeight="768.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <top>
+                <HBox fx:id="head" prefHeight="69.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <GridPane fx:id="gridPaneInHead" prefHeight="69.0" prefWidth="1024.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                        </GridPane>
+                    </children></HBox>
+            </top>
+         <center>
+            <AnchorPane maxWidth="1024.0" prefHeight="698.4" prefWidth="1024.0" styleClass="backgroundColorLightBrownButton">
+               <children>
+                  <VBox alignment="TOP_CENTER" minWidth="512.0" prefHeight="200.0" prefWidth="512.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="512.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Pane prefHeight="30.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS" />
+                        <ImageView fx:id="accountImage" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../account-images/default.png" />
+                           </image>
+                        </ImageView>
+                        <Pane maxHeight="30.0" minHeight="15.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS" />
+                        <Label fx:id="userNameLabel" styleClass="font_rsu_12pt" text="Username" textFill="WHITE" />
+                        <Pane maxHeight="20.0" minHeight="20.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS" />
+                        <HBox alignment="CENTER" prefHeight="28.0" prefWidth="200.0">
+                           <children>
+                              <Label fx:id="firstNameLabel" styleClass="font_rsu_12pt" text="Firstname" textFill="WHITE" />
+                              <Pane maxWidth="60.0" minWidth="60.0" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
+                              <Label fx:id="lastNameLabel" styleClass="font_rsu_12pt" text="Lastname" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <Pane maxHeight="20.0" minHeight="20.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS" />
+                        <HBox alignment="CENTER" prefHeight="28.0" prefWidth="200.0">
+                           <children>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font_rsu_12pt" text="วันเกิด :  " />
+                              <Label fx:id="birthDayLabel" styleClass="font_rsu_12pt" text="Day" textFill="WHITE" />
+                              <Pane maxWidth="25.0" minWidth="25.0" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
+                              <Label fx:id="birthMonthLabel" styleClass="font_rsu_12pt" text="Month" textFill="WHITE" />
+                              <Pane maxWidth="25.0" minWidth="25.0" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
+                              <Label fx:id="birthYearLabel" styleClass="font_rsu_12pt" text="Year" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <Pane maxHeight="20.0" minHeight="20.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS" />
+                        <HBox alignment="CENTER" prefHeight="28.0" prefWidth="200.0">
+                           <children>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font_rsu_12pt" text="เพศ :  " />
+                              <Label fx:id="sexLabel" styleClass="font_rsu_12pt" text="Sex" textFill="WHITE" />
+                              <Pane maxWidth="40.0" minWidth="40.0" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font_rsu_12pt" text="เบอร์โทร :  " />
+                              <Label fx:id="phoneLabel" styleClass="font_rsu_12pt" text="Phone" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <Pane maxHeight="20.0" minHeight="20.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS" />
+                        <HBox alignment="CENTER" prefHeight="28.0" prefWidth="200.0">
+                           <children>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font_rsu_12pt" text="ชื่อร้านค้า :  " />
+                              <Label fx:id="shopNameLabel" styleClass="font_rsu_12pt" text="Shopname" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <Pane maxHeight="20.0" minHeight="20.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font_rsu_12pt" text="** ที่อยู่ **" />
+                        <Pane maxHeight="20.0" minHeight="20.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS" />
+                        <Label fx:id="addressLabel" alignment="TOP_CENTER" lineSpacing="10.0" maxHeight="0.0" maxWidth="300.0" minHeight="83.0" styleClass="font_rsu_12pt" text="Address" textFill="WHITE" wrapText="true" />
+                        <HBox alignment="CENTER_LEFT" maxHeight="35.0" minHeight="35.0" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Pane maxWidth="25.0" minWidth="25.0" style="-fx-background-color: transparent;" />
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font_rsu_12pt" text="ใช้งานล่าสุดเมื่อ :  " />
+                              <Label fx:id="loginTimeLabel" styleClass="font_rsu_12pt" text="Login Time" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" maxHeight="40.0" prefHeight="100.0" prefWidth="512.0">
+                           <children>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font_rsu_12pt" text="สถานะบัญชี :  " />
+                              <Label fx:id="accountStatusLabel" maxWidth="64.0" minWidth="64.0" styleClass="font_rsu_12pt" text="Working" textFill="WHITE" />
+                              <Pane maxWidth="130.0" minWidth="130.0" style="-fx-background-color: transparent;" />
+                              <Button mnemonicParsing="false" style="-fx-background-color: fff;" text="ปลดบล็อก" textFill="#349400" />
+                              <Pane maxWidth="25.0" minWidth="25.0" style="-fx-background-color: transparent;" />
+                              <Button mnemonicParsing="false" style="-fx-background-color: ffff;" text="บล็อกการใช้งาน" textFill="#a90000" />
+                              <Pane maxWidth="25.0" minWidth="25.0" style="-fx-background-color: transparent;" />
+                           </children>
+                        </HBox>
+                        <Pane maxHeight="15.0" minHeight="15.0" style="-fx-background-color: transparent;" />
+                     </children>
+                  </VBox>
+                  <Separator orientation="VERTICAL" prefHeight="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="512.0" AnchorPane.topAnchor="0.0" />
+                  <VBox alignment="TOP_CENTER" maxWidth="512.0" minWidth="512.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Pane maxHeight="30.0" minHeight="30.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS" />
+                        <Text fill="WHITE" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font_rsu_18pt" text="รายชื่อบัญชีผู้ใช้งาน">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Text>
+                        <Pane maxHeight="15.0" minHeight="15.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS" />
+                        <ListView fx:id="userAccountListView" maxHeight="320.0" prefHeight="576.0" prefWidth="200.0">
+                           <VBox.margin>
+                              <Insets left="40.0" right="40.0" />
+                           </VBox.margin>
+                        </ListView>
+                        <Pane maxHeight="30.0" minHeight="30.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;" />
+                        <Text fill="WHITE" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font_rsu_18pt" text="รายการความไม่เหมาะสม">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Text>
+                        <Pane maxHeight="15.0" minHeight="15.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;" />
+                        <ListView fx:id="reportUserListView" maxHeight="200.0" prefHeight="576.0" prefWidth="200.0">
+                           <VBox.margin>
+                              <Insets left="40.0" right="40.0" />
+                           </VBox.margin>
+                        </ListView>
+                     </children>
+                  </VBox>
+               </children>
+               <stylesheets>
+                  <URL value="@style/PrimaryTheme.css" />
+                  <URL value="@style/style.css" />
+               </stylesheets>
+            </AnchorPane>
+         </center>
+        </BorderPane>
+    </children>
+</AnchorPane>
