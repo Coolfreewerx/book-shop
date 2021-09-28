@@ -55,7 +55,7 @@ public class HeadController {
 
     @FXML
     public void initialize() {
-        System.out.println("หวัดดีจ้าอีดอก");
+        System.out.println("show head");
         accountList = (AccountList) FXRouter.getData() ;
         account = accountList.getCurrentAccount() ;
         pagesHeader();

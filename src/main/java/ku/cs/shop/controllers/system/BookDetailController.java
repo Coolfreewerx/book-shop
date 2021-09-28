@@ -3,12 +3,15 @@ package ku.cs.shop.controllers.system;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import ku.cs.shop.models.Account;
+import ku.cs.shop.models.AccountList;
 import ku.cs.shop.models.Book;
 import ku.cs.shop.models.BookList;
 import ku.cs.shop.services.BookDetailDataSource;
@@ -34,14 +37,18 @@ public class BookDetailController
     @FXML private ImageView bookImg;
     @FXML private MenuButton bookTypeMenuItem;
     @FXML private GridPane gridPaneInHead;
+    @FXML private Hyperlink bookDetailByShop;
 
 
+    private AccountList accountList;
+    private Account account;
     private Book book;
 
     @FXML
     public void initialize()
     {
         book = (Book)com.github.saacsos.FXRouter.getData();
+//        accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
         showData();
         showHead();
     }
@@ -61,15 +68,6 @@ public class BookDetailController
         bookPrice.setText(String.format("%.02f",book.getBookPrice()) + " Bahts.");
     }
 
-    @FXML
-    public void handleCartoonBookButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าหนังสือการ์ตูน
-        try {
-            com.github.saacsos.FXRouter.goTo("pageBookType");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า pageBoookType ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
-    }
 
     @FXML
     public void handleAllTypeBookButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า หนังสือทั้งหมด (เพจหลัก)
@@ -99,33 +97,6 @@ public class BookDetailController
         }
     }
 
-    public void handleEducationalBookButton(ActionEvent actionEvent) {
-        try {
-            com.github.saacsos.FXRouter.goTo("pageBookType");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า pageBookType ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
-    }
-
-    public void handleEBookButton(ActionEvent actionEvent) {
-        try {
-            com.github.saacsos.FXRouter.goTo("pageBookType");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า pageBookType ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
-    }
-
-    public void handleMagazineBookButton(ActionEvent actionEvent) {
-        try {
-            com.github.saacsos.FXRouter.goTo("pageBookType");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า pageBookType ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
-    }
-
     public void handleToInformationButton(ActionEvent actionEvent) {
         try {
             com.github.saacsos.FXRouter.goTo("detailUser");
@@ -140,7 +111,18 @@ public class BookDetailController
         try {
             com.github.saacsos.FXRouter.goTo("pageBookType");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า login ไม่ได้");
+            System.err.println("ไปที่หน้า pageBookType ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
+    public void handleToBookSortFromShop(ActionEvent actionevent) {
+        try {
+            System.out.println("Click to pageBookShop");
+            com.github.saacsos.FXRouter.goTo("pageBookShop", accountList);
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า pageBookShop ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }

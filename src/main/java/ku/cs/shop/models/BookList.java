@@ -12,6 +12,7 @@ public class BookList {
     private Set<String> bookShops;
     private ArrayList<Book> books;
 
+    private Book currentBookShop;
 
 
     public BookList() {
@@ -34,7 +35,6 @@ public class BookList {
 
     public ArrayList<Book> getBookByType(String type) {
         if (type.equals("ประเภททั้งหมด")) return books;
-
         ArrayList<Book> bookByType = new ArrayList<>();
         for(Book book : books) {
             if (book.getBookType().equals(type)) {
@@ -65,7 +65,9 @@ public class BookList {
         }
     }
 
+
     public ArrayList<Book> getBookByShop(String nameShop) {
+        nameShop = "nanazen";
         ArrayList<Book> bookByShop = new ArrayList<>();
         for (Book book : books) {
             if (book.getBookShop().equals(nameShop)) {

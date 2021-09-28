@@ -109,6 +109,7 @@ public class HomeController implements Initializable {
         try {
             FXRouter.goTo("accountDetail", accountList);
 //            FXRouter.goTo("detailUser", accountList);
+
         } catch (IOException e) {
             System.err.println("ไปที่หน้า detailUser ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");

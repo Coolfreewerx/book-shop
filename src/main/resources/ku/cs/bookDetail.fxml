@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -12,7 +14,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.BookDetailController">
+<AnchorPane onMouseClicked="#handleToBookSortFromShop" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.BookDetailController">
    <children>
       <Label layoutX="18.0" layoutY="91.0" text="ประเภทหนังสือ |" textFill="#a05e07">
          <font>
@@ -45,11 +47,20 @@
             <Font name="JasmineUPC" size="28.0" />
          </font>
       </Label>
-      <Label fx:id="bookShop" layoutX="498.0" layoutY="189.0" text="bookShop" textFill="#0f1aac" underline="true">
-         <font>
-            <Font name="JasmineUPC" size="28.0" />
-         </font>
-      </Label>
+      <HBox layoutX="498.0" layoutY="189.0">
+         <children>
+            <Label fx:id="bookShop" text="bookShop">
+               <font>
+                  <Font name="JasmineUPC" size="28.0" />
+               </font>
+            </Label>
+            <Hyperlink fx:id="bookDetailByShop" onAction="#handleToBookSortFromShop" style="-fx-background-color: fff;" text="Click to shop">
+               <HBox.margin>
+                  <Insets top="1.0" />
+               </HBox.margin>
+            </Hyperlink>
+         </children>
+      </HBox>
       <Label fx:id="bookStatus" layoutX="498.0" layoutY="255.0" text="bookStatus">
          <font>
             <Font name="JasmineUPC" size="28.0" />

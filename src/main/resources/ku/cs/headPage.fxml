@@ -45,7 +45,7 @@
                   <Insets left="30.0" right="-20.0" top="13.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="status" mnemonicParsing="false" prefHeight="46.0" prefWidth="91.0" style="-fx-background-radius: 20;" text="Status" textFill="WHITE">
+            <Button fx:id="status" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" style="-fx-background-radius: 20;" text="Status" textFill="WHITE">
                <font>
                   <Font name="JasmineUPC" size="25.0" />
                </font>
@@ -53,7 +53,7 @@
                   <Insets />
                </opaqueInsets>
                <HBox.margin>
-                  <Insets left="220.0" top="10.0" />
+                  <Insets left="220.0" top="15.0" />
                </HBox.margin>
                <stylesheets>
                   <URL value="@style/style.css" />
@@ -64,7 +64,7 @@
                   <String fx:value="backgroundColorLightBrownButton" />
                </styleClass>
             </Button>
-            <Button mnemonicParsing="false" onAction="#handleToInformationButton" prefHeight="46.0" prefWidth="241.0" style="-fx-background-radius: 20;" stylesheets="@style/PrimaryTheme.css" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#handleToInformationButton" prefHeight="46.0" prefWidth="241.0" style="-fx-background-radius: 30;" stylesheets="@style/PrimaryTheme.css" textFill="WHITE">
                <font>
                   <Font name="JasmineUPC" size="25.0" />
                </font>
@@ -75,7 +75,7 @@
                   <Insets left="10.0" top="10.0" />
                </HBox.margin>
                <graphic>
-                  <Label fx:id="usernameInHead" alignment="CENTER" prefHeight="31.0" prefWidth="206.0" styleClass="font_rsu_16pt" stylesheets="@style/style.css" text="Username" textFill="WHITE">
+                  <Label fx:id="usernameInHead" alignment="CENTER" prefHeight="31.0" prefWidth="200.0" styleClass="font_rsu_12pt" stylesheets="@style/style.css" text="Username" textFill="WHITE">
                      <graphic>
                         <ImageView fx:id="img" fitHeight="30.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" styleClass="radius">
                            <viewport>
@@ -90,7 +90,6 @@
                   <String fx:value="backgroundColorLightBrownButton" />
                </styleClass>
             </Button>
-            <Button mnemonicParsing="false" text="Button" />
          </children>
       </HBox>
    </children>
