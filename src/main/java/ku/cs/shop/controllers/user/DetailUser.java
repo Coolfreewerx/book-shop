@@ -26,6 +26,7 @@ public class DetailUser {
     @FXML private Label passwordLabel;
     @FXML private Label usernameLabel;
     @FXML private ImageView userImageView ;
+    @FXML private Label addressLabel;
 
 
     private ArrayList<Account> accountsList = new ArrayList<>();
@@ -49,9 +50,8 @@ public class DetailUser {
         sexLabel.setText(account.getSex());
         phoneLabel.setText(account.getPhone());
         userImageView.setImage(new Image(account.getImagePath())) ;
+        addressLabel.setText(account.getAddress());
     }
-
-
 
     @FXML
     public void handleCartoonBookButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าหนังสือการ์ตูน
@@ -116,7 +116,7 @@ public class DetailUser {
     @FXML
     public void handleToEditInformationPageButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าแก้ไขข้อมูลส่วนตัว
         try {
-            com.github.saacsos.FXRouter.goTo("editInformation");
+            com.github.saacsos.FXRouter.goTo("editInformation", accountList);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า editInformation ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");

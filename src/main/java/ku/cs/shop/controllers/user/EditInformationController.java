@@ -5,15 +5,22 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
+import javafx.stage.FileChooser;
 import ku.cs.shop.models.Account;
 import ku.cs.shop.models.AccountList;
+import ku.cs.shop.models.BookList;
 import ku.cs.shop.models.UserAccount;
 import ku.cs.shop.services.AccountDataSource;
 import com.github.saacsos.FXRouter;
+import ku.cs.shop.services.BookDetailDataSource;
+import ku.cs.shop.services.DataSource;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class EditInformationController {
@@ -21,6 +28,9 @@ public class EditInformationController {
     private Account account;
     private AccountList accountList;
     private AccountDataSource accountDataSource;
+    private File selectedImage ;
+    private String imageName;
+    private String username;
 
     @FXML private TextField lastnameTextField;
     @FXML private TextField firstnameTextField;
@@ -34,24 +44,38 @@ public class EditInformationController {
     @FXML private PasswordField recheckPasswordField;
     @FXML private Label passwordConditionCheckLabel;
     @FXML private Label passwordCompareLabel;
-
-    private File selectedImage ;
-    private String imageName;
+    @FXML private ImageView imageView;
+    @FXML private Label warningEditInformation;
 
     private ObservableList sexList = FXCollections.observableArrayList() ;
+    private AccountDataSource data = new AccountDataSource("csv-data/accountData.csv");
 
     @FXML
     public void initialize(){
+        accountDataSource = new AccountDataSource("csv-data/accountData.csv") ;
+        accountList = accountDataSource.readData() ;
         accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
         account = accountList.getCurrentAccount() ;
-        showData();
-    }
-    public void showData(){
+
+        username = account.getUserName();
         usernameInEditInformationLabel.setText(account.getUserName());
         birthdayInEditInformationLabel.setText(account.getBirthDay());
         birthMonthInEditInformationLabel.setText(account.getBirthMonth());
         birthYearInEditInformationLabel.setText(account.getBirthYear());
+        firstnameTextField.setText(account.getFirstName());
+        lastnameTextField.setText(account.getLastName());
+        sexChoice.getItems().addAll(sexList);
+        lodeSexData();
     }
+//    public void showData(){
+//        usernameInEditInformationLabel.setText(account.getUserName());
+//        birthdayInEditInformationLabel.setText(account.getBirthDay());
+//        birthMonthInEditInformationLabel.setText(account.getBirthMonth());
+//        birthYearInEditInformationLabel.setText(account.getBirthYear());
+//        firstnameTextField.setText(account.getFirstName());
+//        lastnameTextField.setText(account.getLastName());
+//        sexChoice.getItems().addAll(sexList);
+//    }
 
     @FXML //ทำงานเมื่อกรอกรหัส
     public void handleKeyPassword() {
@@ -67,13 +91,6 @@ public class EditInformationController {
     @FXML //ทำงานเมื่อกรอกยืนยันรหัส
     public void handleKeyCheckPassword() {
         passwordCompareLabel.setText(Account.comparePassword(passwordField.getText(), recheckPasswordField.getText()));
-    }
-
-    public void setSexChoice(ActionEvent event) {
-        sexChoice.setValue("เพศ");
-        sexChoice.getItems().removeAll(sexList) ;
-        sexList.removeAll(sexList);
-        lodeSexData();
     }
 
     private void lodeSexData() {
@@ -92,7 +109,27 @@ public class EditInformationController {
 
     @FXML
     public void handleGoToInformationPageWhenEditInformation(){ //ปุ่มกลับไปหน้าข้อมูลส่วนตัวหลังแก้ไขข้อมูลเสร็จ
-        sendDataToWrite();
+        account.setFirstName(firstnameTextField.getText());
+        account.setLastName(lastnameTextField.getText());
+        account.setPassword(passwordField.getText());
+        account.setPhone(phoneNumberTextField.getText());
+        account.setSex(sexChoice.getValue());
+        account.setImageName(imageName);
+
+//        System.out.println(account.isMyUserName(username));
+//        System.out.println(accountList.searchByUserName(username));
+//        System.out.println(accountList.getCurrentAccount());
+
+        if(accountList.getCurrentAccount().equals(accountList.searchByUserName(username))){
+            System.out.println("เข้าเงื่อนไขแล้วจ้า");
+            DataSource <AccountList> dataSource;
+            dataSource = new AccountDataSource("csv-data/accountData.csv");
+
+            AccountList accountList = dataSource.readData();
+            accountList.editInformationByName(username, account);
+
+            dataSource.writeData(accountList);
+        }
         try{
             FXRouter.goTo("accountDetail");
         } catch (IOException e) {
@@ -111,30 +148,31 @@ public class EditInformationController {
         }
     }
 
-    public void sendDataToWrite() {
-        //UserDataSource
-        Account account = new UserAccount(
-                firstnameTextField.getText(),
-                lastnameTextField.getText(),
-                usernameInEditInformationLabel.getText(),
-                passwordField.getText(),
-                birthdayInEditInformationLabel.getText(),
-                birthMonthInEditInformationLabel.getText(),
-                birthYearInEditInformationLabel.getText(),
-                imageName,
-                phoneNumberTextField.getText(),
-                sexChoice.getValue(),
-                "null",
-                "ยังไม่สมัครเป็นผู้ขาย",
-                "working",
-                LocalDateTime.now() ) ;
+    @FXML
+    public void handleAddImageButton (ActionEvent actionEvent) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select Profile Picture");
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files", "*.png", "*jpg"));
+        selectedImage = fileChooser.showOpenDialog(null);
 
-//        (String firstName, String lastName, String userName, String password,
-//                String birthDay, String birthMonth, String birthYear,
-//                String imageName, String phone, String sex, String address, String shopName,
-//                String status, LocalDateTime loginTime )
+        if (selectedImage != null) {
+            Image image = new Image(selectedImage.toURI().toString());
+            imageView.setImage(image);
+        }
+        setImageName();
+        account.setImageName(imageName);
+    }
 
-        accountList.addAccount(account);
-        accountDataSource.writeData(accountList) ;
+    public void setImageName() {
+        if (selectedImage != null) {
+            imageName =  usernameInEditInformationLabel.getText() + "-"
+                    + LocalDate.now().getYear() + "-"
+                    + LocalDate.now().getMonth() + "-"
+                    + LocalDate.now().getDayOfMonth() + "-"
+                    + LocalDateTime.now().getHour() + LocalDateTime.now().getMinute() + LocalDateTime.now().getSecond() + ".png" ;
+            UserAccount.copyImageToPackage(selectedImage , imageName) ;
+        } else {
+            imageName = "default.png" ;
+        }
     }
 }

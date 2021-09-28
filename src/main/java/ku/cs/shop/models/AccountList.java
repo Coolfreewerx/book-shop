@@ -11,7 +11,7 @@ public class AccountList {
 
     public Account getCurrentAccount() {
         return currentAccount ;
-    }
+    } //เก็บ username ที่ login เข้ามา
 
     public void addAccount(Account account) {
         accounts.add(account) ;
@@ -25,6 +25,26 @@ public class AccountList {
             }
         }
         return false;
+    }
+
+    public void editInformationByName(String username ,Account newInformation){
+        int index = 0;
+        for (Account account: accounts){
+            if(account.getUserName().equals(username)){
+                this.accounts.set(index, newInformation);
+                break;
+            }
+            index++;
+        }
+    }
+
+    public Account searchByUserName(String userName){
+        for (Account account : this.accounts) {
+            if (account.isMyUserName(userName)) {
+                return account;
+            }
+        }
+        return null;
     }
 
     //ตรวจสอบ shopName ว่าซ้ำมั้ย
@@ -48,11 +68,6 @@ public class AccountList {
         }
         return null ;
     }
-
-//    public ArrayList<UserAccount> getAllUserAccount() {
-//        ArrayList<UserAccount> userAccounts ;
-//
-//    }
 
     public String toCsv() {
         String result = "" ;

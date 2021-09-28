@@ -5,30 +5,21 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.MenuButton;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import ku.cs.shop.controllers.system.ItemController;
-import ku.cs.shop.controllers.user.DetailUser;
 import ku.cs.shop.models.*;
 import ku.cs.shop.services.BookDetailDataSource;
-
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class HomeController implements Initializable {
 
-    @FXML private GridPane grid;
     @FXML private GridPane gridPaneInHead;
     @FXML private HBox head;
     @FXML private FlowPane bookListFlowPane;
     @FXML private MenuButton bookTypeMenuItem;
-    private HeadController headController;
     private AccountList accountList ;
 
 
@@ -108,8 +99,6 @@ public class HomeController implements Initializable {
     public void handleToInformationButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า หนังสือทั้งหมด (เพจหลัก)
         try {
             FXRouter.goTo("accountDetail", accountList);
-//            FXRouter.goTo("detailUser", accountList);
-
         } catch (IOException e) {
             System.err.println("ไปที่หน้า detailUser ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");

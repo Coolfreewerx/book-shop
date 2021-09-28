@@ -36,7 +36,7 @@ public class App extends Application
         FXRouter.when("item",packageStr + "item.fxml");
         FXRouter.when("aboutUs",packageStr + "aboutUs.fxml");
         FXRouter.when("aboutUsInformation",packageStr + "aboutUsInformation.fxml");
-        FXRouter.when("editInformation",packageStr + "information.fxml");
+        FXRouter.when("editInformation",packageStr + "editInformation.fxml");
         FXRouter.when("pageBookType",packageStr + "pageBookType.fxml");
         FXRouter.when("sellerHaventApply",packageStr + "sellerHaventApply.fxml");
         FXRouter.when("orderList",packageStr + "orderList.fxml");

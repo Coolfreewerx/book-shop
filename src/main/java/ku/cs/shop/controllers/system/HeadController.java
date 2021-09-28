@@ -55,10 +55,9 @@ public class HeadController {
 
     @FXML
     public void initialize() {
-        System.out.println("show head");
-//        accountList = (AccountList) FXRouter.getData() ;
-//        account = accountList.getCurrentAccount() ;
-//        pagesHeader();
+        accountList = (AccountList) FXRouter.getData() ;
+        account = accountList.getCurrentAccount() ;
+        pagesHeader();
     }
 
     public void pagesHeader() { // กำหนดข้อมูลตรงส่วน head page
@@ -72,7 +71,7 @@ public class HeadController {
     }
 
     @FXML
-    public void handleToHomeButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า home
+    public void handleToAllBookPageButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า home
         try {
             com.github.saacsos.FXRouter.goTo("home");
         } catch (IOException e) {
@@ -85,7 +84,7 @@ public class HeadController {
     public void handleToInformationButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า หนังสือทั้งหมด (เพจหลัก)
         try {
 
-            FXRouter.goTo("detailUser", accountList);
+            FXRouter.goTo("accountDetail", accountList);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า detailUser ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");

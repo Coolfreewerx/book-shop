@@ -101,7 +101,7 @@
                      </font>
                   </Text>
                   <Line endX="178.6666259765625" endY="-1.52587890625E-5" layoutX="229.0" layoutY="22.0" startX="-63.0" startY="-1.52587890625E-5" />
-                  <Button layoutX="265.0" layoutY="109.0" mnemonicParsing="false" style="-fx-background-color: c9ad88; -fx-background-radius: 20;" text="+" />
+                  <Button layoutX="265.0" layoutY="109.0" mnemonicParsing="false" onAction="#handleAddImageButton" style="-fx-background-color: c9ad88; -fx-background-radius: 20;" text="+" />
                   <Text fill="#7d7d7d" layoutX="31.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อผู้ใช้">
                      <font>
                         <Font name="JasmineUPC" size="30.0" />
@@ -122,17 +122,22 @@
                         <Font name="JasmineUPC" size="30.0" />
                      </font>
                   </Text>
-                  <PasswordField fx:id="phoneNumberTextField" layoutX="41.0" layoutY="513.0" onKeyReleased="#handleKeyPassword" prefHeight="28.0" prefWidth="324.0" promptText="เบอร์โทรศัพท์" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88; -fx-border-radius: 5;">
-                     <font>
-                        <Font name="JasmineUPC" size="16.0" />
-                     </font>
-                  </PasswordField>
                   <Text fill="#7d7d7d" layoutX="31.0" layoutY="571.0" strokeType="OUTSIDE" strokeWidth="0.0" text="เพศ">
                      <font>
                         <Font name="JasmineUPC" size="30.0" />
                      </font>
                   </Text>
-                  <ComboBox fx:id="sexChoice" layoutX="41.0" layoutY="580.0" onAction="#setSexChoice" prefHeight="27.0" prefWidth="84.0" promptText="เพศ" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88; -fx-border-radius: 5;" />
+                  <ComboBox fx:id="sexChoice" layoutX="41.0" layoutY="580.0" prefHeight="27.0" prefWidth="84.0" promptText="เพศ" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88; -fx-border-radius: 5;" />
+                  <Label fx:id="warningEditInformation" layoutX="149.0" layoutY="628.0" textFill="RED">
+                     <font>
+                        <Font name="JasmineUPC" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="phoneNumberTextField" layoutX="41.0" layoutY="513.0" prefHeight="28.0" prefWidth="324.0" promptText="เบอร์โทรศัพท์" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88; -fx-border-radius: 5;">
+                     <font>
+                        <Font name="JasmineUPC" size="16.0" />
+                     </font>
+                  </TextField>
                </children>
                <VBox.margin>
                   <Insets top="20.0" />

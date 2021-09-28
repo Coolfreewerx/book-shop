@@ -95,6 +95,9 @@ public class Account {
     public void setAddress(String address) {
         this.address = address;
     }
+    public void setImageName(String imageName){this.imageName = imageName;}
+    public void setPhone(String phone){this.phone = phone;}
+    public void setSex(String sex){this.sex = sex; }
 
     public String getImagePath() {
         return new File(System.getProperty("user.dir")
@@ -146,6 +149,10 @@ public class Account {
             passwordCheck = false ;
             return "รหัสผ่านไม่ตรงกัน โปรดตรวจสอบรหัสผ่าน";
         }
+    }
+
+    public boolean isMyUserName(String userName){
+        return  this.userName.equals(userName);
     }
 
     public String toCsv() {
