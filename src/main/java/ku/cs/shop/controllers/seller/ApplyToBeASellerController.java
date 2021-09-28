@@ -17,7 +17,7 @@ import ku.cs.shop.services.DataSource;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
-public class ApplyToBeASeller{ //สมัครเป็นผู้ขายสินค้า
+public class ApplyToBeASellerController { //สมัครเป็นผู้ขายสินค้า
     private String shopName;
     private String password;
     private String passwordRecheck;

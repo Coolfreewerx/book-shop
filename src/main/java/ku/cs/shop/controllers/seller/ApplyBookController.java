@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class ApplySellerController {
+public class ApplyBookController {
     Seller seller = new Seller();
     Book book = new Book();
     private BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");

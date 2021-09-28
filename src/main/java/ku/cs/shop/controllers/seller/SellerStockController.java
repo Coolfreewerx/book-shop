@@ -24,7 +24,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class SellerController implements Initializable {
+public class SellerStockController implements Initializable {
     @FXML private HBox hBoxSellerStock;
     @FXML private Label userNameLabel;
     @FXML private ScrollPane scoll;
