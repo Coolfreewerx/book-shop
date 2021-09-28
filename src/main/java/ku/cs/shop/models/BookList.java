@@ -14,6 +14,9 @@ public class BookList {
 
     private Book currentBookShop;
 
+    public Book getCurrentBookShop() {
+        return currentBookShop;
+    }
 
     public BookList() {
         books = new ArrayList<>();
@@ -67,7 +70,6 @@ public class BookList {
 
 
     public ArrayList<Book> getBookByShop(String nameShop) {
-        nameShop = "nanazen";
         ArrayList<Book> bookByShop = new ArrayList<>();
         for (Book book : books) {
             if (book.getBookShop().equals(nameShop)) {

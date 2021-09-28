@@ -65,7 +65,7 @@ public class LoginController {
     public void goToHome() { //ไปหน้า หนังสือทั้งหมด (เพจหลัก)
         try {
 //            com.github.saacsos.FXRouter.goTo("pageBookType", accountList);
-            com.github.saacsos.FXRouter.goTo("home", accountList);
+            com.github.saacsos.FXRouter.goTo("pageBookType", accountList);
         } catch (IOException e) {
             e.printStackTrace();
             System.err.println("ไปที่หน้า home ไม่ได้");

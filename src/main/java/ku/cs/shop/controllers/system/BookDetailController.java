@@ -43,14 +43,26 @@ public class BookDetailController
     private AccountList accountList;
     private Account account;
     private Book book;
+    private BookList bookList;
+
+    private ArrayList<Object> objectForPassing = new ArrayList<>();
 
     @FXML
     public void initialize()
     {
-        book = (Book)com.github.saacsos.FXRouter.getData();
-//        accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
+        objectForPassing = (ArrayList<Object>) com.github.saacsos.FXRouter.getData();
+        castObjectToData();
         showData();
         showHead();
+    }
+
+    public void castObjectToData() {
+        book = (Book) objectForPassing.get(3);
+        bookList = (BookList) objectForPassing.get(0);
+        account = (Account) objectForPassing.get(1);
+        accountList = (AccountList) objectForPassing.get(2);
+        System.out.println(book.getBookShop());
+        System.out.println(account.getUserName());
     }
 
     public void showData() {
@@ -68,34 +80,17 @@ public class BookDetailController
         bookPrice.setText(String.format("%.02f",book.getBookPrice()) + " Bahts.");
     }
 
+    public ArrayList<Object> castDataToObject() {
+        objectForPassing.clear();
+        objectForPassing.add(book);
+        objectForPassing.add(bookList);
+        objectForPassing.add(account);
+        objectForPassing.add(accountList);
 
-    @FXML
-    public void handleAllTypeBookButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า หนังสือทั้งหมด (เพจหลัก)
-        try {
-            com.github.saacsos.FXRouter.goTo("home");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า home ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
+        return objectForPassing;
     }
 
-    public void handleTypeBookButton(ActionEvent actionEvent) {
-        try {
-            com.github.saacsos.FXRouter.goTo("pageBookType");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า pageBookType ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
-    }
 
-    public void handleNovelBookButton(ActionEvent actionEvent) {
-        try {
-            com.github.saacsos.FXRouter.goTo("pageBookType");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า pageBookType ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
-    }
 
     public void handleToInformationButton(ActionEvent actionEvent) {
         try {
@@ -120,7 +115,7 @@ public class BookDetailController
     public void handleToBookSortFromShop(ActionEvent actionevent) {
         try {
             System.out.println("Click to pageBookShop");
-            com.github.saacsos.FXRouter.goTo("pageBookShop", accountList);
+            com.github.saacsos.FXRouter.goTo("pageBookShop", castDataToObject());
         } catch (IOException e) {
             System.err.println("ไปที่หน้า pageBookShop ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");

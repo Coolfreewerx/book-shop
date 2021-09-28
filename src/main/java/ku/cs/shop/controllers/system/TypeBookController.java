@@ -36,21 +36,33 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
     @FXML private ImageView img;
 
     private String currentType;
+    private String currentBookShop;
     private Account account;
     private AccountList accountList;
 
+    private ArrayList<Object> objectForPassing = new ArrayList<>();
     private BookDetailDataSource data = new BookDetailDataSource("csv-data/bookDetail.csv");
     private BookList books = data.readData();
 
+
     public void initialize (URL location, ResourceBundle resource){
         System.out.println("Welcome to  Market Book Page");
-        accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
-        account = accountList.getCurrentAccount() ;
+        accountList = (AccountList) com.github.saacsos.FXRouter.getData();
+        account = accountList.getCurrentAccount();
         pagesHeader();
 
         bookHeadLabel.setText("หนังสือทั้งหมด");
         changeBookType("ประเภททั้งหมด");
         addBookTypeToMenuItem();
+    }
+
+    public ArrayList<Object> castDataToObject() {
+        objectForPassing.clear();
+        objectForPassing.add(books);
+        objectForPassing.add(account);
+        objectForPassing.add(accountList);
+
+        return objectForPassing;
     }
 
     public void pagesHeader() { // กำหนดข้อมูลตรงส่วน head page
@@ -92,11 +104,17 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
                 bookListFlowPane.getChildren().add(fxmlLoader.load()); // child,col,row
                 ItemController itemController = fxmlLoader.getController();
                 itemController.setData(book);
+                itemController.setController(this, "byType");
             }
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public ArrayList<Object> getObjectForPassing() {
+        castDataToObject();
+        return objectForPassing;
     }
 
     public void handleLowPriceToMaxPrice(ActionEvent actionEvent) {

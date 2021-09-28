@@ -38,19 +38,65 @@ public class BookShopDetailController<MenuItemCartoon, bookTypeLabel> implements
     private String currentType;
     private Account account;
     private AccountList accountList;
+    private BookList bookList;
+    private Book book;
+
+    private ArrayList<Object> objectForPassing = new ArrayList<>();
 
     private BookDetailDataSource data = new BookDetailDataSource("csv-data/bookDetail.csv");
     private BookList books = data.readData();
 
     public void initialize (URL location, ResourceBundle resource){
         System.out.println("Welcome to  Seller Book Page");
-//        accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
-//        account = accountList.getCurrentAccount() ;
+
+        objectForPassing = (ArrayList<Object>) com.github.saacsos.FXRouter.getData();
 //        pagesHeader();
 
-        bookHeadLabel.setText("หน้าของผู้ขาย");
+        castObjectToData();
+
+        bookHeadLabel.setText(book.getBookShop() + "");
         changeBookType("ประเภททั้งหมด");
+        changeBookByShop(book.getBookShop());
         addBookTypeToMenuItem();
+    }
+
+    public void castObjectToData() {
+        book = (Book) objectForPassing.get(0);
+        bookList = (BookList) objectForPassing.get(1);
+        account = (Account) objectForPassing.get(2);
+        accountList = (AccountList) objectForPassing.get(3);
+        System.out.println(book.getBookShop());
+        System.out.println(account.getUserName());
+    }
+
+    public ArrayList<Object> castDataToObject() {
+        objectForPassing.clear();
+        objectForPassing.add(books);
+        objectForPassing.add(account);
+        objectForPassing.add(accountList);
+
+        return objectForPassing;
+    }
+
+    public void changeBookByShop(String nameShop) {
+        nameShop = book.getBookShop();
+        bookListFlowPane.getChildren().clear();
+        ArrayList<Book> bookByShop = books.getBookByShop(nameShop);
+
+        try {
+            for (Book book : bookByShop) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/ku/cs/item.fxml"));
+
+                bookListFlowPane.getChildren().add(fxmlLoader.load()); // child,col,row
+                ItemController itemController = fxmlLoader.getController();
+                itemController.setData(book);
+                itemController.setController(this, "byShop");
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void pagesHeader() { // กำหนดข้อมูลตรงส่วน head page
@@ -63,12 +109,31 @@ public class BookShopDetailController<MenuItemCartoon, bookTypeLabel> implements
         }
     }
 
+    public ArrayList<Object> getObjectForPassing() {
+        castDataToObject();
+        return objectForPassing;
+    }
+
     public void addBookTypeToMenuItem() {
         for (String type : books.getBookType()) {
             MenuItem subBookTypeMenuItem = new MenuItem(type);
             bookTypeMenuItem.getItems().add(subBookTypeMenuItem);
             subBookTypeMenuItem.setOnAction(this :: handleSubBookTypeMenuItem);
         }
+    }
+
+    public void handleLowPriceToMaxPrice(ActionEvent actionEvent) {
+        System.out.println("Sort Low Price To Max Price");
+        BookLowPriceToMaxPriceComparator comparator = new BookLowPriceToMaxPriceComparator();
+        books.sort(comparator);
+        changeBookType(currentType);
+    }
+
+    public void handleMaxPriceToLowPrice(ActionEvent actionEvent) {
+        System.out.println("Sort Max Price To Low Price");
+        BookMaxPriceToLowPriceComparator comparator = new BookMaxPriceToLowPriceComparator();
+        books.sort(comparator);
+        changeBookType(currentType);
     }
 
     public void handleSubBookTypeMenuItem(ActionEvent actionEvent) {
@@ -97,20 +162,6 @@ public class BookShopDetailController<MenuItemCartoon, bookTypeLabel> implements
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public void handleLowPriceToMaxPrice(ActionEvent actionEvent) {
-        System.out.println("Sort Low Price To Max Price");
-        BookLowPriceToMaxPriceComparator comparator = new BookLowPriceToMaxPriceComparator();
-        books.sort(comparator);
-        changeBookType(currentType);
-    }
-
-    public void handleMaxPriceToLowPrice(ActionEvent actionEvent) {
-        System.out.println("Sort Max Price To Low Price");
-        BookMaxPriceToLowPriceComparator comparator = new BookMaxPriceToLowPriceComparator();
-        books.sort(comparator);
-        changeBookType(currentType);
     }
 
     public void handlePageAllTypeBookButton(ActionEvent actionEvent) {
