@@ -50,14 +50,13 @@ public class BookShopDetailController<MenuItemCartoon, bookTypeLabel> implements
         System.out.println("Welcome to  Seller Book Page");
 
         objectForPassing = (ArrayList<Object>) com.github.saacsos.FXRouter.getData();
-//        pagesHeader();
-
         castObjectToData();
 
         bookHeadLabel.setText(book.getBookShop() + "");
         changeBookType("ประเภททั้งหมด");
         changeBookByShop(book.getBookShop());
         addBookTypeToMenuItem();
+        pagesHeader();
     }
 
     public void castObjectToData() {
@@ -122,20 +121,6 @@ public class BookShopDetailController<MenuItemCartoon, bookTypeLabel> implements
         }
     }
 
-//    public void handleLowPriceToMaxPrice(ActionEvent actionEvent) {
-//        System.out.println("Sort Low Price To Max Price");
-//        BookLowPriceToMaxPriceComparator comparator = new BookLowPriceToMaxPriceComparator();
-//        books.sort(comparator);
-//        changeBookType(currentType);
-//    }
-//
-//    public void handleMaxPriceToLowPrice(ActionEvent actionEvent) {
-//        System.out.println("Sort Max Price To Low Price");
-//        BookMaxPriceToLowPriceComparator comparator = new BookMaxPriceToLowPriceComparator();
-//        books.sort(comparator);
-//        changeBookType(currentType);
-//    }
-
     public void handleSubBookTypeMenuItem(ActionEvent actionEvent) {
         bookHeadLabel.setText("ประเภทของหนังสือ");
         MenuItem menuItem = (MenuItem) actionEvent.getSource();
@@ -165,10 +150,17 @@ public class BookShopDetailController<MenuItemCartoon, bookTypeLabel> implements
     }
 
     public void handlePageAllTypeBookButton(ActionEvent actionEvent) {
-        System.out.println("Click to " + currentType);
-        bookHeadLabel.setText("หนังสือทั้งหมด");
-        books.sort();
-        changeBookType("ประเภททั้งหมด");
+//        System.out.println("Click to " + currentType);
+//        bookHeadLabel.setText("หนังสือทั้งหมด");
+//        books.sort();
+//        changeBookType("ประเภททั้งหมด");
+        try {
+            com.github.saacsos.FXRouter.goTo("pageBookType", accountList);
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า pageBookType ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+
     }
 
     @FXML

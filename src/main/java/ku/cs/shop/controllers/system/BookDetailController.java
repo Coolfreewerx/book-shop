@@ -3,10 +3,7 @@ package ku.cs.shop.controllers.system;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -37,7 +34,9 @@ public class BookDetailController
     @FXML private ImageView bookImg;
     @FXML private MenuButton bookTypeMenuItem;
     @FXML private Hyperlink bookDetailByShop;
-
+    @FXML private Button status;
+    @FXML private Label usernameInHead;
+    @FXML private ImageView img;
 
     private AccountList accountList;
     private Account account;
@@ -52,7 +51,10 @@ public class BookDetailController
         objectForPassing = (ArrayList<Object>) com.github.saacsos.FXRouter.getData();
         castObjectToData();
         showData();
+        pagesHeader();
     }
+
+
 
     public void castObjectToData() {
         book = (Book) objectForPassing.get(3);
@@ -88,6 +90,16 @@ public class BookDetailController
         return objectForPassing;
     }
 
+    public void pagesHeader() { // กำหนดข้อมูลตรงส่วน head page
+        usernameInHead.setText(account.getUserName());
+        img.setImage(new Image(account.getImagePath()));
+        if(account.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")){
+            status.setText("User");
+        }else{
+            status.setText("Seller");
+        }
+    }
+
 
 
     public void handleToInformationButton(ActionEvent actionEvent) {
@@ -115,6 +127,16 @@ public class BookDetailController
             com.github.saacsos.FXRouter.goTo("pageBookShop", castDataToObject());
         } catch (IOException e) {
             System.err.println("ไปที่หน้า pageBookShop ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
+    public void handleAllTypeBookButton(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("pageBookType", accountList);
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า pageBookType ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }

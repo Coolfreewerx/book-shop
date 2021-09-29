@@ -5,8 +5,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import ku.cs.shop.models.*;
 import ku.cs.shop.services.BookDetailDataSource;
@@ -17,6 +20,9 @@ import java.util.ResourceBundle;
 
 public class HomeController implements Initializable {
 
+    @FXML private Button status;
+    @FXML private Label usernameInHead;
+    @FXML private ImageView img;
     @FXML private FlowPane bookListFlowPane;
 
     private BookDetailDataSource data = new BookDetailDataSource("csv-data/bookDetail.csv");
@@ -49,6 +55,16 @@ public class HomeController implements Initializable {
             }
         } catch (IOException e) {
             e.printStackTrace();
+        }pagesHeader();
+    }
+
+    public void pagesHeader() { // กำหนดข้อมูลตรงส่วน head page
+        usernameInHead.setText(account.getUserName());
+        img.setImage(new Image(account.getImagePath()));
+        if(account.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")){
+            status.setText("User");
+        }else{
+            status.setText("Seller");
         }
     }
 
