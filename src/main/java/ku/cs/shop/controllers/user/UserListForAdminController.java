@@ -10,6 +10,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import ku.cs.shop.models.Account;
 import ku.cs.shop.models.AccountList;
 import ku.cs.shop.models.UserAccount;
@@ -22,7 +23,6 @@ import java.util.ArrayList;
 
 public class UserListForAdminController {
 
-    @FXML private GridPane gridPaneInHead ;
     @FXML private ImageView accountImage ;
     @FXML private Label userNameLabel ;
     @FXML private Label firstNameLabel ;
@@ -46,7 +46,6 @@ public class UserListForAdminController {
     public void initialize(){
         accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
         account = accountList.getCurrentAccount() ;
-        showHead();
         showUserAccountListView();
         clearSelectedUserAccount();
         handleSelectedUserAccountListView();
@@ -83,6 +82,11 @@ public class UserListForAdminController {
         addressLabel.setText(userAccount.getAddress().replace("null", "ยังไม่ได้เพิ่มข้อมูลที่อยู่"));
         loginTimeLabel.setText(userAccount.getLoginTime().toString());
         accountStatusLabel.setText(userAccount.getStatus());
+        if (userAccount.getStatus().equals("banned")) {
+            accountStatusLabel.setTextFill(Color.rgb(210, 39, 30));
+            return ;
+        }
+        accountStatusLabel.setTextFill(Color.rgb(21, 117, 84));
     }
 
     private void clearSelectedUserAccount() {
@@ -106,29 +110,25 @@ public class UserListForAdminController {
     }
 
     @FXML
-    public void showHead(){ //แสดงหัวเพจ
-        try{
-            FXMLLoader fxmlLoaderHead = new FXMLLoader();
-            fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/headPage.fxml"));
-            gridPaneInHead.add(fxmlLoaderHead.load(), 0,0);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
     public void handleBanButton(ActionEvent actionEvent) {
-
+        selectedAccount.setStatus("banned");
+        accountStatusLabel.setText("banned");
+        accountStatusLabel.setTextFill(Color.rgb(210, 39, 30));
     }
 
     @FXML
     public void handleUnbanButton(ActionEvent actionEvent) {
-
+        selectedAccount.setStatus("working");
+        accountStatusLabel.setText("working");
+        accountStatusLabel.setTextFill(Color.rgb(21, 117, 84));
     }
 
     @FXML
     public void handleToInformationButton(ActionEvent actionEvent) {
         try {
+            accountList.addNewAccounts();
+            AccountDataSource accountDataSource = new AccountDataSource("csv-data/accountData.csv") ;
+            accountDataSource.writeData(accountList);
             com.github.saacsos.FXRouter.goTo("accountDetail", accountList);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า detailUser ไม่ได้");

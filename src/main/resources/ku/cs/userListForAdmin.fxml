@@ -1,27 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.user.UserListForAdminController">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.user.UserListForAdminController">
     <children>
         <BorderPane layoutX="-1.0" layoutY="1.0" prefHeight="768.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
-                <HBox fx:id="head" prefHeight="69.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
-                    <children>
-                        <GridPane fx:id="gridPaneInHead" prefHeight="69.0" prefWidth="1024.0">
-                            <columnConstraints>
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            </columnConstraints>
-                            <rowConstraints>
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            </rowConstraints>
-                        </GridPane>
-                    </children></HBox>
+            <HBox fx:id="head1" prefHeight="69.0" prefWidth="1024.0" styleClass="backgroundColorInHeadPages" stylesheets="@style/style.css">
+               <children>
+                  <ImageView fitHeight="68.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/logoverLightBrown.png" />
+                     </image>
+                  </ImageView>
+                  <Pane minWidth="630.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;" />
+                  <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="140.0" style="-fx-background-color: #c9ad88; -fx-background-radius: 20;" text="จัดการผู้ใช้" textFill="WHITE">
+                     <font>
+                        <Font name="JasmineUPC" size="25.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="13.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Pane maxWidth="20.0" minWidth="20.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
+                  <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="140.0" style="-fx-background-color: #c9ad88; -fx-background-radius: 20;" text="จัดการร้านค้า" textFill="WHITE">
+                     <font>
+                        <Font name="JasmineUPC" size="25.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="13.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
             </top>
          <center>
             <AnchorPane maxWidth="1024.0" prefHeight="698.4" prefWidth="1024.0" styleClass="backgroundColorLightBrownButton">
@@ -110,11 +135,11 @@
                                  </HBox.margin></Text>
                               <Label fx:id="accountStatusLabel" maxWidth="64.0" minWidth="64.0" styleClass="font_rsu_12pt" text="Working" textFill="WHITE" />
                               <Pane maxWidth="25.0" minWidth="25.0" style="-fx-background-color: transparent;" />
-                              <Button mnemonicParsing="false" style="-fx-background-color: fff;" onAction="#handleUnbanButton" text="ปลดบล็อก" textFill="#349400" />
+                              <Button mnemonicParsing="false" onAction="#handleUnbanButton" style="-fx-background-color: fff;" text="ปลดบล็อก" textFill="#349400" />
                               <Pane maxWidth="25.0" minWidth="25.0" style="-fx-background-color: transparent;" />
-                              <Button mnemonicParsing="false" style="-fx-background-color: ffff;" onAction="#handleBanButton" text="บล็อกการใช้งาน" textFill="#a90000" />
+                              <Button mnemonicParsing="false" onAction="#handleBanButton" style="-fx-background-color: ffff;" text="บล็อกการใช้งาน" textFill="#a90000" />
                               <Pane maxWidth="25.0" minWidth="25.0" style="-fx-background-color: transparent;" />
-                              <Button maxWidth="80.0" minWidth="80.0" mnemonicParsing="false" style="-fx-background-color: black;" onAction="#handleToInformationButton" text="กลับหน้าบัญชี" textFill="#f99f28" />
+                              <Button maxWidth="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#handleToInformationButton" style="-fx-background-color: black;" text="กลับหน้าบัญชี" textFill="#f99f28" />
                               <Pane maxWidth="25.0" minWidth="25.0" style="-fx-background-color: transparent;" />
                            </children>
                         </HBox>
