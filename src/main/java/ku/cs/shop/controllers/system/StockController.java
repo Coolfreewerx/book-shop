@@ -40,6 +40,7 @@ public class StockController  {
     private ArrayList<Account> accountsList = new ArrayList<>();
     private AccountList accountList ;
     private Account account ;
+    private ArrayList<Object> objectForPassing = new ArrayList<>();
 
     public void initialize(){
         accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
@@ -79,23 +80,21 @@ public class StockController  {
         changeData();
     }
 
-
-//    public ArrayList<Object> castDataToObject() {
-//        ArrayList<Object> objectForPassing;
-//        objectForPassing.clear();
-//        objectForPassing.add(book);
-//        objectForPassing.add(account);
-//        objectForPassing.add(accountList);
-//
-//        return objectForPassing;
-//    }
+    public ArrayList<Object> castDataToObject() {
+        objectForPassing.clear();
+        objectForPassing.add(book);
+        objectForPassing.add(account);
+        objectForPassing.add(accountList);
+        return objectForPassing;
+    }
 
 
     @FXML
     public void handleEditBookButton(){
         try {
-            com.github.saacsos.FXRouter.goTo("editStock",book);
+            com.github.saacsos.FXRouter.goTo("editStock",castDataToObject());
         } catch (IOException e) {
+            e.printStackTrace();
             System.err.println("ไปที่หน้า editStock ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }

@@ -23,6 +23,7 @@ import java.util.ResourceBundle;
 public class EditBookController {
     private Seller seller = new Seller();
     private Book book;
+    private Book bookList;
     private String startedBookname;
     public void setData(Book book) { this.book = book; }
 
@@ -60,12 +61,12 @@ public class EditBookController {
     private ArrayList<Account> accountsList = new ArrayList<>();
     private AccountList accountList ;
     private Account account ;
+    private ArrayList<Object> objectForPassing = new ArrayList<>();
 
     @FXML public void initialize(){
-        accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
-        account = accountList.getCurrentAccount() ;
+        objectForPassing = (ArrayList<Object>) com.github.saacsos.FXRouter.getData();
+        castObjectToData();
 
-        book = (Book) com.github.saacsos.FXRouter.getData();
         startedBookname = book.getBookName();
         bookNameTopicLabel.setText(book.getBookName());
         bookNameTextField.setText(book.getBookName());
@@ -80,6 +81,11 @@ public class EditBookController {
         menuButton.setText(book.getBookType());
         imageView.setImage(new Image(book.getPicturePath()));
         showHead();
+    }
+    public void castObjectToData() {
+        book = (Book) objectForPassing.get(0);
+        account = (Account) objectForPassing.get(1);
+        accountList = (AccountList) objectForPassing.get(2);
     }
 
     @FXML
