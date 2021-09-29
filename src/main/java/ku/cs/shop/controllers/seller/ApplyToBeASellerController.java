@@ -16,6 +16,7 @@ import ku.cs.shop.services.DataSource;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class ApplyToBeASellerController { //สมัครเป็นผู้ขายสินค้า
     private String shopName;
@@ -32,30 +33,32 @@ public class ApplyToBeASellerController { //สมัครเป็นผู้
     @FXML private GridPane gridpane;
     @FXML private GridPane gridPaneInHead;
 
-    private Account account = new UserAccount ("Freshmin", "Na", "justmeka", "13082000",
-            "15", "11", "2001", "default.png", "0823341025", "Women",
-            "null", "ยังไม่สมัครเป็นผู้ขาย", "working", LocalDateTime.now());
+//    private Account account = new UserAccount ("Freshmin", "Na", "justmeka", "13082000",
+//            "15", "11", "2001", "default.png", "0823341025", "Women",
+//            "null", "ยังไม่สมัครเป็นผู้ขาย", "working", LocalDateTime.now());
 //    (String firstName, String lastName, String userName, String password,
 //    String birthDay, String birthMonth, String birthYear,
 //    String imageName, String phone, String sex, String address, String shopName,
 //    String status, LocalDateTime loginTime )
 
+    private ArrayList<Account> accountsList = new ArrayList<>();
     private AccountList accountList ;
-//    private Account account ;
-//
+    private Account account ;
+
     public void initialize(){
         accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
         account = accountList.getCurrentAccount() ;
         showHead();
+        showHeadInApplyToBeASeller();
     }
 
     @FXML
     public void handleKeyCheckShopName(){
-//        if(accountList.checkShopNameHaveUsed(nameShopTextField.getText())) {
-//            notificationShopName.setText("**ใช้แล้วอีควาย**") ;
-//        } else {
-//            notificationShopName.setText("**ใช้ได้จ้า**") ;
-//        }
+        System.out.println(nameShopTextField.getText());
+        if(accountList.checkShopNameHaveUsed(nameShopTextField.getText())) {
+            notificationShopName.setText("** ชื่อร้านค้านี้ถูกใช้ไปแล้ว กรุณากรอกใหม่อีกครั้ง **") ;
+            shopName = "";
+        } else { shopName = nameShopTextField.getText(); }
     }
     @FXML
     public void handleKeyPassword() {
@@ -68,30 +71,26 @@ public class ApplyToBeASellerController { //สมัครเป็นผู้
 
     @FXML
     public void handleAddSellerStockButton(){
-        shopName = nameShopTextField.getText();
         password = passwordTextField1.getText();
         passwordRecheck = passwordTextField1.getText();
         account.setShopName(shopName);
 
-//        DataSource<BookList> dataSource;
-//        dataSource = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
-//        BookList bookList = dataSource.readData();
-//        bookList.addBook(book);
-//        dataSource.writeData(bookList);
+        if(shopName != "") {
+            DataSource<AccountList> dataSource;
+            dataSource = new AccountDataSource("csv-data/accountData.csv");
+            AccountList accountListForWriteData = dataSource.readData();
+            accountListForWriteData.editInformationByName(account.getUserName(), account);
+            System.out.println(account.getUserName());
+            System.out.println(account.getShopName());
+            dataSource.writeData(accountListForWriteData);
 
-        DataSource<AccountList> dataSource;
-        dataSource = new AccountDataSource("csv-data/accountData.csv");
-        AccountList accountList = dataSource.readData();
-        accountList.addAccount(account);
-        dataSource.writeData(accountList);
-
-        try {
-            com.github.saacsos.FXRouter.goTo("seller");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า seller ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
+            try {
+                com.github.saacsos.FXRouter.goTo("sellerStock",accountList);
+            } catch (IOException e) {
+                System.err.println("ไปที่หน้า sellerStock ไม่ได้");
+                System.err.println("ให้ตรวจสอบการกำหนด route");
+            }
         }
-
     }
 
     @FXML
@@ -109,10 +108,59 @@ public class ApplyToBeASellerController { //สมัครเป็นผู้
         try{
             FXMLLoader fxmlLoaderHead = new FXMLLoader();
             fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/headPage.fxml"));
-            gridpane.add(fxmlLoaderHead.load(), 0,0);
             gridPaneInHead.add(fxmlLoaderHead.load(), 0,0);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void showHeadInApplyToBeASeller(){ //แสดงหัวเพจ
+        try{
+            FXMLLoader fxmlLoaderHead = new FXMLLoader();
+            fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/headPage.fxml"));
+            gridpane.add(fxmlLoaderHead.load(), 0,0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void handleToAccountDetailButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า home
+        try {
+            com.github.saacsos.FXRouter.goTo("accountDetail" ,accountList);
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า accountDetail ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
+    public void handleToSellerButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า home
+        if (account.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")) {
+            try {
+                com.github.saacsos.FXRouter.goTo("sellerHaventApply",accountList);
+            } catch (IOException e) {
+                System.err.println("ไปที่หน้า sellerHaventApply ไม่ได้");
+                System.err.println("ให้ตรวจสอบการกำหนด route");
+            }
+        }
+        else{
+            try {
+                com.github.saacsos.FXRouter.goTo("sellerStock",accountList);
+            } catch (IOException e) {
+                System.err.println("ไปที่หน้า sellerHaventApply ไม่ได้");
+                System.err.println("ให้ตรวจสอบการกำหนด route");
+            }
+        }
+    }
+
+    public void handleApplyToBeSellerButton(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("applyToBeASeller" ,accountList);
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า applyToBeASeller ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
 }

@@ -8,9 +8,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
-import ku.cs.shop.models.Book;
-import ku.cs.shop.models.BookList;
-import ku.cs.shop.models.Seller;
+import ku.cs.shop.models.*;
 import ku.cs.shop.services.BookDetailDataSource;
 import ku.cs.shop.services.DataSource;
 
@@ -19,6 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class EditBookController {
@@ -58,7 +57,14 @@ public class EditBookController {
     private File selectedImage;
     private String imageName;
 
+    private ArrayList<Account> accountsList = new ArrayList<>();
+    private AccountList accountList ;
+    private Account account ;
+
     @FXML public void initialize(){
+        accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
+        account = accountList.getCurrentAccount() ;
+
         book = (Book) com.github.saacsos.FXRouter.getData();
         startedBookname = book.getBookName();
         bookNameTopicLabel.setText(book.getBookName());
@@ -72,7 +78,6 @@ public class EditBookController {
         leastStockTextField.setText(String.valueOf(book.getLeastStock()));
         bookPriceTextField.setText(String.valueOf(book.getBookPrice()));
         menuButton.setText(book.getBookType());
-//        System.out.println(book.getBookImg());
         imageView.setImage(new Image(book.getPicturePath()));
         showHead();
     }
@@ -166,18 +171,9 @@ public class EditBookController {
         book.setBookAuthor(bookAuthorTextField.getText());
         book.setBookDetail(bookDetailTextArea.getText());
         book.setBookPublisher(bookPublisherTextField.getText());
-        book.setBookShop("nanazenislovingShop");
-
-        book.setBookISBN(bookISBNTextField.getText());
-        book.setBookPage(bookPageTextField.getText());
-        book.setBookStock(Integer.parseInt(bookStockTextField.getText()));
-        book.setLeastStock(Integer.parseInt(leastStockTextField.getText()));
-        book.setBookPrice(Double.parseDouble(bookPriceTextField.getText()));
-
+        book.setBookShop(account.getShopName());
 
         if (seller.getDataCheck(book)) {
-            NotificationCantAdd.setText("Can Add merchandise");
-            System.out.println("Can Edit merchadise");
             book.setBookImg(imageName);
 
             DataSource<BookList> dataSource;
@@ -195,7 +191,7 @@ public class EditBookController {
             }
         }
         else{
-            NotificationCantAdd.setText("Can not Add merchandise");
+            NotificationCantAdd.setText("ไม่สามารถเพิ่มสินค้าได้ กรุณาตรวจสอบข้อมูลใหม่อีกครั้งค่ะ");
         }
 
     }
@@ -210,7 +206,7 @@ public class EditBookController {
     }
 
     @FXML
-    public void handleToHomeButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า home
+    public void handleToHomeButton(ActionEvent actionEvent) {
         try {
             com.github.saacsos.FXRouter.goTo("home");
         } catch (IOException e) {
@@ -230,6 +226,36 @@ public class EditBookController {
             gridPaneInHead.add(fxmlLoaderHead.load(), 0,0);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void handleToAccountDetailButton(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("accountDetail");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า accountDetail ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
+    public void handleToSellerButton(ActionEvent actionEvent) {
+        if (account.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")) {
+            try {
+                com.github.saacsos.FXRouter.goTo("sellerHaventApply",accountList);
+            } catch (IOException e) {
+                System.err.println("ไปที่หน้า sellerHaventApply ไม่ได้");
+                System.err.println("ให้ตรวจสอบการกำหนด route");
+            }
+        }
+        else{
+            try {
+                com.github.saacsos.FXRouter.goTo("sellerStock",accountList);
+            } catch (IOException e) {
+                System.err.println("ไปที่หน้า sellerHaventApply ไม่ได้");
+                System.err.println("ให้ตรวจสอบการกำหนด route");
+            }
         }
     }
 }

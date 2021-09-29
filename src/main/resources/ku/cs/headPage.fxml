@@ -18,14 +18,15 @@
    <children>
       <HBox fx:id="hBoxHeadPage" layoutX="20.0" layoutY="20.0" prefHeight="68.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fitHeight="59.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@image/logoverLightBrown.png" />
-               </image>
-               <HBox.margin>
-                  <Insets top="5.0" />
-               </HBox.margin>
-            </ImageView>
+            <Button mnemonicParsing="false" onAction="#handleToAllBookPageButton" styleClass="backgroundColorInHeadPages" stylesheets="@style/style.css">
+               <graphic>
+                  <ImageView fitHeight="59.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/logoverLightBrown.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
             <MenuButton fx:id="bookTypeMenuItem" mnemonicParsing="false" onAction="#handlePageBookTypeButton" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: #c9ad88; -fx-background-radius: 20;" text="ประเภท" textFill="WHITE">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#handleSubTypeBookButton" text="ดูรายละเอียด" />

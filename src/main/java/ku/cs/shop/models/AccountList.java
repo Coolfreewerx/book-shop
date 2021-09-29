@@ -1,17 +1,35 @@
 package ku.cs.shop.models;
 
+import ku.cs.shop.services.AccountSortByTimeComparator;
+import ku.cs.shop.services.BookSortByTimeComparator;
+
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class AccountList {
 
     private ArrayList<Account> accounts ;
+    private ArrayList<AdminAccount> adminAccounts ;
+    private ArrayList<UserAccount> userAccounts ;
     private Account currentAccount ;
 
-    public AccountList() { accounts = new ArrayList<>(); }
+    public AccountList() {
+        accounts = new ArrayList<>();
+        adminAccounts = new ArrayList<>();
+        userAccounts = new ArrayList<>();
+    }
 
     public Account getCurrentAccount() {
         return currentAccount ;
     } //เก็บ username ที่ login เข้ามา
+
+    public ArrayList<UserAccount> getUserAccounts() {
+        spitUserAccountAndAdminAccount() ;
+        AccountSortByTimeComparator comparator = new AccountSortByTimeComparator() ;
+        this.userAccounts.sort(comparator);
+        return userAccounts ;
+    }
 
     public void addAccount(Account account) {
         accounts.add(account) ;
@@ -29,7 +47,7 @@ public class AccountList {
 
     public void editInformationByName(String username ,Account newInformation){
         int index = 0;
-        for (Account account: accounts){
+        for (Account account: this.accounts){
             if(account.getUserName().equals(username)){
                 this.accounts.set(index, newInformation);
                 break;
@@ -67,6 +85,31 @@ public class AccountList {
             }
         }
         return null ;
+    }
+
+    //แยกลิส แอดมิน กับ ผู้ใช้
+    public void spitUserAccountAndAdminAccount() {
+        for (Account account : this.accounts) {
+            if (account instanceof AdminAccount) {
+                adminAccounts.add((AdminAccount) account) ;
+            }
+            if ( account instanceof UserAccount) {
+                userAccounts.add((UserAccount) account) ;
+            }
+        }
+    }
+
+    public void sort(Comparator<UserAccount> accountComparator) {Collections.sort(this.userAccounts, accountComparator) ;
+}
+
+    public void  addNewAccounts() {
+        accounts.clear();
+        for (AdminAccount adminAccount : this.adminAccounts) {
+            accounts.add((Account) adminAccount) ;
+        }
+        for (UserAccount userAccount : this.userAccounts) {
+            accounts.add((Account) userAccount ) ;
+        }
     }
 
     public String toCsv() {
