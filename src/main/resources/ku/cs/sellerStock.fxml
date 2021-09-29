@@ -32,9 +32,7 @@
                </children></HBox>
          </top>
          <left>
-
-<!--            <HBox prefHeight="694.0" prefWidth="326.0" style="-fx-background-color: #F5DEB3;" BorderPane.alignment="CENTER">-->
-            <HBox prefHeight="694.0" prefWidth="326.0" style="-fx-background-color: FFFCF1;" BorderPane.alignment="CENTER">
+            <HBox prefHeight="694.0" prefWidth="326.0" style="-fx-background-color: #F5DEB3;">
                <children>
                   <GridPane prefHeight="676.0" prefWidth="360.0">
                      <columnConstraints>
@@ -48,15 +46,15 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="userImageView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@image/Icon01.png" />
+                              <Image url="@image/Default.png" />
                            </image>
                            <GridPane.margin>
-                              <Insets left="90.0" top="40.0" />
+                              <Insets left="98.0" />
                            </GridPane.margin>
                         </ImageView>
-                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" text="ข้อมูลส่วนตัว" textFill="WHITE" GridPane.rowIndex="1">
+                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" text="ข้อมูลส่วนตัว" textFill="WHITE" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="70.0" top="10.0" />
                            </GridPane.margin>
@@ -64,8 +62,7 @@
                               <Font name="JasmineUPC" size="32.0" />
                            </font>
                         </Button>
-<!--                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" text="สินค้าในตะกร้า" textFill="WHITE" GridPane.rowIndex="2">-->
-                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: BC986A; -fx-background-radius: 10;" text="สินค้าในตะกร้า" textFill="WHITE" GridPane.rowIndex="2">
+                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" text="สินค้าในตะกร้า" textFill="WHITE" GridPane.rowIndex="2">
                            <font>
                               <Font name="JasmineUPC" size="32.0" />
                            </font>
@@ -73,8 +70,7 @@
                               <Insets left="70.0" top="10.0" />
                            </GridPane.margin>
                         </Button>
-<!--                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" text="ข้อมูลการขาย" textFill="WHITE" GridPane.rowIndex="3">-->
-                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: BC986A; -fx-background-radius: 10;" text="ข้อมูลการขาย" textFill="WHITE" GridPane.rowIndex="3">
+                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" text="ข้อมูลการขาย" textFill="WHITE" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets left="70.0" top="10.0" />
                            </GridPane.margin>
@@ -82,8 +78,7 @@
                               <Font name="JasmineUPC" size="32.0" />
                            </font>
                         </Button>
-<!--                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" text="ประวัติการซื้อ" textFill="WHITE" GridPane.rowIndex="4">-->
-                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: BC986A; -fx-background-radius: 10;" text="ประวัติการซื้อ" textFill="WHITE" GridPane.rowIndex="4">
+                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" text="ประวัติการซื้อ" textFill="WHITE" GridPane.rowIndex="4">
                            <font>
                               <Font name="JasmineUPC" size="32.0" />
                            </font>
