@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import ku.cs.shop.models.Account;
@@ -37,6 +38,7 @@ public class UserListForAdminController {
     @FXML private Label loginTimeLabel ;
     @FXML private Label accountStatusLabel ;
     @FXML private ListView<UserAccount> userAccountListView ;
+    @FXML private ImageView logoJavaPai;
     //@FXML private ListView reportUserListView ;
 
     private AccountList accountList ;
@@ -132,6 +134,16 @@ public class UserListForAdminController {
             com.github.saacsos.FXRouter.goTo("accountDetail", accountList);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า detailUser ไม่ได้");
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void mouseClickedInLogo(MouseEvent event){
+        try{
+            logoJavaPai.getOnMouseClicked();
+            com.github.saacsos.FXRouter.goTo("home" ,accountList);
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

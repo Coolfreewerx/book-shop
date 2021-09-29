@@ -16,7 +16,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane onMouseClicked="#handleToBookSortFromShop" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.BookDetailController">
+<AnchorPane onMouseClicked="#handleToBookSortFromShop" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.BookDetailController">
    <children>
       <Label layoutX="18.0" layoutY="91.0" text="ประเภทหนังสือ |" textFill="#a05e07">
          <font>
@@ -153,7 +153,7 @@
          <children>
             <HBox fx:id="head11" prefHeight="69.0" prefWidth="1024.0" styleClass="backgroundColorInHeadPages" stylesheets="@style/style.css">
                <children>
-                  <ImageView fitHeight="68.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="logoJavaPai" fitHeight="68.0" fitWidth="69.0" onMouseClicked="#mouseClickedInLogo" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@image/logoverLightBrown.png" />
                      </image>

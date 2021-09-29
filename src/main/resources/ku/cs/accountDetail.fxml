@@ -208,7 +208,7 @@
          <top>
             <HBox fx:id="head1" prefHeight="69.0" prefWidth="1024.0" styleClass="backgroundColorInHeadPages" stylesheets="@style/style.css">
                <children>
-                  <ImageView fitHeight="68.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="logoJavaPai" fitHeight="68.0" fitWidth="69.0" onMouseClicked="#mouseClickedInLogo" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@image/logoverLightBrown.png" />
                      </image>
@@ -222,7 +222,7 @@
                      </HBox.margin>
                   </Button>
                   <Pane maxWidth="136.0" minWidth="136.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
-                  <Button fx:id="status1" mnemonicParsing="false" prefHeight="20.0" prefWidth="91.0" style="-fx-background-radius: 20;" text="Status" textFill="WHITE">
+                  <Button fx:id="status" mnemonicParsing="false" prefHeight="20.0" prefWidth="91.0" style="-fx-background-radius: 20;" text="Status" textFill="WHITE">
                      <font>
                         <Font name="JasmineUPC" size="25.0" />
                      </font>
@@ -249,9 +249,9 @@
                         <Insets />
                      </opaqueInsets>
                      <graphic>
-                        <Label fx:id="usernameInHead1" alignment="CENTER" prefHeight="31.0" prefWidth="167.0" styleClass="font_rsu_12pt" stylesheets="@style/style.css" text="Username" textFill="WHITE">
+                        <Label fx:id="usernameInHead" alignment="CENTER" prefHeight="31.0" prefWidth="167.0" styleClass="font_rsu_12pt" stylesheets="@style/style.css" text="Username" textFill="WHITE">
                            <graphic>
-                              <ImageView fx:id="img1" fitHeight="30.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" styleClass="radius">
+                              <ImageView fx:id="img" fitHeight="30.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" styleClass="radius">
                                  <viewport>
                                     <Rectangle2D />
                                  </viewport>

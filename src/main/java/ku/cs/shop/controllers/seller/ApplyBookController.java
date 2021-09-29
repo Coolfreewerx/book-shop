@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 import ku.cs.shop.models.*;
@@ -48,6 +49,10 @@ public class ApplyBookController {
     @FXML private Label NotificationCantAdd;
     @FXML private ImageView imageView;
     @FXML private MenuButton menuButton;
+    @FXML private Button status;
+    @FXML private Label usernameInHead;
+    @FXML private ImageView img;
+    @FXML private ImageView logoJavaPai;
 
     private File selectedImage;
     private String imageName;
@@ -59,6 +64,7 @@ public class ApplyBookController {
     public void initialize(){
         accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
         account = accountList.getCurrentAccount() ;
+        pagesHeader();
     }
 
     @FXML public void handleKeyBookISBN(){
@@ -144,6 +150,7 @@ public class ApplyBookController {
             try {
                 com.github.saacsos.FXRouter.goTo("sellerStock",accountList);
             } catch (IOException e) {
+                e.printStackTrace();
                 System.err.println("ไปที่หน้า sellerStock ไม่ได้");
                 System.err.println("ให้ตรวจสอบการกำหนด route");
             }
@@ -156,6 +163,7 @@ public class ApplyBookController {
         try {
             com.github.saacsos.FXRouter.goTo("sellerStock",accountList);
         } catch (IOException e) {
+            e.printStackTrace();
             System.err.println("ไปที่หน้า sellerStock ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
@@ -166,6 +174,7 @@ public class ApplyBookController {
         try {
             com.github.saacsos.FXRouter.goTo("home", accountList);
         } catch (IOException e) {
+            e.printStackTrace();
             System.err.println("ไปที่หน้าเพจหลักไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
@@ -176,6 +185,7 @@ public class ApplyBookController {
         try {
             com.github.saacsos.FXRouter.goTo("accountDetail" ,accountList);
         } catch (IOException e) {
+            e.printStackTrace();
             System.err.println("ไปที่หน้า accountDetail ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
@@ -187,6 +197,7 @@ public class ApplyBookController {
             try {
                 com.github.saacsos.FXRouter.goTo("sellerHaventApply",accountList);
             } catch (IOException e) {
+                e.printStackTrace();
                 System.err.println("ไปที่หน้า sellerHaventApply ไม่ได้");
                 System.err.println("ให้ตรวจสอบการกำหนด route");
             }
@@ -195,6 +206,7 @@ public class ApplyBookController {
             try {
                 com.github.saacsos.FXRouter.goTo("sellerStock",accountList);
             } catch (IOException e) {
+                e.printStackTrace();
                 System.err.println("ไปที่หน้า sellerHaventApply ไม่ได้");
                 System.err.println("ให้ตรวจสอบการกำหนด route");
             }
@@ -209,4 +221,27 @@ public class ApplyBookController {
             e.printStackTrace();
         }
     }
+
+    public void pagesHeader() { // กำหนดและแสดงข้อมูลตรงส่วน head page
+        usernameInHead.setText(account.getUserName());
+        img.setImage(new Image(account.getImagePath()));
+        if(account instanceof AdminAccount){
+            status.setText("Admin");
+        }else if(account.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")){
+            status.setText("User");
+        }else {
+            status.setText("Seller");
+        }
+    }
+
+    @FXML
+    public void mouseClickedInLogo(MouseEvent event){ // คลิกที่ logo แล้วจะไปหน้า home
+        try{
+            logoJavaPai.getOnMouseClicked();
+            com.github.saacsos.FXRouter.goTo("home" ,accountList);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

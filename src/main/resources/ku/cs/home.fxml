@@ -19,13 +19,13 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.HomeController">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.HomeController">
     <children>
         <BorderPane layoutX="-1.0" layoutY="1.0" prefHeight="768.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
             <HBox fx:id="head1" prefHeight="69.0" prefWidth="1024.0" styleClass="backgroundColorInHeadPages" stylesheets="@style/style.css">
                <children>
-                  <ImageView fitHeight="68.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="logoJavaPai" fitHeight="68.0" fitWidth="69.0" onMouseClicked="#mouseClickedInLogo" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@image/logoverLightBrown.png" />
                      </image>
@@ -58,7 +58,7 @@
                         <Insets left="250.0" right="25.0" top="16.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#handleToInformationButton" prefHeight="46.0" prefWidth="202.0" style="-fx-background-radius: 30;" stylesheets="@style/PrimaryTheme.css" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#handleToAccountDetailButton" prefHeight="46.0" prefWidth="202.0" style="-fx-background-radius: 30;" stylesheets="@style/PrimaryTheme.css" textFill="WHITE">
                      <font>
                         <Font name="JasmineUPC" size="25.0" />
                      </font>

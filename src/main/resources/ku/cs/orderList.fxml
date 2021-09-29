@@ -26,7 +26,7 @@
             <top>
             <HBox fx:id="head1" prefHeight="69.0" prefWidth="1024.0" styleClass="backgroundColorInHeadPages" stylesheets="@style/style.css">
                <children>
-                  <ImageView fitHeight="68.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="logoJavaPai" fitHeight="68.0" fitWidth="69.0" onMouseClicked="#mouseClickedInLogo" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@image/logoverLightBrown.png" />
                      </image>

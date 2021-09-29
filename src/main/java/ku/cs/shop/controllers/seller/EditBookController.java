@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 import ku.cs.shop.models.*;
@@ -52,6 +53,10 @@ public class EditBookController {
     @FXML private ImageView imageView;
     @FXML private MenuButton menuButton;
     @FXML private Label bookNameTopicLabel;
+    @FXML private Button status;
+    @FXML private Label usernameInHead;
+    @FXML private ImageView img;
+    @FXML private ImageView logoJavaPai;
 
     private File selectedImage;
     private String imageName;
@@ -78,6 +83,7 @@ public class EditBookController {
         bookPriceTextField.setText(String.valueOf(book.getBookPrice()));
         menuButton.setText(book.getBookType());
         imageView.setImage(new Image(book.getPicturePath()));
+        pagesHeader();
     }
     public void castObjectToData() {
         book = (Book) objectForPassing.get(0);
@@ -189,6 +195,7 @@ public class EditBookController {
             try {
                 com.github.saacsos.FXRouter.goTo("sellerStock");
             } catch (IOException e) {
+                e.printStackTrace();
                 System.err.println("ไปที่หน้า sellerStock ไม่ได้");
                 System.err.println("ให้ตรวจสอบการกำหนด route");
             }
@@ -203,17 +210,8 @@ public class EditBookController {
         try {
             com.github.saacsos.FXRouter.goTo("sellerStock", accountList);
         } catch (IOException e) {
+            e.printStackTrace();
             System.err.println("ไปที่หน้า sellerStock ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
-    }
-
-    @FXML
-    public void handleToHomeButton(ActionEvent actionEvent) {
-        try {
-            com.github.saacsos.FXRouter.goTo("home", accountList);
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้าเพจหลักไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
@@ -223,6 +221,7 @@ public class EditBookController {
         try {
             com.github.saacsos.FXRouter.goTo("accountDetail", accountList);
         } catch (IOException e) {
+            e.printStackTrace();
             System.err.println("ไปที่หน้า accountDetail ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
@@ -254,6 +253,28 @@ public class EditBookController {
             com.github.saacsos.FXRouter.goTo("pageBookType", accountList);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void mouseClickedInLogo(MouseEvent event){ // คลิกที่ logo แล้วจะไปหน้า home
+        try{
+            logoJavaPai.getOnMouseClicked();
+            com.github.saacsos.FXRouter.goTo("home" ,accountList);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void pagesHeader() { // กำหนดและแสดงข้อมูลตรงส่วน head page
+        usernameInHead.setText(account.getUserName());
+        img.setImage(new Image(account.getImagePath()));
+        if(account instanceof AdminAccount){
+            status.setText("Admin");
+        }else if(account.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")){
+            status.setText("User");
+        }else {
+            status.setText("Seller");
         }
     }
 

@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
@@ -29,7 +30,10 @@ public class AccountDetailController {
     @FXML private ImageView userImageView ;
     @FXML private Label addressLabel ;
     @FXML private Button forAdminButton ;
-
+    @FXML private Button status;
+    @FXML private Label usernameInHead;
+    @FXML private ImageView img;
+    @FXML private ImageView logoJavaPai;
 
     private AccountList accountList;
     private Account account;
@@ -38,6 +42,7 @@ public class AccountDetailController {
         accountList = (AccountList) com.github.saacsos.FXRouter.getData();
         account = accountList.getCurrentAccount();
         showData();
+        pagesHeader();
         if (account instanceof AdminAccount) {
             forAdminButton.setStyle("-fx-background-color: #F99F28; ");
         }
@@ -70,6 +75,7 @@ public class AccountDetailController {
         try {
             com.github.saacsos.FXRouter.goTo("editInformation", accountList);
         } catch (IOException e) {
+            e.printStackTrace();
             System.err.println("ไปที่หน้า editInformation ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
@@ -80,6 +86,7 @@ public class AccountDetailController {
         try {
             com.github.saacsos.FXRouter.goTo("accountDetail" ,accountList);
         } catch (IOException e) {
+            e.printStackTrace();
             System.err.println("ไปที่หน้า accountDetail ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
@@ -91,6 +98,7 @@ public class AccountDetailController {
             try {
                 com.github.saacsos.FXRouter.goTo("sellerHaventApply",accountList);
             } catch (IOException e) {
+                e.printStackTrace();
                 System.err.println("ไปที่หน้า sellerHaventApply ไม่ได้");
                 System.err.println("ให้ตรวจสอบการกำหนด route");
             }
@@ -99,6 +107,7 @@ public class AccountDetailController {
             try {
                 com.github.saacsos.FXRouter.goTo("sellerStock",accountList);
             } catch (IOException e) {
+                e.printStackTrace();
                 System.err.println("ไปที่หน้า sellerHaventApply ไม่ได้");
                 System.err.println("ให้ตรวจสอบการกำหนด route");
             }
@@ -111,6 +120,7 @@ public class AccountDetailController {
         try {
             com.github.saacsos.FXRouter.goTo("editAddress" ,accountList);
         } catch (IOException e) {
+            e.printStackTrace();
             System.err.println("ไปที่หน้า editAddress ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
@@ -122,8 +132,31 @@ public class AccountDetailController {
             if(!(account instanceof AdminAccount)) { return; }
             com.github.saacsos.FXRouter.goTo("forAdmin" ,accountList);
         } catch (IOException e) {
+            e.printStackTrace();
             System.err.println("ไปที่หน้า ForAdmin ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    public void pagesHeader() { // กำหนดและแสดงข้อมูลตรงส่วน head page
+        usernameInHead.setText(account.getUserName());
+        img.setImage(new Image(account.getImagePath()));
+        if(account instanceof AdminAccount){
+            status.setText("Admin");
+        }else if(account.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")){
+            status.setText("User");
+        }else {
+            status.setText("Seller");
+        }
+    }
+
+    @FXML
+    public void mouseClickedInLogo(MouseEvent event){ //คลิกที่ logo จะไปหน้า home
+        try{
+            logoJavaPai.getOnMouseClicked();
+            com.github.saacsos.FXRouter.goTo("home" ,accountList);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
