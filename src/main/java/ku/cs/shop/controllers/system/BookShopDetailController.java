@@ -122,19 +122,19 @@ public class BookShopDetailController<MenuItemCartoon, bookTypeLabel> implements
         }
     }
 
-    public void handleLowPriceToMaxPrice(ActionEvent actionEvent) {
-        System.out.println("Sort Low Price To Max Price");
-        BookLowPriceToMaxPriceComparator comparator = new BookLowPriceToMaxPriceComparator();
-        books.sort(comparator);
-        changeBookType(currentType);
-    }
-
-    public void handleMaxPriceToLowPrice(ActionEvent actionEvent) {
-        System.out.println("Sort Max Price To Low Price");
-        BookMaxPriceToLowPriceComparator comparator = new BookMaxPriceToLowPriceComparator();
-        books.sort(comparator);
-        changeBookType(currentType);
-    }
+//    public void handleLowPriceToMaxPrice(ActionEvent actionEvent) {
+//        System.out.println("Sort Low Price To Max Price");
+//        BookLowPriceToMaxPriceComparator comparator = new BookLowPriceToMaxPriceComparator();
+//        books.sort(comparator);
+//        changeBookType(currentType);
+//    }
+//
+//    public void handleMaxPriceToLowPrice(ActionEvent actionEvent) {
+//        System.out.println("Sort Max Price To Low Price");
+//        BookMaxPriceToLowPriceComparator comparator = new BookMaxPriceToLowPriceComparator();
+//        books.sort(comparator);
+//        changeBookType(currentType);
+//    }
 
     public void handleSubBookTypeMenuItem(ActionEvent actionEvent) {
         bookHeadLabel.setText("ประเภทของหนังสือ");

@@ -112,10 +112,10 @@ public class Book {
                 + "\"" + bookType.replace("\"","\"\"")  + "\"" + ","
                 + "\"" + bookDetail.replace("\"","\"\"")  + "\"" + ","
                 + "\"" + bookPublisher.replace("\"","\"\"") + "\"" + ","
-                + bookImg + ","
-                + bookStock+ ","
-                + bookPage+ ","
-                + leastStock+ ","
+                + "\"" + bookImg.replace("\"","\"\"") +  "\"" + ","
+                + "\"" + Integer.toString(bookStock).replace(",","\"\"") + "\"" + ","
+                + bookPage + ","
+                + leastStock + ","
                 + bookPrice + ","
                 + timeOfAddingBook.toString() + "\n" ;
 
