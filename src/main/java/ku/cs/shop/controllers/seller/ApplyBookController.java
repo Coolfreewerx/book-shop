@@ -129,26 +129,25 @@ public class ApplyBookController {
         book.setBookStock(Integer.parseInt(bookStockTextField.getText()));
         book.setLeastStock(Integer.parseInt(leastStockTextField.getText()));
         book.setBookPrice(Double.parseDouble(bookPriceTextField.getText()));
+//        LocalDateTime localDateTime = LocalDateTime.now();
+        book.setTimeOfAddingBook(LocalDateTime.now());
 
         if (seller.getDataCheck(book)) {
-            NotificationCantAdd.setText("Can Add merchandise");
             setImageName();
             book.setBookImg(imageName);
             DataSource<BookList> dataSource;
-            dataSource = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
+            dataSource = new BookDetailDataSource("csv-data/bookDetail.csv");
             BookList bookList = dataSource.readData();
             bookList.addBook(book);
             dataSource.writeData(bookList);
-
             try {
                 com.github.saacsos.FXRouter.goTo("sellerStock");
             } catch (IOException e) {
                 System.err.println("ไปที่หน้า sellerStock ไม่ได้");
                 System.err.println("ให้ตรวจสอบการกำหนด route");
             }
-        }
-        else{
-            NotificationCantAdd.setText("Can not Add merchandise");
+        } else{
+            NotificationCantAdd.setText("ไม่สามารถเพิ่มสินค้าได้ กรุณาตรวจสอบข้อมูลใหม่อีกครั้งค่ะ");
         }
 
     }

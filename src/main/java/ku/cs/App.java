@@ -30,7 +30,7 @@ public class App extends Application
         FXRouter.when("basket", packageStr + "basket.fxml");
         FXRouter.when("login",packageStr + "login.fxml");
         FXRouter.when("register" , packageStr + "register.fxml");
-        FXRouter.when("seller", packageStr + "applyBook.fxml");
+        FXRouter.when("applyBook", packageStr + "applyBook.fxml");
         FXRouter.when("sellerStock", packageStr + "sellerStock.fxml");
         FXRouter.when("applyToBeASeller", packageStr + "applyToBeASeller.fxml");
         FXRouter.when("item",packageStr + "item.fxml");

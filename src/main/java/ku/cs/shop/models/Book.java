@@ -85,7 +85,6 @@ public class Book {
     public void setLeastStock(int leastStock) { this.leastStock = leastStock; }
     public void setBookPrice(double bookPrice) { this.bookPrice = bookPrice; }
     public void setBookPage(String bookPage) { this.bookPage = bookPage; }
-
     public void setTimeOfAddingBook(LocalDateTime timeOfAddingBook) {
         this.timeOfAddingBook = timeOfAddingBook;
     }
