@@ -57,7 +57,7 @@
                                     <Insets left="98.0" />
                                  </GridPane.margin>
                               </ImageView>
-                              <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" text="ข้อมูลส่วนตัว" textFill="WHITE" GridPane.rowIndex="1">
+                              <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" text="ข้อมูลส่วนตัว" textFill="WHITE" GridPane.rowIndex="1" onAction="#handleToAccountDetailButton">
                                  <GridPane.margin>
                                     <Insets left="70.0" top="10.0" />
                                  </GridPane.margin>
@@ -73,7 +73,7 @@
                                     <Insets left="70.0" top="10.0" />
                                  </GridPane.margin>
                               </Button>
-                              <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" text="ข้อมูลการขาย" textFill="WHITE" GridPane.rowIndex="3">
+                              <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" text="ข้อมูลการขาย" textFill="WHITE" GridPane.rowIndex="3" onAction="#handleToSellerButton">
                                  <GridPane.margin>
                                     <Insets left="70.0" top="10.0" />
                                  </GridPane.margin>

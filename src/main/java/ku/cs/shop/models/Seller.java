@@ -54,7 +54,7 @@ public class Seller{
         if (isBookISBNCorrect(bookISBN)) {
             return "";
         } else {
-            return "กรุณากรอกให้ครบ 10 หลัก รหัส ISBN นี้ไม่ถูกต้อง ";
+            return "รหัส ISBN นี้ไม่ถูกต้อง กรุณากรอกให้ครบ 10 หรือ 13 หลักเท่านั้น";
         }
     }
 

@@ -10,9 +10,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
-import ku.cs.shop.models.Book;
-import ku.cs.shop.models.BookList;
-import ku.cs.shop.models.Seller;
+import ku.cs.shop.models.*;
 import ku.cs.shop.services.BookDetailDataSource;
 import ku.cs.shop.services.DataSource;
 
@@ -21,13 +19,13 @@ import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class ApplyBookController {
     Seller seller = new Seller();
     Book book = new Book();
     private BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
     private BookList books = data.readData();
-
 
     @FXML private Label userNameLabel;
     @FXML private Button addImgButton;
@@ -54,6 +52,16 @@ public class ApplyBookController {
 
     private File selectedImage;
     private String imageName;
+
+    private ArrayList<Account> accountsList = new ArrayList<>();
+    private AccountList accountList ;
+    private Account account ;
+
+    public void initialize(){
+        accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
+        account = accountList.getCurrentAccount() ;
+        showHead();
+    }
 
     @FXML public void handleKeyBookISBN(){
         book.setBookISBN(bookISBNTextField.getText());
@@ -122,13 +130,7 @@ public class ApplyBookController {
         book.setBookAuthor(bookAuthorTextField.getText());
         book.setBookDetail(bookDetailTextArea.getText());
         book.setBookPublisher(bookPublisherTextField.getText());
-        book.setBookShop("nanazenislovingShop");
-
-        book.setBookISBN(bookISBNTextField.getText());
-        book.setBookPage(bookPageTextField.getText());
-        book.setBookStock(Integer.parseInt(bookStockTextField.getText()));
-        book.setLeastStock(Integer.parseInt(leastStockTextField.getText()));
-        book.setBookPrice(Double.parseDouble(bookPriceTextField.getText()));
+        book.setBookShop(account.getShopName());
 //        LocalDateTime localDateTime = LocalDateTime.now();
         book.setTimeOfAddingBook(LocalDateTime.now());
 
@@ -171,9 +173,6 @@ public class ApplyBookController {
         }
     }
 
-    public void initialize(){
-        showHead();
-    }
     @FXML
     public void showHead(){ //แสดงหัวเพจ
         try{
@@ -182,6 +181,28 @@ public class ApplyBookController {
             gridPaneInHead.add(fxmlLoaderHead.load(), 0,0);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void handleToAccountDetailButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า home
+        try {
+            com.github.saacsos.FXRouter.goTo("accountDetail" ,accountList);
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า accountDetail ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
+    public void handleToSellerButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า home
+        if (true) {
+            try {
+                com.github.saacsos.FXRouter.goTo("sellerHaventApply",accountList);
+            } catch (IOException e) {
+                System.err.println("ไปที่หน้า sellerHaventApply ไม่ได้");
+                System.err.println("ให้ตรวจสอบการกำหนด route");
+            }
         }
     }
 }

@@ -232,4 +232,26 @@ public class EditBookController {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    public void handleToAccountDetailButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า home
+        try {
+            com.github.saacsos.FXRouter.goTo("accountDetail");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า accountDetail ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
+    public void handleToSellerButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า home
+        if (true) {
+            try {
+                com.github.saacsos.FXRouter.goTo("sellerHaventApply");
+            } catch (IOException e) {
+                System.err.println("ไปที่หน้า sellerHaventApply ไม่ได้");
+                System.err.println("ให้ตรวจสอบการกำหนด route");
+            }
+        }
+    }
 }
