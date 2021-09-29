@@ -37,7 +37,7 @@ public class AccountList {
 
     public void editInformationByName(String username ,Account newInformation){
         int index = 0;
-        for (Account account: accounts){
+        for (Account account: this.accounts){
             if(account.getUserName().equals(username)){
                 this.accounts.set(index, newInformation);
                 break;

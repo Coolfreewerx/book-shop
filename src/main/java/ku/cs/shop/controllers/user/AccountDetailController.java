@@ -54,56 +54,6 @@ public class AccountDetailController {
     }
 
     @FXML
-    public void handleCartoonBookButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าหนังสือการ์ตูน
-        try {
-            com.github.saacsos.FXRouter.goTo("home");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า profile ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
-    }
-
-    @FXML
-    public void handleMagazineBookButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าหนังสือ Magazine
-        try {
-            com.github.saacsos.FXRouter.goTo("home");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า profile ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
-    }
-
-    @FXML
-    public void handleNovelBookButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าหนังสือนิยาย
-        try {
-            com.github.saacsos.FXRouter.goTo("home");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า profile ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
-    }
-
-    @FXML
-    public void handleEducationalBookButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าหนังสือเรียน
-        try {
-            com.github.saacsos.FXRouter.goTo("home");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า home ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
-    }
-
-    @FXML
-    public void handleEBookButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าหนังสือ E-book
-        try {
-            com.github.saacsos.FXRouter.goTo("home");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า home ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
-    }
-
-    @FXML
     public void handleAllTypeBookButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าหนังสือทั้งหมด
         try {
             com.github.saacsos.FXRouter.goTo("home");
@@ -153,6 +103,16 @@ public class AccountDetailController {
                 System.err.println("ไปที่หน้า sellerHaventApply ไม่ได้");
                 System.err.println("ให้ตรวจสอบการกำหนด route");
             }
+        }
+    }
+    // ปุ่มกดไปหน้าแก้ไขข้อมูลที่อยู่
+    @FXML
+    public void handleToEditAddressButton(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("editAddress" ,accountList);
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า accountDetail ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
 }

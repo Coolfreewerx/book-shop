@@ -64,18 +64,10 @@ public class EditInformationController {
         birthYearInEditInformationLabel.setText(account.getBirthYear());
         firstnameTextField.setText(account.getFirstName());
         lastnameTextField.setText(account.getLastName());
+        passwordField.setText(account.getPassword());
         sexChoice.getItems().addAll(sexList);
         lodeSexData();
     }
-//    public void showData(){
-//        usernameInEditInformationLabel.setText(account.getUserName());
-//        birthdayInEditInformationLabel.setText(account.getBirthDay());
-//        birthMonthInEditInformationLabel.setText(account.getBirthMonth());
-//        birthYearInEditInformationLabel.setText(account.getBirthYear());
-//        firstnameTextField.setText(account.getFirstName());
-//        lastnameTextField.setText(account.getLastName());
-//        sexChoice.getItems().addAll(sexList);
-//    }
 
     @FXML //ทำงานเมื่อกรอกรหัส
     public void handleKeyPassword() {
@@ -173,6 +165,22 @@ public class EditInformationController {
             UserAccount.copyImageToPackage(selectedImage , imageName) ;
         } else {
             imageName = "default.png" ;
+        }
+    }
+
+    //เช็คการกรอกข้อมูลก่อนสมัคร
+    public String checkData() {
+        // ตรวจสอบว่าทุกช่องมีข้อมูล
+        if ((firstnameTextField.getText().equals("") || lastnameTextField.getText().equals("")
+                || passwordField.getText().equals("") || sexChoice.getValue().equals("")
+                || imageView.getImage().equals(""))) {
+            return "ข้อมูลไม่ครบถ้วน โปรดตรวจสอบข้อมูลอีกครั้ง";
+        }
+        else if (!(Account.getPasswordCheck() && Account.getPasswordCondition() && Account.getUserNameCheck() )) {
+            return "ข้อมูลมีข้อผิดพลาดโปรดตรวจสอบข้อมูลอีกครั้ง" ;
+        }
+        else {
+            return " ";
         }
     }
 }
