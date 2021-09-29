@@ -58,6 +58,18 @@ public class ApplyToBeASellerController { //สมัครเป็นผู้
         pagesHeader();
     }
 
+    public void pagesHeader() { // กำหนดและแสดงข้อมูลตรงส่วน head page
+        usernameInHead.setText(account.getUserName());
+        img.setImage(new Image(account.getImagePath()));
+        if(account instanceof AdminAccount){
+            status.setText("Admin");
+        }else if(account.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")){
+            status.setText("User");
+        }else {
+            status.setText("Seller");
+        }
+    }
+
     @FXML
     public void handleKeyCheckShopName(){
         System.out.println(nameShopTextField.getText());
@@ -150,18 +162,6 @@ public class ApplyToBeASellerController { //สมัครเป็นผู้
             com.github.saacsos.FXRouter.goTo("pageBookType", accountList);
         } catch (IOException e) {
             e.printStackTrace();
-        }
-    }
-
-    public void pagesHeader() { // กำหนดและแสดงข้อมูลตรงส่วน head page
-        usernameInHead.setText(account.getUserName());
-        img.setImage(new Image(account.getImagePath()));
-        if(account instanceof AdminAccount){
-            status.setText("Admin");
-        }else if(account.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")){
-            status.setText("User");
-        }else {
-            status.setText("Seller");
         }
     }
 

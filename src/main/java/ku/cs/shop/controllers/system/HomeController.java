@@ -83,7 +83,6 @@ public class HomeController implements Initializable {
         }
     }
 
-
     @FXML
     public void handleToAccountDetailButton(ActionEvent actionEvent) {
         try {

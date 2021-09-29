@@ -256,16 +256,6 @@ public class EditBookController {
         }
     }
 
-    @FXML
-    public void mouseClickedInLogo(MouseEvent event){ // คลิกที่ logo แล้วจะไปหน้า home
-        try{
-            logoJavaPai.getOnMouseClicked();
-            com.github.saacsos.FXRouter.goTo("home" ,accountList);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     public void pagesHeader() { // กำหนดและแสดงข้อมูลตรงส่วน head page
         usernameInHead.setText(account.getUserName());
         img.setImage(new Image(account.getImagePath()));
@@ -277,5 +267,13 @@ public class EditBookController {
             status.setText("Seller");
         }
     }
-
+    @FXML
+    public void mouseClickedInLogo(MouseEvent event){
+        try{
+            logoJavaPai.getOnMouseClicked();
+            com.github.saacsos.FXRouter.goTo("home" ,accountList);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
