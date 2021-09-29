@@ -5,6 +5,9 @@ import java.util.ArrayList;
 public class AccountList {
 
     private ArrayList<Account> accounts ;
+    private ArrayList<AdminAccount> adminAccounts ;
+    private ArrayList<UserAccount> userAccounts ;
+    private ArrayList<Account> newAccounts ;
     private Account currentAccount ;
 
     public AccountList() { accounts = new ArrayList<>(); }
@@ -12,6 +15,11 @@ public class AccountList {
     public Account getCurrentAccount() {
         return currentAccount ;
     } //เก็บ username ที่ login เข้ามา
+
+    public ArrayList<UserAccount> getUserAccounts() {
+        spitUserAccountAndAdminAccount() ;
+        return userAccounts;
+    }
 
     public void addAccount(Account account) {
         accounts.add(account) ;
@@ -67,6 +75,32 @@ public class AccountList {
             }
         }
         return null ;
+    }
+
+    //แยกลิส แอดมิน กับ ผู้ใช้
+    public void spitUserAccountAndAdminAccount() {
+        for (Account account : this.accounts) {
+            if (account instanceof AdminAccount) {
+                adminAccounts.add((AdminAccount) account) ;
+            }
+            if ( account instanceof UserAccount) {
+                userAccounts.add((UserAccount) account) ;
+            }
+        }
+    }
+
+    public void setNewAccountsToAccounts() {
+        addNewAccounts();
+    }
+
+    public void  addNewAccounts() {
+        accounts.clear();
+        for (AdminAccount adminAccount : this.adminAccounts) {
+            accounts.add((Account) adminAccount) ;
+        }
+        for (UserAccount userAccount : this.userAccounts) {
+            accounts.add((Account) userAccount ) ;
+        }
     }
 
     public String toCsv() {

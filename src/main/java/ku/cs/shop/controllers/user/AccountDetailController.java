@@ -14,7 +14,7 @@ import ku.cs.shop.models.AccountList;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class DetailUser {
+public class AccountDetailController {
     @FXML private GridPane gridPaneInHead;
     @FXML private Label birthdayLabel;
     @FXML private Label birthMonthLabel;
@@ -41,16 +41,16 @@ public class DetailUser {
     }
 
     public void showData(){ // โชว์ข้อมูลส่วนตัวของผู้ใช้ระบบ
+        userImageView.setImage(new Image(account.getImagePath())) ;
         usernameLabel.setText(account.getUserName());
         firstnameLabel.setText(account.getFirstName());
         lastnameLabel.setText(account.getLastName());
         birthdayLabel.setText(account.getBirthDay());
         birthMonthLabel.setText(account.getBirthMonth());
         birthYearLabel.setText(account.getBirthYear());
-        sexLabel.setText(account.getSex());
-        phoneLabel.setText(account.getPhone());
-        userImageView.setImage(new Image(account.getImagePath())) ;
-        addressLabel.setText(account.getAddress());
+        sexLabel.setText(account.getSex().replace("null", "ยังไม่ได้เพิ่มข้อมูลเพศ"));
+        phoneLabel.setText(account.getPhone().replace("null", "ยังไม่ได้เพิ่มข้อมูลเบอร์โทร"));
+        addressLabel.setText(account.getAddress().replace("null", "ยังไม่ได้เพิ่มข้อมูลที่อยู่"));
     }
 
     @FXML

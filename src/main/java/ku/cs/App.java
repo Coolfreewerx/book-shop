@@ -43,6 +43,7 @@ public class App extends Application
         FXRouter.when("editStock",packageStr + "editStock.fxml");
         FXRouter.when("accountDetail",packageStr + "accountDetail.fxml");
         FXRouter.when("pageBookShop",packageStr + "pageBookShop.fxml");
+        FXRouter.when("forAdmin",packageStr + "userListForAdmin.fxml");
     }
 
     public static void setRoot(String fxml) throws IOException {
