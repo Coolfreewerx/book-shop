@@ -43,7 +43,7 @@ public class Seller{
     }
 
     public boolean isBookISBNCorrect(String bookISBN) {
-        if (bookISBN.length() == 10 && Pattern.matches("[0-9]+",bookISBN)) {
+        if ((bookISBN.length() == 10 || bookISBN.length() == 13 ) && Pattern.matches("[0-9]+",bookISBN)) {
             return true;
         } else {
             return false;
@@ -59,12 +59,14 @@ public class Seller{
     }
 
     public boolean isNumber(String num) {
-        double number = Double.parseDouble(num);
-        if (number >= 0) {
-            return true;
-        } else {
-            return false;
+        if (Pattern.matches("[0-9]+",num)) {
+            if(Integer.parseInt(num) > 0)
+                return true;
+        } else if (Pattern.matches(".+",num)||Pattern.matches("[0-9]+",num)){
+            if(Double.parseDouble(num) > 0)
+                return true;
         }
+        return false;
     }
 
     public String checkNumber(String num) {

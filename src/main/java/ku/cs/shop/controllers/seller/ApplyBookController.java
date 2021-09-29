@@ -48,7 +48,7 @@ public class ApplyBookController {
     @FXML private Label NotificationCantAdd;
     @FXML private ImageView imageView;
     @FXML private MenuButton menuButton;
-    @FXML private GridPane gridPaneInHead;
+    @FXML private GridPane gridpane;
 
     private File selectedImage;
     private String imageName;
@@ -58,8 +58,8 @@ public class ApplyBookController {
     private Account account ;
 
     public void initialize(){
-        accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
-        account = accountList.getCurrentAccount() ;
+//        accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
+//        account = accountList.getCurrentAccount() ;
         showHead();
     }
 
@@ -130,7 +130,8 @@ public class ApplyBookController {
         book.setBookAuthor(bookAuthorTextField.getText());
         book.setBookDetail(bookDetailTextArea.getText());
         book.setBookPublisher(bookPublisherTextField.getText());
-        book.setBookShop(account.getShopName());
+//        book.setBookShop(account.getShopName());
+        book.setBookShop("nanazenShop");
 //        LocalDateTime localDateTime = LocalDateTime.now();
         book.setTimeOfAddingBook(LocalDateTime.now());
 
@@ -151,7 +152,17 @@ public class ApplyBookController {
         } else{
             NotificationCantAdd.setText("ไม่สามารถเพิ่มสินค้าได้ กรุณาตรวจสอบข้อมูลใหม่อีกครั้งค่ะ");
         }
+    }
 
+    @FXML
+    public void showHead(){ //แสดงหัวเพจ
+        try{
+            FXMLLoader fxmlLoaderHead = new FXMLLoader();
+            fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/headPage.fxml"));
+            gridpane.add(fxmlLoaderHead.load(), 0,0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML public void handleSellerStockButton(){
@@ -170,17 +181,6 @@ public class ApplyBookController {
         } catch (IOException e) {
             System.err.println("ไปที่หน้าเพจหลักไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
-    }
-
-    @FXML
-    public void showHead(){ //แสดงหัวเพจ
-        try{
-            FXMLLoader fxmlLoaderHead = new FXMLLoader();
-            fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/headPage.fxml"));
-            gridPaneInHead.add(fxmlLoaderHead.load(), 0,0);
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 

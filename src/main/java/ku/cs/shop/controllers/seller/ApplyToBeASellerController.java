@@ -53,11 +53,11 @@ public class ApplyToBeASellerController { //สมัครเป็นผู้
 
     @FXML
     public void handleKeyCheckShopName(){
+        System.out.println(nameShopTextField.getText());
         if(accountList.checkShopNameHaveUsed(nameShopTextField.getText())) {
             notificationShopName.setText("** ชื่อร้านค้านี้ถูกใช้ไปแล้ว กรุณากรอกใหม่อีกครั้ง **") ;
             shopName = "";
         } else {
-            notificationShopName.setText("** ชื่อร้านนี้ค้าสามารถใช้ได้ **") ;
             shopName = nameShopTextField.getText();
         }
     }
@@ -76,22 +76,18 @@ public class ApplyToBeASellerController { //สมัครเป็นผู้
         passwordRecheck = passwordTextField1.getText();
         account.setShopName(shopName);
 
-//        DataSource<BookList> dataSource;
-//        dataSource = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
-//        BookList bookList = dataSource.readData();
-//        bookList.addBook(book);
-//        dataSource.writeData(bookList);
-
         if(shopName != "") {
             DataSource<AccountList> dataSource;
             dataSource = new AccountDataSource("csv-data/accountData.csv");
             AccountList accountList = dataSource.readData();
             accountList.editInformationByName(account.getUserName(), account);
+            System.out.println(account.getUserName());
+            System.out.println(account.getShopName());
             dataSource.writeData(accountList);
             try {
-                com.github.saacsos.FXRouter.goTo("applyBook");
+                com.github.saacsos.FXRouter.goTo("sellerStock");
             } catch (IOException e) {
-                System.err.println("ไปที่หน้า applyBook ไม่ได้");
+                System.err.println("ไปที่หน้า sellerStock ไม่ได้");
                 System.err.println("ให้ตรวจสอบการกำหนด route");
             }
         }
@@ -133,7 +129,7 @@ public class ApplyToBeASellerController { //สมัครเป็นผู้
     public void handleToSellerButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า home
         if (true) {
             try {
-                com.github.saacsos.FXRouter.goTo("sellerHaventApply",accountList);
+                com.github.saacsos.FXRouter.goTo("sellerStock",accountList);
             } catch (IOException e) {
                 System.err.println("ไปที่หน้า sellerHaventApply ไม่ได้");
                 System.err.println("ให้ตรวจสอบการกำหนด route");

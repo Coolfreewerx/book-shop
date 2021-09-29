@@ -80,9 +80,9 @@ public class SellerStockController implements Initializable {
     @FXML
     public void handleAddStockButton(){
         try {
-            com.github.saacsos.FXRouter.goTo("seller");
+            com.github.saacsos.FXRouter.goTo("applyBook");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า sellerStock ไม่ได้");
+            System.err.println("ไปที่หน้า applyBook ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
