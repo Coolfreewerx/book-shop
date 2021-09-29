@@ -58,8 +58,8 @@ public class ApplyBookController {
     private Account account ;
 
     public void initialize(){
-//        accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
-//        account = accountList.getCurrentAccount() ;
+        accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
+        account = accountList.getCurrentAccount() ;
         showHead();
     }
 
@@ -144,7 +144,7 @@ public class ApplyBookController {
             bookList.addBook(book);
             dataSource.writeData(bookList);
             try {
-                com.github.saacsos.FXRouter.goTo("sellerStock");
+                com.github.saacsos.FXRouter.goTo("sellerStock",accountList);
             } catch (IOException e) {
                 System.err.println("ไปที่หน้า sellerStock ไม่ได้");
                 System.err.println("ให้ตรวจสอบการกำหนด route");
@@ -167,7 +167,7 @@ public class ApplyBookController {
 
     @FXML public void handleSellerStockButton(){
         try {
-            com.github.saacsos.FXRouter.goTo("sellerStock");
+            com.github.saacsos.FXRouter.goTo("sellerStock",accountList);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า sellerStock ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
@@ -196,9 +196,17 @@ public class ApplyBookController {
 
     @FXML
     public void handleToSellerButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า home
-        if (true) {
+        if (account.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")) {
             try {
                 com.github.saacsos.FXRouter.goTo("sellerHaventApply",accountList);
+            } catch (IOException e) {
+                System.err.println("ไปที่หน้า sellerHaventApply ไม่ได้");
+                System.err.println("ให้ตรวจสอบการกำหนด route");
+            }
+        }
+        else{
+            try {
+                com.github.saacsos.FXRouter.goTo("sellerStock",accountList);
             } catch (IOException e) {
                 System.err.println("ไปที่หน้า sellerHaventApply ไม่ได้");
                 System.err.println("ให้ตรวจสอบการกำหนด route");

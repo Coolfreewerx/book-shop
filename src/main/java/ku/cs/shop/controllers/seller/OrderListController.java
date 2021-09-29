@@ -11,6 +11,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import ku.cs.shop.controllers.system.OrderController;
+import ku.cs.shop.models.Account;
+import ku.cs.shop.models.AccountList;
 import ku.cs.shop.models.Book;
 import ku.cs.shop.models.BookList;
 import ku.cs.shop.services.BookDetailDataSource;
@@ -46,7 +48,14 @@ public class OrderListController implements Initializable {
     private BookDetailDataSource data = new BookDetailDataSource("csv-data/bookDetail.csv");
     private BookList books = data.readData();
 
+    private ArrayList<Account> accountsList = new ArrayList<>();
+    private AccountList accountList ;
+    private Account account ;
+
     public void initialize (URL location, ResourceBundle resource){
+        accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
+        account = accountList.getCurrentAccount() ;
+        showHead();
         int column = 0;
         int row = 1;
         try {
@@ -71,13 +80,12 @@ public class OrderListController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        showHead();
     }
 
 
     @FXML public void handleSellerStockButton(){
         try {
-            com.github.saacsos.FXRouter.goTo("sellerStock");
+            com.github.saacsos.FXRouter.goTo("sellerStock",accountList);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า sellerStock ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
@@ -107,7 +115,7 @@ public class OrderListController implements Initializable {
     @FXML
     public void handleToAccountDetailButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า home
         try {
-            com.github.saacsos.FXRouter.goTo("accountDetail");
+            com.github.saacsos.FXRouter.goTo("accountDetail",accountList);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า accountDetail ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
@@ -116,9 +124,17 @@ public class OrderListController implements Initializable {
 
     @FXML
     public void handleToSellerButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า home
-        if (true) {
+        if (account.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")) {
             try {
-                com.github.saacsos.FXRouter.goTo("sellerHaventApply");
+                com.github.saacsos.FXRouter.goTo("sellerHaventApply",accountList);
+            } catch (IOException e) {
+                System.err.println("ไปที่หน้า sellerHaventApply ไม่ได้");
+                System.err.println("ให้ตรวจสอบการกำหนด route");
+            }
+        }
+        else{
+            try {
+                com.github.saacsos.FXRouter.goTo("sellerStock",accountList);
             } catch (IOException e) {
                 System.err.println("ไปที่หน้า sellerHaventApply ไม่ได้");
                 System.err.println("ให้ตรวจสอบการกำหนด route");

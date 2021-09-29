@@ -80,7 +80,7 @@ public class SellerStockController implements Initializable {
     @FXML
     public void handleAddStockButton(){
         try {
-            com.github.saacsos.FXRouter.goTo("applyBook");
+            com.github.saacsos.FXRouter.goTo("applyBook",accountList);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า applyBook ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
@@ -90,7 +90,7 @@ public class SellerStockController implements Initializable {
     @FXML
     public void handleOrderListButton(){
         try {
-            com.github.saacsos.FXRouter.goTo("orderList");
+            com.github.saacsos.FXRouter.goTo("orderList",accountList);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า sellerStock ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");

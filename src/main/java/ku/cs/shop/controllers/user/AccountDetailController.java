@@ -102,10 +102,18 @@ public class AccountDetailController {
     }
 
     @FXML
-    public void handleToSellerButton(ActionEvent actionEvent) {
-        if (true) {
+    public void handleToSellerButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า home
+        if (account.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")) {
             try {
                 com.github.saacsos.FXRouter.goTo("sellerHaventApply",accountList);
+            } catch (IOException e) {
+                System.err.println("ไปที่หน้า sellerHaventApply ไม่ได้");
+                System.err.println("ให้ตรวจสอบการกำหนด route");
+            }
+        }
+        else{
+            try {
+                com.github.saacsos.FXRouter.goTo("sellerStock",accountList);
             } catch (IOException e) {
                 System.err.println("ไปที่หน้า sellerHaventApply ไม่ได้");
                 System.err.println("ให้ตรวจสอบการกำหนด route");

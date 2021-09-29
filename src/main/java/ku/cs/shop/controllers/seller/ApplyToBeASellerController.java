@@ -49,6 +49,7 @@ public class ApplyToBeASellerController { //สมัครเป็นผู้
         accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
         account = accountList.getCurrentAccount() ;
         showHead();
+        showHeadInApplyToBeASeller();
     }
 
     @FXML
@@ -57,9 +58,7 @@ public class ApplyToBeASellerController { //สมัครเป็นผู้
         if(accountList.checkShopNameHaveUsed(nameShopTextField.getText())) {
             notificationShopName.setText("** ชื่อร้านค้านี้ถูกใช้ไปแล้ว กรุณากรอกใหม่อีกครั้ง **") ;
             shopName = "";
-        } else {
-            shopName = nameShopTextField.getText();
-        }
+        } else { shopName = nameShopTextField.getText(); }
     }
     @FXML
     public void handleKeyPassword() {
@@ -79,13 +78,14 @@ public class ApplyToBeASellerController { //สมัครเป็นผู้
         if(shopName != "") {
             DataSource<AccountList> dataSource;
             dataSource = new AccountDataSource("csv-data/accountData.csv");
-            AccountList accountList = dataSource.readData();
-            accountList.editInformationByName(account.getUserName(), account);
+            AccountList accountListForWriteData = dataSource.readData();
+            accountListForWriteData.editInformationByName(account.getUserName(), account);
             System.out.println(account.getUserName());
             System.out.println(account.getShopName());
-            dataSource.writeData(accountList);
+            dataSource.writeData(accountListForWriteData);
+
             try {
-                com.github.saacsos.FXRouter.goTo("sellerStock");
+                com.github.saacsos.FXRouter.goTo("sellerStock",accountList);
             } catch (IOException e) {
                 System.err.println("ไปที่หน้า sellerStock ไม่ได้");
                 System.err.println("ให้ตรวจสอบการกำหนด route");
@@ -108,8 +108,18 @@ public class ApplyToBeASellerController { //สมัครเป็นผู้
         try{
             FXMLLoader fxmlLoaderHead = new FXMLLoader();
             fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/headPage.fxml"));
-            gridpane.add(fxmlLoaderHead.load(), 0,0);
             gridPaneInHead.add(fxmlLoaderHead.load(), 0,0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void showHeadInApplyToBeASeller(){ //แสดงหัวเพจ
+        try{
+            FXMLLoader fxmlLoaderHead = new FXMLLoader();
+            fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/headPage.fxml"));
+            gridpane.add(fxmlLoaderHead.load(), 0,0);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -127,7 +137,15 @@ public class ApplyToBeASellerController { //สมัครเป็นผู้
 
     @FXML
     public void handleToSellerButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า home
-        if (true) {
+        if (account.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")) {
+            try {
+                com.github.saacsos.FXRouter.goTo("sellerHaventApply",accountList);
+            } catch (IOException e) {
+                System.err.println("ไปที่หน้า sellerHaventApply ไม่ได้");
+                System.err.println("ให้ตรวจสอบการกำหนด route");
+            }
+        }
+        else{
             try {
                 com.github.saacsos.FXRouter.goTo("sellerStock",accountList);
             } catch (IOException e) {
