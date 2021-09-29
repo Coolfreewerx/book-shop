@@ -12,6 +12,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Region;
 import javafx.scene.shape.Rectangle;
 import ku.cs.shop.controllers.seller.EditBookController;
+import ku.cs.shop.models.Account;
+import ku.cs.shop.models.AccountList;
 import ku.cs.shop.models.Book;
 import ku.cs.shop.models.BookList;
 import ku.cs.shop.services.BookDetailDataSource;
@@ -19,6 +21,7 @@ import ku.cs.shop.services.DataSource;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class StockController  {
@@ -34,9 +37,18 @@ public class StockController  {
     @FXML private Label notificationForStock;
 
     private Book book;
+    private ArrayList<Account> accountsList = new ArrayList<>();
+    private AccountList accountList ;
+    private Account account ;
 
-    public void setData(Book book) {
+    public void initialize(){
+        accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
+        account = accountList.getCurrentAccount() ;
+    }
+
+    public void setData(Book book, AccountList accountList) {
         this.book = book;
+        this.accountList = accountList;
     }
 
     public void changeData() {
@@ -66,6 +78,17 @@ public class StockController  {
         book.decreaseStock();
         changeData();
     }
+
+
+//    public ArrayList<Object> castDataToObject() {
+//        ArrayList<Object> objectForPassing;
+//        objectForPassing.clear();
+//        objectForPassing.add(book);
+//        objectForPassing.add(account);
+//        objectForPassing.add(accountList);
+//
+//        return objectForPassing;
+//    }
 
 
     @FXML

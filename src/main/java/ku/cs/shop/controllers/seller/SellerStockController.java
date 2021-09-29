@@ -52,14 +52,16 @@ public class SellerStockController implements Initializable {
         int column = 0;
         int row = 1;
 
+        ArrayList<Book> bookInShop = books.getBookByShop(account.getShopName());
+
         try {
-            for (int i = 0; i < books.getBookListCount() ; i++) {
+            for (int i = 0; i < books.getCountBookByShop(account.getShopName()) ; i++) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/ku/cs/stock.fxml"));
 
                 grid.add(fxmlLoader.load(), column, row++); // child,col,row
                 StockController stockController = fxmlLoader.getController();
-                stockController.setData(books.getBook(i));
+                stockController.setData(bookInShop.get(i),accountList);
                 stockController.changeData();
 
                 grid.setMinWidth(Region.USE_COMPUTED_SIZE);
