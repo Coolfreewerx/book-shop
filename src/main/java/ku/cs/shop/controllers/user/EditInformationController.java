@@ -123,7 +123,7 @@ public class EditInformationController {
             dataSource.writeData(accountList);
         }
         try{
-            FXRouter.goTo("accountDetail");
+            FXRouter.goTo("accountDetail", accountList);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า detailUser ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
@@ -133,7 +133,7 @@ public class EditInformationController {
     @FXML
     public void handleGotoInformationPageWhenCancel(){ //ปุ่มกลับไปหน้าข้อมูลส่วนตัวเมื่อไม่ต้องการแก้ไขข้อมูลแล้ว
         try {
-            FXRouter.goTo("accountDetail");
+            FXRouter.goTo("accountDetail", accountList);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า detailUser ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");

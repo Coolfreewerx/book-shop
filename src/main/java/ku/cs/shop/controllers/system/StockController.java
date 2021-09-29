@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class StockController  {
+
     @FXML private AnchorPane anchorpaneCenter;
     @FXML private ImageView bookImageView;
     @FXML private Label bookNameLabel;

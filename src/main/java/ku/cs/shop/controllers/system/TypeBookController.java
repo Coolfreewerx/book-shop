@@ -141,7 +141,7 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
     @FXML
     public void handleToHomeButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า home
         try {
-            com.github.saacsos.FXRouter.goTo("home");
+            com.github.saacsos.FXRouter.goTo("home", accountList);
         } catch (IOException e) {
             System.err.println("ไปที่หน้าเพจหลักไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");

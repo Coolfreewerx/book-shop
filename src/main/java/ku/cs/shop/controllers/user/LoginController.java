@@ -51,7 +51,6 @@ public class LoginController {
         String userName = usernameTextField.getText() ;
         String password = passwordField.getText() ;
         Account account = accountList.login(userName, password) ;
-        //Account account = accountList.login(userName, password) ;
         if (account != null) {
             errorLabel.setTextFill(Color.rgb(255, 255, 255));
             goToHome();
@@ -62,10 +61,9 @@ public class LoginController {
     }
 
     @FXML
-    public void goToHome() { //ไปหน้า หนังสือทั้งหมด (เพจหลัก)
+    public void goToHome() {
         try {
-//            com.github.saacsos.FXRouter.goTo("pageBookType", accountList);
-            com.github.saacsos.FXRouter.goTo("pageBookType", accountList);
+            com.github.saacsos.FXRouter.goTo("home", accountList);
         } catch (IOException e) {
             e.printStackTrace();
             System.err.println("ไปที่หน้า home ไม่ได้");

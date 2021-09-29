@@ -10,15 +10,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
-import ku.cs.shop.models.Account;
-import ku.cs.shop.models.AccountList;
-import ku.cs.shop.models.AdminAccount;
+import ku.cs.shop.models.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class AccountDetailController {
-    @FXML private GridPane gridPaneInHead;
+
     @FXML private Label birthdayLabel;
     @FXML private Label birthMonthLabel;
     @FXML private Label birthYearLabel;
@@ -33,14 +31,12 @@ public class AccountDetailController {
     @FXML private Button forAdminButton ;
 
 
-    private ArrayList<Account> accountsList = new ArrayList<>();
-    private AccountList accountList ;
-    private Account account ;
+    private AccountList accountList;
+    private Account account;
 
     public void initialize(){
-        accountList = (AccountList) FXRouter.getData() ;
-        account = accountList.getCurrentAccount() ;
-        showHead();
+        accountList = (AccountList) com.github.saacsos.FXRouter.getData();
+        account = accountList.getCurrentAccount();
         showData();
         if (account instanceof AdminAccount) {
             forAdminButton.setStyle("-fx-background-color: #F99F28; ");
@@ -63,10 +59,9 @@ public class AccountDetailController {
     @FXML
     public void handleAllTypeBookButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าหนังสือทั้งหมด
         try {
-            com.github.saacsos.FXRouter.goTo("home");
+            com.github.saacsos.FXRouter.goTo("pageBookType", accountList);
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า home ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
+            e.printStackTrace();
         }
     }
 
@@ -81,17 +76,6 @@ public class AccountDetailController {
     }
 
     @FXML
-    public void showHead(){ //แสดงหัวเพจ
-        try{
-            FXMLLoader fxmlLoaderHead = new FXMLLoader();
-            fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/headPage.fxml"));
-            gridPaneInHead.add(fxmlLoaderHead.load(), 0,0);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
     public void handleToAccountDetailButton(ActionEvent actionEvent) {
         try {
             com.github.saacsos.FXRouter.goTo("accountDetail" ,accountList);
@@ -102,7 +86,7 @@ public class AccountDetailController {
     }
 
     @FXML
-    public void handleToSellerButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า home
+    public void handleToSellerButton(ActionEvent actionEvent) {
         if (account.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")) {
             try {
                 com.github.saacsos.FXRouter.goTo("sellerHaventApply",accountList);
@@ -127,7 +111,7 @@ public class AccountDetailController {
         try {
             com.github.saacsos.FXRouter.goTo("editAddress" ,accountList);
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า accountDetail ไม่ได้");
+            System.err.println("ไปที่หน้า editAddress ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }

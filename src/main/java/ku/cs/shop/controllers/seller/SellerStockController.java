@@ -10,9 +10,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
-import ku.cs.shop.controllers.system.ItemController;
 import ku.cs.shop.controllers.system.StockController;
-import ku.cs.shop.controllers.system.HeadController;
 import ku.cs.shop.models.Account;
 import ku.cs.shop.models.AccountList;
 import ku.cs.shop.models.Book;
@@ -33,10 +31,6 @@ public class SellerStockController implements Initializable {
     @FXML private GridPane grid;
     @FXML private Button orderListButtonn;
     @FXML private Button addStockButton;
-    @FXML private GridPane gridPaneInHead;
-    @FXML void handleAllTypeBookButton(ActionEvent event) { }
-    @FXML void handleCartoonBookButton(ActionEvent event) { }
-    @FXML void handleMagazineButton(ActionEvent event) { }
 
     private BookDetailDataSource data = new BookDetailDataSource("csv-data/bookDetail.csv");
     private BookList books = data.readData();
@@ -47,7 +41,6 @@ public class SellerStockController implements Initializable {
     public void initialize (URL location, ResourceBundle resource){
         accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
         account = accountList.getCurrentAccount() ;
-        showHead();
 
         int column = 0;
         int row = 1;
@@ -76,7 +69,6 @@ public class SellerStockController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        showHead();
     }
 
     @FXML
@@ -102,7 +94,7 @@ public class SellerStockController implements Initializable {
     @FXML
     public void handleToHomeButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า home
         try {
-            com.github.saacsos.FXRouter.goTo("home");
+            com.github.saacsos.FXRouter.goTo("home", accountList);
         } catch (IOException e) {
             System.err.println("ไปที่หน้าเพจหลักไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
@@ -110,18 +102,7 @@ public class SellerStockController implements Initializable {
     }
 
     @FXML
-    public void showHead(){ //แสดงหัวเพจ
-        try{
-            FXMLLoader fxmlLoaderHead = new FXMLLoader();
-            fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/headPage.fxml"));
-            gridPaneInHead.add(fxmlLoaderHead.load(), 0,0);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    public void handleToAccountDetailButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า home
+    public void handleToAccountDetailButton(ActionEvent actionEvent) {
         try {
             com.github.saacsos.FXRouter.goTo("accountDetail" ,accountList);
         } catch (IOException e) {
@@ -131,7 +112,7 @@ public class SellerStockController implements Initializable {
     }
 
     @FXML
-    public void handleToSellerButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า home
+    public void handleToSellerButton(ActionEvent actionEvent) {
         if (true) {
             try {
                 com.github.saacsos.FXRouter.goTo("sellerHaventApply",accountList);
@@ -139,6 +120,15 @@ public class SellerStockController implements Initializable {
                 System.err.println("ไปที่หน้า sellerHaventApply ไม่ได้");
                 System.err.println("ให้ตรวจสอบการกำหนด route");
             }
+        }
+    }
+
+    @FXML
+    public void handleAllTypeBookButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าหนังสือทั้งหมด
+        try {
+            com.github.saacsos.FXRouter.goTo("pageBookType", accountList);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

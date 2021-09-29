@@ -48,7 +48,6 @@ public class ApplyBookController {
     @FXML private Label NotificationCantAdd;
     @FXML private ImageView imageView;
     @FXML private MenuButton menuButton;
-    @FXML private GridPane gridpane;
 
     private File selectedImage;
     private String imageName;
@@ -60,7 +59,6 @@ public class ApplyBookController {
     public void initialize(){
         accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
         account = accountList.getCurrentAccount() ;
-        showHead();
     }
 
     @FXML public void handleKeyBookISBN(){
@@ -154,17 +152,6 @@ public class ApplyBookController {
         }
     }
 
-    @FXML
-    public void showHead(){ //แสดงหัวเพจ
-        try{
-            FXMLLoader fxmlLoaderHead = new FXMLLoader();
-            fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/headPage.fxml"));
-            gridpane.add(fxmlLoaderHead.load(), 0,0);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     @FXML public void handleSellerStockButton(){
         try {
             com.github.saacsos.FXRouter.goTo("sellerStock",accountList);
@@ -177,7 +164,7 @@ public class ApplyBookController {
     @FXML
     public void handleToHomeButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า home
         try {
-            com.github.saacsos.FXRouter.goTo("home");
+            com.github.saacsos.FXRouter.goTo("home", accountList);
         } catch (IOException e) {
             System.err.println("ไปที่หน้าเพจหลักไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
@@ -211,6 +198,15 @@ public class ApplyBookController {
                 System.err.println("ไปที่หน้า sellerHaventApply ไม่ได้");
                 System.err.println("ให้ตรวจสอบการกำหนด route");
             }
+        }
+    }
+
+    @FXML
+    public void handleAllTypeBookButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าหนังสือทั้งหมด
+        try {
+            com.github.saacsos.FXRouter.goTo("pageBookType", accountList);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

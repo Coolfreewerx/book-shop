@@ -36,7 +36,6 @@ public class BookDetailController
     @FXML private Label typeLabel;
     @FXML private ImageView bookImg;
     @FXML private MenuButton bookTypeMenuItem;
-    @FXML private GridPane gridPaneInHead;
     @FXML private Hyperlink bookDetailByShop;
 
 
@@ -53,7 +52,6 @@ public class BookDetailController
         objectForPassing = (ArrayList<Object>) com.github.saacsos.FXRouter.getData();
         castObjectToData();
         showData();
-        showHead();
     }
 
     public void castObjectToData() {
@@ -94,17 +92,16 @@ public class BookDetailController
 
     public void handleToInformationButton(ActionEvent actionEvent) {
         try {
-            com.github.saacsos.FXRouter.goTo("detailUser");
+            com.github.saacsos.FXRouter.goTo("accountDetail", accountList);
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า pageBookType ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
+            e.printStackTrace();
         }
     }
 
     @FXML
     public void handleBackToMarket() {
         try {
-            com.github.saacsos.FXRouter.goTo("pageBookType");
+            com.github.saacsos.FXRouter.goTo("pageBookType", accountList);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า pageBookType ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
@@ -119,17 +116,6 @@ public class BookDetailController
         } catch (IOException e) {
             System.err.println("ไปที่หน้า pageBookShop ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
-    }
-
-    @FXML
-    public void showHead(){ //แสดงหัวเพจ
-        try{
-            FXMLLoader fxmlLoaderHead = new FXMLLoader();
-            fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/headPage.fxml"));
-            gridPaneInHead.add(fxmlLoaderHead.load(), 0,0);
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 }
