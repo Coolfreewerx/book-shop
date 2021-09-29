@@ -35,7 +35,6 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
     @FXML private ImageView logoJavaPai;
 
     private String currentType;
-    private String currentBookShop;
     private Account account;
     private AccountList accountList;
 

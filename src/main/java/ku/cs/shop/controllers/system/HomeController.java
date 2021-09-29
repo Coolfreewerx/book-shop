@@ -54,10 +54,24 @@ public class HomeController implements Initializable {
                 bookListFlowPane.getChildren().add(fxmlLoader.load()); // child,col,row
                 ItemController itemController = fxmlLoader.getController();
                 itemController.setData(books.getBook(i));
+                itemController.setController(this,"default");
+
             }
         } catch (IOException e) {
             e.printStackTrace();
-        }pagesHeader();
+        } pagesHeader();
+    }
+
+    public void castDataToObject() {
+        objectForPassing.clear();
+        objectForPassing.add(books);
+        objectForPassing.add(account);
+        objectForPassing.add(accountList);
+    }
+
+    public ArrayList<Object> getObjectForPassing() {
+        castDataToObject();
+        return objectForPassing;
     }
 
     public void pagesHeader() { // กำหนดและแสดงข้อมูลตรงส่วน head page

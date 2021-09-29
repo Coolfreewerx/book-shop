@@ -18,6 +18,7 @@ public class ItemController {
     private AccountList accountList;
     TypeBookController typeBookController;
     BookShopDetailController bookShopDetailController;
+    HomeController homeController;
 
 
     @FXML private Label bookNameLabel;
@@ -40,6 +41,9 @@ public class ItemController {
     }
 
     public String setController(Object o, String type) {
+        if (type.equals("default")) {
+            this.homeController = (HomeController) o;
+        }
         if (type.equals("byType")) {
             this.typeBookController = (TypeBookController) o;
         }
@@ -56,6 +60,11 @@ public class ItemController {
     public void setObjectForPassing(String type) {
         ArrayList<Object> objects;
         objectForPassing.clear();
+
+        if(type.equals("default")) {
+            objects = homeController.getObjectForPassing();
+            objectForPassing = objects;
+        }
 
         if (type.equals("byType")) {
             objects = typeBookController.getObjectForPassing();
