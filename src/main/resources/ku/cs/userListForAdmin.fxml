@@ -29,25 +29,32 @@
                   <VBox alignment="TOP_CENTER" minWidth="512.0" prefHeight="200.0" prefWidth="512.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="512.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <Pane prefHeight="30.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS" />
-                        <ImageView fx:id="accountImage" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../../account-images/default.png" />
-                           </image>
-                        </ImageView>
+                        <HBox alignment="CENTER" maxHeight="200.0" minHeight="200.0">
+                           <children>
+                              <ImageView fx:id="accountImage" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../account-images/default.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
                         <Pane maxHeight="30.0" minHeight="15.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS" />
                         <Label fx:id="userNameLabel" styleClass="font_rsu_12pt" text="Username" textFill="WHITE" />
                         <Pane maxHeight="20.0" minHeight="20.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS" />
                         <HBox alignment="CENTER" prefHeight="28.0" prefWidth="200.0">
                            <children>
                               <Label fx:id="firstNameLabel" styleClass="font_rsu_12pt" text="Firstname" textFill="WHITE" />
-                              <Pane maxWidth="60.0" minWidth="60.0" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
+                              <Pane maxWidth="40.0" minWidth="40.0" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
                               <Label fx:id="lastNameLabel" styleClass="font_rsu_12pt" text="Lastname" textFill="WHITE" />
                            </children>
                         </HBox>
                         <Pane maxHeight="20.0" minHeight="20.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS" />
                         <HBox alignment="CENTER" prefHeight="28.0" prefWidth="200.0">
                            <children>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font_rsu_12pt" text="วันเกิด :  " />
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font_rsu_12pt" text="วันเกิด :  ">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </HBox.margin></Text>
                               <Label fx:id="birthDayLabel" styleClass="font_rsu_12pt" text="Day" textFill="WHITE" />
                               <Pane maxWidth="25.0" minWidth="25.0" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
                               <Label fx:id="birthMonthLabel" styleClass="font_rsu_12pt" text="Month" textFill="WHITE" />
@@ -58,17 +65,26 @@
                         <Pane maxHeight="20.0" minHeight="20.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS" />
                         <HBox alignment="CENTER" prefHeight="28.0" prefWidth="200.0">
                            <children>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font_rsu_12pt" text="เพศ :  " />
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font_rsu_12pt" text="เพศ :  ">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </HBox.margin></Text>
                               <Label fx:id="sexLabel" styleClass="font_rsu_12pt" text="Sex" textFill="WHITE" />
                               <Pane maxWidth="40.0" minWidth="40.0" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font_rsu_12pt" text="เบอร์โทร :  " />
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font_rsu_12pt" text="เบอร์โทร :  ">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </HBox.margin></Text>
                               <Label fx:id="phoneLabel" styleClass="font_rsu_12pt" text="Phone" textFill="WHITE" />
                            </children>
                         </HBox>
                         <Pane maxHeight="20.0" minHeight="20.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS" />
                         <HBox alignment="CENTER" prefHeight="28.0" prefWidth="200.0">
                            <children>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font_rsu_12pt" text="ชื่อร้านค้า :  " />
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font_rsu_12pt" text="ชื่อร้านค้า :  ">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </HBox.margin></Text>
                               <Label fx:id="shopNameLabel" styleClass="font_rsu_12pt" text="Shopname" textFill="WHITE" />
                            </children>
                         </HBox>
@@ -79,18 +95,26 @@
                         <HBox alignment="CENTER_LEFT" maxHeight="35.0" minHeight="35.0" prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <Pane maxWidth="25.0" minWidth="25.0" style="-fx-background-color: transparent;" />
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font_rsu_12pt" text="ใช้งานล่าสุดเมื่อ :  " />
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font_rsu_12pt" text="ใช้งานล่าสุดเมื่อ :  ">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </HBox.margin></Text>
                               <Label fx:id="loginTimeLabel" styleClass="font_rsu_12pt" text="Login Time" textFill="WHITE" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" maxHeight="40.0" prefHeight="100.0" prefWidth="512.0">
                            <children>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font_rsu_12pt" text="สถานะบัญชี :  " />
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font_rsu_12pt" text="สถานะบัญชี :  ">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </HBox.margin></Text>
                               <Label fx:id="accountStatusLabel" maxWidth="64.0" minWidth="64.0" styleClass="font_rsu_12pt" text="Working" textFill="WHITE" />
-                              <Pane maxWidth="130.0" minWidth="130.0" style="-fx-background-color: transparent;" />
+                              <Pane maxWidth="25.0" minWidth="25.0" style="-fx-background-color: transparent;" />
                               <Button mnemonicParsing="false" style="-fx-background-color: fff;" text="ปลดบล็อก" textFill="#349400" />
                               <Pane maxWidth="25.0" minWidth="25.0" style="-fx-background-color: transparent;" />
                               <Button mnemonicParsing="false" style="-fx-background-color: ffff;" text="บล็อกการใช้งาน" textFill="#a90000" />
+                              <Pane maxWidth="25.0" minWidth="25.0" style="-fx-background-color: transparent;" />
+                              <Button maxWidth="80.0" minWidth="80.0" mnemonicParsing="false" style="-fx-background-color: black;" text="กลับหน้าบัญชี" textFill="#f99f28" />
                               <Pane maxWidth="25.0" minWidth="25.0" style="-fx-background-color: transparent;" />
                            </children>
                         </HBox>

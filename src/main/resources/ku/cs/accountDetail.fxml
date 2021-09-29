@@ -41,7 +41,7 @@
                               <Insets left="98.0" />
                            </GridPane.margin>
                         </ImageView>
-                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" text="ข้อมูลส่วนตัว" textFill="WHITE" GridPane.rowIndex="1">
+                        <Button mnemonicParsing="false" onAction="#handleToAccountDetailButton" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" text="ข้อมูลส่วนตัว" textFill="WHITE" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="70.0" top="10.0" />
                            </GridPane.margin>
@@ -57,7 +57,7 @@
                               <Insets left="70.0" top="10.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" text="ข้อมูลการขาย" textFill="WHITE" GridPane.rowIndex="3">
+                        <Button mnemonicParsing="false" onAction="#handleToSellerButton" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" text="ข้อมูลการขาย" textFill="WHITE" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets left="70.0" top="10.0" />
                            </GridPane.margin>
@@ -117,7 +117,12 @@
                                 <Font name="JasmineUPC" size="36.0" />
                             </font>
                         </Label>
-                        <Button layoutX="582.0" layoutY="161.0" mnemonicParsing="false" onAction="#handleToEditInformationPageButton" prefHeight="31.0" prefWidth="82.0" style="-fx-background-color: F99F28;" styleClass="font_jasmine_16pt" stylesheets="@style/PrimaryTheme.css" text="แก้ไข" textFill="WHITE">
+                  <Button layoutX="592.0" layoutY="171.0" mnemonicParsing="false" onAction="#handleToEditInformationPageButton" prefHeight="31.0" prefWidth="82.0" style="-fx-background-color: F99F28;" styleClass="font_jasmine_16pt" stylesheets="@style/PrimaryTheme.css" text="แก้ไข" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                        <Button fx:id="forAdminButton" layoutX="335.0" layoutY="171.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="239.0" style="-fx-background-color: #fffcf1;" styleClass="font_jasmine_16pt" stylesheets="@style/PrimaryTheme.css" onAction="#handleToForAdminButton" text="ส่วนของผู้พัฒนาระบบ" textFill="#fffcf1">
                             <font>
                                 <Font size="18.0" />
                             </font>

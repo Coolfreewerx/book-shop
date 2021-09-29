@@ -13,6 +13,10 @@ import ku.cs.shop.models.Account;
 import ku.cs.shop.models.AccountList;
 import ku.cs.shop.models.UserAccount;
 import ku.cs.shop.services.AccountDataSource;
+import ku.cs.shop.services.AccountSortByTimeComparator;
+
+import java.io.File;
+import java.util.ArrayList;
 
 public class UserListForAdminController {
 
@@ -56,43 +60,45 @@ public class UserListForAdminController {
                     @Override
                     public void changed(ObservableValue<? extends UserAccount> observable,
                                         UserAccount oldValue, UserAccount newValue) {
-                        System.out.println(newValue + " is selected");
                         showSelectedUserAccount(newValue);
                     }
                 });
     }
 
     private void showSelectedUserAccount(UserAccount userAccount) {
-        accountImage.setImage(new Image(account.getImagePath()));
+        accountImage.setImage(new Image(userAccount.getImagePath()));
         userNameLabel.setText(userAccount.getUserName());
         firstNameLabel.setText(userAccount.getFirstName());
         lastNameLabel.setText(userAccount.getLastName());
         birthDayLabel.setText(userAccount.getBirthDay());
         birthMonthLabel.setText(userAccount.getBirthMonth());
         birthYearLabel.setText(userAccount.getBirthYear());
-        sexLabel.setText(userAccount.getSex());
-        phoneLabel.setText(userAccount.getPhone());
+        sexLabel.setText(userAccount.getSex().replace("null", "ยังไม่ได้เพิ่มข้อมูลเพศ"));
+        phoneLabel.setText(userAccount.getPhone().replace("null", "ยังไม่ได้เพิ่มข้อมูลเบอร์โทร"));
         shopNameLabel.setText(userAccount.getShopName());
-        addressLabel.setText(userAccount.getAddress());
+        addressLabel.setText(userAccount.getAddress().replace("null", "ยังไม่ได้เพิ่มข้อมูลที่อยู่"));
         loginTimeLabel.setText(userAccount.getLoginTime().toString());
         accountStatusLabel.setText(userAccount.getStatus());
     }
 
     private void clearSelectedUserAccount() {
-        String path = getClass().getResource("account-images/default.png").toExternalForm();
-        accountImage.setImage(new Image(path));
-        userNameLabel.setText("");
-        firstNameLabel.setText("");
-        lastNameLabel.setText("");
-        birthDayLabel.setText("");
+        accountImage.setImage(new Image(new File(System.getProperty("user.dir")
+                + File.separator
+                + "account-images"
+                + File.separator
+                + "default.png").toURI().toString()));
+        userNameLabel.setText("ชื่อผู้ใช้งาน : ยังไม่ระบุ");
+        firstNameLabel.setText("ชื่อ : ยังไม่ระบุ");
+        lastNameLabel.setText("นามสกุล : ยังไม่ระบุ");
+        birthDayLabel.setText("ยังไม่ระบุ");
         birthMonthLabel.setText("");
         birthYearLabel.setText("");
-        sexLabel.setText("");
-        phoneLabel.setText("");
-        shopNameLabel.setText("");
-        addressLabel.setText("");
-        loginTimeLabel.setText("");
-        accountStatusLabel.setText("");
+        sexLabel.setText("ยังไม่ระบุ");
+        phoneLabel.setText("ยังไม่ระบุ");
+        shopNameLabel.setText("ยังไม่ระบุ");
+        addressLabel.setText("ยังไม่ระบุ");
+        loginTimeLabel.setText("ยังไม่ระบุ");
+        accountStatusLabel.setText("ยังไม่ระบุ");
     }
 
     @FXML

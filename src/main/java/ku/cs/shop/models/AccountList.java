@@ -1,16 +1,24 @@
 package ku.cs.shop.models;
 
+import ku.cs.shop.services.AccountSortByTimeComparator;
+import ku.cs.shop.services.BookSortByTimeComparator;
+
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class AccountList {
 
     private ArrayList<Account> accounts ;
     private ArrayList<AdminAccount> adminAccounts ;
     private ArrayList<UserAccount> userAccounts ;
-    private ArrayList<Account> newAccounts ;
     private Account currentAccount ;
 
-    public AccountList() { accounts = new ArrayList<>(); }
+    public AccountList() {
+        accounts = new ArrayList<>();
+        adminAccounts = new ArrayList<>();
+        userAccounts = new ArrayList<>();
+    }
 
     public Account getCurrentAccount() {
         return currentAccount ;
@@ -18,7 +26,9 @@ public class AccountList {
 
     public ArrayList<UserAccount> getUserAccounts() {
         spitUserAccountAndAdminAccount() ;
-        return userAccounts;
+        AccountSortByTimeComparator comparator = new AccountSortByTimeComparator() ;
+        this.userAccounts.sort(comparator);
+        return userAccounts ;
     }
 
     public void addAccount(Account account) {
@@ -89,9 +99,8 @@ public class AccountList {
         }
     }
 
-    public void setNewAccountsToAccounts() {
-        addNewAccounts();
-    }
+    public void sort(Comparator<UserAccount> accountComparator) {Collections.sort(this.userAccounts, accountComparator) ;
+}
 
     public void  addNewAccounts() {
         accounts.clear();
