@@ -131,7 +131,7 @@ public class ApplyBookController {
         book.setBookDetail(bookDetailTextArea.getText());
         book.setBookPublisher(bookPublisherTextField.getText());
 //        book.setBookShop(account.getShopName());
-        book.setBookShop("nanazenShop");
+        book.setBookShop(account.getShopName());
 //        LocalDateTime localDateTime = LocalDateTime.now();
         book.setTimeOfAddingBook(LocalDateTime.now());
 
