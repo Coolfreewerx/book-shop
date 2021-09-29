@@ -81,7 +81,7 @@ public class HeadController {
     }
 
     @FXML
-    public void handleToInformationButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า หนังสือทั้งหมด (เพจหลัก)
+    public void handleToInformationButton(ActionEvent actionEvent) {
         try {
 
             FXRouter.goTo("accountDetail", accountList);

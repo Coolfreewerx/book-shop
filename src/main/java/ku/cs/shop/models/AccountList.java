@@ -89,6 +89,8 @@ public class AccountList {
 
     //แยกลิส แอดมิน กับ ผู้ใช้
     public void spitUserAccountAndAdminAccount() {
+        adminAccounts.clear();
+        userAccounts.clear();
         for (Account account : this.accounts) {
             if (account instanceof AdminAccount) {
                 adminAccounts.add((AdminAccount) account) ;

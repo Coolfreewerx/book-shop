@@ -2,6 +2,7 @@ package ku.cs.shop.controllers.user;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -16,6 +17,7 @@ import ku.cs.shop.services.AccountDataSource;
 import ku.cs.shop.services.AccountSortByTimeComparator;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class UserListForAdminController {
@@ -39,6 +41,7 @@ public class UserListForAdminController {
 
     private AccountList accountList ;
     private Account account ;
+    private UserAccount selectedAccount ;
 
     public void initialize(){
         accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
@@ -61,6 +64,7 @@ public class UserListForAdminController {
                     public void changed(ObservableValue<? extends UserAccount> observable,
                                         UserAccount oldValue, UserAccount newValue) {
                         showSelectedUserAccount(newValue);
+                        selectedAccount = newValue ;
                     }
                 });
     }
@@ -108,6 +112,26 @@ public class UserListForAdminController {
             fxmlLoaderHead.setLocation(getClass().getResource("/ku/cs/headPage.fxml"));
             gridPaneInHead.add(fxmlLoaderHead.load(), 0,0);
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void handleBanButton(ActionEvent actionEvent) {
+
+    }
+
+    @FXML
+    public void handleUnbanButton(ActionEvent actionEvent) {
+
+    }
+
+    @FXML
+    public void handleToInformationButton(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("accountDetail", accountList);
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า detailUser ไม่ได้");
             e.printStackTrace();
         }
     }

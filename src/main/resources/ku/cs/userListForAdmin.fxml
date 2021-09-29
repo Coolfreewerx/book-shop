@@ -110,11 +110,11 @@
                                  </HBox.margin></Text>
                               <Label fx:id="accountStatusLabel" maxWidth="64.0" minWidth="64.0" styleClass="font_rsu_12pt" text="Working" textFill="WHITE" />
                               <Pane maxWidth="25.0" minWidth="25.0" style="-fx-background-color: transparent;" />
-                              <Button mnemonicParsing="false" style="-fx-background-color: fff;" text="ปลดบล็อก" textFill="#349400" />
+                              <Button mnemonicParsing="false" style="-fx-background-color: fff;" onAction="#handleUnbanButton" text="ปลดบล็อก" textFill="#349400" />
                               <Pane maxWidth="25.0" minWidth="25.0" style="-fx-background-color: transparent;" />
-                              <Button mnemonicParsing="false" style="-fx-background-color: ffff;" text="บล็อกการใช้งาน" textFill="#a90000" />
+                              <Button mnemonicParsing="false" style="-fx-background-color: ffff;" onAction="#handleBanButton" text="บล็อกการใช้งาน" textFill="#a90000" />
                               <Pane maxWidth="25.0" minWidth="25.0" style="-fx-background-color: transparent;" />
-                              <Button maxWidth="80.0" minWidth="80.0" mnemonicParsing="false" style="-fx-background-color: black;" text="กลับหน้าบัญชี" textFill="#f99f28" />
+                              <Button maxWidth="80.0" minWidth="80.0" mnemonicParsing="false" style="-fx-background-color: black;" onAction="#handleToInformationButton" text="กลับหน้าบัญชี" textFill="#f99f28" />
                               <Pane maxWidth="25.0" minWidth="25.0" style="-fx-background-color: transparent;" />
                            </children>
                         </HBox>
