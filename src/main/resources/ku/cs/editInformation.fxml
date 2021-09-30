@@ -30,32 +30,32 @@
                         <Font name="JasmineUPC" size="36.0" />
                      </font>
                   </Label>
-                  <Label fx:id="birthdayInEditInformationLabel" layoutX="38.0" layoutY="448.0" styleClass="font_rsu_12pt" stylesheets="@style/PrimaryTheme.css" text="Birthday" textAlignment="CENTER">
+                  <Label fx:id="birthdayInEditInformationLabel" layoutX="38.0" layoutY="449.0" styleClass="font_rsu_12pt" stylesheets="@style/PrimaryTheme.css" text="Birthday" textAlignment="CENTER">
                      <font>
                         <Font name="JasmineUPC" size="25.0" />
                      </font>
                   </Label>
-                  <Label fx:id="birthMonthInEditInformationLabel" layoutX="101.0" layoutY="448.0" styleClass="font_rsu_12pt" stylesheets="@style/PrimaryTheme.css" text="Birthmonth" textAlignment="CENTER">
+                  <Label fx:id="birthMonthInEditInformationLabel" layoutX="101.0" layoutY="449.0" styleClass="font_rsu_12pt" stylesheets="@style/PrimaryTheme.css" text="Birthmonth" textAlignment="CENTER">
                      <font>
                         <Font name="JasmineUPC" size="25.0" />
                      </font>
                   </Label>
-                  <Label fx:id="birthYearInEditInformationLabel" layoutX="185.0" layoutY="448.0" styleClass="font_rsu_12pt" stylesheets="@style/PrimaryTheme.css" text="Birthyear" textAlignment="CENTER">
+                  <Label fx:id="birthYearInEditInformationLabel" layoutX="185.0" layoutY="449.0" styleClass="font_rsu_12pt" stylesheets="@style/PrimaryTheme.css" text="Birthyear" textAlignment="CENTER">
                      <font>
                         <Font name="JasmineUPC" size="25.0" />
                      </font>
                   </Label>
-                  <Label fx:id="usernameInEditInformationLabel" layoutX="40.0" layoutY="263.0" styleClass="font_rsu_12pt" stylesheets="@style/PrimaryTheme.css" text="Username">
+                  <Label fx:id="usernameInEditInformationLabel" layoutX="40.0" layoutY="178.0" styleClass="font_rsu_12pt" stylesheets="@style/PrimaryTheme.css" text="Username">
                      <font>
                         <Font name="JasmineUPC" size="25.0" />
                      </font>
                   </Label>
-                  <Label fx:id="passwordConditionCheckLabel" layoutX="48.0" layoutY="350.0">
+                  <Label fx:id="passwordConditionCheckLabel" layoutX="48.0" layoutY="353.0">
                      <font>
                         <Font name="JasmineUPC" size="13.0" />
                      </font>
                   </Label>
-                  <Label fx:id="passwordCompareLabel" layoutX="48.0" layoutY="399.0">
+                  <Label fx:id="passwordCompareLabel" layoutX="48.0" layoutY="402.0">
                      <font>
                         <Font name="JasmineUPC" size="13.0" />
                      </font>
@@ -65,29 +65,29 @@
                         <Font name="JasmineUPC" size="20.0" />
                      </font>
                   </Button>
-                  <PasswordField fx:id="passwordField" layoutX="41.0" layoutY="320.0" onKeyReleased="#handleKeyPassword" prefHeight="28.0" prefWidth="324.0" promptText="รหัสผ่าน" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88; -fx-border-radius: 5;">
+                  <PasswordField fx:id="passwordField" layoutX="41.0" layoutY="323.0" onKeyReleased="#handleKeyPassword" prefHeight="28.0" prefWidth="324.0" promptText="รหัสผ่าน" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88; -fx-border-radius: 5;">
                      <font>
                         <Font name="JasmineUPC" size="16.0" />
                      </font>
                   </PasswordField>
-                  <Text fill="#7d7d7d" layoutX="46.0" layoutY="314.0" strokeType="OUTSIDE" strokeWidth="0.0" text="รหัสผ่านต้องประกอบด้วยตัวอักษรภาษาอังกฤษและตัวเลข 0-9 มากกว่า 8 หลัก">
+                  <Text fill="#7d7d7d" layoutX="46.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="รหัสผ่านต้องประกอบด้วยตัวอักษรภาษาอังกฤษและตัวเลข 0-9 มากกว่า 8 หลัก">
                      <font>
                         <Font name="JasmineUPC" size="14.0" />
                      </font>
                   </Text>
-                  <PasswordField fx:id="recheckPasswordField" layoutX="41.0" layoutY="368.0" onKeyReleased="#handleKeyCheckPassword" prefHeight="28.0" prefWidth="324.0" promptText="ยืนยันรหัสผ่าน" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88; -fx-border-radius: 5;">
+                  <PasswordField fx:id="recheckPasswordField" layoutX="41.0" layoutY="371.0" onKeyReleased="#handleKeyCheckPassword" prefHeight="28.0" prefWidth="324.0" promptText="ยืนยันรหัสผ่าน" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88; -fx-border-radius: 5;">
                      <font>
                         <Font name="JasmineUPC" size="16.0" />
                      </font>
                   </PasswordField>
-                  <Text fill="#7d7d7d" layoutX="31.0" layoutY="439.0" strokeType="OUTSIDE" strokeWidth="0.0" text="วันเกิด">
+                  <Text fill="#7d7d7d" layoutX="31.0" layoutY="442.0" strokeType="OUTSIDE" strokeWidth="0.0" text="วันเกิด">
                      <font>
-                        <Font name="JasmineUPC" size="30.0" />
+                        <Font name="JasmineUPC" size="26.0" />
                      </font>
                   </Text>
-                  <Text fill="#7d7d7d" layoutX="32.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
+                  <Text fill="#7d7d7d" layoutX="32.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อผู้ใช้">
                      <font>
-                        <Font name="JasmineUPC" size="30.0" />
+                        <Font name="JasmineUPC" size="26.0" />
                      </font>
                   </Text>
                   <ImageView fx:id="imageView" fitHeight="90.0" fitWidth="90.0" layoutX="196.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="192.5" AnchorPane.rightAnchor="191.60000000000002">
@@ -102,29 +102,29 @@
                   </Text>
                   <Line endX="178.6666259765625" endY="-1.52587890625E-5" layoutX="229.0" layoutY="22.0" startX="-63.0" startY="-1.52587890625E-5" />
                   <Button layoutX="265.0" layoutY="109.0" mnemonicParsing="false" onAction="#handleAddImageButton" style="-fx-background-color: c9ad88; -fx-background-radius: 20;" text="+" />
-                  <Text fill="#7d7d7d" layoutX="31.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อผู้ใช้">
+                  <Text fill="#7d7d7d" layoutX="31.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อ นามสกุล">
                      <font>
-                        <Font name="JasmineUPC" size="30.0" />
+                        <Font name="JasmineUPC" size="26.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="firstnameTextField" layoutX="41.0" layoutY="194.0" prefHeight="28.0" prefWidth="166.0" promptText="ชื่อ" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88; -fx-border-radius: 5;">
+                  <TextField fx:id="firstnameTextField" layoutX="41.0" layoutY="240.0" prefHeight="28.0" prefWidth="166.0" promptText="ชื่อ" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88; -fx-border-radius: 5;">
                      <font>
                         <Font name="JasmineUPC" size="16.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="lastnameTextField" layoutX="264.0" layoutY="194.0" prefHeight="28.0" prefWidth="166.0" promptText="นามสกุล" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88; -fx-border-radius: 5;">
+                  <TextField fx:id="lastnameTextField" layoutX="264.0" layoutY="240.0" prefHeight="28.0" prefWidth="166.0" promptText="นามสกุล" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88; -fx-border-radius: 5;">
                      <font>
                         <Font name="JasmineUPC" size="16.0" />
                      </font>
                   </TextField>
-                  <Text fill="#7d7d7d" layoutX="31.0" layoutY="506.0" strokeType="OUTSIDE" strokeWidth="0.0" text="เบอร์โทรศัพท์">
+                  <Text fill="#7d7d7d" layoutX="31.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0" text="เบอร์โทรศัพท์">
                      <font>
-                        <Font name="JasmineUPC" size="30.0" />
+                        <Font name="JasmineUPC" size="26.0" />
                      </font>
                   </Text>
                   <Text fill="#7d7d7d" layoutX="31.0" layoutY="571.0" strokeType="OUTSIDE" strokeWidth="0.0" text="เพศ">
                      <font>
-                        <Font name="JasmineUPC" size="30.0" />
+                        <Font name="JasmineUPC" size="26.0" />
                      </font>
                   </Text>
                   <ComboBox fx:id="sexChoice" layoutX="41.0" layoutY="580.0" prefHeight="27.0" prefWidth="84.0" promptText="เพศ" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88; -fx-border-radius: 5;" />
@@ -138,6 +138,16 @@
                         <Font name="JasmineUPC" size="16.0" />
                      </font>
                   </TextField>
+                  <Label fx:id="editErrorLabel" layoutX="132.0" layoutY="630.0" textFill="RED">
+                     <font>
+                        <Font name="JasmineUPC" size="15.0" />
+                     </font>
+                  </Label>
+                  <Text fill="#7d7d7d" layoutX="32.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="รหัสผ่าน">
+                     <font>
+                        <Font name="JasmineUPC" size="26.0" />
+                     </font>
+                  </Text>
                </children>
                <VBox.margin>
                   <Insets top="20.0" />
