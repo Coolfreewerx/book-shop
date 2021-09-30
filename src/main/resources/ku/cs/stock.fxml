@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
@@ -12,16 +13,7 @@
 <AnchorPane fx:id="anchorpaneCenter" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.StockController">
    <children>
       <Rectangle fx:id="rectangleCenter" arcHeight="50.0" arcWidth="50.0" fill="#fffcf1" height="240.0" layoutX="5.0" layoutY="5.0" stroke="WHITE" strokeType="INSIDE" width="687.0" />
-      <VBox layoutX="22.0" layoutY="34.0" prefHeight="250.0" prefWidth="173.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="525.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <ImageView fx:id="bookImageView" fitHeight="200.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true">
-               <VBox.margin>
-                  <Insets left="20.0" top="25.0" />
-               </VBox.margin>
-            </ImageView>
-         </children>
-      </VBox>
-      <VBox layoutX="178.0" layoutY="25.0" prefHeight="235.0" prefWidth="197.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="275.0" AnchorPane.topAnchor="0.0">
+      <VBox layoutX="178.0" layoutY="25.0" prefHeight="250.0" prefWidth="524.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label text="ชื่อหนังสือ">
                <font>
@@ -31,13 +23,16 @@
                   <Insets top="30.0" />
                </VBox.margin>
             </Label>
-            <Label fx:id="bookNameLabel" text="โฮริมิยะ สาวมั่นกับนายมืดมน">
+            <Label fx:id="bookNameLabel" prefHeight="18.0" prefWidth="499.0" text="โฮริมิยะ สาวมั่นกับนายมืดมน">
                <font>
                   <Font name="JasmineUPC" size="24.0" />
                </font>
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
             </Label>
             <Label text="ประเภทหนังสือ">
                <font>
@@ -52,7 +47,7 @@
                   <Font name="JasmineUPC" size="24.0" />
                </font>
                <VBox.margin>
-                  <Insets top="10.0" />
+                  <Insets left="10.0" top="10.0" />
                </VBox.margin>
             </Label>
             <Label text="ราคา">
@@ -63,37 +58,50 @@
                   <Insets top="20.0" />
                </VBox.margin>
             </Label>
-            <Label fx:id="bookPriceLabel" text="80.25  บาท">
+            <Label fx:id="bookPriceLabel" prefHeight="18.0" prefWidth="201.0" text="80.25  บาท">
                <font>
                   <Font name="JasmineUPC" size="24.0" />
                </font>
                <VBox.margin>
-                  <Insets top="10.0" />
+                  <Insets left="10.0" top="10.0" />
                </VBox.margin>
             </Label>
          </children>
       </VBox>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#f3efef" height="50.0" layoutX="401.0" layoutY="118.0" stroke="#f3efef" strokeType="INSIDE" width="202.0" />
-      <Button fx:id="decreaseButton" layoutX="418.0" layoutY="121.0" mnemonicParsing="false" onAction="#handleDecreaseButton" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #f3efef;" text="-">
+      <VBox layoutX="22.0" layoutY="34.0" prefHeight="250.0" prefWidth="173.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="525.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="bookImageView" fitHeight="200.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true">
+               <VBox.margin>
+                  <Insets left="20.0" top="25.0" />
+               </VBox.margin>
+            </ImageView>
+         </children>
+      </VBox>
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#f3efef" height="50.0" layoutX="400.0" layoutY="100.0" stroke="#f3efef" strokeType="INSIDE" width="202.0" />
+      <Button fx:id="decreaseButton" layoutX="418.0" layoutY="102.0" mnemonicParsing="false" onAction="#handleDecreaseButton" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #f3efef;" text="-">
          <font>
             <Font name="JasmineUPC Bold" size="32.0" />
          </font>
       </Button>
-      <Button fx:id="increaseButton" layoutX="531.0" layoutY="121.0" mnemonicParsing="false" onAction="#handleIncreaseButton" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #f3efef;" text="+">
+      <Button fx:id="increaseButton" layoutX="531.0" layoutY="102.0" mnemonicParsing="false" onAction="#handleIncreaseButton" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #f3efef;" text="+">
          <font>
             <Font name="JasmineUPC Bold" size="32.0" />
          </font>
       </Button>
-      <Label fx:id="bookStockLabel" layoutX="492.0" layoutY="130.0" text="10" textAlignment="CENTER">
-         <font>
-            <Font name="JasmineUPC Bold" size="36.0" />
-         </font>
-      </Label>
       <Button layoutX="560.0" layoutY="188.0" mnemonicParsing="false" onAction="#handleEditBookButton" prefHeight="34.0" prefWidth="102.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="แก้ไขข้อมูล" textFill="WHITE">
          <font>
             <Font name="JasmineUPC" size="18.0" />
          </font>
       </Button>
-      <Label fx:id="notificationForStock" layoutX="382.0" layoutY="185.0" textFill="#fc0606" />
+      <Label fx:id="notificationForStock" layoutX="430.5" layoutY="155.0" textFill="#fc0606" />
+      <HBox alignment="CENTER" layoutX="458.0" layoutY="108.0" prefHeight="34.0" prefWidth="89.0">
+         <children>
+            <Label fx:id="bookStockLabel" text="10" textAlignment="CENTER">
+               <font>
+                  <Font name="JasmineUPC Bold" size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

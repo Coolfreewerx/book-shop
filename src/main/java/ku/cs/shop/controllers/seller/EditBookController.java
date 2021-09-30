@@ -25,6 +25,7 @@ public class EditBookController {
     private Seller seller = new Seller();
     private Book book;
     private String startedBookname;
+    private BookList bookList;
     public void setData(Book book) { this.book = book; }
 
     @FXML private Button addImgButton;
@@ -75,15 +76,16 @@ public class EditBookController {
         bookPublisherTextField.setText(book.getBookPublisher());
         bookStockTextField.setText(String.valueOf(book.getBookStock()));
         leastStockTextField.setText(String.valueOf(book.getLeastStock()));
-        bookPriceTextField.setText(String.valueOf(book.getBookPrice()));
+        bookPriceTextField.setText(String.format("%.02f",book.getBookPrice()));
         menuButton.setText(book.getBookType());
         imageView.setImage(new Image(book.getPicturePath()));
         pagesHeader();
     }
     public void castObjectToData() {
         book = (Book) objectForPassing.get(0);
-        account = (Account) objectForPassing.get(1);
-        accountList = (AccountList) objectForPassing.get(2);
+        bookList = (BookList) objectForPassing.get(1);
+        account = (Account) objectForPassing.get(2);
+        accountList = (AccountList) objectForPassing.get(3);
     }
 
     @FXML
@@ -180,18 +182,12 @@ public class EditBookController {
         book.setTimeOfAddingBook(LocalDateTime.now());
 
         if (seller.getDataCheck(book)) {
-
-
             DataSource<BookList> dataSource;
             dataSource = new BookDetailDataSource("csv-data/bookDetail.csv");
-            BookList bookList = dataSource.readData();
-
-            bookList.editIndexBookByName(startedBookname ,book);
             System.out.println("Can Edit booklist");
             System.out.println(bookList.getBookByShop(account.getShopName()).get(0).getBookName());
 
             dataSource.writeData(bookList);
-
             try {
                 com.github.saacsos.FXRouter.goTo("sellerStock", accountList);
             } catch (IOException e) {

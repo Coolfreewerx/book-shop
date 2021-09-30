@@ -45,26 +45,6 @@ public class AccountList {
         return false;
     }
 
-    public void editInformationByName(String username ,Account newInformation){
-        int index = 0;
-        for (Account account: this.accounts){
-            if(account.getUserName().equals(username)){
-                this.accounts.set(index, newInformation);
-                break;
-            }
-            index++;
-        }
-    }
-
-    public Account searchByUserName(String userName){
-        for (Account account : this.accounts) {
-            if (account.isMyUserName(userName)) {
-                return account;
-            }
-        }
-        return null;
-    }
-
     //ตรวจสอบ shopName ว่าซ้ำมั้ย
     public boolean checkShopNameHaveUsed(String shopName) {
         for (Account account: this.accounts) {

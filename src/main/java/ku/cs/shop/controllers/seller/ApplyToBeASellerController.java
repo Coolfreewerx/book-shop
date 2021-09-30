@@ -101,11 +101,11 @@ public class ApplyToBeASellerController { //สมัครเป็นผู้
         if(shopName != "") {
             DataSource<AccountList> dataSource;
             dataSource = new AccountDataSource("csv-data/accountData.csv");
-            AccountList accountListForWriteData = dataSource.readData();
-            accountListForWriteData.editInformationByName(account.getUserName(), account);
+//            AccountList accountListForWriteData = dataSource.readData();
+//            accountListForWriteData.editInformationByName(account.getUserName(), account);
             System.out.println(account.getUserName());
             System.out.println(account.getShopName());
-            dataSource.writeData(accountListForWriteData);
+            dataSource.writeData(accountList);
 
             try {
                 com.github.saacsos.FXRouter.goTo("sellerStock",accountList);

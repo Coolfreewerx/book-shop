@@ -42,25 +42,27 @@ public class StockController  {
     private AccountList accountList ;
     private Account account ;
     private ArrayList<Object> objectForPassing = new ArrayList<>();
+    private BookList bookList;
 
     public void initialize(){
         accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
         account = accountList.getCurrentAccount() ;
     }
 
-    public void setData(Book book, AccountList accountList) {
+    public void setData(Book book, AccountList accountList,BookList bookList) {
         this.book = book;
         this.accountList = accountList;
+        this.bookList = bookList;
     }
 
     public void changeData() {
         bookNameLabel.setText(book.getBookName());
-        bookPriceLabel.setText(book.getBookPrice() + "");
+        bookPriceLabel.setText(String.format("%.02f",book.getBookPrice()) + " Baht.");
         bookTypeLabel.setText(book.getBookType());
         bookImageView.setImage(new Image(book.getPicturePath()));
         bookStockLabel.setText(book.getBookStock() + "");
         if (book.getBookStock() <= book.getLeastStock()){
-            notificationForStock.setText("** มีสินค้าจำนวนน้อยในคลัง ** ");
+            notificationForStock.setText("** มีสินค้าจำนวนน้อยในคลัง **");
         }
         else{
             notificationForStock.setText("");
@@ -84,6 +86,7 @@ public class StockController  {
     public ArrayList<Object> castDataToObject() {
         objectForPassing.clear();
         objectForPassing.add(book);
+        objectForPassing.add(bookList);
         objectForPassing.add(account);
         objectForPassing.add(accountList);
         return objectForPassing;

@@ -60,7 +60,7 @@ public class SellerStockController implements Initializable {
 
                 grid.add(fxmlLoader.load(), column, row++); // child,col,row
                 StockController stockController = fxmlLoader.getController();
-                stockController.setData(bookInShop.get(i),accountList);
+                stockController.setData(bookInShop.get(i),accountList,books);
                 stockController.changeData();
 
                 grid.setMinWidth(Region.USE_COMPUTED_SIZE);
