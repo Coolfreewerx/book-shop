@@ -74,7 +74,7 @@ public class BookDetailController
         bookAuthor.setText(book.getBookAuthor());
         typeLabel.setText(book.getBookType());
         bookImg.setImage(new Image(book.getPicturePath()));
-        bookPrice.setText(String.format("%.02f",book.getBookPrice()) + " Bahts.");
+        bookPrice.setText(String.format("%.02f",book.getBookPrice()) + " Baht.");
     }
 
     public ArrayList<Object> castDataToObject() {
