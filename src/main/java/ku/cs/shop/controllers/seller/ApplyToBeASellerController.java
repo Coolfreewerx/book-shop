@@ -76,7 +76,10 @@ public class ApplyToBeASellerController { //สมัครเป็นผู้
         if(accountList.checkShopNameHaveUsed(nameShopTextField.getText())) {
             notificationShopName.setText("** ชื่อร้านค้านี้ถูกใช้ไปแล้ว กรุณากรอกใหม่อีกครั้ง **") ;
             shopName = "";
-        } else { shopName = nameShopTextField.getText(); }
+        } else {
+            shopName = nameShopTextField.getText();
+            notificationShopName.setText("") ;
+        }
     }
     @FXML
     public void handleKeyPassword() {

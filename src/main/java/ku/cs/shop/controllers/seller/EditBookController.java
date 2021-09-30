@@ -155,6 +155,7 @@ public class EditBookController {
         }
         setImageName();
         book.setBookImg(imageName);
+
     }
     public void setImageName() {
         if (!selectedImage.equals("")) {
@@ -176,9 +177,10 @@ public class EditBookController {
         book.setBookDetail(bookDetailTextArea.getText());
         book.setBookPublisher(bookPublisherTextField.getText());
         book.setBookShop(account.getShopName());
+        book.setTimeOfAddingBook(LocalDateTime.now());
 
         if (seller.getDataCheck(book)) {
-            book.setBookImg(imageName);
+
 
             DataSource<BookList> dataSource;
             dataSource = new BookDetailDataSource("csv-data/bookDetail.csv");
