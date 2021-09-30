@@ -53,6 +53,7 @@ public class ApplyBookController {
     @FXML private Label usernameInHead;
     @FXML private ImageView img;
     @FXML private ImageView logoJavaPai;
+    @FXML private ImageView userImageView;
 
     private File selectedImage;
     private String imageName;
@@ -64,6 +65,7 @@ public class ApplyBookController {
     public void initialize(){
         accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
         account = accountList.getCurrentAccount() ;
+        userImageView.setImage(new Image(account.getImagePath()));
         pagesHeader();
     }
 

@@ -31,17 +31,9 @@ public class EditAddressController {
     @FXML
     public void handleGoToInformationPageWhenEditAddress(){ //ปุ่มกลับไปหน้าข้อมูลส่วนตัวหลังแก้ไขข้อมูลเสร็จ
         account.setAddress(editAddressTextField.getText());
+        AccountDataSource accountDataSource = new AccountDataSource("csv-data/accountData.csv") ;
+        accountDataSource.writeData(accountList);
 
-        if(accountList.getCurrentAccount().equals(accountList.searchByUserName(username))){
-            System.out.println("เข้าเงื่อนไขแล้วจ้า");
-            DataSource<AccountList> dataSource;
-            dataSource = new AccountDataSource("csv-data/accountData.csv");
-
-            AccountList accountList = dataSource.readData();
-            accountList.editInformationByName(username, account);
-
-            dataSource.writeData(accountList);
-        }
         try{
             com.github.saacsos.FXRouter.goTo("accountDetail");
         } catch (IOException e) {

@@ -30,7 +30,6 @@ public class EditInformationController {
     private AccountDataSource accountDataSource;
     private File selectedImage ;
     private String imageName;
-    private String username;
 
     @FXML private TextField lastnameTextField;
     @FXML private TextField firstnameTextField;
@@ -45,7 +44,7 @@ public class EditInformationController {
     @FXML private Label passwordConditionCheckLabel;
     @FXML private Label passwordCompareLabel;
     @FXML private ImageView imageView;
-    @FXML private Label warningEditInformation;
+    @FXML private Label editErrorLabel;
 
     private ObservableList sexList = FXCollections.observableArrayList() ;
     private AccountDataSource data = new AccountDataSource("csv-data/accountData.csv");
@@ -57,15 +56,15 @@ public class EditInformationController {
         accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
         account = accountList.getCurrentAccount() ;
 
-        username = account.getUserName();
         usernameInEditInformationLabel.setText(account.getUserName());
         birthdayInEditInformationLabel.setText(account.getBirthDay());
         birthMonthInEditInformationLabel.setText(account.getBirthMonth());
         birthYearInEditInformationLabel.setText(account.getBirthYear());
         firstnameTextField.setText(account.getFirstName());
         lastnameTextField.setText(account.getLastName());
-        passwordField.setText(account.getPassword());
         sexChoice.getItems().addAll(sexList);
+        imageView.setImage(new Image(account.getImagePath()));
+        phoneNumberTextField.setText(account.getPhone().replace("null",""));
         lodeSexData();
     }
 
@@ -99,8 +98,7 @@ public class EditInformationController {
         sexChoice.getItems().addAll(sexList) ;
     }
 
-    @FXML
-    public void handleGoToInformationPageWhenEditInformation(){ //ปุ่มกลับไปหน้าข้อมูลส่วนตัวหลังแก้ไขข้อมูลเสร็จ
+    public void setDataToWrite() {
         account.setFirstName(firstnameTextField.getText());
         account.setLastName(lastnameTextField.getText());
         account.setPassword(passwordField.getText());
@@ -108,20 +106,19 @@ public class EditInformationController {
         account.setSex(sexChoice.getValue());
         account.setImageName(imageName);
 
-//        System.out.println(account.isMyUserName(username));
-//        System.out.println(accountList.searchByUserName(username));
-//        System.out.println(accountList.getCurrentAccount());
+        AccountDataSource accountDataSource = new AccountDataSource("csv-data/accountData.csv") ;
+        accountDataSource.writeData(accountList);
+    }
 
-        if(accountList.getCurrentAccount().equals(accountList.searchByUserName(username))){
-            System.out.println("เข้าเงื่อนไข");
-            DataSource <AccountList> dataSource;
-            dataSource = new AccountDataSource("csv-data/accountData.csv");
-
-            AccountList accountList = dataSource.readData();
-            accountList.editInformationByName(username, account);
-
-            dataSource.writeData(accountList);
+    @FXML
+    public void handleGoToInformationPageWhenEditInformation(){ //ปุ่มกลับไปหน้าข้อมูลส่วนตัวหลังแก้ไขข้อมูลเสร็จ
+        editErrorLabel.setText(checkData());
+        if (!(checkData().equals(" "))) {
+            return;
         }
+        setImageName();
+        setDataToWrite();
+
         try{
             FXRouter.goTo("accountDetail", accountList);
         } catch (IOException e) {
@@ -151,8 +148,6 @@ public class EditInformationController {
             Image image = new Image(selectedImage.toURI().toString());
             imageView.setImage(image);
         }
-        setImageName();
-        account.setImageName(imageName);
     }
 
     public void setImageName() {
@@ -164,7 +159,7 @@ public class EditInformationController {
                     + LocalDateTime.now().getHour() + LocalDateTime.now().getMinute() + LocalDateTime.now().getSecond() + ".png" ;
             UserAccount.copyImageToPackage(selectedImage , imageName) ;
         } else {
-            imageName = "default.png" ;
+            imageName = account.getImageName() ;
         }
     }
 
@@ -172,12 +167,9 @@ public class EditInformationController {
     public String checkData() {
         // ตรวจสอบว่าทุกช่องมีข้อมูล
         if ((firstnameTextField.getText().equals("") || lastnameTextField.getText().equals("")
-                || passwordField.getText().equals("") || sexChoice.getValue().equals("")
-                || imageView.getImage().equals(""))) {
+                || passwordField.getText().equals("") || sexChoice.getValue() == null
+                || phoneNumberTextField.getText().equals(""))) {
             return "ข้อมูลไม่ครบถ้วน โปรดตรวจสอบข้อมูลอีกครั้ง";
-        }
-        else if (!(Account.getPasswordCheck() && Account.getPasswordCondition() && Account.getUserNameCheck() )) {
-            return "ข้อมูลมีข้อผิดพลาดโปรดตรวจสอบข้อมูลอีกครั้ง" ;
         }
         else {
             return " ";

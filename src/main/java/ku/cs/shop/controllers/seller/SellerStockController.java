@@ -35,6 +35,7 @@ public class SellerStockController implements Initializable {
     @FXML private Label usernameInHead;
     @FXML private ImageView img;
     @FXML private ImageView logoJavaPai;
+    @FXML private ImageView userImageView;
 
     private BookDetailDataSource data = new BookDetailDataSource("csv-data/bookDetail.csv");
     private BookList books = data.readData();
@@ -45,6 +46,7 @@ public class SellerStockController implements Initializable {
     public void initialize (URL location, ResourceBundle resource){
         accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
         account = accountList.getCurrentAccount() ;
+        userImageView.setImage(new Image(account.getImagePath()));
         pagesHeader();
         int column = 0;
         int row = 1;

@@ -38,6 +38,7 @@ public class ApplyToBeASellerController { //สมัครเป็นผู้
     @FXML private Label usernameInHead;
     @FXML private ImageView img;
     @FXML private ImageView logoJavaPai;
+    @FXML private ImageView userImageView;
 
 
 //    private Account account = new UserAccount ("Freshmin", "Na", "justmeka", "13082000",
@@ -55,6 +56,7 @@ public class ApplyToBeASellerController { //สมัครเป็นผู้
     public void initialize(){
         accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
         account = accountList.getCurrentAccount() ;
+        userImageView.setImage(new Image(account.getImagePath()));
         pagesHeader();
     }
 
