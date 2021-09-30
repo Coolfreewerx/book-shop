@@ -23,7 +23,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.seller.EditBookController">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.seller.EditBookController">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -138,7 +138,7 @@
                               <Font name="JasmineUPC" size="32.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" text="ประวัติการซื้อ" textFill="WHITE" GridPane.rowIndex="4">
+                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" onAction="#handleToLogoutButton" text="ออกจากระบบ" textFill="WHITE" GridPane.rowIndex="4">
                            <font>
                               <Font name="JasmineUPC" size="32.0" />
                            </font>

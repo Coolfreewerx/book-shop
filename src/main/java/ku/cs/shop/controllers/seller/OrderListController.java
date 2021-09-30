@@ -145,4 +145,15 @@ public class OrderListController implements Initializable {
             e.printStackTrace();
         }
     }
+
+    //ออกจากระบบกลับไปล็อกอิน
+    @FXML
+    public void handleToLogoutButton(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("login");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า login ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
 }
