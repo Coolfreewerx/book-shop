@@ -25,7 +25,7 @@
          <top>
             <HBox fx:id="head1" prefHeight="69.0" prefWidth="1024.0" styleClass="backgroundColorInHeadPages" stylesheets="@style/style.css">
                <children>
-                  <ImageView fx:id="logoJavaPai" fitHeight="68.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#mouseClickedInLogo">
+                  <ImageView fx:id="logoJavaPai" fitHeight="68.0" fitWidth="69.0" onMouseClicked="#mouseClickedInLogo" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@image/logoverLightBrown.png" />
                      </image>
@@ -118,7 +118,7 @@
                               <Font name="JasmineUPC" size="32.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" text="สินค้าในตะกร้า" textFill="WHITE" GridPane.rowIndex="2">
+                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" text="โปรโมชั่น" textFill="WHITE" GridPane.rowIndex="2">
                            <font>
                               <Font name="JasmineUPC" size="32.0" />
                            </font>
