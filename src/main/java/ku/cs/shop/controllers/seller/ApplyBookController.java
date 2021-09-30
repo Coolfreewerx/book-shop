@@ -146,6 +146,7 @@ public class ApplyBookController {
             dataSource = new BookDetailDataSource("csv-data/bookDetail.csv");
             BookList bookList = dataSource.readData();
             bookList.addBook(book);
+
             dataSource.writeData(bookList);
             try {
                 com.github.saacsos.FXRouter.goTo("sellerStock",accountList);

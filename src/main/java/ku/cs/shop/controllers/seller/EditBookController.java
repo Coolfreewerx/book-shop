@@ -24,13 +24,8 @@ import java.util.ResourceBundle;
 public class EditBookController {
     private Seller seller = new Seller();
     private Book book;
-    private Book bookList;
     private String startedBookname;
     public void setData(Book book) { this.book = book; }
-
-    private BookDetailDataSource data = new BookDetailDataSource("src/main/java/ku/cs/shop/bookDetail.csv");
-    private BookList books = data.readData();
-
 
     @FXML private Button addImgButton;
     @FXML private TextField bookNameTextField;
@@ -188,12 +183,15 @@ public class EditBookController {
             DataSource<BookList> dataSource;
             dataSource = new BookDetailDataSource("csv-data/bookDetail.csv");
             BookList bookList = dataSource.readData();
+
             bookList.editIndexBookByName(startedBookname ,book);
             System.out.println("Can Edit booklist");
+            System.out.println(bookList.getBookByShop(account.getShopName()).get(0).getBookName());
 
             dataSource.writeData(bookList);
+
             try {
-                com.github.saacsos.FXRouter.goTo("sellerStock");
+                com.github.saacsos.FXRouter.goTo("sellerStock", accountList);
             } catch (IOException e) {
                 e.printStackTrace();
                 System.err.println("ไปที่หน้า sellerStock ไม่ได้");

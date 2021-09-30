@@ -90,6 +90,7 @@ public class AccountDataSource implements DataSource<AccountList> {
             writer = new FileWriter(file);
             buffer = new BufferedWriter(writer);
             buffer.write(accountList.toCsv());
+
         }catch (IOException e){
             e.printStackTrace();
         }finally {

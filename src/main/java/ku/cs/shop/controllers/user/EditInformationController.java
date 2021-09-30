@@ -113,7 +113,7 @@ public class EditInformationController {
 //        System.out.println(accountList.getCurrentAccount());
 
         if(accountList.getCurrentAccount().equals(accountList.searchByUserName(username))){
-            System.out.println("เข้าเงื่อนไขแล้วจ้า");
+            System.out.println("เข้าเงื่อนไข");
             DataSource <AccountList> dataSource;
             dataSource = new AccountDataSource("csv-data/accountData.csv");
 

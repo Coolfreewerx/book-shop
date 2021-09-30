@@ -59,7 +59,7 @@ public class BookList {
 
     public void editIndexBookByName(String name, Book newDetailbook) {
         int index = 0;
-        for (Book book : books){
+        for (Book book : this.books){
             if (book.getBookName().equals(name)){
                 this.books.set(index, newDetailbook);
                 break;
