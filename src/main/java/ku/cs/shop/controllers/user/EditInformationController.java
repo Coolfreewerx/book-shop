@@ -45,6 +45,7 @@ public class EditInformationController {
     @FXML private Label passwordCompareLabel;
     @FXML private ImageView imageView;
     @FXML private Label editErrorLabel;
+    @FXML private Label editPhoneNumberError;
 
     private ObservableList sexList = FXCollections.observableArrayList() ;
     private AccountDataSource data = new AccountDataSource("csv-data/accountData.csv");
@@ -82,6 +83,11 @@ public class EditInformationController {
     @FXML //ทำงานเมื่อกรอกยืนยันรหัส
     public void handleKeyCheckPassword() {
         passwordCompareLabel.setText(Account.comparePassword(passwordField.getText(), recheckPasswordField.getText()));
+    }
+
+    @FXML
+    public void handleKeyCheckPhoneNumber(){
+        editPhoneNumberError.setText(Account.comparePhoneNumber(phoneNumberTextField.getText(),editPhoneNumberError.getText()));
     }
 
     private void lodeSexData() {

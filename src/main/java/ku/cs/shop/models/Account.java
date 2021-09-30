@@ -25,6 +25,7 @@ public class Account {
     private static boolean passwordCheck = false ;
     private static boolean passwordCondition = false ;
     private static boolean userNameCheck = false ;
+    private static boolean phoneNumberCheck = false;
 
     //เก็บค่าเริ่มต้น
     public Account() {}
@@ -82,6 +83,7 @@ public class Account {
     public static boolean getPasswordCondition() { return  passwordCondition; }
     public static boolean getPasswordCheck() { return passwordCheck; }
     public static boolean getUserNameCheck() {return userNameCheck; }
+    public static boolean getPhoneNumberCheck() {return phoneNumberCheck;}
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -139,6 +141,17 @@ public class Account {
             return true ; }
     }
 
+    public boolean checkPhoneNumber (String phone){
+        if(phone.length() < 10 || !(Pattern.matches("[0-9]+", phone))){
+            phoneNumberCheck = false;
+            return false;
+        }
+        else{
+            phoneNumberCheck = true;
+            return true;
+        }
+    }
+
     //ตรวจสอบการยืนยันรหัสผ่าน
     public static String comparePassword(String password, String passwordRecheck) {
         if (password.equals(passwordRecheck)) {
@@ -151,8 +164,15 @@ public class Account {
         }
     }
 
-    public boolean isMyUserName(String userName){
-        return  this.userName.equals(userName);
+    public static String comparePhoneNumber(String phone , String phoneNumber){
+        if(phone.equals(phoneNumber)){
+            phoneNumberCheck = true;
+            return  "";
+        }
+        else{
+            phoneNumberCheck = false;
+            return "ข้อมูลไม่ถูกต้อง";
+        }
     }
 
     public String toCsv() {
