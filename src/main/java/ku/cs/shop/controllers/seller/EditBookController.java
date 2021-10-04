@@ -107,36 +107,26 @@ public class EditBookController {
 
     @FXML public void handleKeyBookPage(){
         book.setBookPage(bookPageTextField.getText());
-        if(! seller.isNumber(book.getBookPage())){book.setBookPage("");}
-        NotificationBookPage.setText(seller.checkNumber(book.getBookPage()));
-    }
-
-    @FXML
-    public void handleKeyBookDetail(){
-        book.setBookDetail(bookDetailTextArea.getText());
-    }
-
-    @FXML
-    public void handleKeyBookPublisher(){
-        book.setBookPublisher(bookPublisherTextField.getText());
+        if(! seller.isIntNumber(book.getBookPage())){book.setBookPage("");}
+        NotificationBookPage.setText(seller.checkIntNumber(book.getBookPage()));
     }
 
     @FXML public void handleKeyBookStock(){
-        if(! seller.isNumber(bookStockTextField.getText())){book.setBookStock(-1);}
+        if(! seller.isIntNumber(bookStockTextField.getText())){book.setBookStock(-1);}
         else {book.setBookStock(Integer.parseInt(bookStockTextField.getText()));}
-        NotificationBookStock.setText(seller.checkNumber(bookStockTextField.getText()));
+        NotificationBookStock.setText(seller.checkIntNumber(bookStockTextField.getText()));
     }
 
     @FXML public void handleKeyLeastStock(){
-        if(!seller.isNumber(leastStockTextField.getText())){book.setLeastStock(-1);}
+        if(!seller.isIntNumber(leastStockTextField.getText())){book.setLeastStock(-1);}
         else {book.setLeastStock(Integer.parseInt(leastStockTextField.getText()));}
-        NotificationLeastStock.setText(seller.checkNumber(leastStockTextField.getText()));
+        NotificationLeastStock.setText(seller.checkIntNumber(leastStockTextField.getText()));
     }
 
-    @FXML public void handleKeyBookPrice(ActionEvent actionEvent){
-        if(!seller.isNumber(bookPriceTextField.getText())){book.setBookPrice(-1);}
+    @FXML public void handleKeyBookPrice(){
+        if(!seller.isDoubleNumber(bookPriceTextField.getText())){book.setBookPrice(-1);}
         else {book.setBookPrice(Double.parseDouble(bookPriceTextField.getText()));}
-        NotificationBookPrice.setText(seller.checkNumber(bookPriceTextField.getText()));
+        NotificationBookPrice.setText(seller.checkDoubleNumber(bookPriceTextField.getText()));
     }
 
     @FXML public void handleCartoonMenuButton(ActionEvent actionEvent){ book.setBookType("หนังสือการ์ตูน");menuButton.setText("หนังสือการ์ตูน"); }
@@ -181,7 +171,14 @@ public class EditBookController {
         book.setBookShop(account.getShopName());
         book.setTimeOfAddingBook(LocalDateTime.now());
 
-        if (seller.getDataCheck(book)) {
+        book.setBookISBN(bookISBNTextField.getText());
+        book.setBookPage(bookPageTextField.getText());
+        book.setBookStock(Integer.parseInt(bookStockTextField.getText()));
+        book.setLeastStock(Integer.parseInt(leastStockTextField.getText()));
+        book.setBookPrice(Double.parseDouble(bookPriceTextField.getText()));
+
+        if (seller.getDataCheck(book) && (seller.isBookISBNCorrect(book.getBookISBN())) && (seller.isIntNumber(book.getBookPage()))
+                &&(seller.isIntNumber(bookStockTextField.getText()))&&(seller.isIntNumber(leastStockTextField.getText())) &&(seller.isDoubleNumber(bookPriceTextField.getText()))) {
             DataSource<BookList> dataSource;
             dataSource = new BookDetailDataSource("csv-data/bookDetail.csv");
             System.out.println("Can Edit booklist");
@@ -197,7 +194,13 @@ public class EditBookController {
             }
         }
         else{
-            NotificationCantAdd.setText("ไม่สามารถเพิ่มสินค้าได้ กรุณาตรวจสอบข้อมูลใหม่อีกครั้งค่ะ");
+            NotificationCantAdd.setText("ไม่สามารถแก้ไขสินค้าได้ กรุณาตรวจสอบข้อมูลใหม่อีกครั้งค่ะ");
+            System.out.println("seller.getDataCheck(book) " + seller.getDataCheck(book) );
+            System.out.println("seller.isBookISBNCorrect(book.getBookISBN()) " + seller.isBookISBNCorrect(book.getBookISBN()));
+            System.out.println("seller.isNumber(book.getBookPage() " + seller.isIntNumber(book.getBookPage()));
+            System.out.println("seller.isNumber(bookStockTextField.getText()) " + seller.isIntNumber(bookStockTextField.getText()));
+            System.out.println("seller.isNumber(leastStockTextField.getText()) " + seller.isIntNumber(leastStockTextField.getText()));
+            System.out.println("seller.isNumber(bookPriceTextField.getText()) " + seller.isDoubleNumber(bookPriceTextField.getText()));
         }
 
     }

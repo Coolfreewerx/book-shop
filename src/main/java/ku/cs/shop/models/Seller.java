@@ -58,22 +58,31 @@ public class Seller{
         }
     }
 
-    public boolean isNumber(String num) {
-        if (Pattern.matches("[0-9]+",num)) {
-            if(Integer.parseInt(num) > 0)
+    public boolean isIntNumber(String num) {
+        if ((Pattern.matches("[0-9]+",num)) && (Integer.parseInt(num) > 0)) {
                 return true;
-        } else if (Pattern.matches(".+",num)||Pattern.matches("[0-9]+",num)){
-            if(Double.parseDouble(num) > 0)
-                return true;
-        }
-        return false;
+        } return false;
     }
 
-    public String checkNumber(String num) {
-        if (isNumber(num)) {
+    public String checkIntNumber(String num) {
+        if (isIntNumber(num)) {
             return "";
         } else {
             return "ข้อมูลผิดพลาด กรูณาใส่ตัวเลขจำนวนเต็มบวก";
+        }
+    }
+
+    public boolean isDoubleNumber(String num) {
+        if ((Pattern.matches("[0-9].+[0-9]+",num)||Pattern.matches("[0-9]+",num)) && (Double.parseDouble(num) > 0) ){
+            return true;
+        }return false;
+    }
+
+    public String checkDoubleNumber(String num) {
+        if (isDoubleNumber(num)) {
+            return "";
+        } else {
+            return "ข้อมูลผิดพลาด กรูณาใส่ตัวเลขจำนวนทศนิยมเต็มบวก";
         }
     }
 

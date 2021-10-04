@@ -221,7 +221,7 @@
                               <Font name="JasmineUPC" size="32.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="bookPublisherTextField" layoutX="55.0" layoutY="550.0" onKeyReleased="#handleKeyBookPublisher" prefHeight="40.0" prefWidth="270.0" style="-fx-background-color: FFFCF1; -fx-background-radius: 10;" />
+                        <TextField fx:id="bookPublisherTextField" layoutX="55.0" layoutY="550.0" prefHeight="40.0" prefWidth="270.0" style="-fx-background-color: FFFCF1; -fx-background-radius: 10;" />
                         <Label layoutX="50.0" layoutY="615.0" text="จำนวนสินค้าในคลัง">
                            <font>
                               <Font name="JasmineUPC" size="32.0" />
@@ -270,7 +270,7 @@
                               <Font name="JasmineUPC" size="12.0" />
                            </font>
                         </Label>
-                        <TextArea fx:id="bookDetailTextArea" layoutX="55.0" layoutY="740.0" onKeyReleased="#handleKeyBookDetail" prefHeight="130.0" prefWidth="270.0" />
+                        <TextArea fx:id="bookDetailTextArea" layoutX="55.0" layoutY="740.0" prefHeight="130.0" prefWidth="270.0" />
                         <MenuButton fx:id="menuButton" layoutX="380.0" layoutY="455.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="270.0" style="-fx-background-color: FFFCF1; -fx-background-radius: 10;">
                           <items>
                             <MenuItem fx:id="cartoonMenuButton" mnemonicParsing="false" onAction="#handleCartoonMenuButton" text="หนังสือการ์ตูน" />
