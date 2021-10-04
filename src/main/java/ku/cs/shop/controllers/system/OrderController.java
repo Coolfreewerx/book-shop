@@ -10,9 +10,12 @@ import ku.cs.shop.models.Book;
 public class OrderController {
     @FXML private ImageView bookImageView;
     @FXML private Label bookNameLabel;
-    @FXML private Label bookTypeLabel;
-    @FXML private Label bookPriceLabel;
+    @FXML private Label numBookLabel;
+    @FXML private Label statusLabel;
     @FXML private Label notificationForStock;
+    @FXML private Label nameCustomerLabel;
+    @FXML private Label contactCustomerLabel;
+    @FXML private Label numPriceLabel;
     private Book book;
 
     public void setData(Book book) {
@@ -21,8 +24,7 @@ public class OrderController {
 
     public void changeData() {
         bookNameLabel.setText(book.getBookName());
-        bookPriceLabel.setText(book.getBookPrice() + "");
-        bookTypeLabel.setText(book.getBookType());
+        numPriceLabel.setText(book.getBookPrice() + "");
         bookImageView.setImage(new Image(book.getPicturePath()));
     }
 

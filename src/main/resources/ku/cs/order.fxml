@@ -12,13 +12,13 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.OrderController">
     <children>
-      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#d4c1a8" height="70.0" layoutX="20.0" layoutY="15.0" stroke="WHITE" strokeType="INSIDE" width="482.0" />
-        <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#fffcf1" height="187.0" layoutY="59.0" stroke="WHITE" strokeType="INSIDE" width="700.0" />
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#d4c1a8" height="60.0" layoutX="30.0" layoutY="10.0" stroke="WHITE" strokeType="INSIDE" width="482.0" />
+        <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#fffcf1" height="200.0" layoutX="10.0" layoutY="47.0" stroke="WHITE" strokeType="INSIDE" width="665.0" />
         <VBox layoutX="22.0" layoutY="34.0" prefHeight="250.0" prefWidth="173.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="525.0" AnchorPane.topAnchor="0.0">
             <children>
                 <ImageView fx:id="bookImageView" fitHeight="168.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true">
                     <VBox.margin>
-                        <Insets left="15.0" top="70.0" />
+                        <Insets left="25.0" top="75.0" />
                     </VBox.margin>
                     <image>
                         <Image url="@image/book10_horimiya_cartoon.jpg" />
@@ -28,12 +28,12 @@
         </VBox>
         <VBox layoutX="50.0" layoutY="5.0" prefHeight="235.0" prefWidth="197.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="275.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Label text="ชื่อหนังสือ">
+                <Label text="ชื่อหนังสือ" textFill="#f99f28">
                     <font>
                         <Font name="JasmineUPC" size="28.0" />
                     </font>
                     <VBox.margin>
-                        <Insets top="70.0" />
+                        <Insets left="5.0" top="60.0" />
                     </VBox.margin>
                 </Label>
                 <Label fx:id="bookNameLabel" text="โฮริมิยะ สาวมั่นกับนายมืดมน">
@@ -41,65 +41,75 @@
                         <Font name="JasmineUPC" size="22.0" />
                     </font>
                     <VBox.margin>
-                        <Insets top="10.0" />
+                        <Insets left="10.0" top="5.0" />
                     </VBox.margin>
                 </Label>
-                <Label text="ประเภทหนังสือ">
+                <Label text="จำนวนสินค้า" textFill="#f99f28">
                     <font>
                         <Font name="JasmineUPC" size="28.0" />
                     </font>
                     <VBox.margin>
-                        <Insets top="10.0" />
+                        <Insets left="5.0" top="10.0" />
                     </VBox.margin>
                 </Label>
-                <Label fx:id="bookTypeLabel" text="หนังสือการ์ตูน">
+                <Label fx:id="numBookLabel" text="2 เล่ม">
                     <font>
                         <Font name="JasmineUPC" size="22.0" />
                     </font>
                     <VBox.margin>
-                        <Insets top="10.0" />
+                        <Insets left="10.0" top="5.0" />
                     </VBox.margin>
                 </Label>
-                <Label text="ราคา">
-                    <font>
-                        <Font name="JasmineUPC" size="28.0" />
-                    </font>
-                    <VBox.margin>
-                        <Insets top="10.0" />
-                    </VBox.margin>
-                </Label>
-                <Label fx:id="bookPriceLabel" text="80.25  บาท">
-                    <font>
-                        <Font name="JasmineUPC" size="22.0" />
-                    </font>
-                    <VBox.margin>
-                        <Insets top="10.0" />
-                    </VBox.margin>
-                </Label>
+            <Label text="สถานะสินค้า" textFill="#f99f28">
+               <font>
+                  <Font name="JasmineUPC" size="28.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="5.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="statusLabel" text="ยังไม่จัดส่ง">
+               <font>
+                  <Font name="JasmineUPC" size="22.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </VBox.margin>
+            </Label>
             </children>
         </VBox>
-        <Button layoutX="560.0" layoutY="194.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="102.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="แก้ไขข้อมูล" textFill="WHITE">
+        <Button layoutX="560.0" layoutY="200.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="102.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="แก้ไขข้อมูล" textFill="WHITE">
             <font>
                 <Font name="JasmineUPC" size="18.0" />
             </font>
         </Button>
         <Label fx:id="notificationForStock" layoutX="382.0" layoutY="185.0" textFill="#fc0606" />
-      <Label layoutX="35.0" layoutY="30.0" text="ชื่อผู้ซื้อ">
-         <font>
-            <Font name="JasmineUPC Bold" size="28.0" />
-         </font>
-      </Label>
-      <Label layoutX="105.0" layoutY="30.0" text="Javapai RaoKodNarak">
+      <Label layoutX="45.0" layoutY="20.0" text="ชื่อผู้ซื้อ">
          <font>
             <Font name="JasmineUPC" size="26.0" />
          </font>
       </Label>
-      <Label layoutX="280.0" layoutY="30.0" text="เบอร์โทร">
+      <Label fx:id="nameCustomerLabel" layoutX="110.0" layoutY="20.0" text="Javapai RaoKodNarak" textFill="WHITE">
          <font>
-            <Font name="JasmineUPC Bold" size="28.0" />
+            <Font name="JasmineUPC" size="26.0" />
          </font>
       </Label>
-      <Label layoutX="365.0" layoutY="30.0" text="0815112001">
+      <Label fx:id="contactCustomerLabel" layoutX="385.0" layoutY="20.0" text="0815112001" textFill="WHITE">
+         <font>
+            <Font name="JasmineUPC" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="400.0" layoutY="110.0" text="ราคารวมสินค้า" textFill="#f99f28">
+         <font>
+            <Font name="JasmineUPC" size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="numPriceLabel" layoutX="405.0" layoutY="135.0" text="80.25  บาท">
+         <font>
+            <Font name="JasmineUPC" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="310.0" layoutY="20.0" text="เบอร์โทร">
          <font>
             <Font name="JasmineUPC" size="26.0" />
          </font>
