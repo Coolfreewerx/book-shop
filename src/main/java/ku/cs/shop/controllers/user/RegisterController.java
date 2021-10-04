@@ -16,6 +16,7 @@ import ku.cs.shop.services.AccountDataSource;
 import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 public class RegisterController {
 
@@ -194,7 +195,7 @@ public class RegisterController {
                     + LocalDate.now().getYear() + "-"
                     + LocalDate.now().getMonth() + "-"
                     + LocalDate.now().getDayOfMonth() + "-"
-                    + LocalDateTime.now().getHour() + LocalDateTime.now().getMinute() + LocalDateTime.now().getSecond() + ".png" ;
+                    + LocalDateTime.now().getHour() + LocalDateTime.now(ZoneId.of("Asia/Bangkok")).getMinute() + LocalDateTime.now().getSecond() + ".png" ;
             Account.copyImageToPackage(selectedImage , imageName) ;
         } else {
             imageName = "default.png" ;

@@ -60,11 +60,12 @@ public class AccountDataSource implements DataSource<AccountList> {
                     String address = data[11].trim() ;
                     String shopName = data[12].trim() ;
                     String status = data[13] ;
-                    LocalDateTime loginTime = LocalDateTime.parse(data[14].trim(), DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+                    LocalDateTime loginTime = LocalDateTime.parse(data[14].trim(), DateTimeFormatter.ISO_LOCAL_DATE_TIME) ;
+                    int tryToLogin = Integer.parseInt(data[15].trim()) ;
                     accountList.addAccount(new UserAccount(
                             firstName, lastName, userName, password,
                             birthDay, birthMonth, birthYear,
-                            imageName, phone, sex, address, shopName, status, loginTime ));
+                            imageName, phone, sex, address, shopName, status, loginTime, tryToLogin ));
                 }
 
             }

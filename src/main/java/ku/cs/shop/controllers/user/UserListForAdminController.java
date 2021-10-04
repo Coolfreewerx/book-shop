@@ -12,6 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import ku.cs.shop.models.Account;
 import ku.cs.shop.models.AccountList;
 import ku.cs.shop.models.UserAccount;
@@ -20,6 +21,7 @@ import ku.cs.shop.services.AccountSortByTimeComparator;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class UserListForAdminController {
@@ -37,6 +39,8 @@ public class UserListForAdminController {
     @FXML private Label addressLabel ;
     @FXML private Label loginTimeLabel ;
     @FXML private Label accountStatusLabel ;
+    @FXML private Label tryToLoginLabel ;
+    @FXML private Text tryToLoginText ;
     @FXML private ListView<UserAccount> userAccountListView ;
     @FXML private ImageView logoJavaPai;
     //@FXML private ListView reportUserListView ;
@@ -82,13 +86,38 @@ public class UserListForAdminController {
         phoneLabel.setText(userAccount.getPhone().replace("null", "ยังไม่ได้เพิ่มข้อมูลเบอร์โทร"));
         shopNameLabel.setText(userAccount.getShopName());
         addressLabel.setText(userAccount.getAddress().replace("null", "ยังไม่ได้เพิ่มข้อมูลที่อยู่"));
-        loginTimeLabel.setText(userAccount.getLoginTime().toString());
+        loginTimeLabel.setText(getStringTime(userAccount));
         accountStatusLabel.setText(userAccount.getStatus());
+        accountStatusLabel.setTextFill(Color.rgb(21, 117, 84));
+        tryToLoginText.setText("");
+        tryToLoginLabel.setText("");
         if (userAccount.getStatus().equals("banned")) {
             accountStatusLabel.setTextFill(Color.rgb(210, 39, 30));
-            return ;
+            tryToLoginText.setText("พยายามเข้าสู่ระบบ : ");
+            tryToLoginLabel.setText(userAccount.getTryToLogin() + " ครั้ง");
         }
-        accountStatusLabel.setTextFill(Color.rgb(21, 117, 84));
+    }
+
+    private String getStringTime(UserAccount userAccount) {
+        LocalDateTime loginTime = userAccount.getLoginTime();
+        return "วันที่ " + loginTime.getDayOfMonth() + " " + convertToThaiMonth(loginTime.getMonth().toString()) + " " + loginTime.getYear()
+                + "  เวลา " + loginTime.getHour() + ":" + loginTime.getMinute() + ":" + loginTime.getSecond() ;
+    }
+
+    private String convertToThaiMonth(String month) {
+        if (month.equals("JANUARY")) { month = "มกราคม" ; }
+        else if (month.equals("FEBRUARY")) { month = "กุมภาพันธ์" ; }
+        else if (month.equals("MARCH")) { month = "มีนาคม" ; }
+        else if (month.equals("APRIL")) { month = "เมษายน" ; }
+        else if (month.equals("MAY")) { month = "พฤษภาคม" ; }
+        else if (month.equals("JUNE")) { month = "มิถุนายน" ; }
+        else if (month.equals("JULY")) { month = "กรกฎาคม" ; }
+        else if (month.equals("AUGUST")) { month = "สิงหาคม" ; }
+        else if (month.equals("SEPTEMBER")) { month = "กันยายน" ; }
+        else if (month.equals("OCTOBER")) { month = "ตุลาคม" ; }
+        else if (month.equals("NOVEMBER")) { month = "พฤศจิกายน" ; }
+        else if (month.equals("DECEMBER")) { month = "ธันวาคม" ; }
+        return month ;
     }
 
     private void clearSelectedUserAccount() {
@@ -109,6 +138,8 @@ public class UserListForAdminController {
         addressLabel.setText("ยังไม่ระบุ");
         loginTimeLabel.setText("ยังไม่ระบุ");
         accountStatusLabel.setText("ยังไม่ระบุ");
+        tryToLoginText.setText("พยายามเข้าสู่ระบบ : ");
+        tryToLoginLabel.setText("ยังไม่ระบุ");
     }
 
     @FXML

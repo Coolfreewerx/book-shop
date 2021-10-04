@@ -7,9 +7,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import ku.cs.shop.models.Account;
 import ku.cs.shop.models.AccountList;
+import ku.cs.shop.models.UserAccount;
 import ku.cs.shop.services.AccountDataSource;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 public class LoginController {
 
@@ -48,11 +51,27 @@ public class LoginController {
 
     @FXML
     public void handleLoginButton(ActionEvent actionEvent) {
+
         String userName = usernameTextField.getText() ;
         String password = passwordField.getText() ;
         Account account = accountList.login(userName, password) ;
+
         if (account != null) {
             errorLabel.setTextFill(Color.rgb(255, 255, 255));
+            if(account instanceof UserAccount){
+                UserAccount userAccount = (UserAccount) account ;
+
+                if (userAccount.getStatus().equals("banned")) {
+                    userAccount.setTryToLogin(userAccount.getTryToLogin()+1);
+                    accountDataSource.writeData(accountList);
+                    return;
+                }
+                else {
+                    userAccount.setLoginTime(LocalDateTime.now(ZoneId.of("Asia/Bangkok")));
+                    userAccount.setTryToLogin(0);
+                    accountDataSource.writeData(accountList);
+                }
+            }
             goToHome();
         }
         else {

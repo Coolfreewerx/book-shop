@@ -20,9 +20,9 @@
     <children>
         <BorderPane layoutX="-1.0" layoutY="1.0" prefHeight="768.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
-            <HBox fx:id="head1" prefHeight="69.0" prefWidth="1024.0" styleClass="backgroundColorInHeadPages" stylesheets="@style/style.css">
+            <HBox prefHeight="69.0" prefWidth="1024.0" styleClass="backgroundColorInHeadPages" stylesheets="@style/style.css">
                <children>
-                  <ImageView fx:id="logoJavaPai" fitHeight="68.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#mouseClickedInLogo">
+                  <ImageView fx:id="logoJavaPai" fitHeight="68.0" fitWidth="69.0" onMouseClicked="#mouseClickedInLogo" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@image/logoverLightBrown.png" />
                      </image>
@@ -54,9 +54,9 @@
                   <VBox alignment="TOP_CENTER" minWidth="512.0" prefHeight="200.0" prefWidth="512.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="512.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <Pane prefHeight="30.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS" />
-                        <HBox alignment="CENTER" maxHeight="200.0" minHeight="200.0">
+                        <HBox alignment="CENTER" maxHeight="160.0" minHeight="160.0">
                            <children>
-                              <ImageView fx:id="accountImage" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="accountImage" fitHeight="160.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../../../../account-images/default.png" />
                                  </image>
@@ -116,8 +116,9 @@
                         <Pane maxHeight="20.0" minHeight="20.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS" />
                         <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font_rsu_12pt" text="** ที่อยู่ **" />
                         <Pane maxHeight="20.0" minHeight="20.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS" />
-                        <Label fx:id="addressLabel" alignment="TOP_CENTER" lineSpacing="10.0" maxHeight="0.0" maxWidth="300.0" minHeight="83.0" styleClass="font_rsu_12pt" text="Address" textFill="WHITE" wrapText="true" />
-                        <HBox alignment="CENTER_LEFT" maxHeight="35.0" minHeight="35.0" prefHeight="100.0" prefWidth="200.0">
+                        <Label fx:id="addressLabel" alignment="TOP_CENTER" lineSpacing="10.0" maxHeight="58.0" maxWidth="300.0" minHeight="58.0" styleClass="font_rsu_12pt" text="Address" textFill="WHITE" wrapText="true" />
+                        <Pane maxHeight="20.0" minHeight="20.0" style="-fx-background-color: transparent;" />
+                        <HBox alignment="CENTER_LEFT" maxHeight="32.0" minHeight="32.0" prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <Pane maxWidth="25.0" minWidth="25.0" style="-fx-background-color: transparent;" />
                               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font_rsu_12pt" text="ใช้งานล่าสุดเมื่อ :  ">
@@ -127,14 +128,26 @@
                               <Label fx:id="loginTimeLabel" styleClass="font_rsu_12pt" text="Login Time" textFill="WHITE" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER_RIGHT" maxHeight="40.0" prefHeight="100.0" prefWidth="512.0">
+                        <HBox alignment="CENTER_LEFT" maxHeight="32.0" minHeight="32.0" prefHeight="100.0" prefWidth="200.0">
                            <children>
+                              <Pane maxWidth="25.0" minWidth="25.0" style="-fx-background-color: transparent;" />
                               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font_rsu_12pt" text="สถานะบัญชี :  ">
                                  <HBox.margin>
                                     <Insets bottom="5.0" />
                                  </HBox.margin></Text>
-                              <Label fx:id="accountStatusLabel" maxWidth="64.0" minWidth="64.0" styleClass="font_rsu_12pt" text="Working" textFill="WHITE" />
-                              <Pane maxWidth="25.0" minWidth="25.0" style="-fx-background-color: transparent;" />
+                              <Label fx:id="accountStatusLabel" maxWidth="70.0" minWidth="70.0" styleClass="font_rsu_12pt" text="Working" textFill="WHITE" />
+                              <Pane maxWidth="20.0" minWidth="20.0" style="-fx-background-color: transparent;" />
+                              <Text fx:id="tryToLoginText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font_rsu_12pt" text="พยายามเข้าสู่ระบบ :  ">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </HBox.margin>
+                              </Text>
+                              <Label fx:id="tryToLoginLabel" styleClass="font_rsu_12pt" text="Try To Login" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <Pane maxHeight="15.0" minHeight="15.0" style="-fx-background-color: transparent;" />
+                        <HBox alignment="CENTER_RIGHT" maxHeight="36.0" prefHeight="100.0" prefWidth="512.0">
+                           <children>
                               <Button mnemonicParsing="false" onAction="#handleUnbanButton" style="-fx-background-color: fff;" text="ปลดบล็อก" textFill="#349400" />
                               <Pane maxWidth="25.0" minWidth="25.0" style="-fx-background-color: transparent;" />
                               <Button mnemonicParsing="false" onAction="#handleBanButton" style="-fx-background-color: ffff;" text="บล็อกการใช้งาน" textFill="#a90000" />
