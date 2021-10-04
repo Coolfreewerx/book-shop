@@ -1,9 +1,12 @@
 package ku.cs.shop.controllers.user;
 
+import javafx.application.Preloader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import ku.cs.shop.models.Account;
 import ku.cs.shop.models.AccountList;
@@ -19,6 +22,7 @@ public class LoginController {
     @FXML private TextField usernameTextField ;
     @FXML private TextField passwordField ;
     @FXML private Label errorLabel ;
+    @FXML private GridPane notificationGrid ;
 
     private AccountList accountList ;
     private AccountDataSource accountDataSource ;
@@ -64,6 +68,13 @@ public class LoginController {
                 if (userAccount.getStatus().equals("banned")) {
                     userAccount.setTryToLogin(userAccount.getTryToLogin()+1);
                     accountDataSource.writeData(accountList);
+                    FXMLLoader fxmlLoader= new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("/ku/cs/loginNotification.fxml"));
+                    try {
+                        notificationGrid.add(fxmlLoader.load(), 0, 0);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     return;
                 }
                 else {
