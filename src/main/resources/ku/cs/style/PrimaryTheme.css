@@ -18,6 +18,11 @@
     -fx-font-size: 20pt;
 }
 
+.font_jasmine_25pt {
+    -fx-font-family: 'JasmineUPC';
+    -fx-font-size: 25pt;
+}
+
 .font_rsu_12pt {
     -fx-font-family: 'RSU_Regular' ;
     -fx-font-size : 12pt;
@@ -56,6 +61,24 @@
     -fx-color-one: rgba(149, 138, 132, 0.88);
     -fx-color-two: rgba(149, 138, 132, 0.88);
     -fx-color-three: rgba(149, 138, 132, 0.88);
+}
+
+.bevel-red {
+    -fx-color-one: white;
+    -fx-color-two: white;
+    -fx-color-three: white;
+    -fx-background-color:
+            linear-gradient(#ffffff 0%, -fx-color-two 20%, -fx-color-one 100%),
+            linear-gradient(#dddddd 0%, -fx-color-three 50%);
+    -fx-background-radius: 8, 7, 6;
+    -fx-background-insets: 0, 1, 2;
+    -fx-text-fill: white;
+}
+
+.bevel-red:hover {
+    -fx-color-one: rgba(255, 0, 0, 0.88);
+    -fx-color-two: rgba(255, 0, 0, 0.88);
+    -fx-color-three: rgba(255, 0, 0, 0.88);
 }
 
 

@@ -7,9 +7,13 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -18,6 +22,7 @@
 
 <AnchorPane onMouseClicked="#handleToBookSortFromShop" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.BookDetailController">
    <children>
+      <ScrollBar layoutX="1009.6" layoutY="68.0" orientation="VERTICAL" prefHeight="1340.0" prefWidth="14.0" styleClass="backgroundColorLightBrownButton" stylesheets="@style/style.css" AnchorPane.rightAnchor="0.0" />
       <Label layoutX="18.0" layoutY="91.0" text="ประเภทหนังสือ |" textFill="#a05e07">
          <font>
             <Font name="JasmineUPC" size="36.0" />
@@ -216,10 +221,128 @@
             </HBox>
          </children>
       </HBox>
+      <HBox layoutX="109.0" layoutY="685.0" prefHeight="46.0" prefWidth="604.0">
+         <children>
+            <Label fx:id="bookRating" prefHeight="26.0" prefWidth="74.0" styleClass="font_jasmine_25pt" stylesheets="@style/PrimaryTheme.css" text="คะแนน" textFill="#f99f28">
+               <HBox.margin>
+                  <Insets left="20.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <Label styleClass="font_jasmine_25pt" stylesheets="@style/PrimaryTheme.css" text="เต็ม  5" textFill="#f99f28">
+               <HBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox layoutX="97.0" layoutY="650.0" prefHeight="38.0" prefWidth="178.0">
+         <children>
+            <Label prefHeight="26.0" prefWidth="189.0" styleClass="font_jasmine_25pt" stylesheets="@style/PrimaryTheme.css" text="คะแนนของสินค้า" textFill="#f99f28">
+               <HBox.margin>
+                  <Insets left="5.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
       <ImageView fitHeight="36.0" fitWidth="33.0" layoutX="970.0" layoutY="88.0" onMouseClicked="#handleBackToMarket" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@image/BackIcon.png" />
          </image>
       </ImageView>
+      <VBox layoutX="76.0" layoutY="946.0" prefHeight="459.0" prefWidth="902.0">
+         <children>
+            <ScrollPane prefHeight="464.0" prefWidth="902.0" style="-fx-background-color: white;">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="654.0" prefWidth="902.0" style="-fx-background-color: white;">
+                     <children>
+                        <FlowPane fx:id="commentFlowPane" layoutY="-1.0" prefHeight="449.0" prefWidth="890.0" style="-fx-background-color: white;" />
+                     </children></AnchorPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+      <HBox layoutX="80.0" layoutY="791.0" prefHeight="105.0" prefWidth="890.0">
+         <children>
+            <TextField fx:id="commentTextField" prefHeight="86.0" prefWidth="884.0" promptText="เพิ่มความคิดเห็นที่นี้..." style="-fx-background-radius: 10;" styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css">
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <Button fx:id="sendComment" layoutX="710.0" layoutY="899.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="241.0" style="-fx-background-radius: 20;" text="ส่งความคิดเห็น" textFill="WHITE">
+         <stylesheets>
+            <URL value="@style/PrimaryTheme.css" />
+            <URL value="@style/style.css" />
+         </stylesheets>
+         <styleClass>
+            <String fx:value="font_jasmine_20pt" />
+            <String fx:value="backgroundColorLightBrownButton" />
+         </styleClass>
+      </Button>
+      <HBox layoutX="93.0" layoutY="743.0" prefHeight="52.0" prefWidth="868.0">
+         <children>
+            <Button mnemonicParsing="false" style="-fx-background-color: white;" styleClass="bevel-red" stylesheets="@style/PrimaryTheme.css">
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/heart.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets left="250.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" style="-fx-background-color: white;" styleClass="bevel-red" stylesheets="@style/PrimaryTheme.css">
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/heart.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" style="-fx-background-color: white;" styleClass="bevel-red" stylesheets="@style/PrimaryTheme.css">
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/heart.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" style="-fx-background-color: white;" styleClass="bevel-red" stylesheets="@style/PrimaryTheme.css">
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/heart.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" style="-fx-background-color: white;" styleClass="bevel-red" stylesheets="@style/PrimaryTheme.css">
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/heart.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

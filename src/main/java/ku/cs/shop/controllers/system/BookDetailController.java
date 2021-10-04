@@ -7,6 +7,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.FlowPane;
 import ku.cs.shop.models.*;
 import ku.cs.shop.services.BookDetailDataSource;
 import java.io.IOException;
@@ -28,12 +29,16 @@ public class BookDetailController
     @FXML private Label bookPrice;
     @FXML private Label typeLabel;
     @FXML private ImageView bookImg;
-    @FXML private MenuButton bookTypeMenuItem;
     @FXML private Hyperlink bookDetailByShop;
     @FXML private Button status;
     @FXML private Label usernameInHead;
     @FXML private ImageView img;
     @FXML private ImageView logoJavaPai;
+    @FXML private FlowPane commentFlowPane;
+    @FXML private Label bookRating;
+    @FXML private TextField commentTextField;
+    @FXML private Button sendComment;
+
 
     private AccountList accountList;
     private Account account;
@@ -49,6 +54,7 @@ public class BookDetailController
         castObjectToData();
         showData();
         pagesHeader();
+        showCommentByBookName();
     }
 
 
@@ -149,4 +155,19 @@ public class BookDetailController
             e.printStackTrace();
         }
     }
+
+    public void showCommentByBookName(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/ku/cs/itemComment.fxml"));
+
+            commentFlowPane.getChildren().add(fxmlLoader.load()); // child,col,row
+            ItemCommentController itemCommentController = fxmlLoader.getController();
+//            itemCommentController.setData(accountList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }

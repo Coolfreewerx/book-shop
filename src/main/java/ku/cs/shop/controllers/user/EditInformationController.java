@@ -85,9 +85,15 @@ public class EditInformationController {
         passwordCompareLabel.setText(Account.comparePassword(passwordField.getText(), recheckPasswordField.getText()));
     }
 
-    @FXML
+    @FXML // ทำงานเมื่อกรอกเบอร์โทร
     public void handleKeyCheckPhoneNumber(){
-        editPhoneNumberError.setText(Account.comparePhoneNumber(phoneNumberTextField.getText(),editPhoneNumberError.getText()));
+        if(Account.checkPhoneNumber(phoneNumberTextField.getText())) {
+            editPhoneNumberError.setText("");
+        }
+        else{
+            editPhoneNumberError.setText("ข้อมูลไม่ถูกต้อง กรุณาตรวจสอบ");
+            editPhoneNumberError.setTextFill(Color.rgb(210, 39, 30));
+        }
     }
 
     private void lodeSexData() {
@@ -181,4 +187,7 @@ public class EditInformationController {
             return " ";
         }
     }
+    //else if(!(Account.getPhoneNumberCheck())){
+    //            return "ข้อมูลมีข้อผิดพลาดโปรดตรวจสอบข้อมูลอีกครั้ง" ;
+    //        }
 }

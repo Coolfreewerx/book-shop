@@ -141,8 +141,8 @@ public class Account {
             return true ; }
     }
 
-    public boolean checkPhoneNumber (String phone){
-        if(phone.length() < 10 || !(Pattern.matches("[0-9]+", phone))){
+    public static boolean checkPhoneNumber (String phone){ //ตรวจสอบเบอร์โทรตามเงื่อนไข
+        if(phone.length() != 10 && !(Pattern.matches("[0-9]+", phone))){
             phoneNumberCheck = false;
             return false;
         }
@@ -161,17 +161,6 @@ public class Account {
         else {
             passwordCheck = false ;
             return "รหัสผ่านไม่ตรงกัน โปรดตรวจสอบรหัสผ่าน";
-        }
-    }
-
-    public static String comparePhoneNumber(String phone , String phoneNumber){
-        if(phone.equals(phoneNumber)){
-            phoneNumberCheck = true;
-            return  "";
-        }
-        else{
-            phoneNumberCheck = false;
-            return "ข้อมูลไม่ถูกต้อง";
         }
     }
 
