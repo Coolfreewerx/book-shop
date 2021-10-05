@@ -9,7 +9,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import ku.cs.shop.models.*;
+import ku.cs.shop.services.AccountDataSource;
 import ku.cs.shop.services.BookDetailDataSource;
+import ku.cs.shop.services.ReviewsDataSource;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -35,16 +38,19 @@ public class BookDetailController
     @FXML private ImageView img;
     @FXML private ImageView logoJavaPai;
     @FXML private FlowPane commentFlowPane;
-    @FXML private Label bookRating;
     @FXML private TextField commentTextField;
-    @FXML private Button sendComment;
+    @FXML private Label bookRating;
 
 
     private AccountList accountList;
     private Account account;
     private Book book;
     private BookList bookList;
+    private Review review;
+    private ReviewList reviewList;
 
+    private ReviewsDataSource reviewsDataSource = new ReviewsDataSource("csv-data/reviews.csv");
+    private ReviewList reviews = reviewsDataSource.readData();
     private ArrayList<Object> objectForPassing = new ArrayList<>();
 
     @FXML
@@ -54,7 +60,7 @@ public class BookDetailController
         castObjectToData();
         showData();
         pagesHeader();
-        showCommentByBookName();
+        showCommentByBookName(book.getBookName());
     }
 
 
@@ -156,14 +162,41 @@ public class BookDetailController
         }
     }
 
-    public void showCommentByBookName(){
+    public void showCommentByBookName(String bookName){ //รับ String bookName
+        commentFlowPane.getChildren().clear();
+        ArrayList<Review> bookByName = reviews.getReviewsByBookName(bookName);
         try {
+            for (Review review : bookByName) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/ku/cs/itemComment.fxml"));
+
+                commentFlowPane.getChildren().add(fxmlLoader.load()); // child,col,row
+                ItemCommentController itemCommentController = fxmlLoader.getController();
+                itemCommentController.setData(review);
+            }
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("/ku/cs/itemComment.fxml"));
 
             commentFlowPane.getChildren().add(fxmlLoader.load()); // child,col,row
             ItemCommentController itemCommentController = fxmlLoader.getController();
-//            itemCommentController.setData(accountList);
+            itemCommentController.setData(review);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void sendReviewToWrite(){
+        review.setComment(commentTextField.getText());
+
+        ReviewsDataSource reviewsDataSource = new ReviewsDataSource("csv-data/reviews.csv") ;
+        reviewsDataSource.writeData(reviewList);
+    }
+
+    @FXML
+    public void handleSendCommentButton(ActionEvent actionEvent) {
+        sendReviewToWrite();
+        try {
+            com.github.saacsos.FXRouter.goTo("bookDetail", objectForPassing);
         } catch (IOException e) {
             e.printStackTrace();
         }

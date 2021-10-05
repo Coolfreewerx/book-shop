@@ -35,6 +35,7 @@ public class ItemController {
             addBookToArrayList();
             com.github.saacsos.FXRouter.goTo("bookDetail", objectForPassing);
         } catch (IOException e) {
+            e.printStackTrace();
             System.err.println("ไปที่หน้า bookDetail ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }

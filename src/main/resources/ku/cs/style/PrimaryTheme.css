@@ -64,12 +64,12 @@
 }
 
 .bevel-red {
-    -fx-color-one: white;
-    -fx-color-two: white;
-    -fx-color-three: white;
+    -fx-color-one: #ffffff;
+    -fx-color-two: #ffffff;
+    -fx-color-three: #ffffff;
     -fx-background-color:
             linear-gradient(#ffffff 0%, -fx-color-two 20%, -fx-color-one 100%),
-            linear-gradient(#dddddd 0%, -fx-color-three 50%);
+            linear-gradient(#d0cfcf 0%, -fx-color-three 50%);
     -fx-background-radius: 8, 7, 6;
     -fx-background-insets: 0, 1, 2;
     -fx-text-fill: white;

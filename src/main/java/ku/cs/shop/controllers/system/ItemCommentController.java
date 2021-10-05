@@ -10,6 +10,7 @@ import javafx.scene.image.ImageView;
 import ku.cs.shop.models.Account;
 import ku.cs.shop.models.AccountList;
 import ku.cs.shop.models.Book;
+import ku.cs.shop.models.Review;
 import ku.cs.shop.services.AccountDataSource;
 
 public class ItemCommentController {
@@ -22,20 +23,10 @@ public class ItemCommentController {
     private AccountList accountList;
     private Account account;
     private AccountDataSource accountDataSource;
+    Review reviews;
     BookDetailController bookDetailController;
 
     private ObservableList choiceList = FXCollections.observableArrayList() ;
-
-    @FXML
-    public void initialize(){
-        accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
-        account = accountList.getCurrentAccount();
-
-        usernameLabel.setText(account.getUserName());
-        choice.getItems().addAll(choiceList);
-        userImageView.setImage(new Image(account.getImagePath()));
-        lodeData();
-    }
 
     private void lodeData() {
         choice.getItems().removeAll(choiceList);
@@ -51,5 +42,16 @@ public class ItemCommentController {
         choice.getItems().addAll(choiceList) ;
     }
 
+    public void setData(Review reviews) {
+        this.reviews = reviews;
+        changeData();
+    }
 
+    public void changeData() {
+        usernameLabel.setText(account.getUserName());
+        choice.getItems().addAll(choiceList);
+        userImageView.setImage(new Image(account.getImagePath()));
+        commentLabel.setText(reviews.getComment());
+        lodeData();
+    }
 }
