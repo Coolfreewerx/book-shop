@@ -43,7 +43,7 @@ public class Seller{
     }
 
     public boolean isBookISBNCorrect(String bookISBN) {
-        if ((bookISBN.length() == 10 || bookISBN.length() == 13 ) && Pattern.matches("[0-9]+",bookISBN)) {
+        if (((bookISBN.length() == 10 || bookISBN.length() == 13 ) && Pattern.matches("[0-9]+",bookISBN)) || (bookISBN.length() == 1 ||Pattern.matches("[\\-]+",bookISBN)))  {
             return true;
         } else {
             return false;

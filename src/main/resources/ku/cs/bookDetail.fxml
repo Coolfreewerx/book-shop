@@ -22,6 +22,7 @@
 <AnchorPane onMouseClicked="#handleToBookSortFromShop" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.BookDetailController">
    <children>
       <HBox fx:id="head1" prefHeight="69.0" prefWidth="1024.0" stylesheets="@style/style.css">
+
          <children>
             <HBox fx:id="head11" prefHeight="69.0" prefWidth="1024.0" styleClass="backgroundColorInHeadPages" stylesheets="@style/style.css">
                <children>

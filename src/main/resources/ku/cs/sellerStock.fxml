@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.seller.SellerStockController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.seller.SellerStockController">
    <children>
       <BorderPane layoutX="-22.0" layoutY="3.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -134,7 +134,7 @@
                               <Font name="JasmineUPC" size="32.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" onAction="#handleToLogoutButton" text="ออกจากระบบ" textFill="WHITE" GridPane.rowIndex="4">
+                        <Button mnemonicParsing="false" onAction="#handleToLogoutButton" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" text="ออกจากระบบ" textFill="WHITE" GridPane.rowIndex="4">
                            <font>
                               <Font name="JasmineUPC" size="32.0" />
                            </font>
@@ -150,7 +150,7 @@
          <center>
             <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
-                  <HBox prefHeight="80.0" prefWidth="200.0">
+                  <HBox prefHeight="64.0" prefWidth="698.0">
                      <children>
                         <Label prefHeight="31.0" prefWidth="234.0" text="สินค้าทั้งหมด" textFill="#b4875e">
                            <font>
@@ -162,9 +162,9 @@
                         </Label>
                      </children>
                   </HBox>
-                  <ScrollPane fx:id="scoll" prefHeight="500.0" prefWidth="698.0" style="-fx-background-color: fffff;" VBox.vgrow="ALWAYS">
+                  <ScrollPane fx:id="scoll" fitToHeight="true" fitToWidth="true" prefHeight="500.0" prefWidth="698.0" style="-fx-background-color: fffff;" VBox.vgrow="ALWAYS">
                      <content>
-                        <GridPane fx:id="grid">
+                        <GridPane fx:id="grid" style="-fx-background-color: ffffff;">
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                           </columnConstraints>
@@ -174,9 +174,9 @@
                         </GridPane>
                      </content>
                   </ScrollPane>
-                  <HBox prefHeight="80.0" prefWidth="698.0">
+                  <HBox prefHeight="62.0" prefWidth="698.0">
                      <children>
-                        <Button fx:id="orderListButtonn" mnemonicParsing="false" onAction="#handleOrderListButton" prefHeight="45.0" prefWidth="150.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="รายการสั่งซื้อ" textFill="WHITE">
+                        <Button fx:id="orderListButtonn" mnemonicParsing="false" onAction="#handleOrderListButton" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="รายการสั่งซื้อ" textFill="WHITE">
                            <font>
                               <Font name="JasmineUPC" size="28.0" />
                            </font>
@@ -184,7 +184,7 @@
                               <Insets left="360.0" top="10.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="addStockButton" mnemonicParsing="false" onAction="#handleAddStockButton" prefHeight="45.0" prefWidth="150.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="เพิ่มสินค้า" textFill="WHITE">
+                        <Button fx:id="addStockButton" mnemonicParsing="false" onAction="#handleAddStockButton" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="เพิ่มสินค้า" textFill="WHITE">
                            <font>
                               <Font name="JasmineUPC" size="28.0" />
                            </font>

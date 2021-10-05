@@ -23,12 +23,12 @@
                   <Insets top="30.0" />
                </VBox.margin>
             </Label>
-            <Label fx:id="bookNameLabel" prefHeight="18.0" prefWidth="499.0" text="โฮริมิยะ สาวมั่นกับนายมืดมน">
+            <Label fx:id="bookNameLabel" prefHeight="18.0" prefWidth="499.0" text="โฮริมิยะ สาวมั่นกับนายมืดมน" textFill="#a05e07">
                <font>
                   <Font name="JasmineUPC" size="24.0" />
                </font>
                <VBox.margin>
-                  <Insets top="5.0" />
+                  <Insets top="7.0" />
                </VBox.margin>
                <padding>
                   <Insets left="10.0" />
@@ -42,12 +42,12 @@
                   <Insets top="15.0" />
                </VBox.margin>
             </Label>
-            <Label fx:id="bookTypeLabel" text="หนังสือการ์ตูน">
+            <Label fx:id="bookTypeLabel" text="หนังสือการ์ตูน" textFill="#a05e07">
                <font>
                   <Font name="JasmineUPC" size="24.0" />
                </font>
                <VBox.margin>
-                  <Insets left="10.0" top="5.0" />
+                  <Insets left="10.0" top="7.0" />
                </VBox.margin>
             </Label>
             <Label text="ราคา">
@@ -58,12 +58,12 @@
                   <Insets top="15.0" />
                </VBox.margin>
             </Label>
-            <Label fx:id="bookPriceLabel" prefHeight="18.0" prefWidth="201.0" text="80.25  บาท">
+            <Label fx:id="bookPriceLabel" prefHeight="18.0" prefWidth="201.0" text="80.25  บาท" textFill="#a05e07">
                <font>
                   <Font name="JasmineUPC" size="24.0" />
                </font>
                <VBox.margin>
-                  <Insets left="10.0" top="5.0" />
+                  <Insets left="10.0" top="7.0" />
                </VBox.margin>
             </Label>
          </children>
@@ -90,7 +90,7 @@
       </Button>
       <Button layoutX="560.0" layoutY="175.0" mnemonicParsing="false" onAction="#handleEditBookButton" prefHeight="34.0" prefWidth="102.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="แก้ไขข้อมูล" textFill="WHITE">
          <font>
-            <Font name="JasmineUPC" size="18.0" />
+            <Font name="JasmineUPC" size="22.0" />
          </font>
       </Button>
       <Label fx:id="notificationForStock" layoutX="430.5" layoutY="155.0" textFill="#fc0606" />
