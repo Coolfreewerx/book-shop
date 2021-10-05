@@ -28,9 +28,8 @@ public class ItemCommentController {
 
     @FXML
     public void initialize(){
-        accountDataSource = new AccountDataSource("csv-data/accountData.csv") ;
-        accountList = accountDataSource.readData() ;
         accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
+        account = accountList.getCurrentAccount();
 
         usernameLabel.setText(account.getUserName());
         choice.getItems().addAll(choiceList);
