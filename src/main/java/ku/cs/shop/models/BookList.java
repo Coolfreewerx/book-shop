@@ -12,15 +12,9 @@ public class BookList {
     private Set<String> bookShops;
     private ArrayList<Book> books;
 
-    private Book currentBookShop;
-
-    public Book getCurrentBookShop() {
-        return currentBookShop;
-    }
-
     public BookList() {
         books = new ArrayList<>();
-        bookTypes = new HashSet<>(); // hashset implement set
+        bookTypes = new HashSet<>();
         bookNames = new HashSet<>();
         bookShops = new HashSet<>();
     }
@@ -45,16 +39,6 @@ public class BookList {
             }
         }
         return bookByType;
-    }
-
-    public ArrayList<Book> getBookByName(String name) {
-        ArrayList<Book> bookByName = new ArrayList<>();
-        for (Book book : books){
-            if (book.getBookName().equals(name)){
-                bookByName.add(book);
-            }
-        }
-        return bookByName;
     }
 
     public void editIndexBookByName(String name, Book newDetailbook) {
@@ -94,7 +78,6 @@ public class BookList {
     public Set<String> getBookType() {
         return bookTypes;
     }
-    public Set<String> getBookShop() { return bookShops; }
 
     public String toCSV() {
         String csv = "" ;

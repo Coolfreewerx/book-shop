@@ -52,9 +52,8 @@ public class BookShopDetailController<MenuItemCartoon, bookTypeLabel> implements
         castObjectToData();
 
         bookHeadLabel.setText(book.getBookShop() + "");
-        changeBookType("ประเภททั้งหมด");
+        bookType.setText("ประเภททั้งหมด");
         changeBookByShop(book.getBookShop());
-        addBookTypeToMenuItem();
         pagesHeader();
     }
 
@@ -114,47 +113,7 @@ public class BookShopDetailController<MenuItemCartoon, bookTypeLabel> implements
         return objectForPassing;
     }
 
-    public void addBookTypeToMenuItem() {
-        for (String type : books.getBookType()) {
-            MenuItem subBookTypeMenuItem = new MenuItem(type);
-            bookTypeMenuItem.getItems().add(subBookTypeMenuItem);
-            subBookTypeMenuItem.setOnAction(this :: handleSubBookTypeMenuItem);
-        }
-    }
-
-    public void handleSubBookTypeMenuItem(ActionEvent actionEvent) {
-        bookHeadLabel.setText("ประเภทของหนังสือ");
-        MenuItem menuItem = (MenuItem) actionEvent.getSource();
-        changeBookType(menuItem.getText());
-        System.out.println("Click to " + currentType);
-    }
-
-    public void changeBookType(String type) {
-        currentType = type;
-        bookType.setText(currentType);
-        bookListFlowPane.getChildren().clear();
-        ArrayList<Book> bookByType = books.getBookByType(type);
-
-        try {
-            for (Book book : bookByType) {
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/ku/cs/item.fxml"));
-
-                bookListFlowPane.getChildren().add(fxmlLoader.load()); // child,col,row
-                ItemController itemController = fxmlLoader.getController();
-                itemController.setData(book);
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void handlePageAllTypeBookButton(ActionEvent actionEvent) {
-//        System.out.println("Click to " + currentType);
-//        bookHeadLabel.setText("หนังสือทั้งหมด");
-//        books.sort();
-//        changeBookType("ประเภททั้งหมด");
+    public void handleAllTypeBookButton(ActionEvent actionEvent) {
         try {
             com.github.saacsos.FXRouter.goTo("pageBookType", accountList);
         } catch (IOException e) {

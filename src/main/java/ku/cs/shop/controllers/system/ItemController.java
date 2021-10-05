@@ -84,7 +84,7 @@ public class ItemController {
 
     public void changeData() {
         bookNameLabel.setText(book.getBookName());
-        bookPriceLabel.setText(String.format("%.02f",book.getBookPrice()) + " Bahts.");
+        bookPriceLabel.setText(String.format("%.02f",book.getBookPrice()) + " Baht.");
         img.setImage(new Image(book.getPicturePath()));
     }
 }

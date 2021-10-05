@@ -19,7 +19,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -155,7 +154,7 @@
                         </HBox>
                         <HBox prefHeight="28.0" prefWidth="368.0" spacing="20.0" GridPane.columnIndex="1">
                            <children>
-                              <TextField fx:id="inputLowPriceLabel" prefHeight="25.0" prefWidth="105.0" promptText="ใส่ช่วงราคาน้อย" style="-fx-background-radius: 20;">
+                              <TextField fx:id="inputLowPriceTextField" prefHeight="25.0" prefWidth="114.0" promptText="ใส่ช่วงราคาน้อย" style="-fx-background-radius: 20;">
                                  <HBox.margin>
                                     <Insets top="3.0" />
                                  </HBox.margin>
@@ -163,12 +162,7 @@
                                     <Font name="JasmineUPC" size="17.0" />
                                  </font>
                               </TextField>
-                              <Line endX="-64.70709228515625" endY="4.589557647705078E-6" startX="-26.747512817382812" startY="-0.032782863825559616" stroke="#636262">
-                                 <HBox.margin>
-                                    <Insets top="15.0" />
-                                 </HBox.margin>
-                              </Line>
-                              <TextField fx:id="inputMaxPriceLabel" prefHeight="25.0" prefWidth="101.0" promptText="ใส่ช่วงราคามาก" style="-fx-background-radius: 20;">
+                              <TextField fx:id="inputMaxPriceTextField" prefHeight="25.0" prefWidth="109.0" promptText="ใส่ช่วงราคามาก" style="-fx-background-radius: 20;">
                                  <HBox.margin>
                                     <Insets top="3.0" />
                                  </HBox.margin>
@@ -176,7 +170,15 @@
                                     <Font name="JasmineUPC" size="17.0" />
                                  </font>
                               </TextField>
-                              <Button mnemonicParsing="false" onAction="#handleLowPriceToMaxPrice" prefHeight="28.0" prefWidth="134.0" style="-fx-background-radius: 20;" text="ราคาน้อยไปมาก">
+                              <Button mnemonicParsing="false" onAction="#handleSortFromInputLowPriceToMaxPrice" prefHeight="23.0" prefWidth="65.0" style="-fx-background-radius: 20;" text="ค้นหา">
+                                 <font>
+                                    <Font name="JasmineUPC" size="17.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets top="3.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#handleLowPriceToMaxPrice" prefHeight="28.0" prefWidth="134.0" style="-fx-background-radius: 20; -fx-background-color: F99F28;" text="ราคาน้อยไปมาก" textFill="WHITE">
                                  <font>
                                     <Font name="JasmineUPC" size="20.0" />
                                  </font>
@@ -184,7 +186,7 @@
                                     <Insets right="5.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#handleMaxPriceToLowPrice" prefHeight="28.0" prefWidth="140.0" style="-fx-background-radius: 20;" text="ราคามากไปน้อย">
+                              <Button mnemonicParsing="false" onAction="#handleMaxPriceToLowPrice" prefHeight="28.0" prefWidth="140.0" style="-fx-background-radius: 20; -fx-background-color: F99F28;" text="ราคามากไปน้อย" textFill="WHITE">
                                  <font>
                                     <Font name="JasmineUPC" size="20.0" />
                                  </font>

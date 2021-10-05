@@ -4,10 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -22,10 +19,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initializable {
 
     @FXML private Label bookType;
+    @FXML private TextField inputLowPriceTextField;
+    @FXML private TextField inputMaxPriceTextField;
     @FXML private FlowPane bookListFlowPane;
     @FXML private MenuButton bookTypeMenuItem;
     @FXML private Text bookHeadLabel;
@@ -34,14 +34,16 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
     @FXML private ImageView img;
     @FXML private ImageView logoJavaPai;
 
+    private double maxPriceFromInput;
+    private double lowPriceFromInput;
     private String currentType;
     private Account account;
     private AccountList accountList;
+    private BookList bookFromPrice;
 
     private ArrayList<Object> objectForPassing = new ArrayList<>();
     private BookDetailDataSource data = new BookDetailDataSource("csv-data/bookDetail.csv");
     private BookList books = data.readData();
-
 
     public void initialize (URL location, ResourceBundle resource){
         System.out.println("Welcome to  Market Book Page");
@@ -52,6 +54,8 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
         bookHeadLabel.setText("หนังสือทั้งหมด");
         changeBookType("ประเภททั้งหมด");
         addBookTypeToMenuItem();
+        setLowPriceFromInput(0);
+        setLowPriceFromInput(0);
     }
 
     public ArrayList<Object> castDataToObject() {
@@ -112,25 +116,91 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
         }
     }
 
+    public void setMaxPriceFromInput(double maxPriceFromInput) {
+        this.maxPriceFromInput = maxPriceFromInput;
+    }
+
+    public void setLowPriceFromInput(double lowPriceFromInput) {
+        this.lowPriceFromInput = lowPriceFromInput;
+    }
+
     public ArrayList<Object> getObjectForPassing() {
         castDataToObject();
         return objectForPassing;
     }
 
+    @FXML
+    public void handleSortFromInputLowPriceToMaxPrice(ActionEvent event) {
+        bookListFlowPane.getChildren().clear();
+        sortLowPriceToMaxPriceFromInput();
+        changeBookTypeAndSortPriceFromInput("ประเภททั้งหมด");
+    }
+
+    public void changeBookTypeAndSortPriceFromInput(String type) {
+        currentType = type;
+        bookType.setText(currentType);
+        BookLowPriceToMaxPriceComparator comparator = new BookLowPriceToMaxPriceComparator();
+        books.sort(comparator);
+        ArrayList<Book> bookByType = books.getBookByType(type);
+
+        try {
+            for (Book book : bookByType) {
+                if (book.getBookPrice() >= lowPriceFromInput && book.getBookPrice() <= maxPriceFromInput) {
+//                    bookFromPrice.addBook(book);
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("/ku/cs/item.fxml"));
+
+                    bookListFlowPane.getChildren().add(fxmlLoader.load()); // child,col,row
+                    ItemController itemController = fxmlLoader.getController();
+                    itemController.setData(book);
+                    itemController.setController(this, "byType");
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public double sortLowPriceToMaxPriceFromInput() {
+        if ( Pattern.matches("[0-9]+" , inputLowPriceTextField.getText() )
+                && Double.parseDouble(inputLowPriceTextField.getText()) > 0 ) {
+            setLowPriceFromInput(Double.parseDouble(inputLowPriceTextField.getText()));
+        }
+
+        if ( Pattern.matches("[0-9]+" ,inputMaxPriceTextField.getText() )
+                && Double.parseDouble(inputMaxPriceTextField.getText()) > 0 ) {
+            setMaxPriceFromInput(Double.parseDouble(inputMaxPriceTextField.getText()));
+        }
+        return 0;
+    }
+
+    @FXML
     public void handleLowPriceToMaxPrice(ActionEvent actionEvent) {
         System.out.println("Sort Low Price To Max Price");
+        if (lowPriceFromInput != 0 && maxPriceFromInput != 0) {
+            BookLowPriceToMaxPriceComparator comparator = new BookLowPriceToMaxPriceComparator();
+//            bookFromPrice.sort(comparator);
+        }
         BookLowPriceToMaxPriceComparator comparator = new BookLowPriceToMaxPriceComparator();
         books.sort(comparator);
         changeBookType(currentType);
     }
 
+    @FXML
     public void handleMaxPriceToLowPrice(ActionEvent actionEvent) {
         System.out.println("Sort Max Price To Low Price");
+        if (lowPriceFromInput != 0 && maxPriceFromInput != 0) {
+            BookMaxPriceToLowPriceComparator comparator = new BookMaxPriceToLowPriceComparator();
+//            bookFromPrice.sort(comparator);
+        }
+
         BookMaxPriceToLowPriceComparator comparator = new BookMaxPriceToLowPriceComparator();
         books.sort(comparator);
         changeBookType(currentType);
     }
 
+    @FXML
     public void handlePageAllTypeBookButton(ActionEvent actionEvent) {
         System.out.println("Click to " + currentType);
         bookHeadLabel.setText("หนังสือทั้งหมด");

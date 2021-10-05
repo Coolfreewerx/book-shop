@@ -26,20 +26,20 @@ public class ItemCommentController {
     Review reviews;
     BookDetailController bookDetailController;
 
-    private ObservableList choiceList = FXCollections.observableArrayList() ;
+    private ObservableList choiceList = FXCollections.observableArrayList();
 
     private void lodeData() {
         choice.getItems().removeAll(choiceList);
-        choiceList.removeAll(choiceList) ;
-        String sex = "รายงานความไม่เหมาะสม" ;
-        String[] arr = sex.split(",") ;
-        int i = 0 ;
+        choiceList.removeAll(choiceList);
+        String sex = "รายงานความไม่เหมาะสม";
+        String[] arr = sex.split(",");
+        int i = 0;
 
         while ( i < 1){
-            choiceList.add(arr[i]) ;
-            i++ ;
+            choiceList.add(arr[i]);
+            i++;
         }
-        choice.getItems().addAll(choiceList) ;
+        choice.getItems().addAll(choiceList);
     }
 
     public void setData(Review reviews) {
