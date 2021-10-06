@@ -39,7 +39,7 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
     private String currentType;
     private Account account;
     private AccountList accountList;
-    private BookList bookFromPrice;
+    private ArrayList<Book> bookFromPrice = new ArrayList<>();
 
     private ArrayList<Object> objectForPassing = new ArrayList<>();
     private BookDetailDataSource data = new BookDetailDataSource("csv-data/bookDetail.csv");
@@ -54,8 +54,6 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
         bookHeadLabel.setText("หนังสือทั้งหมด");
         changeBookType("ประเภททั้งหมด");
         addBookTypeToMenuItem();
-        setLowPriceFromInput(0);
-        setLowPriceFromInput(0);
     }
 
     public ArrayList<Object> castDataToObject() {
@@ -95,6 +93,7 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
     }
 
     public void changeBookType(String type) {
+        bookFromPrice.clear();
         currentType = type;
         bookType.setText(currentType);
         bookListFlowPane.getChildren().clear();
@@ -131,7 +130,6 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
 
     @FXML
     public void handleSortFromInputLowPriceToMaxPrice(ActionEvent event) {
-        bookListFlowPane.getChildren().clear();
         sortLowPriceToMaxPriceFromInput();
         changeBookTypeAndSortPriceFromInput("ประเภททั้งหมด");
     }
@@ -139,14 +137,14 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
     public void changeBookTypeAndSortPriceFromInput(String type) {
         currentType = type;
         bookType.setText(currentType);
-        BookLowPriceToMaxPriceComparator comparator = new BookLowPriceToMaxPriceComparator();
-        books.sort(comparator);
+        bookListFlowPane.getChildren().clear();
+        bookFromPrice.clear();
         ArrayList<Book> bookByType = books.getBookByType(type);
 
         try {
             for (Book book : bookByType) {
                 if (book.getBookPrice() >= lowPriceFromInput && book.getBookPrice() <= maxPriceFromInput) {
-//                    bookFromPrice.addBook(book);
+                    bookFromPrice.add(book);
                     FXMLLoader fxmlLoader = new FXMLLoader();
                     fxmlLoader.setLocation(getClass().getResource("/ku/cs/item.fxml"));
 
@@ -156,6 +154,7 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
                     itemController.setController(this, "byType");
                 }
             }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -177,27 +176,69 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
 
     @FXML
     public void handleLowPriceToMaxPrice(ActionEvent actionEvent) {
-        System.out.println("Sort Low Price To Max Price");
-        if (lowPriceFromInput != 0 && maxPriceFromInput != 0) {
+        if (!bookFromPrice.isEmpty()) {
+            System.out.println("Sort Low Price To Max Price From User Input");
+
             BookLowPriceToMaxPriceComparator comparator = new BookLowPriceToMaxPriceComparator();
-//            bookFromPrice.sort(comparator);
+            bookListFlowPane.getChildren().clear();
+            bookFromPrice.sort(comparator);
+
+            try {
+                for (Book book : bookFromPrice) {
+                        FXMLLoader fxmlLoader = new FXMLLoader();
+                        fxmlLoader.setLocation(getClass().getResource("/ku/cs/item.fxml"));
+
+                        bookListFlowPane.getChildren().add(fxmlLoader.load()); // child,col,row
+                        ItemController itemController = fxmlLoader.getController();
+                        itemController.setData(book);
+                        itemController.setController(this, "byType");
+                }
+                
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        BookLowPriceToMaxPriceComparator comparator = new BookLowPriceToMaxPriceComparator();
-        books.sort(comparator);
-        changeBookType(currentType);
+
+        if (bookFromPrice.size() == 0) {
+            BookLowPriceToMaxPriceComparator comparator = new BookLowPriceToMaxPriceComparator();
+            bookListFlowPane.getChildren().clear();
+            books.sort(comparator);
+            changeBookType(currentType);
+        }
     }
 
     @FXML
     public void handleMaxPriceToLowPrice(ActionEvent actionEvent) {
-        System.out.println("Sort Max Price To Low Price");
-        if (lowPriceFromInput != 0 && maxPriceFromInput != 0) {
+        if (!bookFromPrice.isEmpty()) {
+            System.out.println("Sort Max Price To Low Price From User Input");
+
             BookMaxPriceToLowPriceComparator comparator = new BookMaxPriceToLowPriceComparator();
-//            bookFromPrice.sort(comparator);
+            bookListFlowPane.getChildren().clear();
+            bookFromPrice.sort(comparator);
+
+            try {
+                for (Book book : bookFromPrice) {
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("/ku/cs/item.fxml"));
+
+                    bookListFlowPane.getChildren().add(fxmlLoader.load()); // child,col,row
+                    ItemController itemController = fxmlLoader.getController();
+                    itemController.setData(book);
+                    itemController.setController(this, "byType");
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
-        BookMaxPriceToLowPriceComparator comparator = new BookMaxPriceToLowPriceComparator();
-        books.sort(comparator);
-        changeBookType(currentType);
+        if (bookFromPrice.size() == 0) {
+            BookMaxPriceToLowPriceComparator comparator = new BookMaxPriceToLowPriceComparator();
+            bookListFlowPane.getChildren().clear();
+            books.sort(comparator);
+            changeBookType(currentType);
+        }
+
     }
 
     @FXML
