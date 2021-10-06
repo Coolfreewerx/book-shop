@@ -34,7 +34,7 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
     @FXML private ImageView img;
     @FXML private ImageView logoJavaPai;
 
-    private double maxPriceFromInput;
+    private double maxPriceFromInput ;
     private double lowPriceFromInput;
     private String currentType;
     private Account account;
@@ -96,6 +96,8 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
         bookFromPrice.clear();
         currentType = type;
         bookType.setText(currentType);
+        inputLowPriceTextField.clear();
+        inputMaxPriceTextField.clear();
         bookListFlowPane.getChildren().clear();
         ArrayList<Book> bookByType = books.getBookByType(type);
 
@@ -130,6 +132,8 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
 
     @FXML
     public void handleSortFromInputLowPriceToMaxPrice(ActionEvent event) {
+        setLowPriceFromInput(-1); // set to -1 to prevent program show data that not use
+        setMaxPriceFromInput(-1);
         sortLowPriceToMaxPriceFromInput();
         changeBookTypeAndSortPriceFromInput("ประเภททั้งหมด");
     }
@@ -143,7 +147,8 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
 
         try {
             for (Book book : bookByType) {
-                if (book.getBookPrice() >= lowPriceFromInput && book.getBookPrice() <= maxPriceFromInput) {
+                if (book.getBookPrice() >= lowPriceFromInput && book.getBookPrice() <= maxPriceFromInput
+                    && lowPriceFromInput >= 0 && maxPriceFromInput >= 0) {
                     bookFromPrice.add(book);
                     FXMLLoader fxmlLoader = new FXMLLoader();
                     fxmlLoader.setLocation(getClass().getResource("/ku/cs/item.fxml"));
@@ -162,15 +167,19 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
 
     @FXML
     public double sortLowPriceToMaxPriceFromInput() {
-        if ( Pattern.matches("[0-9]+" , inputLowPriceTextField.getText() )
-                && Double.parseDouble(inputLowPriceTextField.getText()) > 0 ) {
+        if ( Pattern.matches("[1-9]+[0-9]+" , inputLowPriceTextField.getText()) // fisrt case input many element : input from user by first element not == 0 and not be string
+                || ((inputLowPriceTextField.getText().length() == 1) && Pattern.matches("[0-9]+", inputLowPriceTextField.getText()) )// second case input only one element
+                && Double.parseDouble(inputLowPriceTextField.getText()) >= 0 ) {
             setLowPriceFromInput(Double.parseDouble(inputLowPriceTextField.getText()));
         }
 
-        if ( Pattern.matches("[0-9]+" ,inputMaxPriceTextField.getText() )
-                && Double.parseDouble(inputMaxPriceTextField.getText()) > 0 ) {
+        if ( Pattern.matches("[1-9]+[0-9]+" ,inputMaxPriceTextField.getText())
+                || ((inputMaxPriceTextField.getText().length() == 1) && Pattern.matches("[0-9]+", inputMaxPriceTextField.getText()) )
+                && Double.parseDouble(inputMaxPriceTextField.getText()) >= 0 ) {
             setMaxPriceFromInput(Double.parseDouble(inputMaxPriceTextField.getText()));
         }
+        System.out.println("low price from user input " + lowPriceFromInput);
+        System.out.println("max price from user input " + maxPriceFromInput);
         return 0;
     }
 
@@ -193,7 +202,7 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
                         itemController.setData(book);
                         itemController.setController(this, "byType");
                 }
-                
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
