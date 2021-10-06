@@ -5,6 +5,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
@@ -43,6 +44,8 @@ public class UserListForAdminController {
     @FXML private Text tryToLoginText ;
     @FXML private ListView<UserAccount> userAccountListView ;
     @FXML private ImageView logoJavaPai;
+    @FXML private Button provideUserButton;
+    @FXML private Button provideHomeShopButton;
     //@FXML private ListView reportUserListView ;
 
     private AccountList accountList ;
@@ -175,6 +178,16 @@ public class UserListForAdminController {
             logoJavaPai.getOnMouseClicked();
             com.github.saacsos.FXRouter.goTo("home" ,accountList);
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void handleToProvideShopButton(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("provideTypeBookByAdmin" ,accountList);
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า provideTypeBookByAdmin ไม่ได้");
             e.printStackTrace();
         }
     }
