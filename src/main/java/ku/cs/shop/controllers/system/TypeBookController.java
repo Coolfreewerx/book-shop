@@ -51,7 +51,7 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
         account = accountList.getCurrentAccount();
         pagesHeader();
 
-        bookHeadLabel.setText("หนังสือทั้งหมด");
+        bookHeadLabel.setText("ประเภทของหนังสือ");
         changeBookType("ประเภททั้งหมด");
         addBookTypeToMenuItem();
     }
@@ -95,7 +95,7 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
     public void changeBookType(String type) {
         bookFromPrice.clear();
         currentType = type;
-        bookType.setText(currentType);
+        bookType.setText(currentType.replace("ประเภททั้งหมด", "หนังสือทั้งหมด"));
         inputLowPriceTextField.clear();
         inputMaxPriceTextField.clear();
         bookListFlowPane.getChildren().clear();
