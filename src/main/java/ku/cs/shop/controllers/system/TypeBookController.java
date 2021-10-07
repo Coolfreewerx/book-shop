@@ -178,6 +178,7 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
                 && Double.parseDouble(inputMaxPriceTextField.getText()) >= 0 ) {
             setMaxPriceFromInput(Double.parseDouble(inputMaxPriceTextField.getText()));
         }
+
         System.out.println("low price from user input " + lowPriceFromInput);
         System.out.println("max price from user input " + maxPriceFromInput);
         return 0;

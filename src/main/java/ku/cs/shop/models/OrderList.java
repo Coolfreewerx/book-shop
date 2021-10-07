@@ -32,6 +32,7 @@ public class OrderList {
     public void sort(Comparator<Order> orderComparator) {
         Collections.sort(this.orders, orderComparator);
     }
+
     public void sort(){
         OrderSortByTimeComparator orderSortByTimeComparator = new OrderSortByTimeComparator();
         sort(orderSortByTimeComparator);
