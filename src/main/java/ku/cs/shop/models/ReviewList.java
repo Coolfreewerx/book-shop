@@ -14,12 +14,13 @@ public class ReviewList {
     }
 
     public ArrayList<Review> getReviewsByBookName(String bookName) {
+        ArrayList<Review> reviewsByBookName = new ArrayList<>();
         for(Review review: reviews){
             if(review.getBookName().equals(bookName)){
-
+                reviewsByBookName.add(review);
             }
         }
-        return reviews;
+        return reviewsByBookName;
     }
 
     public String toCsv() {

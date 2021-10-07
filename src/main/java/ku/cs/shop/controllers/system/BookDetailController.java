@@ -43,7 +43,7 @@ public class BookDetailController
     @FXML private Hyperlink bookDetailByShop;
     @FXML private TextField commentTextField;
     @FXML private GridPane showPopupGrid;
-
+    @FXML private ImageView heart1;
 
     private AccountList accountList;
     private Account account;
@@ -51,6 +51,7 @@ public class BookDetailController
     private BookList bookList;
     private Review review;
     private ReviewList reviewList;
+    private String imageName;
 
     private ReviewsDataSource reviewsDataSource = new ReviewsDataSource("csv-data/reviews.csv");
     private ReviewList reviews = reviewsDataSource.readData();
@@ -176,33 +177,37 @@ public class BookDetailController
     }
 
     public void showCommentByBookName(String bookName) { //รับ String bookName
-//        commentFlowPane.getChildren().clear();
-//        ArrayList<Review> bookByName = reviews.getReviewsByBookName(bookName);
-//        try {
-//            for (Review review : bookByName) {
-//                FXMLLoader fxmlLoader = new FXMLLoader();
-//                fxmlLoader.setLocation(getClass().getResource("/ku/cs/itemComment.fxml"));
-//
-//                commentFlowPane.getChildren().add(fxmlLoader.load()); // child,col,row
-//                ItemCommentController itemCommentController = fxmlLoader.getController();
-//                itemCommentController.setData(review);
-//            }
-//            FXMLLoader fxmlLoader = new FXMLLoader();
-//            fxmlLoader.setLocation(getClass().getResource("/ku/cs/itemComment.fxml"));
-//
-//            commentFlowPane.getChildren().add(fxmlLoader.load()); // child,col,row
-//            ItemCommentController itemCommentController = fxmlLoader.getController();
-//            itemCommentController.setData(review);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        commentFlowPane.getChildren().clear();
+        ArrayList<Review> bookByName = reviews.getReviewsByBookName(bookName);
+        try {
+            for (Review review : bookByName) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/ku/cs/itemComment.fxml"));
+
+                commentFlowPane.getChildren().add(fxmlLoader.load()); // child,col,row
+                ItemCommentController itemCommentController = fxmlLoader.getController();
+                itemCommentController.setData(review);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void sendReviewToWrite(){
-        review.setComment(commentTextField.getText());
+        Review review = new Review(
+                book.getBookName(),
+                account.getUserName(),
+                account.getImagePath(),
+                commentTextField.getText()
+        );
+        System.out.println(book.getBookName());
+        System.out.println(bookList.getBookByName(book.getBookName()));
+        if(book.getBookName().equals(bookList.getBookByName(book.getBookName()))){
 
-        ReviewsDataSource reviewsDataSource = new ReviewsDataSource("csv-data/reviews.csv") ;
-        reviewsDataSource.writeData(reviewList);
+            System.out.println("เข้าเงื่อนไขละจ๊ะ");
+            reviewList.addReviews(review);
+            reviewsDataSource.writeData(reviewList);
+        }
     }
 
     @FXML

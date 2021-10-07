@@ -88,7 +88,8 @@ public class EditInformationController {
     @FXML // ทำงานเมื่อกรอกเบอร์โทร
     public void handleKeyCheckPhoneNumber(){
         if(Account.checkPhoneNumber(phoneNumberTextField.getText())) {
-            editPhoneNumberError.setText("");
+            editPhoneNumberError.setText(" ");
+            passwordConditionCheckLabel.setTextFill(Color.rgb(21, 117, 84));
         }
         else{
             editPhoneNumberError.setText("ข้อมูลไม่ถูกต้อง กรุณาตรวจสอบ");
@@ -125,7 +126,7 @@ public class EditInformationController {
     @FXML
     public void handleGoToInformationPageWhenEditInformation(){ //ปุ่มกลับไปหน้าข้อมูลส่วนตัวหลังแก้ไขข้อมูลเสร็จ
         editErrorLabel.setText(checkData());
-        if (!(checkData().equals(" "))) {
+        if (!(checkData().equals(" ") && checkPhoneNumber().equals(" "))) {
             return;
         }
         setImageName();
@@ -175,6 +176,13 @@ public class EditInformationController {
         }
     }
 
+    public String checkPhoneNumber(){
+        if (!(Account.getPhoneNumberCheck())){
+            return "ข้อมูลมีข้อผิดพลาดโปรดตรวจสอบข้อมูลอีกครั้ง" ;
+        }
+        return null;
+    }
+
     //เช็คการกรอกข้อมูลก่อนสมัคร
     public String checkData() {
         // ตรวจสอบว่าทุกช่องมีข้อมูล
@@ -187,7 +195,4 @@ public class EditInformationController {
             return " ";
         }
     }
-    //else if(!(Account.getPhoneNumberCheck())){
-    //            return "ข้อมูลมีข้อผิดพลาดโปรดตรวจสอบข้อมูลอีกครั้ง" ;
-    //        }
 }

@@ -21,7 +21,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane onMouseClicked="#handleToBookSortFromShop" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.BookDetailController">
+<AnchorPane onMouseClicked="#handleToBookSortFromShop" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.BookDetailController">
    <children>
       <HBox prefHeight="69.0" prefWidth="1024.0" stylesheets="@style/style.css">
          <children>
@@ -126,11 +126,11 @@
                   </Button>
                   <HBox layoutX="82.0" layoutY="655.0" prefHeight="54.0" prefWidth="865.0" style="-fx-border-color: gray; -fx-border-radius: 10;">
                      <children>
-                        <Button mnemonicParsing="false" style="-fx-background-color: white;" styleClass="bevel-red" stylesheets="@style/PrimaryTheme.css">
+                        <Button mnemonicParsing="false" styleClass="bevel-red" stylesheets="@style/PrimaryTheme.css">
                            <graphic>
-                              <ImageView fx:id="heart1" fitHeight="43.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true" styleClass="bevel-red">
+                              <ImageView fitHeight="43.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" styleClass="bevel-red">
                                  <image>
-                                    <Image url="@image/heart.png" />
+                                    <Image url="@image/heart1.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -138,11 +138,11 @@
                               <Insets left="250.0" />
                            </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" style="-fx-background-color: white;" styleClass="bevel-red" stylesheets="@style/PrimaryTheme.css">
+                        <Button mnemonicParsing="false" styleClass="bevel-red" stylesheets="@style/PrimaryTheme.css">
                            <graphic>
                               <ImageView fitHeight="43.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true" styleClass="bevel-red">
                                  <image>
-                                    <Image url="@image/heart.png" />
+                                    <Image url="@image/heart1.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -150,11 +150,11 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" style="-fx-background-color: white;" styleClass="bevel-red" stylesheets="@style/PrimaryTheme.css">
+                        <Button mnemonicParsing="false" styleClass="bevel-red" stylesheets="@style/PrimaryTheme.css">
                            <graphic>
                               <ImageView fitHeight="43.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true" styleClass="bevel-red">
                                  <image>
-                                    <Image url="@image/heart.png" />
+                                    <Image url="@image/heart1.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -162,11 +162,11 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" style="-fx-background-color: white;" styleClass="bevel-red" stylesheets="@style/PrimaryTheme.css">
+                        <Button mnemonicParsing="false" styleClass="bevel-red" stylesheets="@style/PrimaryTheme.css">
                            <graphic>
                               <ImageView fitHeight="43.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true" styleClass="bevel-red">
                                  <image>
-                                    <Image url="@image/heart.png" />
+                                    <Image url="@image/heart1.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -174,11 +174,11 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" style="-fx-background-color: white;" styleClass="bevel-red" stylesheets="@style/PrimaryTheme.css">
+                        <Button mnemonicParsing="false" styleClass="bevel-red" stylesheets="@style/PrimaryTheme.css">
                            <graphic>
                               <ImageView fitHeight="43.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true" styleClass="bevel-red">
                                  <image>
-                                    <Image url="@image/heart.png" />
+                                    <Image url="@image/heart1.png" />
                                  </image>
                               </ImageView>
                            </graphic>

@@ -63,6 +63,16 @@ public class BookList {
         return bookByShop;
     }
 
+    public ArrayList<Book> getBookByName(String bookName) {
+        ArrayList<Book> bookByName = new ArrayList<>();
+        for (Book book : books) {
+            if (book.getBookName().equals(bookName)) {
+                bookByName.add(book);
+            }
+        }
+        return bookByName;
+    }
+
     public int getCountBookByShop(String nameShop) {
         int count = 0;
         ArrayList<Book> bookByShop = new ArrayList<>();

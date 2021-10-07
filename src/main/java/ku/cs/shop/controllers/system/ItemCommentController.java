@@ -7,11 +7,10 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import ku.cs.shop.models.Account;
-import ku.cs.shop.models.AccountList;
-import ku.cs.shop.models.Book;
-import ku.cs.shop.models.Review;
+import ku.cs.shop.models.*;
 import ku.cs.shop.services.AccountDataSource;
+
+import java.util.ArrayList;
 
 public class ItemCommentController {
     @FXML private ComboBox<String> choice;
@@ -23,10 +22,19 @@ public class ItemCommentController {
     private AccountList accountList;
     private Account account;
     private AccountDataSource accountDataSource;
-    Review reviews;
+    private Review reviews;
+    private BookList bookList;
     BookDetailController bookDetailController;
 
     private ObservableList choiceList = FXCollections.observableArrayList();
+    private ArrayList<Object> objectForPassing = new ArrayList<>();
+
+    @FXML
+    public void initialize()
+    {
+        castObjectToData();
+        objectForPassing = (ArrayList<Object>) com.github.saacsos.FXRouter.getData();
+    }
 
     private void lodeData() {
         choice.getItems().removeAll(choiceList);
@@ -53,5 +61,14 @@ public class ItemCommentController {
         userImageView.setImage(new Image(account.getImagePath()));
         commentLabel.setText(reviews.getComment());
         lodeData();
+    }
+
+    public void castObjectToData() {
+        book = (Book) objectForPassing.get(3);
+        bookList = (BookList) objectForPassing.get(0);
+        account = (Account) objectForPassing.get(1);
+        accountList = (AccountList) objectForPassing.get(2);
+        System.out.println(book.getBookName());
+        System.out.println(account.getUserName());
     }
 }
