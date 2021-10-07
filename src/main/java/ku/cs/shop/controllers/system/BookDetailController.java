@@ -8,9 +8,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
 import ku.cs.shop.models.*;
 import ku.cs.shop.services.AccountDataSource;
 import ku.cs.shop.services.BookDetailDataSource;
+import ku.cs.shop.services.OrderDataSource;
 import ku.cs.shop.services.ReviewsDataSource;
 
 import java.io.IOException;
@@ -31,15 +33,16 @@ public class BookDetailController
     @FXML private Label bookAuthor;
     @FXML private Label bookPrice;
     @FXML private Label typeLabel;
-    @FXML private ImageView bookImg;
-    @FXML private Hyperlink bookDetailByShop;
-    @FXML private Button status;
     @FXML private Label usernameInHead;
+    @FXML private Label bookRating;
+    @FXML private Button status;
+    @FXML private FlowPane commentFlowPane;
+    @FXML private ImageView bookImg;
     @FXML private ImageView img;
     @FXML private ImageView logoJavaPai;
-    @FXML private FlowPane commentFlowPane;
+    @FXML private Hyperlink bookDetailByShop;
     @FXML private TextField commentTextField;
-    @FXML private Label bookRating;
+    @FXML private GridPane showPopupGrid;
 
 
     private AccountList accountList;
@@ -51,6 +54,10 @@ public class BookDetailController
 
     private ReviewsDataSource reviewsDataSource = new ReviewsDataSource("csv-data/reviews.csv");
     private ReviewList reviews = reviewsDataSource.readData();
+
+    private OrderDataSource orderDataSource = new OrderDataSource("csv-data/bookOrder.csv");
+    private OrderList orderList = orderDataSource.readData();
+
     private ArrayList<Object> objectForPassing = new ArrayList<>();
 
     @FXML
@@ -117,6 +124,12 @@ public class BookDetailController
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+
+    @FXML
+    void handleToBuyBook(ActionEvent event) {
+        
     }
 
     @FXML
