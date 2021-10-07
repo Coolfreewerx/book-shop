@@ -20,10 +20,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.seller.ApplyBookController">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.seller.ApplyBookController">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -138,7 +139,7 @@
                               <Font name="JasmineUPC" size="32.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" onAction="#handleToLogoutButton" text="ออกจากระบบ" textFill="WHITE" GridPane.rowIndex="4">
+                        <Button mnemonicParsing="false" onAction="#handleToLogoutButton" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: B4875E; -fx-background-radius: 10;" styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" text="ออกจากระบบ" textFill="WHITE" GridPane.rowIndex="4">
                            <font>
                               <Font name="JasmineUPC" size="32.0" />
                            </font>
@@ -161,6 +162,18 @@
                               <Image url="@image/addBookIMG.jpg" />
                            </image>
                         </ImageView>
+                        <VBox layoutX="1.0" layoutY="501.0" prefHeight="15.0" prefWidth="681.0">
+                           <children>
+                              <GridPane fx:id="gridPaneForSubTypeBook" prefHeight="10.0" prefWidth="687.0" style="-fx-background-color: ffffff;">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                              </GridPane>
+                           </children>
+                        </VBox>
                         <Label layoutX="40.0" layoutY="40.0" text="ผู้ขายสินค้า" textFill="#a05e07">
                            <font>
                               <Font name="JasmineUPC" size="40.0" />

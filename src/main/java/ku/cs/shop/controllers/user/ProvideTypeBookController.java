@@ -2,25 +2,60 @@ package ku.cs.shop.controllers.user;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import ku.cs.shop.models.Account;
-import ku.cs.shop.models.AccountList;
-import ku.cs.shop.models.UserAccount;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Region;
+import ku.cs.shop.controllers.system.StockController;
+import ku.cs.shop.models.*;
+import ku.cs.shop.services.BookDetailDataSource;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class ProvideTypeBookController {
     private AccountList accountList ;
     private Account account ;
     private UserAccount selectedAccount ;
+    @FXML private GridPane gridPaneForSubTypeBook;
+
+    private BookDetailDataSource data = new BookDetailDataSource("csv-data/bookDetail.csv");
+    private BookList books = data.readData();
 
     public void initialize(){
         accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
         account = accountList.getCurrentAccount() ;
+
+        int column = 0;
+        int row = 1;
+
+        ArrayList<Book> bookInShop = books.getBookByShop(account.getShopName());
+
+        try {
+            for (int i = 0; i < 3 ; i++) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/ku/cs/stock.fxml"));
+
+                gridPaneForSubTypeBook.add(fxmlLoader.load(), column, row++); // child,col,row
+                StockController stockController = fxmlLoader.getController();
+                stockController.setData(bookInShop.get(i),accountList,books);
+                stockController.changeData();
+
+                gridPaneForSubTypeBook.setMinWidth(Region.USE_COMPUTED_SIZE);
+                gridPaneForSubTypeBook.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                gridPaneForSubTypeBook.setMaxWidth(Region.USE_COMPUTED_SIZE);
+
+                gridPaneForSubTypeBook.setMinHeight(Region.USE_COMPUTED_SIZE);
+                gridPaneForSubTypeBook.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                gridPaneForSubTypeBook.setMaxHeight(Region.USE_COMPUTED_SIZE);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 

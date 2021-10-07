@@ -10,7 +10,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Region;
 import javafx.stage.FileChooser;
+import ku.cs.shop.controllers.system.StockController;
 import ku.cs.shop.models.*;
 import ku.cs.shop.services.BookDetailDataSource;
 import ku.cs.shop.services.DataSource;
@@ -54,6 +56,7 @@ public class ApplyBookController {
     @FXML private ImageView img;
     @FXML private ImageView logoJavaPai;
     @FXML private ImageView userImageView;
+    @FXML private GridPane gridPaneForSubTypeBook;
 
     private File selectedImage;
     private String imageName;
@@ -99,7 +102,37 @@ public class ApplyBookController {
         NotificationBookPrice.setText(seller.checkDoubleNumber(bookPriceTextField.getText()));
     }
 
-    @FXML public void handleCartoonMenuButton(ActionEvent actionEvent){ book.setBookType("หนังสือการ์ตูน");menuButton.setText("หนังสือการ์ตูน"); }
+    @FXML public void handleCartoonMenuButton(ActionEvent actionEvent){
+        book.setBookType("หนังสือการ์ตูน");
+        menuButton.setText("หนังสือการ์ตูน");
+
+        int column = 0;
+        int row = 1;
+
+        ArrayList<Book> bookInShop = books.getBookByShop(account.getShopName());
+
+        try {
+            for (int i = 0; i < 3 ; i++) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/ku/cs/stock.fxml"));
+
+                gridPaneForSubTypeBook.add(fxmlLoader.load(), column, row++); // child,col,row
+                StockController stockController = fxmlLoader.getController();
+                stockController.setData(bookInShop.get(i),accountList,books);
+                stockController.changeData();
+
+                gridPaneForSubTypeBook.setMinWidth(Region.USE_COMPUTED_SIZE);
+                gridPaneForSubTypeBook.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                gridPaneForSubTypeBook.setMaxWidth(Region.USE_COMPUTED_SIZE);
+
+                gridPaneForSubTypeBook.setMinHeight(Region.USE_COMPUTED_SIZE);
+                gridPaneForSubTypeBook.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                gridPaneForSubTypeBook.setMaxHeight(Region.USE_COMPUTED_SIZE);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     @FXML public void handleMegazineMenuButton(ActionEvent actionEvent){ book.setBookType("นิตยสาร");menuButton.setText("นิตยสาร"); }
     @FXML public void handleNovelMenuButton(ActionEvent actionEvent){ book.setBookType("นิยาย");menuButton.setText("นิยาย"); }
     @FXML public void handleStudyBookMenuButton(ActionEvent actionEvent){ book.setBookType("หนังสือเรียน");menuButton.setText("หนังสือเรียน"); }
