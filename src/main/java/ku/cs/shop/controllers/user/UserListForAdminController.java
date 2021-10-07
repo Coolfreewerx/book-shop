@@ -176,6 +176,9 @@ public class UserListForAdminController {
     public void mouseClickedInLogo(MouseEvent event){
         try{
             logoJavaPai.getOnMouseClicked();
+            accountList.addNewAccounts();
+            AccountDataSource accountDataSource = new AccountDataSource("csv-data/accountData.csv") ;
+            accountDataSource.writeData(accountList);
             com.github.saacsos.FXRouter.goTo("home" ,accountList);
         } catch (Exception e) {
             e.printStackTrace();
