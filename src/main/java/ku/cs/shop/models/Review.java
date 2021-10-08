@@ -4,26 +4,46 @@ import java.io.File;
 
 public class Review extends Account {
     private String bookName;
+    private String bookShop;
     private String userName;
     private String imageName ;
     private String comment;
+    private int bookRating;
 
-    public Review(String bookName, String userName, String imageName, String comment){
+    public Review(String bookName, String bookShop, String userName, String imageName, String comment, int bookRating){
         this.bookName = bookName;
+        this.bookShop = bookShop;
         this.userName = userName;
         this.imageName = imageName;
         this.comment = comment;
+        this.bookRating = bookRating;
     }
 
     public String getBookName(){ return bookName; }
+    public String getBookShop(){ return bookShop; }
     public String getUserName(){ return userName; }
     public String getImageName(){ return imageName; }
     public String getComment(){ return comment; }
+    public int getRating(){ return bookRating; }
 
     public void setBookName(String bookName) { this.bookName = bookName; }
+    public void setBookShop(String bookShop) { this.bookShop = bookShop; }
     public void setUserName(String userName) { this.userName = userName; }
     public void setImageName(String imageName) { this.imageName = imageName; }
     public void setComment(String comment) { this.comment = comment; }
+    public void setRating(int bookRating){ this.bookRating = bookRating; }
+
+    public void addRatingPlusOne () { this.setRating(this.bookRating + 1); }
+    public void addRatingPlusTwo () { this.setRating(this.bookRating + 2); }
+    public void addRatingPlusThree () { this.setRating(this.bookRating + 3); }
+    public void addRatingPlusFour () { this.setRating(this.bookRating + 4); }
+    public void addRatingPlusFive () { this.setRating(this.bookRating + 5); }
+
+    public double averageRating(int bookRating){
+        double averageRating = 0;
+        averageRating = bookRating ;
+        return averageRating;
+    }
 
     @Override
     public String getImagePath() {
@@ -35,6 +55,8 @@ public class Review extends Account {
     }
 
     public String toCsv(){
-        return "\"" + getBookName() + "\"" + getUserName() + ",\"" + getImageName() + "," + getComment();
+        return "\"" + bookName + "\"," + "\"" + bookShop + "\"," + userName + "," + imageName + "," + comment;
     }
+
+    public String toString(){ return bookName;}
 }

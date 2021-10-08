@@ -87,14 +87,19 @@ public class EditInformationController {
 
     @FXML // ทำงานเมื่อกรอกเบอร์โทร
     public void handleKeyCheckPhoneNumber(){
-        if(Account.checkPhoneNumber(phoneNumberTextField.getText())) {
-            editPhoneNumberError.setText(" ");
-            passwordConditionCheckLabel.setTextFill(Color.rgb(21, 117, 84));
+        account.setPhone(phoneNumberTextField.getText());
+        if(!Account.checkPhoneNumber(account.getPhone())){
+           account.setPhone("");
         }
-        else{
-            editPhoneNumberError.setText("ข้อมูลไม่ถูกต้อง กรุณาตรวจสอบ");
-            editPhoneNumberError.setTextFill(Color.rgb(210, 39, 30));
-        }
+        editPhoneNumberError.setText(account.checkPhoneNumberIsCorrect(account.getPhone()));
+//        if (Account.checkPhoneNumber(phoneNumberTextField.getText())){
+//            editPhoneNumberError.setText("รหัสผ่านนี้สามารถใช้ได้") ;
+//            editPhoneNumberError.setTextFill(Color.rgb(21, 117, 84));
+//        }
+//        else {
+//            editPhoneNumberError.setText("รหัสผ่านไม่ตรงตามรูปแบบที่กำหนด");
+//            editPhoneNumberError.setTextFill(Color.rgb(210, 39, 30));
+//        }
     }
 
     private void lodeSexData() {
@@ -126,9 +131,13 @@ public class EditInformationController {
     @FXML
     public void handleGoToInformationPageWhenEditInformation(){ //ปุ่มกลับไปหน้าข้อมูลส่วนตัวหลังแก้ไขข้อมูลเสร็จ
         editErrorLabel.setText(checkData());
-        if (!(checkData().equals(" ") && checkPhoneNumber().equals(" "))) {
+        if (!(checkData().equals(" "))) {
             return;
         }
+//        editPhoneNumberError.setText(checkPhoneNumber());
+//        if(!(checkPhoneNumber().equals(" "))){
+//            return;
+//        }
         setImageName();
         setDataToWrite();
 
@@ -176,13 +185,6 @@ public class EditInformationController {
         }
     }
 
-    public String checkPhoneNumber(){
-        if (!(Account.getPhoneNumberCheck())){
-            return "ข้อมูลมีข้อผิดพลาดโปรดตรวจสอบข้อมูลอีกครั้ง" ;
-        }
-        return null;
-    }
-
     //เช็คการกรอกข้อมูลก่อนสมัคร
     public String checkData() {
         // ตรวจสอบว่าทุกช่องมีข้อมูล
@@ -195,4 +197,11 @@ public class EditInformationController {
             return " ";
         }
     }
+
+//    public String checkPhoneNumber(){
+//        if(!(Account.getPhoneNumber())){
+//            return "เบอร์โทรศัพท์ไม่ถูกต้อง กรุณาตรวจสอบ" ;
+//        }
+//        return " ";
+//    }
 }

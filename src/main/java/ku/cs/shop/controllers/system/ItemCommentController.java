@@ -68,7 +68,5 @@ public class ItemCommentController {
         bookList = (BookList) objectForPassing.get(0);
         account = (Account) objectForPassing.get(1);
         accountList = (AccountList) objectForPassing.get(2);
-        System.out.println(book.getBookName());
-        System.out.println(account.getUserName());
     }
 }

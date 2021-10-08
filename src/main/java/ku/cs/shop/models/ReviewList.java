@@ -23,6 +23,18 @@ public class ReviewList {
         return reviewsByBookName;
     }
 
+    public int getCountBookByNameAndShop(String bookName) {
+        int count = 0;
+        ArrayList<Review> reviewsByBookName = new ArrayList<>();
+        for(Review review: reviews){
+            if(review.getBookName().equals(bookName)){
+                reviewsByBookName.add(review);
+                count++;
+            }
+        }
+        return count;
+    }
+
     public String toCsv() {
         String result = "" ;
         for (Review review: this.reviews) {

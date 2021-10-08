@@ -25,11 +25,13 @@ public class ReviewsDataSource implements DataSource<ReviewList> {
 
             while ((data = reader.readNext()) != null) {
                 String bookName = data[0].trim();
-                String userName = data[1].trim();
-                String imageName = data[2].trim();
-                String comment = data[3].trim();
+                String bookShop = data[1].trim();
+                String userName = data[2].trim();
+                String imageName = data[3].trim();
+                String comment = data[4].trim();
+                int bookRating =  Integer.parseInt(data[5].trim());
 
-                Review review = new Review(bookName, userName, imageName, comment);
+                Review review = new Review(bookName, bookShop, userName, imageName, comment, bookRating);
                 reviewsList.addReviews(review);
             }
         }

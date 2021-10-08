@@ -68,12 +68,13 @@
     -fx-color-two: #ffffff;
     -fx-color-three: #ffffff;
     -fx-background-radius: 60;
+    -fx-border-radius: 20;
     -fx-background-color:
             linear-gradient(#ffffff 0%, -fx-color-two 100%, -fx-color-one 100%),
             linear-gradient(#ffffff 0%, -fx-color-three 10%);
     -fx-background-radius: 8, 7, 6;
     -fx-background-insets: 0, 1, 2;
-    -fx-text-fill: white;
+    -fx-text-fill: #000000;
 }
 
 .bevel-red:hover {

@@ -25,7 +25,7 @@ public class Account {
     private static boolean passwordCheck = false ;
     private static boolean passwordCondition = false ;
     private static boolean userNameCheck = false ;
-    private static boolean phoneNumberCheck = false;
+    private static boolean phoneNumber = false;
 
     //เก็บค่าเริ่มต้น
     public Account() {}
@@ -83,7 +83,7 @@ public class Account {
     public static boolean getPasswordCondition() { return  passwordCondition; }
     public static boolean getPasswordCheck() { return passwordCheck; }
     public static boolean getUserNameCheck() {return userNameCheck; }
-    public static boolean getPhoneNumberCheck() {return phoneNumberCheck;}
+    public static boolean getPhoneNumber() {return phoneNumber; }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -142,13 +142,21 @@ public class Account {
     }
 
     public static boolean checkPhoneNumber (String phone){ //ตรวจสอบเบอร์โทรตามเงื่อนไข
-        if(phone.length() != 10 && !(Pattern.matches("[0-9]+", phone))){
-            phoneNumberCheck = false;
-            return false;
+        if(phone.length() == 10 && (Pattern.matches("[0-9]+", phone))){
+            phoneNumber = true;
+            return true;
         }
         else{
-            phoneNumberCheck = true;
-            return true;
+            phoneNumber = false;
+            return false;
+        }
+    }
+
+    public String checkPhoneNumberIsCorrect(String phone) {
+        if (checkPhoneNumber(phone)) {
+            return "";
+        } else {
+            return "เบอร์โทรไม่ถูกต้อง กรุณาตรวจสอบ";
         }
     }
 
