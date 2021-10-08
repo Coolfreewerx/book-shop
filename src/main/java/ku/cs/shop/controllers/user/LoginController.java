@@ -68,7 +68,7 @@ public class LoginController {
                 if (userAccount.getStatus().equals("banned")) {
                     userAccount.setTryToLogin(userAccount.getTryToLogin()+1);
                     accountDataSource.writeData(accountList);
-                    FXMLLoader fxmlLoader= new FXMLLoader();
+                    FXMLLoader fxmlLoader = new FXMLLoader();
                     fxmlLoader.setLocation(getClass().getResource("/ku/cs/loginNotification.fxml"));
                     try {
                         notificationGrid.add(fxmlLoader.load(), 0, 0);
@@ -77,6 +77,7 @@ public class LoginController {
                     }
                     return;
                 }
+
                 else {
                     userAccount.setLoginTime(LocalDateTime.now(ZoneId.of("Asia/Bangkok")));
                     userAccount.setTryToLogin(0);

@@ -45,6 +45,7 @@ public class BookDetailController
     @FXML private GridPane showPopupGrid;
     @FXML private ImageView heart1;
 
+
     private AccountList accountList;
     private Account account;
     private Book book;
@@ -55,10 +56,6 @@ public class BookDetailController
 
     private ReviewsDataSource reviewsDataSource = new ReviewsDataSource("csv-data/reviews.csv");
     private ReviewList reviews = reviewsDataSource.readData();
-
-    private OrderDataSource orderDataSource = new OrderDataSource("csv-data/bookOrder.csv");
-    private OrderList orderList = orderDataSource.readData();
-
     private ArrayList<Object> objectForPassing = new ArrayList<>();
 
     @FXML
@@ -71,8 +68,6 @@ public class BookDetailController
         showCommentByBookName(book.getBookName());
     }
 
-
-
     public void castObjectToData() {
         book = (Book) objectForPassing.get(3);
         bookList = (BookList) objectForPassing.get(0);
@@ -80,6 +75,14 @@ public class BookDetailController
         accountList = (AccountList) objectForPassing.get(2);
         System.out.println(book.getBookShop());
         System.out.println(account.getUserName());
+    }
+
+    public Book getBook() {
+        return book;
+    }
+
+    public Account getAccount() {
+        return account;
     }
 
     public void showData() {
@@ -110,11 +113,12 @@ public class BookDetailController
     public void pagesHeader() { // กำหนดและแสดงข้อมูลตรงส่วน head page
         usernameInHead.setText(account.getUserName());
         img.setImage(new Image(account.getImagePath()));
-        if(account instanceof AdminAccount){
+
+        if (account instanceof AdminAccount){
             status.setText("Admin");
-        }else if(account.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")){
+        } else if (account.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")) {
             status.setText("User");
-        }else {
+        } else {
             status.setText("Seller");
         }
     }
@@ -127,10 +131,20 @@ public class BookDetailController
         }
     }
 
-
     @FXML
     void handleToBuyBook(ActionEvent event) {
-        
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/ku/cs/buyBookPopup.fxml"));
+
+            showPopupGrid.add(fxmlLoader.load(), 0, 0);
+            ConfirmOrderController  confirmOrderController = fxmlLoader.getController();
+            confirmOrderController.setController(this);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return;
     }
 
     @FXML

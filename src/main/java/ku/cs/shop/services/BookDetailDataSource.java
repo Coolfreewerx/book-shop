@@ -19,7 +19,7 @@ public class BookDetailDataSource implements DataSource<BookList> {
 
     public BookList readData()
     {
-        BookList bookList = new BookList(); // ไม่ควรใช้ arraylist
+        BookList bookList = new BookList();
 
         try
         {
