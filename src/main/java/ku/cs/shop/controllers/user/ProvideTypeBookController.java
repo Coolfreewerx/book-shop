@@ -1,5 +1,6 @@
 package ku.cs.shop.controllers.user;
 
+import javafx.animation.KeyFrame;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,14 +11,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Region;
+import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import ku.cs.shop.controllers.system.StockController;
 import ku.cs.shop.models.*;
 import ku.cs.shop.services.BookDetailDataSource;
+import ku.cs.shop.services.ProvideTypeBookDataSource;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,7 +26,13 @@ public class ProvideTypeBookController {
     private AccountList accountList ;
     private Account account ;
     private UserAccount selectedAccount ;
-    @FXML private GridPane gridPaneForSubTypeBook;
+
+    private ProvideTypeBookDataSource provideTypeBookDataSource = new ProvideTypeBookDataSource("csv-data/provideTypeBook.csv");
+    private ProvideTypeBookList typeBookList = provideTypeBookDataSource.readData();
+    private ProvideTypeBook provideTypeBook = new ProvideTypeBook("","");
+
+    @FXML private FlowPane flowPaneForSubTypeBook;
+
 
     private BookDetailDataSource data = new BookDetailDataSource("csv-data/bookDetail.csv");
     private BookList books = data.readData();
@@ -51,6 +56,8 @@ public class ProvideTypeBookController {
     @FXML private Label topicLabel11;
     @FXML private Button addSubTypeBookButton;
 
+    String newBookType;
+
     @FXML
     public void mouseClickedInLogo(MouseEvent event){
         try{
@@ -62,7 +69,25 @@ public class ProvideTypeBookController {
     }
 
     @FXML
-    public void handleToProvideShopButton(ActionEvent actionEvent) {
+    public void handleKeyNewBookTypeTextField(){
+        newBookType = newBooktypeTextField.getText();
+        if(typeBookList.checkNewTypeBook(newBookType)){
+            notificationCheckTypeBookLabel.setText("มีประเภทหนังสือนี้อยู่แล้ว กรุณากรอกประเภทหนังสือใหม่");
+        }
+        else{
+            notificationCheckTypeBookLabel.setText("");
+        }
+    }
+
+    @FXML
+    public void CheckTypeBookButton(ActionEvent actionEvent){
+        if (!typeBookList.checkNewTypeBook(newBookType)){
+            provideTypeBook.setSuperTypeBook(newBookType);
+        }
+    }
+
+    @FXML
+    public void handleToProvideAdminButton(ActionEvent actionEvent) {
         try {
             com.github.saacsos.FXRouter.goTo("forAdmin" ,accountList);
         } catch (IOException e) {
@@ -71,59 +96,19 @@ public class ProvideTypeBookController {
         }
     }
 
-    int column = 0;
-    int row = 2;
-    int num = 1;
-
     @FXML
-    public void handleAddSubTypeBookButton(ActionEvent actionEvent) {
-        Label subTypeLabel = new Label("ระบุประเภทย่อย " + num++);
-        gridPaneForSubTypeBook.setAlignment(Pos.TOP_LEFT);
-        gridPaneForSubTypeBook.add(subTypeLabel,column,row++);
-        subTypeLabel.setPadding(new Insets(20,0,0,80));
-        subTypeLabel.setFont(Font.font("JasmineUPC",32));
+    public void handleAddSubTypeBookButton(ActionEvent actionEvent) throws IOException {
+        if (! provideTypeBook.getSuperTypeBook().equals("")) {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/ku/cs/choiceProvideTypeBookByAdmin.fxml"));
+            flowPaneForSubTypeBook.getChildren().add(fxmlLoader.load());
 
-        TextField subTypeTextField = new TextField();
-        gridPaneForSubTypeBook.add(subTypeTextField,column,row++);
-        subTypeTextField.setPadding(new Insets(50,0,0,120));
-//        subTypeTextField.setPrefHeight(50);
-//        subTypeTextField.setPrefWidth(620);
-//        subTypeTextField.setMinHeight(Region.USE_COMPUTED_SIZE);
-//        subTypeTextField.setMaxHeight(Region.USE_COMPUTED_SIZE);
-//        subTypeTextField.setMinWidth(Region.USE_COMPUTED_SIZE);
-//        subTypeTextField.setMaxWidth(Region.USE_COMPUTED_SIZE);
+            ChoiceProvideTypeBookController choiceProvideTypeBookController = fxmlLoader.getController();
 
-        Button subTypeButton = new Button("+");
-        gridPaneForSubTypeBook.add(subTypeButton,column,row++);
-        subTypeButton.setPadding(new Insets(20,0,0,80));
-        subTypeButton.setFont(Font.font(32));
-        subTypeButton.setFont(Font.font("JasmineUPC"));
-        subTypeButton.setFont(Font.font("Bold"));
-
-
-
-
-
-
-//        try {
-//                FXMLLoader fxmlLoader = new FXMLLoader();
-//                fxmlLoader.setLocation(getClass().getResource("/ku/cs/choiceProvideTypeBook.fxml"));
-//
-//                gridPaneForSubTypeBook.add(fxmlLoader.load(), column, row++); // child,col,row
-//                ChoiceProvideTypeBookController choiceProvideTypeBookController = fxmlLoader.getController();
-//
-//
-//                gridPaneForSubTypeBook.setMinWidth(Region.USE_COMPUTED_SIZE);
-//                gridPaneForSubTypeBook.setPrefWidth(Region.USE_COMPUTED_SIZE);
-//                gridPaneForSubTypeBook.setMaxWidth(Region.USE_COMPUTED_SIZE);
-//
-//                gridPaneForSubTypeBook.setMinHeight(Region.USE_COMPUTED_SIZE);
-//                gridPaneForSubTypeBook.setPrefHeight(Region.USE_COMPUTED_SIZE);
-//                gridPaneForSubTypeBook.setMaxHeight(Region.USE_COMPUTED_SIZE);
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        }
+        else{
+            notificationCheckTypeBookLabel.setText("กรุณากรอกประเภทของหนังสือ");
+        }
     }
 
 }

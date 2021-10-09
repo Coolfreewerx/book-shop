@@ -17,6 +17,7 @@ public class ProvideTypeBook {
     public void setSuperTypeBook(String superTypeBook) { this.superTypeBook = superTypeBook; }
     public void setSubTypeBook(String subTypeBook) { this.subTypeBook = subTypeBook; }
 
+
     public String toCsv(){
         String result = "";
         result = "\"" + superTypeBook.replace("\"","\"\"") + "\""  + ","

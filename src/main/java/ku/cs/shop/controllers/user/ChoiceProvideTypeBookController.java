@@ -13,6 +13,9 @@ public class ChoiceProvideTypeBookController {
     @FXML private TextField subTypeBookTextField;
     @FXML private Button enterTypeBookButton;
 
+    public void setData(){
+
+    }
 
 
 //    @FXML

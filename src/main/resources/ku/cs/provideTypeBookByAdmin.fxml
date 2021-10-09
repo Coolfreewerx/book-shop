@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -30,7 +31,7 @@
                      </image>
                   </ImageView>
                   <Pane minWidth="630.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;" />
-                  <Button fx:id="provideUserButton" mnemonicParsing="false" prefHeight="38.0" prefWidth="140.0" style="-fx-background-color: #c9ad88; -fx-background-radius: 20;" text="จัดการผู้ใช้" textFill="WHITE">
+                  <Button fx:id="provideUserButton" mnemonicParsing="false" onAction="#handleToProvideAdminButton" prefHeight="38.0" prefWidth="140.0" style="-fx-background-color: #c9ad88; -fx-background-radius: 20;" text="จัดการผู้ใช้" textFill="WHITE">
                      <font>
                         <Font name="JasmineUPC" size="25.0" />
                      </font>
@@ -119,19 +120,19 @@
                                           <Font name="JasmineUPC" size="36.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="newBooktypeTextField" layoutX="100.0" layoutY="80.0" prefHeight="50.0" prefWidth="620.0" style="-fx-background-color: #fffcf1; -fx-background-radius: 20;">
+                                    <TextField fx:id="newBooktypeTextField" onKeyReleased="#handleKeyNewBookTypeTextField" layoutX="100.0" layoutY="80.0" prefHeight="50.0" prefWidth="620.0" style="-fx-background-color: #fffcf1; -fx-background-radius: 20;">
                                        <font>
                                           <Font name="JasmineUPC" size="28.0" />
                                        </font>
                                     </TextField>
-                                    <Button fx:id="checkBookButton" layoutX="750.0" layoutY="81.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="98.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="ENTER" textFill="WHITE">
+                                    <Button fx:id="checkBookButton" onAction="#CheckTypeBookButton" layoutX="750.0" layoutY="81.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="98.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="ENTER" textFill="WHITE">
                                        <font>
                                           <Font name="JasmineUPC Bold" size="26.0" />
                                        </font>
                                     </Button>
                                     <Label fx:id="notificationCheckTypeBookLabel" layoutX="120.0" layoutY="140.0" textFill="#ec1111">
                                        <font>
-                                          <Font name="JasmineUPC" size="28.0" />
+                                          <Font name="JasmineUPC" size="22.0" />
                                        </font>
                                     </Label>
                                     <Label fx:id="topicLabel11" layoutX="70.0" layoutY="200.0" prefHeight="32.0" prefWidth="217.0" text="ประเภทหนังสือย่อย">
@@ -139,23 +140,16 @@
                                           <Font name="JasmineUPC" size="36.0" />
                                        </font>
                                     </Label>
-                                    <Button fx:id="addSubTypeBookButton" layoutX="290.0" layoutY="196.0" mnemonicParsing="false" onAction="#handleAddSubTypeBookButton" prefHeight="29.0" prefWidth="25.0" style="-fx-background-color: #c9ad88; -fx-background-radius: 30;" text="+" textFill="WHITE">
+                                    <Button fx:id="addSubTypeBookButton"  layoutX="290.0" layoutY="196.0" mnemonicParsing="false" onAction="#handleAddSubTypeBookButton" prefHeight="29.0" prefWidth="25.0" style="-fx-background-color: #c9ad88; -fx-background-radius: 30;" text="+" textFill="WHITE">
                                        <font>
                                           <Font name="JasmineUPC Bold" size="26.0" />
                                        </font>
                                     </Button>
                                  </children>
                               </AnchorPane>
-                              <ScrollPane prefHeight="380.0" prefWidth="1024.0" style="-fx-background-color: ffffff;" GridPane.rowIndex="1">
+                              <ScrollPane hbarPolicy="NEVER" prefHeight="380.0" prefWidth="1024.0" style="-fx-background-color: ffffff;" GridPane.rowIndex="1">
                                  <content>
-                                    <GridPane fx:id="gridPaneForSubTypeBook" prefHeight="369.0" prefWidth="1021.0" style="-fx-background-color: ffffff;">
-                                      <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                      </columnConstraints>
-                                      <rowConstraints>
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                      </rowConstraints>
-                                    </GridPane>
+                                    <FlowPane fx:id="flowPaneForSubTypeBook" prefHeight="380.0" prefWidth="1024.0" style="-fx-background-color: ffffff;" />
                                  </content>
                               </ScrollPane>
                            </children>

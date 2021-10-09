@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.HomeController">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.HomeController">
     <children>
         <BorderPane layoutX="-1.0" layoutY="1.0" prefHeight="768.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
@@ -130,7 +130,7 @@
                               </Label>
                      </children>
                   </HBox>
-                  <ScrollPane fitToHeight="true" fitToWidth="true" maxHeight="310.0" style="-fx-background-color: fff;" GridPane.rowIndex="2">
+                  <ScrollPane fitToHeight="true" fitToWidth="true" maxHeight="310.0" style="-fx-background-color: fff;" vbarPolicy="NEVER" GridPane.rowIndex="2">
                      <content>
                         <FlowPane fx:id="bookListFlowPane" alignment="TOP_CENTER" columnHalignment="CENTER" hgap="35.0" maxHeight="310.0" style="-fx-background-color: fff;" vgap="35.0" />
                      </content>

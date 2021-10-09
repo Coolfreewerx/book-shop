@@ -178,7 +178,7 @@
                         </Button>
                      </children>
                   </HBox>
-                        <ScrollPane fx:id="scoll" fitToHeight="true" fitToWidth="true" prefHeight="582.0" prefWidth="698.0" style="-fx-background-color: fffff;" VBox.vgrow="ALWAYS">
+                        <ScrollPane fx:id="scoll" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="582.0" prefWidth="698.0" style="-fx-background-color: fffff;" VBox.vgrow="ALWAYS">
                             <content>
                                 <GridPane fx:id="grid" style="-fx-background-color: ffffff;">
                                     <columnConstraints>
