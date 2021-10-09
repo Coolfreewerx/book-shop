@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #c9ad88;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.ReportingController">
+   <children>
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="690.0" layoutX="262.0" layoutY="39.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="500.0" />
+      <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#cccccc" height="300.0" layoutX="287.0" layoutY="130.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="450.0" />
+      <ImageView fitHeight="300.0" fitWidth="450.0" layoutX="287.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true" />
+      <Text fill="WHITE" layoutX="411.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selected Image">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text fill="#845d2e" layoutX="287.0" layoutY="460.0" strokeType="OUTSIDE" strokeWidth="0.0" text="เลือกชื่อบัญชีที่ต้องการรายงาน">
+         <font>
+            <Font name="JasmineUPC" size="24.0" />
+         </font>
+      </Text>
+      <HBox layoutX="312.0" layoutY="475.0" prefHeight="28.0" prefWidth="400.0">
+         <children>
+            <ComboBox prefHeight="28.0" prefWidth="131.0" promptText="ชื่อบัญชี" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88; -fx-border-radius: 5;" visibleRowCount="6" />
+            <Pane maxWidth="25.0" minWidth="25.0" style="-fx-background-color: transparent;" />
+            <ComboBox prefHeight="28.0" prefWidth="129.0" promptText="ประเภทการรายงาน" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88; -fx-border-radius: 5;" visibleRowCount="6" />
+            <Pane maxWidth="25.0" minWidth="25.0" style="-fx-background-color: transparent;" />
+            <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="88.0" style="-fx-background-color: B78748;" text="เพิ่มรูป" textFill="WHITE">
+               <font>
+                  <Font name="JasmineUPC" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+      <Text layoutX="383.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="รายงานความไม่เหมาะสม">
+         <font>
+            <Font name="JasmineUPC" size="36.0" />
+         </font>
+      </Text>
+      <TextField alignment="TOP_LEFT" layoutX="312.0" layoutY="545.0" prefHeight="120.0" prefWidth="400.0" promptText="กรอกรายละเอียดความไม่เหมาะสม" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88; -fx-border-radius: 5;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Text fill="#845d2e" layoutX="287.0" layoutY="534.0" strokeType="OUTSIDE" strokeWidth="0.0" text="รายละเอียดเพิ่มเติม">
+         <font>
+            <Font name="JasmineUPC" size="24.0" />
+         </font>
+      </Text>
+      <Button layoutX="492.0" layoutY="684.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="88.0" style="-fx-background-color: F99F28;" text="รายงาน" textFill="WHITE">
+         <font>
+            <Font name="JasmineUPC" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="594.0" layoutY="684.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="118.0" style="-fx-background-color: B78748;" onAction="#handleToAccountDetailButton" text="กลับไปก่อนหน้า" textFill="WHITE">
+         <font>
+            <Font name="JasmineUPC" size="18.0" />
+         </font>
+      </Button>
+      <Line endX="100.0" layoutX="592.0" layoutY="104.0" startX="-260.79998779296875" startY="7.62939453125E-6" />
+   </children>
+</AnchorPane>

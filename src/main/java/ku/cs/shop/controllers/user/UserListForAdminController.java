@@ -47,6 +47,7 @@ public class UserListForAdminController {
     @FXML private Button provideUserButton;
     @FXML private Button provideHomeShopButton;
     //@FXML private ListView reportUserListView ;
+    @FXML private GridPane reportGrid ;
 
     private AccountList accountList ;
     private Account account ;

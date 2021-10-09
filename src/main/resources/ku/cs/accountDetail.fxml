@@ -18,8 +18,9 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.user.AccountDetailController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.user.AccountDetailController">
     <children>
         <BorderPane layoutX="-22.0" layoutY="3.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <left>
@@ -131,23 +132,22 @@
                                 <Font size="18.0" />
                             </font>
                         </Button>
-                        <Label layoutX="42.0" layoutY="242.0" styleClass="font_rsu_18pt" stylesheets="@style/PrimaryTheme.css" text="Address" textFill="#a05e07">
+                        <Label layoutX="42.0" layoutY="236.0" styleClass="font_rsu_18pt" stylesheets="@style/PrimaryTheme.css" text="ที่อยู่" textFill="#a05e07">
                             <font>
                                 <Font name="JasmineUPC" size="36.0" />
                             </font>
                         </Label>
-                        <Line endX="451.73321533203125" endY="-3.0517578125E-5" layoutX="180.0" layoutY="279.0" startX="-134.93331909179688" startY="-3.0517578125E-5" />
-                        <Button layoutX="585.0" layoutY="403.0" mnemonicParsing="false" onAction="#handleToEditAddressButton" prefHeight="40.0" prefWidth="93.0" style="-fx-background-color: F99F28;" styleClass="font_jasmine_16pt" stylesheets="@style/PrimaryTheme.css" text="แก้ไขที่อยู่" textFill="WHITE">
+                        <Button layoutX="586.0" layoutY="374.0" mnemonicParsing="false" onAction="#handleToEditAddressButton" prefHeight="31.0" prefWidth="93.0" style="-fx-background-color: F99F28;" styleClass="font_jasmine_16pt" stylesheets="@style/PrimaryTheme.css" text="แก้ไขที่อยู่" textFill="WHITE">
                             <font>
                                 <Font size="18.0" />
                             </font>
                         </Button>
-                        <Label layoutX="44.0" layoutY="415.0" styleClass="font_rsu_18pt" stylesheets="@style/PrimaryTheme.css" text="My voucher" textFill="#a05e07">
+                        <Label layoutX="44.0" layoutY="415.0" styleClass="font_rsu_18pt" stylesheets="@style/PrimaryTheme.css" text="โปรโมชั่น" textFill="#a05e07">
                             <font>
                                 <Font name="JasmineUPC" size="36.0" />
                             </font>
                         </Label>
-                        <Line endX="451.73321533203125" endY="-3.0517578125E-5" layoutX="190.0" layoutY="456.0" startX="-134.93331909179688" startY="-3.0517578125E-5" />
+                        <Line endX="451.73321533203125" endY="-3.0517578125E-5" layoutX="224.0" layoutY="449.0" startX="-134.93331909179688" startY="-3.0517578125E-5" />
                         <Label fx:id="birthdayLabel" layoutX="454.0" layoutY="41.0" styleClass="font_rsu_12pt" stylesheets="@style/PrimaryTheme.css" text="Birthday" textAlignment="CENTER">
                             <font>
                                 <Font name="JasmineUPC" size="25.0" />
@@ -193,7 +193,7 @@
                                 <Font name="JasmineUPC" size="25.0" />
                             </font>
                         </Label>
-                  <HBox layoutX="54.0" layoutY="293.0" prefHeight="122.0" prefWidth="522.0">
+                  <HBox layoutX="54.0" layoutY="284.0" prefHeight="122.0" prefWidth="522.0">
                      <children>
                         <Label fx:id="addressLabel" styleClass="font_jasmine_16pt" stylesheets="@style/PrimaryTheme.css">
                            <HBox.margin>
@@ -202,6 +202,18 @@
                         </Label>
                      </children>
                   </HBox>
+                  <Line endX="451.73321533203125" endY="-3.0517578125E-5" layoutX="225.0" layoutY="270.0" startX="-134.93331909179688" startY="-3.0517578125E-5" />
+                  <Button layoutX="508.0" layoutY="665.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="185.0" style="-fx-background-color: FFFFFF;" stylesheets="@style/PrimaryTheme.css" onAction="#handleToReportButton" text="รายงานความไม่เหมาะสม" textFill="#b10000">
+                     <font>
+                        <Font name="JasmineUPC" size="20.0" />
+                     </font>
+                  </Button>
+                  <Line endX="451.73321533203125" endY="-3.0517578125E-5" layoutX="220.0" layoutY="661.0" startX="-180.80001831054688" />
+                  <Text layoutX="308.0" layoutY="685.0" strokeType="OUTSIDE" strokeWidth="0.0" text="พบเนื้อหาที่ไม่เหมาะสมใช่หรือไม่ ?">
+                     <font>
+                        <Font name="JasmineUPC" size="20.0" />
+                     </font>
+                  </Text>
                     </children>
                 </AnchorPane>
             </center>
