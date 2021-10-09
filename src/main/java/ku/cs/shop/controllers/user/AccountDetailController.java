@@ -176,6 +176,7 @@ public class AccountDetailController {
         try {
             com.github.saacsos.FXRouter.goTo("reporting" ,accountList);
         } catch (IOException e) {
+            e.printStackTrace();
             System.err.println("ไปที่หน้า report ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }

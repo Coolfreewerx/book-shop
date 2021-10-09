@@ -8,8 +8,11 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import ku.cs.shop.models.*;
+import ku.cs.shop.services.AccountDataSource;
+import ku.cs.shop.services.ReportingDataSource;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,6 +27,7 @@ public class ReportingController {
     @FXML private ComboBox<String> accountNameChoice ;
     @FXML private ComboBox<String> reportTypeChoice ;
     @FXML private TextField informationTextField ;
+    @FXML private Text errorText ;
 
     private ObservableList accountNameList = FXCollections.observableArrayList() ;
     private ObservableList reportTypeList = FXCollections.observableArrayList() ;
@@ -34,9 +38,14 @@ public class ReportingController {
     private File selectedImage ;
     private String imageName ;
 
+    private ReportingList reportingList ;
+    private ReportingDataSource reportingDataSource ;
+
     public void initialize(){
         accountList = (AccountList) com.github.saacsos.FXRouter.getData();
         account = accountList.getCurrentAccount();
+        reportingDataSource = new ReportingDataSource("csv-data/report.csv") ;
+        reportingList = reportingDataSource.readData() ;
         lodeAccountNameData();
         lodeReportTypeData();
     }
@@ -80,6 +89,47 @@ public class ReportingController {
                     + LocalDate.now().getDayOfMonth() + "-"
                     + LocalDateTime.now().getHour() + LocalDateTime.now(ZoneId.of("Asia/Bangkok")).getMinute() + LocalDateTime.now().getSecond() + ".png" ;
             Reporting.copyImageToPackage(selectedImage , imageName) ;
+        }
+    }
+
+    public void sendDataToWrite() {
+        //UserDataSource
+        Reporting reporting = new Reporting(
+                accountNameChoice.getValue(),
+                reportTypeChoice.getValue(),
+                imageName,
+                informationTextField.getText(),
+                account.getUserName()) ;
+
+        reportingList.addReporting(reporting);
+        reportingDataSource.writeData(reportingList) ;
+    }
+
+    public String checkData() {
+        // ตรวจสอบว่าทุกช่องมีข้อมูล
+        if ((selectedImage == null || accountNameChoice.getValue().equals("") || reportTypeChoice.getValue().equals("") || informationTextField.equals(""))) {
+            return "โปรดใส่รายละเอียดให้ครบถ้วน" ;
+        }
+        else {
+            return " ";
+        }
+    }
+
+    @FXML
+    public void handleReportButton(ActionEvent actionEvent) {
+
+        errorText.setText(checkData());
+        if (!(checkData().equals(" "))) {
+            return;
+        }
+        setImageName();
+        sendDataToWrite();
+
+        try {
+            com.github.saacsos.FXRouter.goTo("accountDetail", accountList);
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า accountDetail ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
 

@@ -10,12 +10,14 @@ import java.nio.file.StandardCopyOption;
 public class Reporting {
 
     private String reportedAccount ;
+    private String reportType ;
     private String imageName ;
     private String information ;
     private String reporter ;
 
-    public Reporting(String reportedAccount, String imageName, String information, String reporter) {
+    public Reporting(String reportedAccount, String reportType, String imageName, String information, String reporter) {
         this.reportedAccount = reportedAccount ;
+        this.reportType = reportType ;
         this.imageName = imageName ;
         this.information = information ;
         this.reporter = reporter ;
@@ -53,6 +55,6 @@ public class Reporting {
     }
 
     public String toCsv() {
-        return reportedAccount + "," + imageName + "," + information + "," + reporter ;
+        return reportedAccount + "," + reportType + "," + imageName + ",\"" + information.replace("\"", "\"\"") + "\"," + reporter ;
     }
 }

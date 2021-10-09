@@ -27,11 +27,12 @@ public class ReportingDataSource implements DataSource<ReportingList> {
 
             while ((data = reader.readNext()) != null) {
                 String reportedAccount = data[0].trim();
-                String imageName = data[1].trim();
-                String information = data[2].trim();
-                String reporter = data[3].trim();
+                String reportType = data[1].trim();
+                String imageName = data[2].trim();
+                String information = data[3].trim();
+                String reporter = data[4].trim();
 
-                reportingList.addReporting(new Reporting(reportedAccount, imageName, information, reporter));
+                reportingList.addReporting(new Reporting(reportedAccount, reportType, imageName, information, reporter));
             }
 
         } catch (FileNotFoundException e) {

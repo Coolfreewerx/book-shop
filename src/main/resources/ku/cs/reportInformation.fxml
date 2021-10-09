@@ -31,9 +31,9 @@
             </Label>
          </children>
       </HBox>
-      <HBox alignment="CENTER" layoutX="18.0" layoutY="212.0" prefHeight="140.0" prefWidth="430.0">
+      <HBox alignment="CENTER" layoutX="18.0" layoutY="232.0" prefHeight="120.0" prefWidth="430.0">
          <children>
-            <Label fx:id="informationLabel" alignment="CENTER" prefHeight="140.0" prefWidth="430.0" text="Report Information">
+            <Label fx:id="informationLabel" alignment="CENTER" prefHeight="120.0" prefWidth="430.0" text="Report Information" textFill="#7e541d">
                <font>
                   <Font size="16.0" />
                </font>
@@ -45,5 +45,10 @@
             <Image url="@image/cancel.jpg" />
          </image>
       </ImageView>
+      <Label fx:id="reportTypeLabel" layoutX="18.0" layoutY="201.0" text="Report Type" textFill="#53320d">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
