@@ -96,7 +96,7 @@
                <children>
                   <HBox layoutX="91.0" layoutY="611.0" prefHeight="46.0" prefWidth="604.0">
                      <children>
-                        <Label fx:id="bookRating" prefHeight="26.0" prefWidth="74.0" styleClass="font_jasmine_25pt" stylesheets="@style/PrimaryTheme.css" text="คะแนน" textFill="#f99f28">
+                        <Label fx:id="bookRatingLabel" prefHeight="26.0" prefWidth="74.0" styleClass="font_jasmine_25pt" stylesheets="@style/PrimaryTheme.css" text="คะแนน" textFill="#f99f28">
                            <HBox.margin>
                               <Insets left="20.0" top="10.0" />
                            </HBox.margin>
@@ -235,7 +235,7 @@
                         <Font name="JasmineUPC" size="28.0" />
                      </font>
                   </Label>
-                  <Label fx:id="bookName" layoutX="498.0" layoutY="84.0" text="bookName">
+                  <Label fx:id="bookNameLabel" layoutX="498.0" layoutY="84.0" text="bookName">
                      <font>
                         <Font name="JasmineUPC" size="28.0" />
                      </font>
@@ -304,15 +304,7 @@
                      <children>
                         <ScrollPane prefHeight="464.0" prefWidth="902.0" style="-fx-background-color: white;">
                            <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="654.0" prefWidth="902.0" style="-fx-background-color: white;">
-                                 <children>
-                                    <FlowPane fx:id="commentFlowPane" layoutY="-1.0" prefHeight="449.0" prefWidth="890.0" style="-fx-background-color: white;">
-                                       <children>
-                                          <HBox prefHeight="105.0" prefWidth="890.0" />
-                                       </children>
-                                    </FlowPane>
-                                 </children>
-                              </AnchorPane>
+                              <FlowPane fx:id="commentFlowPane" prefHeight="464.0" prefWidth="902.0" style="-fx-background-color: white;" />
                            </content>
                         </ScrollPane>
                      </children>

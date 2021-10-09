@@ -12,8 +12,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class ReviewController {
-    private Review review;
-    private ReviewList reviewList;
+    private Reviews reviews;
+    private ReviewsList reviewsList;
     private AccountList accountList;
     private Account account;
     private Book book;
@@ -31,10 +31,10 @@ public class ReviewController {
     }
 
     public void sendReviewToWrite(){
-        review.setComment(commentTextField.getText());
+        reviews.setComment(commentTextField.getText());
 
         ReviewsDataSource reviewsDataSource = new ReviewsDataSource("csv-data/reviews.csv") ;
-        reviewsDataSource.writeData(reviewList);
+        reviewsDataSource.writeData(reviewsList);
     }
 
     @FXML

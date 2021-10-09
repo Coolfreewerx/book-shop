@@ -1,12 +1,12 @@
 package ku.cs.shop.services;
 
 import com.opencsv.CSVReader;
-import ku.cs.shop.models.Review;
-import ku.cs.shop.models.ReviewList;
+import ku.cs.shop.models.Reviews;
+import ku.cs.shop.models.ReviewsList;
 
 import java.io.*;
 
-public class ReviewsDataSource implements DataSource<ReviewList> {
+public class ReviewsDataSource implements DataSource<ReviewsList> {
 
     private String filename ;
 
@@ -15,8 +15,8 @@ public class ReviewsDataSource implements DataSource<ReviewList> {
     }
 
     @Override
-    public ReviewList readData() {
-        ReviewList reviewsList = new ReviewList();
+    public ReviewsList readData() {
+        ReviewsList reviewsList = new ReviewsList();
 
         try{
             FileReader file = new FileReader(filename);
@@ -31,8 +31,8 @@ public class ReviewsDataSource implements DataSource<ReviewList> {
                 String comment = data[4].trim();
                 int bookRating =  Integer.parseInt(data[5].trim());
 
-                Review review = new Review(bookName, bookShop, userName, imageName, comment, bookRating);
-                reviewsList.addReviews(review);
+                Reviews reviews = new Reviews(bookName, bookShop, userName, imageName, comment, bookRating);
+                reviewsList.addReviews(reviews);
             }
         }
         catch (FileNotFoundException e) {
@@ -45,7 +45,7 @@ public class ReviewsDataSource implements DataSource<ReviewList> {
     }
 
     @Override
-    public void writeData(ReviewList reviewsList) {
+    public void writeData(ReviewsList reviewsList) {
         String path = filename;
         File file = new File(path);
 

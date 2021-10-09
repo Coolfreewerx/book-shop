@@ -2,7 +2,7 @@ package ku.cs.shop.models;
 
 import java.io.File;
 
-public class Review extends Account {
+public class Reviews extends Account {
     private String bookName;
     private String bookShop;
     private String userName;
@@ -10,7 +10,9 @@ public class Review extends Account {
     private String comment;
     private int bookRating;
 
-    public Review(String bookName, String bookShop, String userName, String imageName, String comment, int bookRating){
+    public Reviews(){}
+
+    public Reviews(String bookName, String bookShop, String userName, String imageName, String comment, int bookRating){
         this.bookName = bookName;
         this.bookShop = bookShop;
         this.userName = userName;
@@ -24,22 +26,23 @@ public class Review extends Account {
     public String getUserName(){ return userName; }
     public String getImageName(){ return imageName; }
     public String getComment(){ return comment; }
-    public int getRating(){ return bookRating; }
+    public int getBookRating(){ return bookRating; }
 
     public void setBookName(String bookName) { this.bookName = bookName; }
     public void setBookShop(String bookShop) { this.bookShop = bookShop; }
     public void setUserName(String userName) { this.userName = userName; }
     public void setImageName(String imageName) { this.imageName = imageName; }
     public void setComment(String comment) { this.comment = comment; }
-    public void setRating(int bookRating){ this.bookRating = bookRating; }
+    public void setBookRating(int bookRating){ this.bookRating = bookRating; }
 
-    public void addRatingPlusOne () { this.setRating(this.bookRating + 1); }
-    public void addRatingPlusTwo () { this.setRating(this.bookRating + 2); }
-    public void addRatingPlusThree () { this.setRating(this.bookRating + 3); }
-    public void addRatingPlusFour () { this.setRating(this.bookRating + 4); }
-    public void addRatingPlusFive () { this.setRating(this.bookRating + 5); }
+    // คะแนนรีวิว
+    public void addRatingPlusOne () { this.setBookRating(this.bookRating + 1); }
+    public void addRatingPlusTwo () { this.setBookRating(this.bookRating + 2); }
+    public void addRatingPlusThree () { this.setBookRating(this.bookRating + 3); }
+    public void addRatingPlusFour () { this.setBookRating(this.bookRating + 4); }
+    public void addRatingPlusFive () { this.setBookRating(this.bookRating + 5); }
 
-    public double averageRating(int bookRating){
+    public double averageRating(int bookRating){ // หาค่าเฉลี่ยคะแนนรีวิวของหนังสือเล่มนั้น
         double averageRating = 0;
         averageRating = bookRating ;
         return averageRating;
@@ -55,7 +58,7 @@ public class Review extends Account {
     }
 
     public String toCsv(){
-        return "\"" + bookName + "\"," + "\"" + bookShop + "\"," + userName + "," + imageName + "," + comment;
+        return "\"" + bookName + "\"," + "\"" + bookShop + "\"," + userName + "," + imageName + "," + "\"" + comment + "\"" + "," + bookRating;
     }
 
     public String toString(){ return bookName;}

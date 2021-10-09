@@ -1,5 +1,7 @@
 package ku.cs.shop.controllers.system;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +12,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import ku.cs.shop.models.*;
-import ku.cs.shop.services.AccountDataSource;
 import ku.cs.shop.services.BookDetailDataSource;
 import ku.cs.shop.services.OrderDataSource;
 import ku.cs.shop.services.ReviewsDataSource;
@@ -19,14 +20,13 @@ import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.ArrayList;
 
 public class BookDetailController
 {
     BookDetailDataSource data = new BookDetailDataSource("csv-data/bookDetail.csv");
 
-    @FXML private Label bookName;
+    @FXML private Label bookNameLabel;
     @FXML private Label bookShop;
     @FXML private Label bookStatus;
     @FXML private Label bookDetail;
@@ -38,7 +38,7 @@ public class BookDetailController
     @FXML private Label bookPrice;
     @FXML private Label typeLabel;
     @FXML private Label usernameInHead;
-    @FXML private Label bookRating;
+    @FXML private Label bookRatingLabel;
     @FXML private Button status;
     @FXML private FlowPane commentFlowPane;
     @FXML private ImageView bookImg;
@@ -48,22 +48,21 @@ public class BookDetailController
     @FXML private TextField commentTextField;
     @FXML private GridPane showPopupGrid;
 
+    Reviews reviews = new Reviews();
 
     private AccountList accountList;
     private Account account;
     private Book book;
     private BookList bookList;
-    private Review review;
-    private ReviewList reviewList;
+    private ReviewsList reviewsList;
     private ReviewsDataSource reviewsDataSource;
     private File selectedImage ; // ใช้นะแต่น้องไม่ขึ้นสีเฉยเลย
     private String imageName;
+    private int reviewRating;
 
     private OrderDataSource orderDataSource = new OrderDataSource("csv-data/bookOrder.csv");
     private OrderList orderList = orderDataSource.readData();
-
-//    ReviewsDataSource reviewsData = new ReviewsDataSource("csv-data/reviews.csv");
-//    ReviewList reviews = reviewsDataSource.readData();
+    private ObservableList choiceList = FXCollections.observableArrayList();
 
     private ArrayList<Object> objectForPassing = new ArrayList<>();
 
@@ -71,16 +70,12 @@ public class BookDetailController
     public void initialize()
     {
         objectForPassing = (ArrayList<Object>) com.github.saacsos.FXRouter.getData();
-//        reviewsDataSource = new ReviewsDataSource("csv-data/reviews.csv") ;
-//        reviewList = reviewsDataSource.readData();
+        reviewsDataSource = new ReviewsDataSource("csv-data/reviews.csv") ;
+        reviewsList = reviewsDataSource.readData();
         castObjectToData();
         showData();
         pagesHeader();
-//        showCommentByBookName(book.getBookName());
-    }
-
-    public void setData(Review review) {
-        this.review = review;
+        showCommentByBookName(book.getBookName());
     }
 
     public void castObjectToData() {
@@ -101,7 +96,7 @@ public class BookDetailController
     }
 
     public void showData() {
-        bookName.setText(book.getBookName());
+        bookNameLabel.setText(book.getBookName());
         bookShop.setText(book.getBookShop());
         bookStatus.setText(book.getBookStatus());
         bookDetail.setText(book.getBookDetail());
@@ -205,83 +200,75 @@ public class BookDetailController
         }
     }
 
-    public void showCommentByBookName(String bookName) { //รับ String bookName
-        bookName = book.getBookName();
-//        commentFlowPane.getChildren().clear();
-//        ArrayList<Review> bookByName = reviewList.getReviewsByBookName(bookName);
-//        try {
-//            for (Review review : bookByName) {
-//                FXMLLoader fxmlLoader = new FXMLLoader();
-//                fxmlLoader.setLocation(getClass().getResource("/ku/cs/itemComment.fxml"));
-//
-//                commentFlowPane.getChildren().add(fxmlLoader.load()); // child,col,row
-//                ItemCommentController itemCommentController = fxmlLoader.getController();
-//                itemCommentController.setData(review);
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+    // comment
+    public void showCommentByBookName(String bookName) { //แสดง comment
+        commentFlowPane.getChildren().clear();
+        ArrayList<Reviews> bookByName = reviewsList.getReviewsByBookName(bookName);
+        try {
+            for (Reviews reviews : bookByName) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/ku/cs/itemComment.fxml"));
+
+                commentFlowPane.getChildren().add(fxmlLoader.load());
+                ItemCommentController itemCommentController = fxmlLoader.getController();
+                itemCommentController.setCommentData(reviews);
+            }
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void sendReviewToWrite(){
-        Review review = new Review(
+        Reviews reviews = new Reviews(
                 book.getBookName(),
                 book.getBookShop(),
                 account.getUserName(),
                 imageName,
                 commentTextField.getText(),
-                Integer.parseInt(bookRating.getText())
+                addRating()
         );
-        System.out.println(reviewList.getCountBookByNameAndShop(book.getBookName()));
-        reviewList.addReviews(review);
-        reviewsDataSource.writeData(reviewList);
+
+        reviewsList.addReviews(reviews);
+        reviewsDataSource.writeData(reviewsList);
     }
 
     public void setImageName() {
-        if (selectedImage != null) {
-            imageName =  account.getUserName() + "-"
-                    + LocalDate.now().getYear() + "-"
-                    + LocalDate.now().getMonth() + "-"
-                    + LocalDate.now().getDayOfMonth() + "-"
-                    + LocalDateTime.now().getHour() + LocalDateTime.now().getMinute() + LocalDateTime.now().getSecond() + ".png" ;
-            UserAccount.copyImageToPackage(selectedImage , imageName) ;
-        } else {
-            imageName = account.getImageName() ;
-        }
-    }
-
-
-    @FXML
-    public void handleAddRatingPlusOneButton(ActionEvent actionEvent){
-        review.addRatingPlusOne();
-        changeRating();
-    }
-    @FXML
-    public void handleAddRatingPlusTwoButton(ActionEvent actionEvent){
-        review.addRatingPlusTwo();
-        changeRating();
-    }
-    @FXML
-    public void handleAddRatingPlusThreeButton(ActionEvent actionEvent){
-        review.addRatingPlusThree();
-        changeRating();
-    }
-    @FXML
-    public void handleAddRatingPlusFourButton(ActionEvent actionEvent){
-        review.addRatingPlusFour();
-        changeRating();
-    }
-    @FXML
-    public void handleAddRatingPlusFiveButton(ActionEvent actionEvent){
-        review.addRatingPlusFive();
-        changeRating();
-    }
-
-    public void changeRating(){
-        bookRating.setText(review.getRating() + ""); // แสดงผลคะแนนเฉลี่ย
+        imageName = account.getImageName() ;
     }
 
     @FXML
+    public void handleAddRatingPlusOneButton(ActionEvent actionEvent){ // ให้คะแนนหนังสือเล่มนั้น 1 คะแนน
+        reviews.addRatingPlusOne();
+        addRating();
+    }
+    @FXML
+    public void handleAddRatingPlusTwoButton(ActionEvent actionEvent){ // ให้คะแนนหนังสือเล่มนั้น 2 คะแนน
+        reviews.addRatingPlusTwo();
+        addRating();
+    }
+    @FXML
+    public void handleAddRatingPlusThreeButton(ActionEvent actionEvent){ // ให้คะแนนหนังสือเล่มนั้น 3 คะแนน
+        reviews.addRatingPlusThree();
+        addRating();
+    }
+    @FXML
+    public void handleAddRatingPlusFourButton(ActionEvent actionEvent){ // ให้คะแนนหนังสือเล่มนั้น 4 คะแนน
+        reviews.addRatingPlusFour();
+        addRating();
+    }
+    @FXML
+    public void handleAddRatingPlusFiveButton(ActionEvent actionEvent){ // ให้คะแนนหนังสือเล่มนั้น 5 คะแนน
+        reviews.addRatingPlusFive();
+        addRating();
+    }
+
+    public int addRating(){
+        return reviews.getBookRating();
+//        bookRatingLabel.setText(reviews.getRating() + ""); // เอาไปเขียนใส่ csv
+    }
+
+    @FXML // บันทึก comment ลง csv
     public void handleSendCommentButton(ActionEvent actionEvent) {
         setImageName();
         sendReviewToWrite();

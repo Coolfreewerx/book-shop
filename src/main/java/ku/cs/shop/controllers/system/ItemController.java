@@ -16,9 +16,9 @@ public class ItemController {
 
     private Book book;
     private AccountList accountList;
-    TypeBookController typeBookController;
-    BookShopDetailController bookShopDetailController;
-    HomeController homeController;
+    private TypeBookController typeBookController;
+    private BookShopDetailController bookShopDetailController;
+    private HomeController homeController;
 
 
     @FXML private Label bookNameLabel;

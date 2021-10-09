@@ -8,7 +8,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import ku.cs.shop.models.*;
-import ku.cs.shop.services.AccountDataSource;
 
 import java.util.ArrayList;
 
@@ -18,25 +17,12 @@ public class ItemCommentController {
     @FXML private ImageView userImageView;
     @FXML private Label usernameLabel;
 
-    private Book book;
-    private AccountList accountList;
-    private Account account;
-    private AccountDataSource accountDataSource;
-    private Review reviews;
-    private BookList bookList;
-    BookDetailController bookDetailController;
+    private Reviews reviews;
 
     private ObservableList choiceList = FXCollections.observableArrayList();
     private ArrayList<Object> objectForPassing = new ArrayList<>();
 
-    @FXML
-    public void initialize()
-    {
-        castObjectToData();
-        objectForPassing = (ArrayList<Object>) com.github.saacsos.FXRouter.getData();
-    }
-
-    private void lodeData() {
+    private void lodeData() { // ตัวเลือกตรงช้อยของคอมเม้น
         choice.getItems().removeAll(choiceList);
         choiceList.removeAll(choiceList);
         String sex = "รายงานความไม่เหมาะสม";
@@ -50,23 +36,16 @@ public class ItemCommentController {
         choice.getItems().addAll(choiceList);
     }
 
-    public void setData(Review reviews) {
+    public void setCommentData(Reviews reviews) {
         this.reviews = reviews;
         changeData();
     }
 
-    public void changeData() {
-        usernameLabel.setText(account.getUserName());
+    public void changeData() { // เปลี่ยนข้อมูล comment
+        usernameLabel.setText(reviews.getUserName());
         choice.getItems().addAll(choiceList);
-        userImageView.setImage(new Image(account.getImagePath()));
+        userImageView.setImage(new Image(reviews.getImagePath()));
         commentLabel.setText(reviews.getComment());
         lodeData();
-    }
-
-    public void castObjectToData() {
-        book = (Book) objectForPassing.get(3);
-        bookList = (BookList) objectForPassing.get(0);
-        account = (Account) objectForPassing.get(1);
-        accountList = (AccountList) objectForPassing.get(2);
     }
 }
