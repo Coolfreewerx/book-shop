@@ -1,21 +1,86 @@
 package ku.cs.shop.controllers.system;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import ku.cs.shop.models.Account;
-import ku.cs.shop.models.AccountList;
-import ku.cs.shop.models.AdminAccount;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
+import ku.cs.shop.models.*;
 
+import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.ArrayList;
 
 public class ReportingController {
+
+    @FXML private ImageView reportImage ;
+    @FXML private ComboBox<String> accountNameChoice ;
+    @FXML private ComboBox<String> reportTypeChoice ;
+    @FXML private TextField informationTextField ;
+
+    private ObservableList accountNameList = FXCollections.observableArrayList() ;
+    private ObservableList reportTypeList = FXCollections.observableArrayList() ;
 
     private AccountList accountList;
     private Account account;
 
+    private File selectedImage ;
+    private String imageName ;
+
     public void initialize(){
         accountList = (AccountList) com.github.saacsos.FXRouter.getData();
         account = accountList.getCurrentAccount();
+        lodeAccountNameData();
+        lodeReportTypeData();
+    }
+
+    public void lodeAccountNameData() {
+        accountNameList.removeAll(accountNameList) ;
+        ArrayList<Account> accounts = accountList.getAccounts(); ;
+        for (Account account: accounts) {
+            if (account instanceof UserAccount) {
+                accountNameList.add(account.getUserName()) ;
+            }
+        }
+        accountNameChoice.getItems().addAll(accountNameList);
+    }
+    public void lodeReportTypeData() {
+        reportTypeList.removeAll(reportTypeList) ;
+        reportTypeList.add("ความคิดเห็นไม่เหมาะสม") ;
+        reportTypeList.add("สินค้าที่ลงขายไม่เหมาะสม") ;
+        reportTypeList.add("อื่น ๆ") ;
+        reportTypeChoice.getItems().addAll(reportTypeList) ;
+    }
+
+    @FXML
+    public void handleAddImageButton (ActionEvent actionEvent) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select Profile Picture");
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files", "*.png", "*jpg"));
+        selectedImage = fileChooser.showOpenDialog(null);
+
+        if (selectedImage != null) {
+            Image image = new Image(selectedImage.toURI().toString());
+            reportImage.setImage(image);
+        }
+    }
+
+    public void setImageName() {
+        if (selectedImage != null) {
+            imageName =  accountNameChoice.getValue() + "-"
+                    + LocalDate.now().getYear() + "-"
+                    + LocalDate.now().getMonth() + "-"
+                    + LocalDate.now().getDayOfMonth() + "-"
+                    + LocalDateTime.now().getHour() + LocalDateTime.now(ZoneId.of("Asia/Bangkok")).getMinute() + LocalDateTime.now().getSecond() + ".png" ;
+            Reporting.copyImageToPackage(selectedImage , imageName) ;
+        }
     }
 
     @FXML

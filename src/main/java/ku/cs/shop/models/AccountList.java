@@ -10,19 +10,21 @@ import java.util.Comparator;
 public class AccountList {
 
     private ArrayList<Account> accounts ;
-    private ArrayList<AdminAccount> adminAccounts ;
     private ArrayList<UserAccount> userAccounts ;
     private Account currentAccount ;
 
     public AccountList() {
         accounts = new ArrayList<>();
-        adminAccounts = new ArrayList<>();
         userAccounts = new ArrayList<>();
     }
 
     public Account getCurrentAccount() {
         return currentAccount ;
     } //เก็บ username ที่ login เข้ามา
+
+    public ArrayList<Account> getAccounts() {
+        return accounts;
+    }
 
     public ArrayList<UserAccount> getUserAccounts() {
         spitUserAccountAndAdminAccount() ;
@@ -69,30 +71,16 @@ public class AccountList {
 
     //แยกลิส แอดมิน กับ ผู้ใช้
     public void spitUserAccountAndAdminAccount() {
-        adminAccounts.clear();
         userAccounts.clear();
         for (Account account : this.accounts) {
-            if (account instanceof AdminAccount) {
-                adminAccounts.add((AdminAccount) account) ;
-            }
             if ( account instanceof UserAccount) {
                 userAccounts.add((UserAccount) account) ;
             }
         }
     }
 
-    public void sort(Comparator<UserAccount> accountComparator) {Collections.sort(this.userAccounts, accountComparator) ;
-}
+    public void sort(Comparator<UserAccount> accountComparator) {Collections.sort(this.userAccounts, accountComparator) ; }
 
-    public void  addNewAccounts() {
-        accounts.clear();
-        for (AdminAccount adminAccount : this.adminAccounts) {
-            accounts.add((Account) adminAccount) ;
-        }
-        for (UserAccount userAccount : this.userAccounts) {
-            accounts.add((Account) userAccount ) ;
-        }
-    }
 
     public String toCsv() {
         String result = "" ;
