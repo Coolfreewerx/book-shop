@@ -104,7 +104,7 @@ public class Account {
     public String getImagePath() {
         return new File(System.getProperty("user.dir")
                 + File.separator
-                + "account-images"
+                + "images/account-images"
                 + File.separator
                 + imageName).toURI().toString();
     }

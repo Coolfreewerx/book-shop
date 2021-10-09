@@ -58,7 +58,7 @@
                            <children>
                               <ImageView fx:id="accountImage" fitHeight="160.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../../../account-images/default.png" />
+                                    <Image url="@../../../../../images/account-images/default.png" />
                                  </image>
                               </ImageView>
                            </children>
