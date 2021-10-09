@@ -111,7 +111,7 @@ public class Account {
 
     //เก็บรูปภาพ
     public static void copyImageToPackage(File image, String imageName) {
-        File file = new File("account-images") ;
+        File file = new File("images/account-images") ;
         Path desPath = FileSystems.getDefault().getPath(file.getAbsolutePath() + "\\" + imageName);
         try {
             Files.copy(image.toPath(), desPath, StandardCopyOption.REPLACE_EXISTING);
