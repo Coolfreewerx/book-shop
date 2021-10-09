@@ -6,20 +6,17 @@ import java.util.Map;
 
 public class ProvideTypeBookList {
     private ArrayList<ProvideTypeBook> typeBooks;
-    private Map<String, ArrayList<ProvideTypeBook>> typeBookMap;
+//    private Map<String, ArrayList<ProvideTypeBook>> typeBookMap;
 
-    public void ProvideTypeBookList(){
-        typeBooks = new ArrayList<>();
-//        typeBookMap = new HashMap<>();
-    }
+    public ProvideTypeBookList(){ typeBooks = new ArrayList<>(); }
 
     public void addTypeBook(ProvideTypeBook provideTypeBook){
         typeBooks.add(provideTypeBook);
     }
 
-    public ArrayList<ProvideTypeBook> findSubTypeBook(String typeBook){
-        return typeBookMap.get(typeBook);
-    }
+//    public ArrayList<ProvideTypeBook> findSubTypeBook(String typeBook){
+//        return typeBookMap.get(typeBook);
+//    }
 
     public boolean checkNewTypeBookHaveUsed(String typeBook){
         for(ProvideTypeBook provideTypeBook : this.typeBooks) {

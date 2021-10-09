@@ -7,7 +7,6 @@ public class ProvideTypeBook {
     public ProvideTypeBook(){};
 
 
-
     public ProvideTypeBook(String superTypeBook, String subTypeBook) {
         this.superTypeBook = superTypeBook;
         this.subTypeBook = subTypeBook;
@@ -23,8 +22,8 @@ public class ProvideTypeBook {
 
     public String toCsv(){
         String result = "";
-        result = "\"" + superTypeBook.replace("\"","\"\"") + "\""  + ","
-                + "\"" + subTypeBook.replace("\"","\"\"") + "\""  + "\n";
+        result = superTypeBook + ","
+                + subTypeBook +  "\n" ;
         return result;
     }
 }

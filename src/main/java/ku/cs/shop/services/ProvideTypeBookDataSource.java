@@ -29,8 +29,10 @@ public class ProvideTypeBookDataSource implements DataSource<ProvideTypeBookList
 
         }catch (FileNotFoundException e) {
             System.err.println("Cannot read information in file " + filename);
+            e.printStackTrace();
         } catch (IOException e) {
             System.err.println("Error reading from file");
+            e.printStackTrace();
         }
         return provideTypeBookList;
     }
