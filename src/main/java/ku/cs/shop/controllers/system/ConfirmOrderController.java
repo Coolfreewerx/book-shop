@@ -36,7 +36,7 @@ public class ConfirmOrderController {
         bookNameLabel.setText(bookDetailController.getBook().getBookName());
         setCostOfBook(bookDetailController.getBook().getBookPrice());
         setStockInShop(bookDetailController.getBook().getBookStock());
-        System.out.println("book stock of " + bookNameLabel.getText() + "is " + stockInShop);
+        System.out.println("book stock of " + bookNameLabel.getText() + " is " + stockInShop);
     }
 
     public void setStockInShop(int stockInShop) {

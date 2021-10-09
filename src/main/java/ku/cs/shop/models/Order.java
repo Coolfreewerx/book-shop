@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 public class Order {
     private String bookImage;
     private String bookName;
+    private String bookShop;
     private int totalBookOrdered;
     private double totalPriceOrdered;
     private String trackingNumber;
@@ -15,10 +16,11 @@ public class Order {
 
     public Order(){}
 
-    public Order(String bookImage, String bookName, int totalBookOrdered, double totalPriceOrdered
+    public Order(String bookImage, String bookName, String bookShop, int totalBookOrdered, double totalPriceOrdered
             , String trackingNumber, String customerName, String customerPhone, LocalDateTime timeOfOrdered){
         this.bookImage = bookImage;
         this.bookName = bookName;
+        this.bookShop = bookShop;
         this.totalBookOrdered = totalBookOrdered;
         this.totalPriceOrdered = totalPriceOrdered;
         this.trackingNumber = trackingNumber;
@@ -29,6 +31,7 @@ public class Order {
 
     public String getBookImage() { return bookImage; }
     public String getBookName() { return bookName; }
+    public String getBookShop() { return bookShop; }
     public int getTotalBookOrdered() { return totalBookOrdered; }
     public double getTotalPriceOrdered() { return totalPriceOrdered; }
     public String getTrackingNumber() { return trackingNumber; }
@@ -38,6 +41,7 @@ public class Order {
 
     public void setBookImage(String bookImage) { this.bookImage = bookImage; }
     public void setBookName(String bookName) { this.bookName = bookName; }
+    public void setBookShop(String bookShop) { this.bookShop = bookShop; }
     public void setTotalBookOrdered(int totalBookOrdered) { this.totalBookOrdered = totalBookOrdered; }
     public void setTotalPriceOrdered(double totalPriceOrdered) { this.totalPriceOrdered = totalPriceOrdered; }
     public void setTrackingNumber(String trackingNumber) { this.trackingNumber = trackingNumber; }
@@ -57,6 +61,7 @@ public class Order {
         String result = "";
         result = "\"" + bookImage.replace("\"","\"\"") + "\""  + ","
                 + "\"" + bookName.replace("\"","\"\"") + "\""  + ","
+                + "\"" + bookShop.replace("\"","\"\"") + "\""  + ","
                 + "\"" + Integer.toString(totalBookOrdered).replace("\"","\"\"") + "\""  + ","
                 + "\"" + Double.toString(totalPriceOrdered).replace("\"","\"\"") + "\""  + ","
                 + "\"" + trackingNumber.replace("\"","\"\"") + "\""  + ","

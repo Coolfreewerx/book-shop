@@ -25,14 +25,15 @@ public class OrderDataSource implements DataSource<OrderList>{
             while ((data = reader.readNext()) != null){
                 String bookImage = data[0].trim();
                 String bookName = data[1].trim();
-                int totalBookOrdered = Integer.parseInt(data[2].trim());
-                double totalPriceOrdered = Double.parseDouble(data[3].trim());
-                String trackingNumber = data[4].trim();
-                String customerName = data[5].trim();
-                String customerPhone = data[6].trim();
-                LocalDateTime timeOfOrdered = LocalDateTime.parse(data[7].trim());
+                String bookShop = data[2].trim();
+                int totalBookOrdered = Integer.parseInt(data[3].trim());
+                double totalPriceOrdered = Double.parseDouble(data[4].trim());
+                String trackingNumber = data[5].trim();
+                String customerName = data[6].trim();
+                String customerPhone = data[7].trim();
+                LocalDateTime timeOfOrdered = LocalDateTime.parse(data[8].trim());
 
-                Order orderData = new Order(bookImage,bookName,totalBookOrdered,totalPriceOrdered,trackingNumber,customerName,customerPhone,timeOfOrdered);
+                Order orderData = new Order(bookImage,bookName,bookShop,totalBookOrdered,totalPriceOrdered,trackingNumber,customerName,customerPhone,timeOfOrdered);
                 orderList.addOrder(orderData);
             }
         }catch (FileNotFoundException e) {
