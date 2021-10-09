@@ -188,6 +188,7 @@ public class ApplyBookController {
             bookList.addBook(book);
 
             dataSource.writeData(bookList);
+
             try {
                 com.github.saacsos.FXRouter.goTo("sellerStock",accountList);
             } catch (IOException e) {

@@ -2,6 +2,7 @@ module ku.cs {
     requires javafx.controls;
     requires opencsv;
     requires javafx.fxml;
+    requires org.apache.commons.lang3;
 
     opens ku.cs to javafx.fxml;
     exports ku.cs;

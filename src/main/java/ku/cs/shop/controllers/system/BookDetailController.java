@@ -60,8 +60,8 @@ public class BookDetailController
     private String imageName;
     private int reviewRating;
 
-    private OrderDataSource orderDataSource = new OrderDataSource("csv-data/bookOrder.csv");
-    private OrderList orderList = orderDataSource.readData();
+//    private OrderDataSource orderDataSource = new OrderDataSource("csv-data/bookOrder.csv");
+//    private OrderList orderList = orderDataSource.readData();
     private ObservableList choiceList = FXCollections.observableArrayList();
 
     private ArrayList<Object> objectForPassing = new ArrayList<>();
