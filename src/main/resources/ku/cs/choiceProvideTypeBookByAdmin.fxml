@@ -18,11 +18,19 @@
             <Font name="JasmineUPC" size="32.0" />
          </font>
       </Label>
-      <TextField fx:id="subTypeBookTextField" layoutX="115.0" layoutY="60.0" prefHeight="50.0" prefWidth="620.0" style="-fx-background-color: #fffcf1; -fx-background-radius: 20;" />
-      <Button fx:id="enterTypeBookButton" layoutX="751.0" layoutY="68.0" mnemonicParsing="false" style="-fx-background-color: F99F28;" text="ENTER" textFill="WHITE">
+      <TextField fx:id="subTypeBookTextField" layoutX="115.0" layoutY="60.0" prefHeight="50.0" prefWidth="620.0" style="-fx-background-color: #fffcf1; -fx-background-radius: 20;">
+         <font>
+            <Font name="JasmineUPC" size="28.0" />
+         </font></TextField>
+      <Button fx:id="enterTypeBookButton" layoutX="751.0" layoutY="68.0" mnemonicParsing="false" onAction="#handleEnterSubTypeBookButton" style="-fx-background-color: F99F28;" text="ENTER" textFill="WHITE">
          <font>
             <Font name="JasmineUPC" size="24.0" />
          </font>
       </Button>
+      <Label fx:id="notificationSubTypeBookLabel" layoutX="146.0" layoutY="119.0" textFill="#ef0606">
+         <font>
+            <Font name="JasmineUPC" size="22.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

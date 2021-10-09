@@ -6,10 +6,13 @@ public class ProvideTypeBook {
 
     public ProvideTypeBook(){};
 
+
+
     public ProvideTypeBook(String superTypeBook, String subTypeBook) {
         this.superTypeBook = superTypeBook;
         this.subTypeBook = subTypeBook;
     }
+
 
     public String getSuperTypeBook() { return superTypeBook; }
     public String getSubTypeBook() { return subTypeBook; }

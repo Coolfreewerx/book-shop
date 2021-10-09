@@ -7,8 +7,10 @@ import java.util.Map;
 public class ProvideTypeBookList {
     private ArrayList<ProvideTypeBook> typeBooks;
     private Map<String, ArrayList<ProvideTypeBook>> typeBookMap;
+
     public void ProvideTypeBookList(){
-        typeBookMap = new HashMap<>();
+        typeBooks = new ArrayList<>();
+//        typeBookMap = new HashMap<>();
     }
 
     public void addTypeBook(ProvideTypeBook provideTypeBook){
@@ -19,9 +21,9 @@ public class ProvideTypeBookList {
         return typeBookMap.get(typeBook);
     }
 
-    public Boolean checkNewTypeBook(String typeBook){
-        for(ProvideTypeBook provideTypeBook : typeBooks){
-            if (provideTypeBook.equals(typeBook)) {
+    public boolean checkNewTypeBookHaveUsed(String typeBook){
+        for(ProvideTypeBook provideTypeBook : this.typeBooks) {
+            if (provideTypeBook.getSuperTypeBook().equals(typeBook)) {
                 return true;
             }
         }
