@@ -5,6 +5,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Background;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import ku.cs.shop.models.ProvideTypeBook;
 import ku.cs.shop.models.ProvideTypeBookList;
 import ku.cs.shop.services.DataSource;
@@ -21,9 +24,10 @@ public class ChoiceProvideTypeBookController {
     private ProvideTypeBook provideTypeBook;
     private ProvideTypeBookList provideTypeBookList;
 
-    public void setData(ProvideTypeBook provideTypeBook, ProvideTypeBookList provideTypeBookList){
+    public void setData(ProvideTypeBook provideTypeBook, ProvideTypeBookList provideTypeBookList, int numSubtype){
         this.provideTypeBook = provideTypeBook;
         this.provideTypeBookList = provideTypeBookList;
+        numSubTypeBookLabel.setText(String.valueOf(numSubtype));
     }
 
     @FXML
@@ -31,6 +35,7 @@ public class ChoiceProvideTypeBookController {
         this.provideTypeBook.setSubTypeBook(subTypeBookTextField.getText());
         System.out.println(this.provideTypeBook.getSubTypeBook());
         System.out.println(this.provideTypeBook.getSuperTypeBook());
+        notificationSubTypeBookLabel.setTextFill(Color.GREEN);
         notificationSubTypeBookLabel.setText("บันทึกสำเร็จเรียบร้อย");
 
         DataSource<ProvideTypeBookList> dataSource;

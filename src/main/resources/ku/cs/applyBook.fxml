@@ -16,6 +16,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -155,7 +156,7 @@
          <center>
             <ScrollPane prefHeight="774.0" prefWidth="698.0" BorderPane.alignment="CENTER">
                <content>
-                  <VBox prefHeight="967.0" prefWidth="690.0" style="-fx-background-color: ffffff;">
+                  <VBox prefHeight="1090.0" prefWidth="690.0" style="-fx-background-color: ffffff;">
                      <children>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
@@ -278,18 +279,33 @@
                                           <Font size="18.0" />
                                        </font>
                                     </MenuButton>
-                                    <Button fx:id="goToSellerStockButton" layoutX="380.0" layoutY="850.0" mnemonicParsing="false" onAction="#handleSellerStockButton" prefHeight="40.0" prefWidth="125.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" styleClass="font_jasmine_16pt" stylesheets="@style/PrimaryTheme.css" text="สินค้าทั้งหมด" textFill="WHITE">
-                                       <font>
-                                          <Font size="20.0" />
-                                       </font>
-                                    </Button>
-                                    <Button fx:id="addBookButton" layoutX="380.0" layoutY="800.0" mnemonicParsing="false" onAction="#handleAddBookButton" prefHeight="40.0" prefWidth="125.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" styleClass="font_jasmine_16pt" stylesheets="@style/PrimaryTheme.css" text="เพิ่มสินค้า" textFill="WHITE">
-                                       <font>
-                                          <Font size="20.0" />
-                                       </font>
-                                    </Button>
                                  </children>
                               </AnchorPane>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: ffffff;">
+                           <children>
+                              <FlowPane fx:id="flowPaneSubTypeBook" prefHeight="50.0" prefWidth="691.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="690.0" style="-fx-background-color: ffffff;">
+                           <children>
+                              <Button fx:id="addBookButton" mnemonicParsing="false" onAction="#handleAddBookButton" prefHeight="40.0" prefWidth="125.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" styleClass="font_jasmine_16pt" stylesheets="@style/PrimaryTheme.css" text="เพิ่มสินค้า" textFill="WHITE">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" left="380.0" top="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="goToSellerStockButton" mnemonicParsing="false" onAction="#handleSellerStockButton" prefHeight="40.0" prefWidth="125.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" styleClass="font_jasmine_16pt" stylesheets="@style/PrimaryTheme.css" text="สินค้าทั้งหมด" textFill="WHITE">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" left="20.0" top="10.0" />
+                                 </HBox.margin>
+                              </Button>
                            </children>
                         </HBox>
                      </children>

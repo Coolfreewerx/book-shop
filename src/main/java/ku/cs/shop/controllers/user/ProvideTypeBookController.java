@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import ku.cs.shop.controllers.system.StockController;
 import ku.cs.shop.models.*;
@@ -68,23 +69,28 @@ public class ProvideTypeBookController {
 
     @FXML
     public void handleKeyNewBookTypeTextField(){
-//        System.out.println(newBooktypeTextField.getText());
-//        if(typeBookList.checkNewTypeBookHaveUsed(newBooktypeTextField.getText())){
-//            notificationCheckTypeBookLabel.setText("มีประเภทหนังสือนี้อยู่แล้ว กรุณากรอกประเภทหนังสือใหม่");
-//        }
-//        else{
-//            notificationCheckTypeBookLabel.setText("");
-//        }
+        System.out.println(newBooktypeTextField.getText());
+        if(typeBookList.checkNewTypeBookHaveUsed(newBooktypeTextField.getText())){
+            notificationCheckTypeBookLabel.setText("มีประเภทหนังสือนี้อยู่แล้ว กรุณากรอกประเภทหนังสือใหม่");
+        }
+        else{
+            notificationCheckTypeBookLabel.setText("");
+        }
     }
 
     @FXML
-    public void CheckTypeBookButton(ActionEvent actionEvent){
-//        if (typeBookList.checkNewTypeBookHaveUsed(newBooktypeTextField.getText())) {
-//            notificationCheckTypeBookLabel.setText("กรุณากรอกประเภทหนังสือ");
-//        }
-        provideTypeBook.setSuperTypeBook(newBooktypeTextField.getText());
-        System.out.println(provideTypeBook.getSubTypeBook());
-        notificationCheckTypeBookLabel.setText("บันทึกข้อมูลเรียบร้อย");
+    public void handleEnterTypeBookButton(ActionEvent actionEvent){
+        if (typeBookList.checkNewTypeBookHaveUsed(newBooktypeTextField.getText())) {
+            notificationCheckTypeBookLabel.setText("กรุณากรอกประเภทหนังสือ");
+        }
+        else{
+            provideTypeBook.setSuperTypeBook(newBooktypeTextField.getText());
+            System.out.println(provideTypeBook.getSubTypeBook());
+            notificationCheckTypeBookLabel.setTextFill(Color.GREEN);
+            notificationCheckTypeBookLabel.setText("บันทึกข้อมูลเรียบร้อย");
+        }
+
+
     }
 
     @FXML
@@ -96,16 +102,18 @@ public class ProvideTypeBookController {
             e.printStackTrace();
         }
     }
+    int numSubType = 1;
 
     @FXML
     public void handleAddSubTypeBookButton(ActionEvent actionEvent) throws IOException {
         if (! provideTypeBook.getSuperTypeBook().equals("")) {
+            notificationCheckTypeBookLabel.setText("");
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("/ku/cs/choiceProvideTypeBookByAdmin.fxml"));
             flowPaneForSubTypeBook.getChildren().add(fxmlLoader.load());
 
             ChoiceProvideTypeBookController choiceProvideTypeBookController = fxmlLoader.getController();
-            choiceProvideTypeBookController.setData(provideTypeBook,typeBookList);
+            choiceProvideTypeBookController.setData(provideTypeBook,typeBookList,numSubType++);
 
         }
         else{

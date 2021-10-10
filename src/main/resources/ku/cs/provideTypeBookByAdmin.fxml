@@ -125,7 +125,7 @@
                                           <Font name="JasmineUPC" size="28.0" />
                                        </font>
                                     </TextField>
-                                    <Button fx:id="checkBookButton" onAction="#CheckTypeBookButton" layoutX="750.0" layoutY="81.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="98.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="ENTER" textFill="WHITE">
+                                    <Button fx:id="checkBookButton" onAction="#handleEnterTypeBookButton" layoutX="750.0" layoutY="81.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="98.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="ENTER" textFill="WHITE">
                                        <font>
                                           <Font name="JasmineUPC Bold" size="26.0" />
                                        </font>
