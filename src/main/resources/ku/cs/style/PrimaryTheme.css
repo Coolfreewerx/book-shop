@@ -83,3 +83,23 @@
     -fx-color-three: rgba(255, 255, 255, 0.88);
 }
 
+.bevel-brown {
+    -fx-color-one: #B4875E;
+    -fx-color-two: #B4875E;
+    -fx-color-three: #B4875E;
+    -fx-background-radius: 10;
+    -fx-border-radius: 20;
+    -fx-background-color:
+            linear-gradient(#ffffff 0%, -fx-color-two 100%, -fx-color-one 100%),
+            linear-gradient(#ffffff 0%, -fx-color-three 0%);
+    -fx-background-radius: 8, 7, 6;
+    -fx-background-insets: 0, 1, 2;
+    -fx-text-fill: #ffffff;
+}
+.bevel-brown:hover{
+    -fx-color-one: rgb(212, 163, 126);
+    -fx-color-two: rgb(212, 163, 126);
+    -fx-color-three: rgb(212, 163, 126);
+    -fx-effect: dropshadow( three-pass-box, rgb(180, 135, 94), 5, 0.0, 0, 1);
+}
+

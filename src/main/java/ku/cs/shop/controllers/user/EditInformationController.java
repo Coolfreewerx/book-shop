@@ -11,17 +11,15 @@ import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import ku.cs.shop.models.Account;
 import ku.cs.shop.models.AccountList;
-import ku.cs.shop.models.BookList;
 import ku.cs.shop.models.UserAccount;
 import ku.cs.shop.services.AccountDataSource;
 import com.github.saacsos.FXRouter;
-import ku.cs.shop.services.BookDetailDataSource;
-import ku.cs.shop.services.DataSource;
 
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.regex.Pattern;
 
 public class EditInformationController {
 
@@ -87,19 +85,19 @@ public class EditInformationController {
 
     @FXML // ทำงานเมื่อกรอกเบอร์โทร
     public void handleKeyCheckPhoneNumber(){
-        account.setPhone(phoneNumberTextField.getText());
-        if(!Account.checkPhoneNumber(account.getPhone())){
-           account.setPhone("");
-        }
+//        account.setPhone(phoneNumberTextField.getText());
+//        if(!Account.checkPhoneNumber(account.getPhone())){
+//           account.setPhone("");
+//        }
         editPhoneNumberError.setText(account.checkPhoneNumberIsCorrect(account.getPhone()));
-//        if (Account.checkPhoneNumber(phoneNumberTextField.getText())){
-//            editPhoneNumberError.setText("รหัสผ่านนี้สามารถใช้ได้") ;
-//            editPhoneNumberError.setTextFill(Color.rgb(21, 117, 84));
-//        }
-//        else {
-//            editPhoneNumberError.setText("รหัสผ่านไม่ตรงตามรูปแบบที่กำหนด");
-//            editPhoneNumberError.setTextFill(Color.rgb(210, 39, 30));
-//        }
+        if (Account.checkPhoneNumber(phoneNumberTextField.getText())){
+            editPhoneNumberError.setText("รหัสผ่านนี้สามารถใช้ได้") ;
+            editPhoneNumberError.setTextFill(Color.rgb(21, 117, 84));
+        }
+        else {
+            editPhoneNumberError.setText("รหัสผ่านไม่ตรงตามรูปแบบที่กำหนด");
+            editPhoneNumberError.setTextFill(Color.rgb(210, 39, 30));
+        }
     }
 
     private void lodeSexData() {
@@ -134,10 +132,6 @@ public class EditInformationController {
         if (!(checkData().equals(" "))) {
             return;
         }
-//        editPhoneNumberError.setText(checkPhoneNumber());
-//        if(!(checkPhoneNumber().equals(" "))){
-//            return;
-//        }
         setImageName();
         setDataToWrite();
 
@@ -198,10 +192,7 @@ public class EditInformationController {
         }
     }
 
-//    public String checkPhoneNumber(){
-//        if(!(Account.getPhoneNumber())){
-//            return "เบอร์โทรศัพท์ไม่ถูกต้อง กรุณาตรวจสอบ" ;
-//        }
-//        return " ";
-//    }
+    //else if (phoneNumberTextField.getText().length() != 10 || !Pattern.matches("[0-9]+", phoneNumberTextField.getText())){
+    //            return "เบอร์โทรศัพท์ไม่ถูกต้อง กรุณาตรวจสอบ";
+    //        }
 }

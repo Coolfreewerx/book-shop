@@ -2,13 +2,13 @@ package ku.cs.shop.models;
 
 import java.io.File;
 
-public class Reviews extends Account {
+public class Reviews {
     private String bookName;
     private String bookShop;
     private String userName;
     private String imageName ;
     private String comment;
-    private int bookRating;
+    private int  bookRating;
 
     public Reviews(){}
 
@@ -28,12 +28,10 @@ public class Reviews extends Account {
     public String getComment(){ return comment; }
     public int getBookRating(){ return bookRating; }
 
-    public void setBookName(String bookName) { this.bookName = bookName; }
-    public void setBookShop(String bookShop) { this.bookShop = bookShop; }
     public void setUserName(String userName) { this.userName = userName; }
     public void setImageName(String imageName) { this.imageName = imageName; }
     public void setComment(String comment) { this.comment = comment; }
-    public void setBookRating(int bookRating){ this.bookRating = bookRating; }
+    public void setBookRating(int  bookRating){ this.bookRating = bookRating; }
 
     // คะแนนรีวิว
     public void addRatingPlusOne () { this.setBookRating(this.bookRating + 1); }
@@ -42,13 +40,6 @@ public class Reviews extends Account {
     public void addRatingPlusFour () { this.setBookRating(this.bookRating + 4); }
     public void addRatingPlusFive () { this.setBookRating(this.bookRating + 5); }
 
-    public double averageRating(int bookRating){ // หาค่าเฉลี่ยคะแนนรีวิวของหนังสือเล่มนั้น
-        double averageRating = 0;
-        averageRating = bookRating ;
-        return averageRating;
-    }
-
-    @Override
     public String getImagePath() {
         return new File(System.getProperty("user.dir")
                 + File.separator
@@ -61,5 +52,5 @@ public class Reviews extends Account {
         return "\"" + bookName + "\"," + "\"" + bookShop + "\"," + userName + "," + imageName + "," + "\"" + comment + "\"" + "," + bookRating;
     }
 
-    public String toString(){ return bookName;}
+    public String toString(){ return "\"ชื่อหนังสือ : " + bookName + " ชื่อร้านค้า : " + bookShop + "\"";}
 }

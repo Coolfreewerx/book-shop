@@ -203,7 +203,7 @@
                      </children>
                   </HBox>
                   <Line endX="451.73321533203125" endY="-3.0517578125E-5" layoutX="225.0" layoutY="270.0" startX="-134.93331909179688" startY="-3.0517578125E-5" />
-                  <Button layoutX="508.0" layoutY="665.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="185.0" style="-fx-background-color: FFFFFF;" stylesheets="@style/PrimaryTheme.css" onAction="#handleToReportButton" text="รายงานความไม่เหมาะสม" textFill="#b10000">
+                  <Button layoutX="508.0" layoutY="665.0" mnemonicParsing="false" onAction="#handleToReportButton" prefHeight="30.0" prefWidth="185.0" style="-fx-background-color: FFFFFF;" stylesheets="@style/PrimaryTheme.css" text="รายงานความไม่เหมาะสม" textFill="#b10000">
                      <font>
                         <Font name="JasmineUPC" size="20.0" />
                      </font>

@@ -1,25 +1,16 @@
 package ku.cs.shop.controllers.system;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import ku.cs.shop.models.*;
-import ku.cs.shop.services.BookDetailDataSource;
-import ku.cs.shop.services.OrderDataSource;
 import ku.cs.shop.services.ReviewsDataSource;
-
-import java.io.File;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class BookDetailController
@@ -36,7 +27,6 @@ public class BookDetailController
     @FXML private Label bookPrice;
     @FXML private Label typeLabel;
     @FXML private Label usernameInHead;
-    @FXML private Label bookRatingLabel;
     @FXML private Button status;
     @FXML private FlowPane commentFlowPane;
     @FXML private ImageView bookImg;
@@ -45,6 +35,8 @@ public class BookDetailController
     @FXML private Hyperlink bookDetailByShop;
     @FXML private TextField commentTextField;
     @FXML private GridPane showPopupGrid;
+    @FXML private Label numberOfComments;
+    @FXML private Label bookRatingLabel;
 
     Reviews reviews = new Reviews();
 
@@ -54,11 +46,11 @@ public class BookDetailController
     private BookList bookList;
     private ReviewsList reviewsList;
     private ReviewsDataSource reviewsDataSource;
-    private File selectedImage ; // ใช้นะแต่น้องไม่ขึ้นสีเฉยเลย
     private String imageName;
-    private int reviewRating;
 
-    private ObservableList choiceList = FXCollections.observableArrayList();
+//    private OrderDataSource orderDataSource = new OrderDataSource("csv-data/bookOrder.csv");
+//    private OrderList orderList = orderDataSource.readData();
+
     private ArrayList<Object> objectForPassing = new ArrayList<>();
 
     @FXML
@@ -70,7 +62,8 @@ public class BookDetailController
         castObjectToData();
         showData();
         pagesHeader();
-        showCommentByBookName(book.getBookName());
+        showCommentByBookNameAndShop(book.getBookName(), book.getBookShop());
+        numberOfComments.setText("(" + reviewsList.getCountBookByNameAndShop(book.getBookName(), book.getBookShop()) + ")");
     }
 
     public void castObjectToData() {
@@ -186,8 +179,8 @@ public class BookDetailController
         }
     }
 
-    @FXML
-    public void mouseClickedInLogo(MouseEvent event){ //คลิกที่ logo แล้วจะไปหน้า home
+    @FXML //คลิกที่ logo แล้วจะไปหน้า home
+    public void mouseClickedInLogo(){
         try{
             logoJavaPai.getOnMouseClicked();
             com.github.saacsos.FXRouter.goTo("home" ,accountList);
@@ -197,11 +190,12 @@ public class BookDetailController
     }
 
     // comment
-    public void showCommentByBookName(String bookName) { //แสดง comment
+    public void showCommentByBookNameAndShop(String bookName, String bookShop) { //แสดง comment
         commentFlowPane.getChildren().clear();
-        ArrayList<Reviews> bookByName = reviewsList.getReviewsByBookName(bookName);
+        ArrayList<Reviews> bookByNameAndShop = reviewsList.getReviewsByBookNameAndShopName(bookName, bookShop);
+        System.out.println(reviewsList.sumOfRatingByBookNameAndBookShop(book.getBookName(),book.getBookShop(),reviews.getBookRating()));
         try {
-            for (Reviews reviews : bookByName) {
+            for (Reviews reviews : bookByNameAndShop) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/ku/cs/itemComment.fxml"));
 
@@ -258,10 +252,8 @@ public class BookDetailController
         reviews.addRatingPlusFive();
         addRating();
     }
-
     public int addRating(){
         return reviews.getBookRating();
-//        bookRatingLabel.setText(reviews.getRating() + ""); // เอาไปเขียนใส่ csv
     }
 
     @FXML // บันทึก comment ลง csv

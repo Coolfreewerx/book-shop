@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -36,6 +35,5 @@
             </Label>
          </children>
       </HBox>
-      <ComboBox fx:id="choice" layoutX="786.0" layoutY="3.0" prefWidth="44.0" style="-fx-background-color: #FFFAF0;" />
    </children>
 </AnchorPane>
