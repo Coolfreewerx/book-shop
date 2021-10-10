@@ -99,8 +99,6 @@ public class StockController  {
             com.github.saacsos.FXRouter.goTo("editStock",castDataToObject());
         } catch (IOException e) {
             e.printStackTrace();
-            System.err.println("ไปที่หน้า editStock ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
 

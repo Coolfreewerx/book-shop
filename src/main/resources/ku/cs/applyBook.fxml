@@ -7,7 +7,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -154,7 +153,7 @@
             </HBox>
          </left>
          <center>
-            <ScrollPane prefHeight="774.0" prefWidth="698.0" BorderPane.alignment="CENTER">
+            <ScrollPane hbarPolicy="NEVER" prefHeight="774.0" prefWidth="698.0" BorderPane.alignment="CENTER">
                <content>
                   <VBox prefHeight="1090.0" prefWidth="690.0" style="-fx-background-color: ffffff;">
                      <children>
@@ -268,16 +267,12 @@
                                        </font>
                                     </Label>
                                     <MenuButton fx:id="menuButton" layoutX="380.0" layoutY="740.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="270.0" style="-fx-background-color: FFFCF1; -fx-background-radius: 10;">
-                                      <items>
-                                        <MenuItem fx:id="cartoonMenuButton" mnemonicParsing="false" onAction="#handleCartoonMenuButton" text="หนังสือการ์ตูน" />
-                                        <MenuItem fx:id="megazineMenuButton" mnemonicParsing="false" onAction="#handleMegazineMenuButton" text="นิตยสาร" />
-                                         <MenuItem fx:id="novelMenuButton" mnemonicParsing="false" onAction="#handleNovelMenuButton" text="นิยาย" />
-                                         <MenuItem fx:id="studyBookMenuButton" mnemonicParsing="false" onAction="#handleStudyBookMenuButton" text="หนังสือเรียน" />
-                                         <MenuItem fx:id="eBookMenuButton" mnemonicParsing="false" onAction="#handleEBookMenuButton" text="e-book" />
-                                      </items>
                                        <font>
                                           <Font size="18.0" />
                                        </font>
+                                       <HBox.margin>
+                                          <Insets left="40.0" top="13.0" />
+                                       </HBox.margin>
                                     </MenuButton>
                                  </children>
                               </AnchorPane>
@@ -285,7 +280,7 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: ffffff;">
                            <children>
-                              <FlowPane fx:id="flowPaneSubTypeBook" prefHeight="50.0" prefWidth="691.0" />
+                              <FlowPane fx:id="flowPaneSubTypeBook" prefHeight="50.0" prefWidth="690.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="690.0" style="-fx-background-color: ffffff;">

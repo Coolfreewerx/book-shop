@@ -36,7 +36,7 @@ public class ChoiceProvideTypeBookController {
         System.out.println(this.provideTypeBook.getSubTypeBook());
         System.out.println(this.provideTypeBook.getSuperTypeBook());
         notificationSubTypeBookLabel.setTextFill(Color.GREEN);
-        notificationSubTypeBookLabel.setText("บันทึกสำเร็จเรียบร้อย");
+        notificationSubTypeBookLabel.setText("ประเภทย่อยหนังสือนี้สามารถใช้ได้");
 
         DataSource<ProvideTypeBookList> dataSource;
         dataSource = new ProvideTypeBookDataSource("csv-data/provideTypeBookData.csv");

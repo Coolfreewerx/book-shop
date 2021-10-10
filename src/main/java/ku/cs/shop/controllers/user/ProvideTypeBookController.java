@@ -56,6 +56,7 @@ public class ProvideTypeBookController {
     @FXML private Label notificationCheckTypeBookLabel;
     @FXML private Label topicLabel11;
     @FXML private Button addSubTypeBookButton;
+    @FXML private Button saveSubtypeBookButton;
 
     @FXML
     public void mouseClickedInLogo(MouseEvent event){
@@ -87,7 +88,7 @@ public class ProvideTypeBookController {
             provideTypeBook.setSuperTypeBook(newBooktypeTextField.getText());
             System.out.println(provideTypeBook.getSubTypeBook());
             notificationCheckTypeBookLabel.setTextFill(Color.GREEN);
-            notificationCheckTypeBookLabel.setText("บันทึกข้อมูลเรียบร้อย");
+            notificationCheckTypeBookLabel.setText("ประเภทหนังสือนี้สามารถเพิ่มได้");
         }
 
 
@@ -114,11 +115,22 @@ public class ProvideTypeBookController {
 
             ChoiceProvideTypeBookController choiceProvideTypeBookController = fxmlLoader.getController();
             choiceProvideTypeBookController.setData(provideTypeBook,typeBookList,numSubType++);
-
         }
         else{
             notificationCheckTypeBookLabel.setText("กรุณากรอกประเภทของหนังสือ");
         }
     }
+
+    @FXML
+    public void handleSaveTypeBookButton(ActionEvent actionEvent){
+        try {
+            com.github.saacsos.FXRouter.goTo("provideTypeBookByAdmin" ,accountList);
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า provideTypeBookByAdmin ไม่ได้");
+            e.printStackTrace();
+        }
+    }
+
+
 
 }

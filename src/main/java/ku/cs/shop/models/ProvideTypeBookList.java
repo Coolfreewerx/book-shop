@@ -1,21 +1,33 @@
 package ku.cs.shop.models;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class ProvideTypeBookList {
     private ArrayList<ProvideTypeBook> typeBooks;
-//    private Map<String, ArrayList<ProvideTypeBook>> typeBookMap;
+    private Set<String> superTypeBook;
 
-    public ProvideTypeBookList(){ typeBooks = new ArrayList<>(); }
+    public ProvideTypeBookList(){
+        typeBooks = new ArrayList<>();
+        superTypeBook = new HashSet<>();
+    }
 
     public void addTypeBook(ProvideTypeBook provideTypeBook){
         typeBooks.add(provideTypeBook);
+        superTypeBook.add(provideTypeBook.getSuperTypeBook());
     }
 
-//    public ArrayList<ProvideTypeBook> findSubTypeBook(String typeBook){
-//        return typeBookMap.get(typeBook);
+    public ArrayList<ProvideTypeBook> findSubTypeBook(String typeBook){
+        ArrayList<ProvideTypeBook> provideTypeBookArrayList =new ArrayList<>();
+        for(ProvideTypeBook provideTypeBook : typeBooks){
+            if (provideTypeBook.getSuperTypeBook().equals(typeBook)){
+                provideTypeBookArrayList.add(provideTypeBook);
+            }
+        }
+        return provideTypeBookArrayList;
+    }
+
+//    public int numSubTypeBook(String typeBook){
+//        return this.typeBookMap.get(typeBook).size();
 //    }
 
     public boolean checkNewTypeBookHaveUsed(String typeBook){
