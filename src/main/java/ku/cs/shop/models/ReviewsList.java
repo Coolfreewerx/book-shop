@@ -61,8 +61,9 @@ public class ReviewsList {
         return sum;
     }
 
-//    public double averageRating(){
+//    public double averageRating(String bookName, String bookShop, int bookRating){
 //        double averageRating = 0;
+//        averageRating =
 //        return 0;
 //    }
 

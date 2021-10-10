@@ -39,7 +39,6 @@ public class BookDetailController
     @FXML private Label bookRatingLabel;
 
     Reviews reviews = new Reviews();
-
     private AccountList accountList;
     private Account account;
     private Book book;

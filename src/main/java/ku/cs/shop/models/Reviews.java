@@ -43,7 +43,7 @@ public class Reviews {
     public String getImagePath() {
         return new File(System.getProperty("user.dir")
                 + File.separator
-                + "account-images"
+                + "images/account-images"
                 + File.separator
                 + imageName).toURI().toString();
     }
@@ -52,5 +52,5 @@ public class Reviews {
         return "\"" + bookName + "\"," + "\"" + bookShop + "\"," + userName + "," + imageName + "," + "\"" + comment + "\"" + "," + bookRating;
     }
 
-    public String toString(){ return "\"ชื่อหนังสือ : " + bookName + " ชื่อร้านค้า : " + bookShop + "\"";}
+    public String toString(){ return "\"ชื่อหนังสือ : " + bookName + " ชื่อร้านค้า : " + bookShop + " คะแนน : " + bookRating + "\"";}
 }
