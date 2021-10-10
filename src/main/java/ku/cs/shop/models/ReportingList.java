@@ -9,6 +9,10 @@ public class ReportingList {
 
     public ReportingList() {
         reports = new ArrayList<>() ;
+        currantReportedAccount = new ArrayList<>() ;
+    }
+    public ArrayList<Reporting> getCurrantReportedAccount() {
+        return currantReportedAccount;
     }
 
     public void addReporting(Reporting reporting) {

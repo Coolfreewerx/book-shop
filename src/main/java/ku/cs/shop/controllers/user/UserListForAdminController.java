@@ -14,16 +14,15 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-import ku.cs.shop.models.Account;
-import ku.cs.shop.models.AccountList;
-import ku.cs.shop.models.UserAccount;
+import ku.cs.shop.controllers.system.ItemController;
+import ku.cs.shop.controllers.system.ReportingInformationController;
+import ku.cs.shop.models.*;
 import ku.cs.shop.services.AccountDataSource;
-import ku.cs.shop.services.AccountSortByTimeComparator;
+import ku.cs.shop.services.ReportingDataSource;
 
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 
 public class UserListForAdminController {
 
@@ -46,21 +45,28 @@ public class UserListForAdminController {
     @FXML private ImageView logoJavaPai;
     @FXML private Button provideUserButton;
     @FXML private Button provideHomeShopButton;
-    //@FXML private ListView reportUserListView ;
+    @FXML private ListView<Reporting> reportingListView ;
     @FXML private GridPane reportGrid ;
 
     private AccountList accountList ;
     private Account account ;
     private UserAccount selectedAccount ;
+    private ReportingList reportingList;
+    private ReportingDataSource reportingDataSource ;
+    private int countReportClick = 0 ;
 
     public void initialize(){
         accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
         account = accountList.getCurrentAccount() ;
+        reportingDataSource = new ReportingDataSource("csv-data/report.csv") ;
+        reportingList = reportingDataSource.readData() ;
         showUserAccountListView();
         clearSelectedUserAccount();
         handleSelectedUserAccountListView();
+        handleSelectedReportingListView();
     }
 
+    //user zone
     private void showUserAccountListView() {
         userAccountListView.getItems().addAll(accountList.getUserAccounts());
         userAccountListView.refresh();
@@ -73,6 +79,7 @@ public class UserListForAdminController {
                     public void changed(ObservableValue<? extends UserAccount> observable,
                                         UserAccount oldValue, UserAccount newValue) {
                         showSelectedUserAccount(newValue);
+                        showReportingListView(newValue);
                         selectedAccount = newValue ;
                     }
                 });
@@ -144,6 +151,60 @@ public class UserListForAdminController {
         accountStatusLabel.setText("ยังไม่ระบุ");
         tryToLoginText.setText("พยายามเข้าสู่ระบบ : ");
         tryToLoginLabel.setText("ยังไม่ระบุ");
+    }
+
+    //report zone
+    private void showReportingListView(UserAccount userAccount) {
+        reportingListView.getItems().removeAll(reportingList.getCurrantReportedAccount()) ;
+        reportingList.setCurrantReportedAccount(userAccount.getUserName());
+        reportingListView.getItems().addAll(reportingList.getCurrantReportedAccount()) ;
+        reportingListView.refresh();
+    }
+
+    private void handleSelectedReportingListView() {
+        reportingListView.getSelectionModel().selectedItemProperty().addListener(
+                new ChangeListener<Reporting>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Reporting> observable,
+                                        Reporting oldValue, Reporting newValue) {
+                        setReportingFXML(newValue);
+                    }
+                });
+    }
+
+    private void setReportingFXML(Reporting reporting) {
+        FXMLLoader fxmlLoader= new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/ku/cs/subscene/reportInformation.fxml"));
+        ReportingInformationController reportingInformationController ;
+        if (countReportClick == 0 && reporting != null) {
+            try {
+                reportGrid.add(fxmlLoader.load(), 0, 0);
+                reportingInformationController = fxmlLoader.getController();
+                reportingInformationController.setData(reporting);
+                reportingInformationController.setUserListForAdminController(this);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            countReportClick++ ;
+            return;
+        }
+        if (reporting != null) {
+            try {
+                reportGrid.getChildren().remove(0);
+                reportGrid.add(fxmlLoader.load(), 0, 0);
+                reportingInformationController = fxmlLoader.getController();
+                reportingInformationController.setData(reporting);
+                reportingInformationController.setUserListForAdminController(this);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    public void handleCancelButton() {
+        reportGrid.getChildren().remove(0);
+        countReportClick = 0 ;
     }
 
     @FXML

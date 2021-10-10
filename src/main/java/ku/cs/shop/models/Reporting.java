@@ -35,6 +35,9 @@ public class Reporting {
     public String getReporter() {
         return reporter;
     }
+    public String getReportType() {
+        return reportType;
+    }
 
     public String getImagePath() {
         return new File(System.getProperty("user.dir")
@@ -56,5 +59,10 @@ public class Reporting {
 
     public String toCsv() {
         return reportedAccount + "," + reportType + "," + imageName + ",\"" + information.replace("\"", "\"\"") + "\"," + reporter ;
+    }
+
+    @Override
+    public String toString() {
+        return reporter + ", รายงาน : " + reportType ;
     }
 }

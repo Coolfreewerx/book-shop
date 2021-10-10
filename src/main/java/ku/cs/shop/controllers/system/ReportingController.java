@@ -24,7 +24,7 @@ import java.util.ArrayList;
 public class ReportingController {
 
     @FXML private ImageView reportImage ;
-    @FXML private ComboBox<String> accountNameChoice ;
+    @FXML private TextField userNameTextField ;
     @FXML private ComboBox<String> reportTypeChoice ;
     @FXML private TextField informationTextField ;
     @FXML private Text errorText ;
@@ -46,20 +46,9 @@ public class ReportingController {
         account = accountList.getCurrentAccount();
         reportingDataSource = new ReportingDataSource("csv-data/report.csv") ;
         reportingList = reportingDataSource.readData() ;
-        lodeAccountNameData();
         lodeReportTypeData();
     }
 
-    public void lodeAccountNameData() {
-        accountNameList.removeAll(accountNameList) ;
-        ArrayList<Account> accounts = accountList.getAccounts(); ;
-        for (Account account: accounts) {
-            if (account instanceof UserAccount) {
-                accountNameList.add(account.getUserName()) ;
-            }
-        }
-        accountNameChoice.getItems().addAll(accountNameList);
-    }
     public void lodeReportTypeData() {
         reportTypeList.removeAll(reportTypeList) ;
         reportTypeList.add("ความคิดเห็นไม่เหมาะสม") ;
@@ -83,7 +72,7 @@ public class ReportingController {
 
     public void setImageName() {
         if (selectedImage != null) {
-            imageName =  accountNameChoice.getValue() + "-"
+            imageName =  userNameTextField.getText() + "-"
                     + LocalDate.now().getYear() + "-"
                     + LocalDate.now().getMonth() + "-"
                     + LocalDate.now().getDayOfMonth() + "-"
@@ -95,7 +84,7 @@ public class ReportingController {
     public void sendDataToWrite() {
         //UserDataSource
         Reporting reporting = new Reporting(
-                accountNameChoice.getValue(),
+                userNameTextField.getText(),
                 reportTypeChoice.getValue(),
                 imageName,
                 informationTextField.getText(),
@@ -107,10 +96,11 @@ public class ReportingController {
 
     public String checkData() {
         // ตรวจสอบว่าทุกช่องมีข้อมูล
-        if ((selectedImage == null || accountNameChoice.getValue().equals("") || reportTypeChoice.getValue().equals("") || informationTextField.equals(""))) {
+        if ((selectedImage == null || userNameTextField.getText().equals("") || reportTypeChoice.getValue().equals("") || informationTextField.getText().equals(""))) {
             return "โปรดใส่รายละเอียดให้ครบถ้วน" ;
-        }
-        else {
+        } else if (!(accountList.checkUserNameHaveUsed(userNameTextField.getText()))) {
+            return "ไม่พบชื่อผู้ใช้นี้ในระบบ" ;
+        } else {
             return " ";
         }
     }

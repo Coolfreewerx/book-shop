@@ -183,7 +183,7 @@
                            </font>
                         </Text>
                         <Pane maxHeight="15.0" minHeight="15.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;" />
-                        <ListView fx:id="reportUserListView" maxHeight="200.0" prefHeight="576.0" prefWidth="200.0">
+                        <ListView fx:id="reportingListView" maxHeight="200.0" prefHeight="576.0" prefWidth="200.0">
                            <VBox.margin>
                               <Insets left="40.0" right="40.0" />
                            </VBox.margin>
