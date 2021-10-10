@@ -1,6 +1,6 @@
 Admin,Nonattis,"สิทธานนท์","มงคลคำ",Fz013925,24,สิงหาคม,2001,Nonattis-2021-OCTOBER-9-205643.png,0632240000,ชาย,"null",ยังไม่ได้สมัครเป็นผู้ขาย
 Admin,adminTam,"ณัฐภรณ์","มีบุญ",Stamp8239,29,ตุลาคม,2001,default.png,null,null,"null",ยังไม่ได้สมัครเป็นผู้ขาย
-Admin,Sofreshzen,"มณีสร","วิจารณกุล",15112001,15,พฤศจิกายน,2001,default.png,null,null,"null",nanazenislovingShop
+User,Sofreshzen,"มณีสร","วิจารณกุล",15112001,15,พฤศจิกายน,2001,default.png,null,null,"null",nanazenislovingShop,banned,2021-10-11T23:13:29.930085,1
 Admin,mommiNongLisa,"ทัศวรรณ","จันกรี",Kwon2545,7,มกราคม,2002,mommiNongLisa-2021-SEPTEMBER-29-164236.png,0944800011,หญิง,"ประเทศไทย",ยังไม่ได้สมัครเป็นผู้ขาย
 User,Zeusyord,"ซุส","เทพเจ้าสายฟ้า",zeus1234,24,กุมภาพันธ์,2001,Zeusyord-2021-SEPTEMBER-26-23553.png,null,null,"null",Frinz za shop,working,2021-10-04T23:13:29.930085,0
 User,isFrince,"ฟรินซ์","สิทธานนท์",Fz013925,24,กุมภาพันธ์,2001,isFrince-2021-OCTOBER-4-211135.png,0632240000,ชาย,"null",ยังไม่ได้สมัครเป็นผู้ขาย,working,2021-10-04T21:10:33.813975600,0
@@ -11,13 +11,12 @@ User,Venti,"นักกวีขี้เมา","ข้างถนน",Venti1
 User,Albedo,"องค์ชาย","ชอล์กขาว",Albedo1234,13,กันยายน,1997,Albedo-2021-SEPTEMBER-30-1324.png,null,null,"null",ยังไม่ได้สมัครเป็นผู้ขาย,working,2021-09-30T01:32:04.226846100,0
 User,Childe,"สมชาย","จุงรุ่งเรืองกิจ",Childe1234,20,กรกฎาคม,1988,Childe-2021-SEPTEMBER-30-13022.png,null,null,"null",ยังไม่ได้สมัครเป็นผู้ขาย,working,2021-09-30T01:30:22.916474700,0
 User,Zhongli,"จงลี้ภัย","จุงรุ่งเรืองกิจ",Zhongli1234,31,ธันวาคม,1945,Zhongli-2021-SEPTEMBER-30-12848.png,null,null,"null",ยังไม่ได้สมัครเป็นผู้ขาย,working,2021-09-30T01:28:48.243561800,0
-User,Xiao,"พระพาย","สตรอเบอร์รี่",Xiao1234,17,เมษายน,1997,Xiao-2021-SEPTEMBER-30-1278.png,null,null,"null",ยังไม่ได้สมัครเป็นผู้ขาย,working,2021-09-30T01:27:08.547522500,0
+User,Xiao,"พระพาย","สตรอเบอร์รี่",Xiao1234,17,เมษายน,1997,Xiao-2021-SEPTEMBER-30-1278.png,null,null,"null",ยังไม่ได้สมัครเป็นผู้ขาย,working,2021-10-11T03:13:42.643346900,0
 User,Bennett,"อะไรดี","บุ๋มก็ว่าดี",Bennett1234,29,กุมภาพันธ์,2000,Bennett-2021-SEPTEMBER-30-12450.png,null,null,"null",ยังไม่ได้สมัครเป็นผู้ขาย,working,2021-09-30T01:24:50.939934600,0
 User,Chongyun,"เหมันต์","นิรันดร",Chongyun1234,7,กันยายน,2006,Chongyun-2021-SEPTEMBER-30-1238.png,null,null,"null",ยังไม่ได้สมัครเป็นผู้ขาย,working,2021-09-30T01:23:08.024605100,0
 User,Kaeya,"นักดาบแห่งสายลม","เคย่ะห์หยา",Kaeya1234,30,พฤศจิกายน,1993,Kaeya-2021-SEPTEMBER-30-12059.png,null,null,"null",ยังไม่ได้สมัครเป็นผู้ขาย,working,2021-09-30T01:20:59.859564900,0
 User,Razor,"เมาคลี","ลูกหมาป่า",Razor1234,9,กันยายน,2000,Razor-2021-SEPTEMBER-30-11740.png,null,null,"null",ยังไม่ได้สมัครเป็นผู้ขาย,working,2021-10-10T23:51:48.874033600,0
 User,Xingqiu,"นายน้อย","นักธุรกิจ",Xingqiu1234,9,ตุลาคม,2004,Xingqiu-2021-SEPTEMBER-29-17434.png,null,null,"null",ยังไม่ได้สมัครเป็นผู้ขาย,working,2021-09-29T17:04:34.811340,0
 User,Aether,"พบจันทร์","แซ่ลี้",Aether1234,26,กันยายน,1999,Aether-2021-SEPTEMBER-29-16585.png,null,null,"null",ยังไม่ได้สมัครเป็นผู้ขาย,working,2021-09-29T16:58:05.507503500,0
-User,coolfreewerx,"nattaporn","meeboon",stamp8239,5,มีนาคม,2005,coolfreewerx-2021-SEPTEMBER-27-143144.png,null,null,"null",TAMTAM Shop,working,2021-10-10T03:04:15.103219300,0
+User,coolfreewerx,"nattaporn","meeboon",stamp8239,5,มีนาคม,2005,coolfreewerx-2021-SEPTEMBER-27-143144.png,0849901489,หญิง,"null",TAMTAM Shop,working,2021-10-11T03:17:15.627310900,0
 User,Kwan,"ทัศวรรณ","จันกรี",Kwon2545,7,มกราคม,2002,NongKwanSuayMak-2021-SEPTEMBER-29-162513.png,0944444444,หญิง,"null",NongKwanSuayMak Shop,working,2021-10-11T01:16:33.448443300,0
-

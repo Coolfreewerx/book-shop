@@ -47,10 +47,6 @@ public class BookDetailController
     private ReviewsList reviewsList;
     private ReviewsDataSource reviewsDataSource;
     private String imageName;
-
-//    private OrderDataSource orderDataSource = new OrderDataSource("csv-data/bookOrder.csv");
-//    private OrderList orderList = orderDataSource.readData();
-
     private ArrayList<Object> objectForPassing = new ArrayList<>();
 
     @FXML
