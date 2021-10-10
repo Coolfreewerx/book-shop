@@ -3,23 +3,35 @@ package ku.cs.shop.models;
 import ku.cs.shop.services.BookSortByTimeComparator;
 import ku.cs.shop.services.OrderSortByTimeComparator;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
 
 public class OrderList {
+
+    private Set<String> customerName;
     private ArrayList<Order> orders;
 
     public OrderList() {
         orders = new ArrayList<>();
+        customerName = new HashSet<>();
     }
 
     public void addOrder(Order order){
         orders.add(order);
+        customerName.add(order.getCustomerName());
         sort();
     }
 
     public Order getOrder(int index) { return orders.get(index); }
+
+    public ArrayList<Order> getOrderByCustomerName(String name) {
+        ArrayList<Order> orderByName = new ArrayList<>();
+        for(Order order : orders) {
+            if (order.getCustomerName().equals(name)) {
+                orderByName.add(order);
+            }
+        }
+        return orderByName;
+    }
 
     public String toCSV() {
         String csv = "" ;

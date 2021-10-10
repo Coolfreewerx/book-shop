@@ -16,7 +16,7 @@ import ku.cs.shop.models.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class AccountDetailController {
+public class AccountDetailController<handleToOrderPageButton> {
 
     @FXML private Label birthdayLabel;
     @FXML private Label birthMonthLabel;
@@ -178,6 +178,17 @@ public class AccountDetailController {
         } catch (IOException e) {
             e.printStackTrace();
             System.err.println("ไปที่หน้า report ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
+    public void handleToOrderPageButton(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("bookOrderOfUser" ,accountList);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.err.println("ไปที่หน้า bookOrderOfUser ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }

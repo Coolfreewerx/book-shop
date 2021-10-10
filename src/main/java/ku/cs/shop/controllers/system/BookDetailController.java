@@ -108,6 +108,10 @@ public class BookDetailController
         return objectForPassing;
     }
 
+    public BookList getBookList() {
+        return bookList;
+    }
+
     public void pagesHeader() { // กำหนดและแสดงข้อมูลตรงส่วน head page
         usernameInHead.setText(account.getUserName());
         img.setImage(new Image(account.getImagePath()));
@@ -131,19 +135,23 @@ public class BookDetailController
 
     // show pop-up to buy book
     @FXML
-    void handleToBuyBook(ActionEvent event) {
+    public void handleToBuyBook(ActionEvent event) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("/ku/cs/buyBookPopup.fxml"));
 
             showPopupGrid.add(fxmlLoader.load(), 0, 0);
-            ConfirmOrderController  confirmOrderController = fxmlLoader.getController();
+            ConfirmOrderController confirmOrderController = fxmlLoader.getController();
             confirmOrderController.setController(this);
 
         } catch (IOException e) {
             e.printStackTrace();
         }
         return;
+    }
+
+    public void handleClosePage() {
+        showPopupGrid.getChildren().remove(0);
     }
 
     @FXML

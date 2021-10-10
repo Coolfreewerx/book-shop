@@ -49,13 +49,13 @@ public class Order {
     public void setCustomerPhone(String customerPhone) { this.customerPhone = customerPhone; }
     public void setTimeOfOrdered(LocalDateTime timeOfOrdered) { this.timeOfOrdered = timeOfOrdered; }
 
-//    public String getPicturePath() {
-//        return new File(System.getProperty("user.dir")
-//                + File.separator
-//                + "images"
-//                + File.separator
-//                + bookImage).toURI().toString();
-//    }
+    public String getPicturePath() {
+        return new File(System.getProperty("user.dir")
+                + File.separator
+                + "images/book-images"
+                + File.separator
+                + bookImage).toURI().toString();
+    }
 
     public String toCsv(){
         String result = "";

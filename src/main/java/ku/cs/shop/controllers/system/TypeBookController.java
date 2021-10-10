@@ -148,7 +148,7 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
         try {
             for (Book book : bookByType) {
                 if (book.getBookPrice() >= lowPriceFromInput && book.getBookPrice() <= maxPriceFromInput
-                    && lowPriceFromInput >= 0 && maxPriceFromInput >= 0) {
+                        && lowPriceFromInput >= 0 && maxPriceFromInput >= 0) {
                     bookFromPrice.add(book);
                     FXMLLoader fxmlLoader = new FXMLLoader();
                     fxmlLoader.setLocation(getClass().getResource("/ku/cs/item.fxml"));
@@ -195,13 +195,13 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
 
             try {
                 for (Book book : bookFromPrice) {
-                        FXMLLoader fxmlLoader = new FXMLLoader();
-                        fxmlLoader.setLocation(getClass().getResource("/ku/cs/item.fxml"));
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("/ku/cs/item.fxml"));
 
-                        bookListFlowPane.getChildren().add(fxmlLoader.load()); // child,col,row
-                        ItemController itemController = fxmlLoader.getController();
-                        itemController.setData(book);
-                        itemController.setController(this, "byType");
+                    bookListFlowPane.getChildren().add(fxmlLoader.load()); // child,col,row
+                    ItemController itemController = fxmlLoader.getController();
+                    itemController.setData(book);
+                    itemController.setController(this, "byType");
                 }
 
             } catch (IOException e) {

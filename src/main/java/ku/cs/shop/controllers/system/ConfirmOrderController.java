@@ -6,6 +6,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import ku.cs.shop.models.BookList;
+import ku.cs.shop.services.BookDetailDataSource;
 import org.apache.commons.lang3.RandomStringUtils;
 import javafx.scene.text.Text;
 import java.util.Random;
@@ -34,6 +36,8 @@ public class ConfirmOrderController {
     private int numberRandomTracking = random.nextInt(900000-100000) + 100000;
 
     private Order order = new Order();
+    private Book book;
+    private BookList bookList;
     private BookDetailController bookDetailController;
     private int totalBookOrdered;
     private int stockInShop;
@@ -43,22 +47,23 @@ public class ConfirmOrderController {
     private OrderDataSource orderDataSource = new OrderDataSource("csv-data/bookOrder.csv");
     private OrderList orderList = orderDataSource.readData();
 
-    public void setStockInShop(int stockInShop) {
-        this.stockInShop = stockInShop;
-    }
-    public void setCostOfBook(double costOfBook) {
-        this.costOfBook = costOfBook;
-    }
-    public void setTotalBookOrdered(int totalBookOrdered) {
-        this.totalBookOrdered = totalBookOrdered;
-    }
+    public void setStockInShop(int stockInShop) { this.stockInShop = stockInShop; }
+    public void setCostOfBook(double costOfBook) { this.costOfBook = costOfBook; }
+    public void setTotalBookOrdered(int totalBookOrdered) { this.totalBookOrdered = totalBookOrdered; }
 
     public void setController(BookDetailController book) {
         this.bookDetailController = book;
+        setBookListAndBook();
+
         bookNameLabel.setText(bookDetailController.getBook().getBookName());
         setCostOfBook(bookDetailController.getBook().getBookPrice());
         setStockInShop(bookDetailController.getBook().getBookStock());
-        System.out.println("book stock of " + bookNameLabel.getText() + " is " + stockInShop);
+        System.out.println("name book is " + bookDetailController.getBook().getBookName() + " stock is " + bookDetailController.getBook().getBookStock());
+    }
+
+    public void setBookListAndBook() {
+        this.bookList = bookDetailController.getBookList();
+        this.book = bookDetailController.getBook();
     }
 
     public int checkInputNumOfOrder() {
@@ -87,11 +92,14 @@ public class ConfirmOrderController {
                  noficationItem.setText("กรุณากรอกจำนวนสินค้าให้ถูกต้อง (มากกว่า 0) ");
              }
         }
+
+        if (book.getBookStock() == 0)
+            noficationItem.setText("    สินค้าในคลังหมดแล้ว กรุณาเลือกสินค้าใหม่");
     }
 
     @FXML
-    void handleComfirmBuyBook(ActionEvent event) {
-        if (Double.parseDouble(sumBookPriceLabel.getText()) > 0) {
+    public void handleComfirmBuyBook(ActionEvent event) {
+        if (Double.parseDouble(sumBookPriceLabel.getText()) > 0 && bookDetailController.getBook().getBookStock() > 0) {
             order.setBookImage(bookDetailController.getBook().getBookImg());
             order.setBookName(bookDetailController.getBook().getBookName());
             order.setBookShop(bookDetailController.getBook().getBookShop());
@@ -100,22 +108,24 @@ public class ConfirmOrderController {
             order.setTrackingNumber(randomStringAtIndexOne + "-" + numberRandomTracking);
             order.setCustomerName(bookDetailController.getAccount().getUserName());
             order.setCustomerPhone(bookDetailController.getAccount().getPhone());
+            order.setTimeOfOrdered(LocalDateTime.now());
 
             if (order.getCustomerPhone().equals("null"))
                 order.setCustomerPhone("ไม่มีข้อมูลการติดต่อ");
 
-            order.setTimeOfOrdered(LocalDateTime.now());
+            noficationItem.setText("               คุณซื้อหนังสือเล่มนี้สำเร็จ          ");
+
             orderList.addOrder(order);
             orderDataSource.writeData(orderList);
+
+            book.setBookStock(stockInShop - totalBookOrdered);
+            BookDetailDataSource bookDetailDataSource = new BookDetailDataSource("csv-data/bookDetail.csv");
+            bookDetailDataSource.writeData(bookList);
         }
     }
 
     @FXML
-    void handleClosePage(MouseEvent event) {
-        try {
-            com.github.saacsos.FXRouter.goTo("bookDetail");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void handleClosePage() {
+      bookDetailController.handleClosePage();
     }
 }

@@ -77,7 +77,6 @@
             <Font name="JasmineUPC Bold" size="26.0" />
          </font>
       </Label>
-      <ImageView fitHeight="170.0" fitWidth="140.0" layoutX="30.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="200.0" layoutY="185.0" text="เลขติดตามพัสดุ">
          <font>
             <Font name="JasmineUPC" size="28.0" />

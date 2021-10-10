@@ -47,6 +47,7 @@ public class SellerStockController implements Initializable {
         accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
         account = accountList.getCurrentAccount() ;
         userImageView.setImage(new Image(account.getImagePath()));
+
         pagesHeader();
         int column = 0;
         int row = 1;

@@ -21,7 +21,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane onMouseClicked="#handleToBookSortFromShop" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.BookDetailController">
+<AnchorPane onMouseClicked="#handleToBookSortFromShop" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.BookDetailController">
    <children>
       <HBox prefHeight="69.0" prefWidth="1024.0" stylesheets="@style/style.css">
          <children>
@@ -254,7 +254,7 @@
                         </Hyperlink>
                      </children>
                   </HBox>
-                  <Label fx:id="bookStatus" layoutX="498.0" layoutY="182.0" text="bookStatus">
+                  <Label fx:id="bookStatus" layoutX="498.0" layoutY="182.0" text="bookStatus" textFill="#cf2600">
                      <font>
                         <Font name="JasmineUPC" size="28.0" />
                      </font>
