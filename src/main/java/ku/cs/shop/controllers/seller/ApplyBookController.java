@@ -135,12 +135,18 @@ public class ApplyBookController {
         currentType = type;
         book.setBookType(type);
         menuButton.setText(type);
+
+
+        //Just for test method
+        System.out.println("Max size of type book : " + typeBookList.maxSizeSubTypeBook());
+
         ArrayList<ProvideTypeBook> provideTypeBookArrayList = typeBookList.findSubTypeBook(book.getBookType());
-        System.out.println("NumArraylist" + provideTypeBookArrayList.size());
+        int numTypeBookList = typeBookList.numOfSubTypeBook(book.getBookType());
+        System.out.println("NumArraylist : " + provideTypeBookArrayList.size());
         System.out.println(provideTypeBookArrayList.get(0).getSuperTypeBook() +  "Arraylist Subtype 1 is " + provideTypeBookArrayList.get(0).getSubTypeBook());
 
         try {
-            for (int i = 0; i < provideTypeBookArrayList.size() ; i++) {
+            for (int i = 0; i < numTypeBookList ; i++) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/ku/cs/choiceApplySubTypeBook.fxml"));
                 flowPaneSubTypeBook.getChildren().add(fxmlLoader.load());

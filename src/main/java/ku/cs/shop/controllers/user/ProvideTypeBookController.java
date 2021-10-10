@@ -16,6 +16,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import ku.cs.shop.controllers.system.StockController;
 import ku.cs.shop.models.*;
+import ku.cs.shop.services.AccountDataSource;
 import ku.cs.shop.services.BookDetailDataSource;
 import ku.cs.shop.services.ProvideTypeBookDataSource;
 
@@ -131,6 +132,16 @@ public class ProvideTypeBookController {
         }
     }
 
-
+    @FXML
+    public void handleToInformationButton(ActionEvent actionEvent) {
+        try {
+            AccountDataSource accountDataSource = new AccountDataSource("csv-data/accountData.csv") ;
+            accountDataSource.writeData(accountList);
+            com.github.saacsos.FXRouter.goTo("accountDetail", accountList);
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า detailUser ไม่ได้");
+            e.printStackTrace();
+        }
+    }
 
 }

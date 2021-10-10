@@ -126,7 +126,7 @@
                                                 <Font name="JasmineUPC" size="36.0" />
                                              </font>
                                           </Label>
-                                          <Button fx:id="addSubTypeBookButton" layoutX="290.0" layoutY="190.0" mnemonicParsing="false" onAction="#handleAddSubTypeBookButton" prefHeight="29.0" prefWidth="25.0" style="-fx-background-color: #c9ad88; -fx-background-radius: 30;" text="+" textFill="WHITE">
+                                          <Button fx:id="addSubTypeBookButton" layoutX="290.0" layoutY="185.0" mnemonicParsing="false" onAction="#handleAddSubTypeBookButton" prefHeight="29.0" prefWidth="25.0" style="-fx-background-color: #c9ad88; -fx-background-radius: 30;" text="+" textFill="WHITE">
                                              <font>
                                                 <Font name="JasmineUPC Bold" size="26.0" />
                                              </font>
@@ -149,7 +149,15 @@
                                     <Font name="JasmineUPC Bold" size="26.0" />
                                  </font>
                                  <HBox.margin>
-                                    <Insets left="770.0" top="10.0" />
+                                    <Insets left="600.0" top="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="backToPageButton" mnemonicParsing="false" onAction="#handleToInformationButton" prefHeight="50.0" prefWidth="167.0" style="-fx-background-color: #000000; -fx-background-radius: 10;" text="กลับสู่หน้าหลัก" textFill="WHITE">
+                                 <font>
+                                    <Font name="JasmineUPC Bold" size="26.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="10.0" />
                                  </HBox.margin>
                               </Button>
                            </children>

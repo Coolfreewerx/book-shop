@@ -39,6 +39,8 @@ public class BookDetailDataSource implements DataSource<BookList> {
                 double bookPrice = Double.parseDouble(data[11].trim());
                 LocalDateTime localDateTime = LocalDateTime.parse(data[12].trim(), DateTimeFormatter.ISO_LOCAL_DATE_TIME);
 
+                //while loop max subtype
+
                 Book bookInformation = new Book(bookName,bookShop,bookAuthor,bookISBN,bookType,bookDetail,bookPublisher,bookImg,bookStock,bookPage,leastStock,bookPrice,localDateTime);
                 bookList.addBook(bookInformation);
             }

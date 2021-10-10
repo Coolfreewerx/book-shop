@@ -26,6 +26,29 @@ public class ProvideTypeBookList {
         return provideTypeBookArrayList;
     }
 
+    public int numOfSubTypeBook(String typeBook){
+        ArrayList<ProvideTypeBook> provideTypeBookArrayList =new ArrayList<>();
+        for(ProvideTypeBook provideTypeBook : typeBooks){
+            if (provideTypeBook.getSuperTypeBook().equals(typeBook)){
+                provideTypeBookArrayList.add(provideTypeBook);
+            }
+        }
+        return provideTypeBookArrayList.size();
+    }
+
+    public int maxSizeSubTypeBook(){
+        int max = 0;
+        for(ProvideTypeBook provideTypeBook : typeBooks){
+            if (max == 0){
+                max = numOfSubTypeBook(provideTypeBook.getSuperTypeBook());
+            }
+            else if (numOfSubTypeBook(provideTypeBook.getSuperTypeBook()) > max){
+                max = numOfSubTypeBook(provideTypeBook.getSuperTypeBook());
+            }
+        }
+        return max;
+    }
+
 //    public int numSubTypeBook(String typeBook){
 //        return this.typeBookMap.get(typeBook).size();
 //    }
