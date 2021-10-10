@@ -1,14 +1,12 @@
 package ku.cs.shop.controllers.system;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import ku.cs.shop.controllers.user.UserListForAdminController;
-import ku.cs.shop.models.Book;
 import ku.cs.shop.models.Reporting;
-
-import java.io.File;
 
 public class ReportingInformationController {
 
@@ -42,6 +40,10 @@ public class ReportingInformationController {
 
     public void handleCancelButton() {
         userListForAdminController.handleCancelButton();
+    }
+
+    public void handFullImageButton(ActionEvent actionEvent) {
+        userListForAdminController.showFullImage() ;
     }
 
 }

@@ -14,6 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import ku.cs.shop.controllers.scene.FullImageController;
 import ku.cs.shop.controllers.system.ItemController;
 import ku.cs.shop.controllers.system.ReportingInformationController;
 import ku.cs.shop.models.*;
@@ -47,10 +48,12 @@ public class UserListForAdminController {
     @FXML private Button provideHomeShopButton;
     @FXML private ListView<Reporting> reportingListView ;
     @FXML private GridPane reportGrid ;
+    @FXML private GridPane fullImageGrid ;
 
     private AccountList accountList ;
     private Account account ;
     private UserAccount selectedAccount ;
+    private Reporting selectedReporting ;
     private ReportingList reportingList;
     private ReportingDataSource reportingDataSource ;
     private int countReportClick = 0 ;
@@ -168,6 +171,8 @@ public class UserListForAdminController {
                     public void changed(ObservableValue<? extends Reporting> observable,
                                         Reporting oldValue, Reporting newValue) {
                         setReportingFXML(newValue);
+                        selectedReporting = newValue ;
+
                     }
                 });
     }
@@ -205,6 +210,24 @@ public class UserListForAdminController {
     public void handleCancelButton() {
         reportGrid.getChildren().remove(0);
         countReportClick = 0 ;
+    }
+
+    public void showFullImage() {
+        try {
+            FXMLLoader fxmlLoaderForFullImage= new FXMLLoader();
+            fxmlLoaderForFullImage.setLocation(getClass().getResource("/ku/cs/subscene/fullImage.fxml"));
+            fullImageGrid.add(fxmlLoaderForFullImage.load(),0,0);
+            FullImageController fullImageController = fxmlLoaderForFullImage.getController() ;
+            fullImageController.setFullImageView(selectedReporting);
+            fullImageController.setUserListForAdminController(this);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void handleCloseFullImageButton() {
+        fullImageGrid.getChildren().remove(0);
     }
 
     @FXML
