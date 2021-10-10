@@ -24,8 +24,6 @@ import java.util.ArrayList;
 
 public class BookDetailController
 {
-    BookDetailDataSource data = new BookDetailDataSource("csv-data/bookDetail.csv");
-
     @FXML private Label bookNameLabel;
     @FXML private Label bookShop;
     @FXML private Label bookStatus;
@@ -60,10 +58,7 @@ public class BookDetailController
     private String imageName;
     private int reviewRating;
 
-//    private OrderDataSource orderDataSource = new OrderDataSource("csv-data/bookOrder.csv");
-//    private OrderList orderList = orderDataSource.readData();
     private ObservableList choiceList = FXCollections.observableArrayList();
-
     private ArrayList<Object> objectForPassing = new ArrayList<>();
 
     @FXML
@@ -141,6 +136,7 @@ public class BookDetailController
         }
     }
 
+    // show pop-up to buy book
     @FXML
     void handleToBuyBook(ActionEvent event) {
         try {

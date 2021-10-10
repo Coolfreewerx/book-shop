@@ -30,7 +30,7 @@ public class ConfirmOrderController {
     @FXML private Text noficationItem;
     @FXML private TextField inputNumOfBookTextField;
 
-    Random random = new Random();
+    private Random random = new Random();
     private int numberRandomTracking = random.nextInt(900000-100000) + 100000;
 
     private Order order = new Order();
@@ -39,6 +39,9 @@ public class ConfirmOrderController {
     private int stockInShop;
     private double costOfBook;
     private String randomStringAtIndexOne = RandomStringUtils.randomAlphanumeric(2);
+
+    private OrderDataSource orderDataSource = new OrderDataSource("csv-data/bookOrder.csv");
+    private OrderList orderList = orderDataSource.readData();
 
     public void setStockInShop(int stockInShop) {
         this.stockInShop = stockInShop;
@@ -50,9 +53,6 @@ public class ConfirmOrderController {
         this.totalBookOrdered = totalBookOrdered;
     }
 
-//   OrderDataSource orderDataSource = new OrderDataSource("csv-data/bookOrder.csv");
-//    OrderList orderList = orderDataSource.readData();
-
     public void setController(BookDetailController book) {
         this.bookDetailController = book;
         bookNameLabel.setText(bookDetailController.getBook().getBookName());
@@ -62,7 +62,7 @@ public class ConfirmOrderController {
     }
 
     public int checkInputNumOfOrder() {
-        if ( Pattern.matches("[1-9]+[0-9]+" , inputNumOfBookTextField.getText())
+        if (Pattern.matches("[1-9]+[0-9]+" , inputNumOfBookTextField.getText())
                 || ( (inputNumOfBookTextField.getText().length() == 1) && Pattern.matches("[0-9]+", inputNumOfBookTextField.getText()) )
                 && Integer.parseInt(inputNumOfBookTextField.getText()) >= 0) {
             setTotalBookOrdered(Integer.parseInt(inputNumOfBookTextField.getText()));
@@ -70,15 +70,12 @@ public class ConfirmOrderController {
 
         if (Integer.parseInt(inputNumOfBookTextField.getText()) < 0)
             setTotalBookOrdered(Integer.parseInt("0"));
-
         return 0;
     }
 
     @FXML
     void handleAddNumOfBookInput(ActionEvent event) {
         checkInputNumOfOrder();
-        System.out.println(totalBookOrdered);
-
         if(totalBookOrdered > stockInShop)
             noficationItem.setText("สินค้าในคลังไม่เพียงพอ กรุณากรอกจำนวนใหม่");
             sumBookPriceLabel.setText("0.00");
@@ -108,21 +105,9 @@ public class ConfirmOrderController {
                 order.setCustomerPhone("ไม่มีข้อมูลการติดต่อ");
 
             order.setTimeOfOrdered(LocalDateTime.now());
-
-            System.out.println("---------------");
-            System.out.println(order.getBookImage());
-            System.out.println(order.getBookName());
-            System.out.println(order.getBookShop());
-            System.out.println(order.getCustomerName());
-            System.out.println(order.getCustomerPhone());
-            System.out.println(order.getTotalBookOrdered());
-            System.out.println(order.getTrackingNumber());
-            System.out.println(order.getTotalPriceOrdered());
-            System.out.println(order.getTimeOfOrdered());
+            orderList.addOrder(order);
+            orderDataSource.writeData(orderList);
         }
-
-//        orderList.addOrder(order);
-//        orderDataSource.writeData(orderList);
     }
 
     @FXML

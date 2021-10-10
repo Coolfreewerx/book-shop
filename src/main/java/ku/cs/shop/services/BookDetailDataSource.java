@@ -10,19 +10,16 @@ import ku.cs.shop.models.Book;
 import ku.cs.shop.models.BookList;
 
 public class BookDetailDataSource implements DataSource<BookList> {
+
     private String filename;
-
     public BookDetailDataSource(){}
-
-
     public BookDetailDataSource(String filename) { this.filename = filename; }
 
     public BookList readData()
     {
         BookList bookList = new BookList();
 
-        try
-        {
+        try {
             FileReader file = new FileReader(filename);
             CSVReader reader = new CSVReader(file);
             String[] data = null;

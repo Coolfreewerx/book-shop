@@ -8,21 +8,21 @@ import java.io.*;
 import java.time.LocalDateTime;
 
 public class OrderDataSource implements DataSource<OrderList>{
+
     private String filename;
-
     public OrderDataSource(){}
-
     public OrderDataSource(String filename) { this.filename = filename; }
 
-    @Override
     public OrderList readData() {
+
         OrderList orderList = new OrderList();
+
         try {
             FileReader file = new FileReader(filename);
             CSVReader reader = new CSVReader(file);
             String[] data = null;
 
-            while ((data = reader.readNext()) != null){
+            while ((data = reader.readNext()) != null) {
                 String bookImage = data[0].trim();
                 String bookName = data[1].trim();
                 String bookShop = data[2].trim();
@@ -36,15 +36,15 @@ public class OrderDataSource implements DataSource<OrderList>{
                 Order orderData = new Order(bookImage,bookName,bookShop,totalBookOrdered,totalPriceOrdered,trackingNumber,customerName,customerPhone,timeOfOrdered);
                 orderList.addOrder(orderData);
             }
-        }catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             System.err.println("Cannot read information in file " + filename);
         } catch (IOException e) {
             System.err.println("Error reading from file");
         }
-        return null;
+
+        return orderList;
     }
 
-    @Override
     public void writeData(OrderList orderList) {
         String path = filename;
         File file = new File(path);
@@ -57,9 +57,10 @@ public class OrderDataSource implements DataSource<OrderList>{
             buffer = new BufferedWriter(writer);
             buffer.write(orderList.toCSV());
 
-        }catch (IOException e){
+        } catch (IOException e){
             e.printStackTrace();
-        }finally {
+
+        } finally {
             try {
                 buffer.close();
                 writer.close();
