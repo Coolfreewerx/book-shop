@@ -36,7 +36,7 @@ public class ChoiceProvideTypeBookController {
         DataSource<ProvideTypeBookList> dataSource;
         dataSource = new ProvideTypeBookDataSource("csv-data/provideTypeBookData.csv");
         ProvideTypeBookList provideTypeBookListData = dataSource.readData();
-        provideTypeBookList.addTypeBook(this.provideTypeBook);
+        provideTypeBookListData.addTypeBook(this.provideTypeBook);
 
         dataSource.writeData(provideTypeBookListData);
         System.out.println("Can write");
