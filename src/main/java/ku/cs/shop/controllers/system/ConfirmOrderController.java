@@ -125,7 +125,7 @@ public class ConfirmOrderController {
     }
 
     @FXML
-    public void handleClosePage() {
+    public void handleClosePage(ActionEvent event) {
       bookDetailController.handleClosePage();
     }
 }
