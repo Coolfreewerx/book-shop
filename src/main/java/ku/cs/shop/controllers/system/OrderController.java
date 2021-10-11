@@ -1,12 +1,19 @@
 package ku.cs.shop.controllers.system;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import ku.cs.shop.models.Book;
-import ku.cs.shop.models.Order;
+import javafx.scene.layout.GridPane;
+import ku.cs.shop.models.*;
+import ku.cs.shop.services.DataSource;
+import ku.cs.shop.services.OrderDataSource;
+
+import java.io.IOException;
 
 public class OrderController {
     @FXML private ImageView bookImageView;
@@ -17,10 +24,14 @@ public class OrderController {
     @FXML private Label contactCustomerLabel;
     @FXML private Label numPriceLabel;
     @FXML private Button editStatusButton;
+    @FXML private GridPane gridPaneForPopup;
     private Order order;
+    private AccountList accountList ;
+    private Account account ;
 
-    public void setData(Order order) {
+    public void setData(Order order,AccountList accountList) {
         this.order = order;
+        this.accountList = accountList;
     }
 
     public void changeData() {
@@ -32,5 +43,21 @@ public class OrderController {
         bookImageView.setImage(new Image(order.getPicturePath()));
     }
 
+
+    @FXML
+    public void handleEditOrderButton(ActionEvent actionEvent){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/ku/cs/shippedOrderPopup.fxml"));
+
+            gridPaneForPopup.add(fxmlLoader.load(), 0, 0);
+            OrderPopUPController orderPopUPController = fxmlLoader.getController();
+            orderPopUPController.setData(this.order,accountList);
+            orderPopUPController.changeData();
+
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

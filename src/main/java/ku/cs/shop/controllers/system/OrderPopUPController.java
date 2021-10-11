@@ -1,0 +1,67 @@
+package ku.cs.shop.controllers.system;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import ku.cs.shop.models.Account;
+import ku.cs.shop.models.AccountList;
+import ku.cs.shop.models.Order;
+import ku.cs.shop.models.OrderList;
+import ku.cs.shop.services.DataSource;
+import ku.cs.shop.services.OrderDataSource;
+
+import java.io.IOException;
+
+public class OrderPopUPController {
+    @FXML private TextField trackingNumberTextField;
+    @FXML private Button shippedButton;
+    @FXML private Label bookNamePopUpLabel;
+    @FXML private Label customerNamePopUpLabel;
+
+    private Order order;
+    private AccountList accountList ;
+    private Account account ;
+
+    public void setData(Order order,AccountList accountList) {
+        this.order = order;
+        this.accountList = accountList;
+    }
+
+    public void changeData() {
+        bookNamePopUpLabel.setText(this.order.getBookName());
+        customerNamePopUpLabel.setText(this.order.getCustomerName());
+
+        DataSource<OrderList> dataSource;
+        dataSource = new OrderDataSource("csv-data/bookOrder.csv");
+        OrderList orderList = dataSource.readData();
+        orderList.editIndexOrderByName(order.getBookName(),order);
+        dataSource.writeData(orderList);
+
+    }
+
+    @FXML
+    public void handleShippedButton(ActionEvent actionEvent){
+        order.setTrackingNumber(trackingNumberTextField.getText());
+        changeData();
+        try {
+            com.github.saacsos.FXRouter.goTo("orderList",accountList);
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า login ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
+    public void handleBackToOrderListButton(ActionEvent actionEvent){
+        System.out.println("Click on Back Button is on popup");
+        try {
+            com.github.saacsos.FXRouter.goTo("orderList",accountList);
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า login ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+}

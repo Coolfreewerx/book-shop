@@ -48,6 +48,17 @@ public class OrderList {
         return count;
     }
 
+    public void editIndexOrderByName(String name, Order newOrderDetail){
+        int index = 0;
+        for (Order order : orders){
+            if (order.getBookName().equals(name)){
+                this.orders.set(index, newOrderDetail);
+                break;
+            }
+        }
+        index++;
+    }
+
     public ArrayList<Order> getOrderByCustomerName(String name) {
         ArrayList<Order> orderByName = new ArrayList<>();
         for(Order order : orders) {
