@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" style="-fx-background-radius: 20; -fx-background-color: FFFCF1;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.ConfirmOrderController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" style="-fx-background-radius: 20; -fx-background-color: FFFCF1;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.ConfirmOrderController">
    <children>
       <Text layoutX="148.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="สั่งซื้อสินค้า" wrappingWidth="111.4278564453125">
          <font>
@@ -30,9 +30,9 @@
             <Font name="JasmineUPC" size="24.0" />
          </font>
       </Text>
-      <VBox layoutX="70.0" layoutY="74.0" maxHeight="304.0" prefHeight="15.0" prefWidth="304.0">
+      <VBox layoutX="70.0" layoutY="74.0" maxHeight="304.0" prefHeight="15.0" prefWidth="273.0">
          <children>
-            <Label fx:id="bookNameLabel" maxWidth="304.0" prefHeight="26.0" prefWidth="304.0" text="bookName" wrapText="true">
+            <Label fx:id="bookNameLabel" maxWidth="304.0" prefHeight="15.0" prefWidth="281.0" text="bookName" wrapText="true">
                <font>
                   <Font name="JasmineUPC" size="18.0" />
                </font>
@@ -60,7 +60,7 @@
             <Font name="JasmineUPC" size="24.0" />
          </font>
       </Text>
-      <Button cache="true" layoutX="299.0" layoutY="114.0" mnemonicParsing="false" onAction="#handleAddNumOfBookInput" prefHeight="27.0" prefWidth="64.0" style="-fx-background-radius: 20; -fx-background-color: C9AD88;" text="ยืนยัน" textFill="WHITE">
+      <Button cache="true" layoutX="299.0" layoutY="114.0" mnemonicParsing="false" onAction="#handleAddNumOfBookInput" prefHeight="27.0" prefWidth="64.0" style="-fx-background-color: C9AD88; -fx-background-radius: 20;" text="ยืนยัน" textFill="WHITE">
          <font>
             <Font name="JasmineUPC" size="17.0" />
          </font>

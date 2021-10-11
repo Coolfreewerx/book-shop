@@ -335,4 +335,13 @@ public class EditBookController {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
+
+    @FXML
+    public void handleToOrderPageButton(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("bookOrderOfUser" ,accountList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

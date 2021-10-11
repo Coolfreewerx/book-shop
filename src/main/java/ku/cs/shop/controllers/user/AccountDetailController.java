@@ -188,8 +188,6 @@ public class AccountDetailController<handleToOrderPageButton> {
             com.github.saacsos.FXRouter.goTo("bookOrderOfUser" ,accountList);
         } catch (IOException e) {
             e.printStackTrace();
-            System.err.println("ไปที่หน้า bookOrderOfUser ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
 }

@@ -47,10 +47,8 @@ public class OrderUserContoller implements Initializable {
         currentUser = account.getUserName();
         pagesHeader();
 
-        System.out.println(currentUser);
-        order.setCustomerName(currentUser);
         userImageView.setImage(new Image(account.getImagePath()));
-        ArrayList<Order> orderByName = orderList.getOrderByCustomerName("coolfreewerx");
+        ArrayList<Order> orderByName = orderList.getOrderByCustomerName(currentUser);
 
         try {
             for (Order order : orderByName) {
@@ -141,6 +139,15 @@ public class OrderUserContoller implements Initializable {
         } catch (IOException e) {
             System.err.println("ไปที่หน้า login ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
+    public void handleToOrderPageButton(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("bookOrderOfUser" ,accountList);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
