@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -176,7 +177,7 @@
                               <Insets bottom="10.0" left="20.0" top="20.0" />
                            </HBox.margin>
                               </Label>
-                        <Button fx:id="shippedButton" mnemonicParsing="false" style="-fx-background-color: ffffff; -fx-background-radius: 10; -fx-border-color: F99F28; -fx-border-width: 4; -fx-border-radius: 10;" text="จัดส่งแล้ว">
+                        <Button fx:id="shippedButton" mnemonicParsing="false" onAction="#handleShippedButton" style="-fx-background-color: ffffff; -fx-background-radius: 10; -fx-border-color: F99F28; -fx-border-width: 4; -fx-border-radius: 10;" text="จัดส่งแล้ว">
                            <font>
                               <Font name="JasmineUPC" size="24.0" />
                            </font>
@@ -184,7 +185,7 @@
                               <Insets left="180.0" top="15.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="newOrderButton" mnemonicParsing="false" style="-fx-background-color: ffffff; -fx-background-radius: 10; -fx-border-color: F99F28; -fx-border-width: 4; -fx-border-radius: 10;" text="รายการสั่งซื้อใหม่">
+                        <Button fx:id="newOrderButton" mnemonicParsing="false" onAction="#handleNewOrderButton" style="-fx-background-color: ffffff; -fx-background-radius: 10; -fx-border-color: F99F28; -fx-border-width: 4; -fx-border-radius: 10;" text="รายการสั่งซื้อใหม่">
                            <font>
                               <Font name="JasmineUPC" size="24.0" />
                            </font>
@@ -195,16 +196,9 @@
                      </children>
                   </HBox>
                         <ScrollPane fx:id="scoll" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="582.0" prefWidth="698.0" style="-fx-background-color: fffff;" VBox.vgrow="ALWAYS">
-                            <content>
-                                <GridPane fx:id="grid" style="-fx-background-color: ffffff;">
-                                    <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                    </columnConstraints>
-                                    <rowConstraints>
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    </rowConstraints>
-                                </GridPane>
-                            </content>
+                     <content>
+                        <FlowPane fx:id="flowPaneOrder" prefHeight="572.0" prefWidth="697.0" style="-fx-background-color: ffffff;" />
+                     </content>
                         </ScrollPane>
                         <HBox prefHeight="80.0" prefWidth="698.0">
                             <children>

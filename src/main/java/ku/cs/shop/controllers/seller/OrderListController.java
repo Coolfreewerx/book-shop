@@ -10,8 +10,8 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import ku.cs.shop.controllers.system.OrderController;
 import ku.cs.shop.models.*;
@@ -26,13 +26,15 @@ import java.util.ResourceBundle;
 public class OrderListController implements Initializable {
 
     @FXML private ScrollPane scoll;
-    @FXML private GridPane grid;
     @FXML private Button allSellerStockButtonn;
     @FXML private Button status;
     @FXML private Label usernameInHead;
     @FXML private ImageView img;
     @FXML private ImageView logoJavaPai;
     @FXML private ImageView userImageView;
+    @FXML private Button shippedButton;
+    @FXML private Button newOrderButton;
+    @FXML private FlowPane flowPaneOrder;
 
     private BookDetailDataSource data = new BookDetailDataSource("csv-data/bookDetail.csv");
     private BookList books = data.readData();
@@ -48,29 +50,61 @@ public class OrderListController implements Initializable {
         accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
         account = accountList.getCurrentAccount() ;
         userImageView.setImage(new Image(account.getImagePath()));
-        int column = 0;
-        int row = 1;
 
         ArrayList<Order> bookOrderInShop = orders.getOrderByShop(account.getShopName());
-
-
+        flowPaneOrder.getChildren().clear();
         try {
             for (int i = 0; i < orders.getCountOrderByShop(account.getShopName()); i++) {
+                if (bookOrderInShop.get(i).getTrackingNumber().equals("ยังไม่ได้จัดส่ง"));
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/ku/cs/order.fxml"));
+                fxmlLoader.setLocation(getClass().getResource("/ku/cs/newOrder.fxml"));
 
-                grid.add(fxmlLoader.load(), column, row++); // child,col,row
+                flowPaneOrder.getChildren().add(fxmlLoader.load()); // child,col,row
                 OrderController orderController = fxmlLoader.getController();
                 orderController.setData(bookOrderInShop.get(i));
                 orderController.changeData();
+            }
+            pagesHeader();
 
-                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
-                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
-                grid.setMaxWidth(Region.USE_COMPUTED_SIZE);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-                grid.setMinHeight(Region.USE_COMPUTED_SIZE);
-                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
-                grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
+    @FXML public void handleShippedButton(ActionEvent actionEvent){
+        flowPaneOrder.getChildren().clear();
+        ArrayList<Order> bookOrderInShop = orders.getOrderByShop(account.getShopName());
+        try {
+            for (int i = 0; i < orders.getCountOrderByShop(account.getShopName()); i++) {
+                if (! bookOrderInShop.get(i).getTrackingNumber().equals("ยังไม่ได้จัดส่ง"));
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/ku/cs/shippedOrder.fxml"));
+
+                flowPaneOrder.getChildren().add(fxmlLoader.load()); // child,col,row
+                OrderController orderController = fxmlLoader.getController();
+                orderController.setData(bookOrderInShop.get(i));
+                orderController.changeData();
+            }
+            pagesHeader();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML public void handleNewOrderButton(ActionEvent actionEvent){
+        flowPaneOrder.getChildren().clear();
+        ArrayList<Order> bookOrderInShop = orders.getOrderByShop(account.getShopName());
+        try {
+            for (int i = 0; i < orders.getCountOrderByShop(account.getShopName()); i++) {
+                if (bookOrderInShop.get(i).getTrackingNumber().equals("ยังไม่ได้จัดส่ง"));
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/ku/cs/newOrder.fxml"));
+
+                flowPaneOrder.getChildren().add(fxmlLoader.load()); // child,col,row
+                OrderController orderController = fxmlLoader.getController();
+                orderController.setData(bookOrderInShop.get(i));
+                orderController.changeData();
             }
             pagesHeader();
 
@@ -80,15 +114,7 @@ public class OrderListController implements Initializable {
     }
 
 
-    @FXML public void handleSellerStockButton(){
-        try {
-            com.github.saacsos.FXRouter.goTo("sellerStock",accountList);
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("ไปที่หน้า sellerStock ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
-    }
+
 
     @FXML
     public void handleToSellerButton(ActionEvent actionEvent) {
@@ -169,6 +195,14 @@ public class OrderListController implements Initializable {
     public void handleToOrderPageButton(ActionEvent actionEvent) {
         try {
             com.github.saacsos.FXRouter.goTo("bookOrderOfUser" ,accountList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void handleSellerStockButton(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("sellerStock" ,accountList);
         } catch (IOException e) {
             e.printStackTrace();
         }

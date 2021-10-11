@@ -89,7 +89,7 @@ public class SellerStockController implements Initializable {
     }
 
     @FXML
-    public void handleOrderListButton(){
+    public void handleOrderListButton(ActionEvent actionEvent){
         try {
             com.github.saacsos.FXRouter.goTo("orderList",accountList);
         } catch (IOException e) {
