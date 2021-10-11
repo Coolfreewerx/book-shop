@@ -9,7 +9,7 @@
   <content>
     <AnchorPane>
          <children>
-            <ImageView fitHeight="1200.0" fitWidth="924.5" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <ImageView fitHeight="8000.0" fitWidth="940.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
                   <Image url="@../image/aw2xcbp0rj871.jpg" />
                </image>

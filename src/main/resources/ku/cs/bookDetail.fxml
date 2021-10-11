@@ -20,8 +20,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane onMouseClicked="#handleToBookSortFromShop" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.BookDetailController">
+<AnchorPane onMouseClicked="#handleToBookSortFromShop" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.BookDetailController">
    <children>
       <HBox prefHeight="69.0" prefWidth="1024.0" stylesheets="@style/style.css">
          <children>
@@ -90,9 +91,9 @@
             </HBox>
          </children>
       </HBox>
-      <ScrollPane layoutY="71.0" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <ScrollPane hbarPolicy="NEVER" layoutY="71.0" prefHeight="696.0" prefWidth="1024.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1336.0" prefWidth="1022.0" style="-fx-background-color: white;">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1380.0" prefWidth="1022.0" style="-fx-background-color: white;">
                <children>
                   <HBox layoutX="91.0" layoutY="611.0" prefHeight="46.0" prefWidth="604.0">
                      <children>
@@ -109,11 +110,15 @@
                      </children>
                   </HBox>
                   <HBox prefHeight="38.0" prefWidth="178.0" />
-                  <ImageView fitHeight="36.0" fitWidth="33.0" layoutX="963.0" layoutY="10.0" onMouseClicked="#handleBackToMarket" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@image/BackIcon.png" />
-                     </image>
-                  </ImageView>
+                  <Button layoutX="944.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleBackToMarket" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <ImageView fitHeight="36.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@image/BackIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                   <Button fx:id="sendComment" layoutX="711.0" layoutY="814.0" mnemonicParsing="false" onAction="#handleSendCommentButton" prefHeight="26.0" prefWidth="241.0" style="-fx-background-radius: 20;" text="ส่งความคิดเห็น" textFill="WHITE">
                      <stylesheets>
                         <URL value="@style/PrimaryTheme.css" />
@@ -302,7 +307,7 @@
                   <TextField fx:id="commentTextField" layoutX="83.0" layoutY="713.0" prefHeight="86.0" prefWidth="865.0" promptText="เพิ่มความคิดเห็นที่นี่..." style="-fx-background-radius: 10; -fx-border-color: gray; -fx-border-radius: 10;" styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" />
                   <VBox layoutX="63.0" layoutY="868.0" prefHeight="459.0" prefWidth="902.0" style="-fx-background-color: white;">
                      <children>
-                        <ScrollPane prefHeight="464.0" prefWidth="902.0" style="-fx-background-color: white;">
+                        <ScrollPane hbarPolicy="NEVER" prefHeight="464.0" prefWidth="902.0" style="-fx-background-color: white;">
                            <content>
                               <FlowPane fx:id="commentFlowPane" prefHeight="464.0" prefWidth="902.0" style="-fx-background-color: white;" />
                            </content>
@@ -338,6 +343,16 @@
                         </Label>
                      </children>
                   </HBox>
+                  <Text layoutX="585.0" layoutY="1354.0" strokeType="OUTSIDE" strokeWidth="0.0" text="พบเนื้อหาที่ไม่เหมาะสมใช่หรือไม่ ?">
+                     <font>
+                        <Font name="JasmineUPC" size="20.0" />
+                     </font>
+                  </Text>
+                  <Button layoutX="777.0" layoutY="1334.0" mnemonicParsing="false" onAction="#handleToReportButton" prefHeight="30.0" prefWidth="185.0" style="-fx-background-color: FFFFFF;" stylesheets="@style/PrimaryTheme.css" text="รายงานความไม่เหมาะสม" textFill="#b10000">
+                     <font>
+                        <Font name="JasmineUPC" size="20.0" />
+                     </font>
+                  </Button>
                </children>
             </AnchorPane>
         </content>

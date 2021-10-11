@@ -11,7 +11,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import ku.cs.shop.models.*;
-import ku.cs.shop.services.AccountDataSource;
 import ku.cs.shop.services.ReportingDataSource;
 
 import java.io.File;
@@ -21,9 +20,9 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
 
-public class ReportingController {
-
-    @FXML private ImageView reportImage ;
+public class ReportingInBookDetailController {
+    @FXML
+    private ImageView reportImage ;
     @FXML private TextField userNameTextField ;
     @FXML private ComboBox<String> reportTypeChoice ;
     @FXML private TextField informationTextField ;
@@ -34,6 +33,8 @@ public class ReportingController {
 
     private AccountList accountList;
     private Account account;
+    private Book book;
+    private BookList bookList;
 
     private File selectedImage ;
     private String imageName ;
@@ -41,17 +42,32 @@ public class ReportingController {
     private ReportingList reportingList ;
     private ReportingDataSource reportingDataSource ;
 
-    private BookDetailController bookDetailController;
     private ArrayList<Object> objectForPassing  = new ArrayList<>();
 
     public void initialize(){
-        accountList = (AccountList) com.github.saacsos.FXRouter.getData();
-        account = accountList.getCurrentAccount();
+        objectForPassing = (ArrayList<Object>) com.github.saacsos.FXRouter.getData();
+        castObjectToData();
         reportingDataSource = new ReportingDataSource("csv-data/report.csv") ;
         reportingList = reportingDataSource.readData() ;
         lodeReportTypeData();
     }
 
+    public void castObjectToData() {
+        book = (Book) objectForPassing.get(0);
+        bookList = (BookList) objectForPassing.get(1);
+        account = (Account) objectForPassing.get(2);
+        accountList = (AccountList) objectForPassing.get(3);
+    }
+
+    public ArrayList<Object> castDataToObjectForBookDetail() {
+        objectForPassing.clear();
+        objectForPassing.add(bookList);
+        objectForPassing.add(account);
+        objectForPassing.add(accountList);
+        objectForPassing.add(book);
+
+        return objectForPassing;
+    }
     public void lodeReportTypeData() {
         reportTypeList.removeAll(reportTypeList) ;
         reportTypeList.add("ความคิดเห็นไม่เหมาะสม") ;
@@ -119,22 +135,22 @@ public class ReportingController {
         sendDataToWrite();
 
         try {
-            com.github.saacsos.FXRouter.goTo("accountDetail", accountList);
+            com.github.saacsos.FXRouter.goTo("bookDetail", castDataToObjectForBookDetail());
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า accountDetail ไม่ได้");
+            e.printStackTrace();
+            System.err.println("ไปที่หน้า bookDetail ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
 
     @FXML
-    public void handleToAccountDetailButton(ActionEvent actionEvent) {
+    public void handleToBookDetailButton(ActionEvent actionEvent) {
         try {
-            com.github.saacsos.FXRouter.goTo("accountDetail", accountList);
+            com.github.saacsos.FXRouter.goTo("bookDetail", castDataToObjectForBookDetail());
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า accountDetail ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
             e.printStackTrace();
+            System.err.println("ไปที่หน้า bookDetail ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
-
 }

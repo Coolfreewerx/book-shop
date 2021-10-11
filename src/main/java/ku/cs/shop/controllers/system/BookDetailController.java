@@ -150,7 +150,7 @@ public class BookDetailController
     }
 
     @FXML
-    public void handleBackToMarket() {
+    public void handleBackToMarket(ActionEvent event) {
         try {
             com.github.saacsos.FXRouter.goTo("pageBookType", accountList);
         } catch (IOException e) {
@@ -267,6 +267,18 @@ public class BookDetailController
             com.github.saacsos.FXRouter.goTo("bookDetail", objectForPassing);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    //report
+    @FXML
+    public void handleToReportButton(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("reportingInBookDetail" ,castDataToObject());
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.err.println("ไปที่หน้า report ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
 }
