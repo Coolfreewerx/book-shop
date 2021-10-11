@@ -24,14 +24,17 @@ public class OrderController {
     @FXML private Label contactCustomerLabel;
     @FXML private Label numPriceLabel;
     @FXML private Button editStatusButton;
+    @FXML private Label statusBookLabel;
     @FXML private GridPane gridPaneForPopup;
     private Order order;
+    private OrderList orders;
     private AccountList accountList ;
     private Account account ;
 
-    public void setData(Order order,AccountList accountList) {
+    public void setData(Order order,AccountList accountList,OrderList orders) {
         this.order = order;
         this.accountList = accountList;
+        this.orders = orders;
     }
 
     public void changeData() {
@@ -40,6 +43,7 @@ public class OrderController {
         numBookLabel.setText(order.getTotalBookOrdered() + "");
         nameCustomerLabel.setText(order.getCustomerName());
         contactCustomerLabel.setText(order.getCustomerPhone());
+        statusBookLabel.setText(order.getTrackingNumber());
         bookImageView.setImage(new Image(order.getPicturePath()));
     }
 
@@ -52,7 +56,7 @@ public class OrderController {
 
             gridPaneForPopup.add(fxmlLoader.load(), 0, 0);
             OrderPopUPController orderPopUPController = fxmlLoader.getController();
-            orderPopUPController.setData(this.order,accountList);
+            orderPopUPController.setData(this.order,accountList,this.orders);
             orderPopUPController.changeData();
 
         }catch (IOException e) {

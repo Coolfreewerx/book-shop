@@ -22,24 +22,23 @@ public class OrderPopUPController {
     @FXML private Label customerNamePopUpLabel;
 
     private Order order;
+    private OrderList orders;
     private AccountList accountList ;
     private Account account ;
 
-    public void setData(Order order,AccountList accountList) {
+    public void setData(Order order,AccountList accountList,OrderList orders) {
         this.order = order;
         this.accountList = accountList;
+        this.orders = orders;
     }
 
     public void changeData() {
         bookNamePopUpLabel.setText(this.order.getBookName());
         customerNamePopUpLabel.setText(this.order.getCustomerName());
 
-        DataSource<OrderList> dataSource;
-        dataSource = new OrderDataSource("csv-data/bookOrder.csv");
-        OrderList orderList = dataSource.readData();
-        orderList.editIndexOrderByName(order.getBookName(),order);
-        dataSource.writeData(orderList);
-
+        DataSource<OrderList> dataSource= new OrderDataSource("csv-data/bookOrder.csv");
+//        orders.editIndexOrderByName(order.getBookName(),order);
+        dataSource.writeData(orders);
     }
 
     @FXML

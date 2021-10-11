@@ -20,11 +20,15 @@
                   <Font name="JasmineUPC" size="28.0" />
               </font>
           </Label>
-          <Label fx:id="bookNameLabel" layoutX="340.0" layoutY="68.0" text="โฮริมิยะ สาวมั่นกับนายมืดมน" textFill="#a05e07">
-              <font>
-                  <Font name="JasmineUPC" size="24.0" />
-              </font>
-          </Label>
+      <VBox layoutX="339.689453125" layoutY="68.0">
+         <children>
+                <Label fx:id="bookNameLabel" prefHeight="18.0" prefWidth="318.0" text="โฮริมิยะ สาวมั่นกับนายมืดมน" textFill="#a05e07" wrapText="true">
+                    <font>
+                        <Font name="JasmineUPC" size="24.0" />
+                    </font>
+                </Label>
+         </children>
+      </VBox>
           <Label layoutX="200.0" layoutY="95.0" text="จำนวนสินค้า">
               <font>
                   <Font name="JasmineUPC" size="28.0" />

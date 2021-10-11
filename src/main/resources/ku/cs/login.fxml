@@ -15,7 +15,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: BC986A;" stylesheets="@style/PrimaryTheme.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.user.LoginController">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: BC986A;" stylesheets="@style/PrimaryTheme.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.user.LoginController">
    <children>
       <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#fffae9" height="338.0" layoutX="-7.0" layoutY="430.0" stroke="#fffae9" strokeType="INSIDE" styleClass="bevel-grey" width="1050.0" />
       <QuadCurve controlX="54.26666259765625" controlY="-129.99998474121094" endX="155.13330078125" endY="-6.66668701171875" fill="#fffae9" layoutX="62.0" layoutY="448.0" startX="-83.80001831054688" startY="-16.26666259765625" stroke="#fffae9" strokeType="INSIDE" />
@@ -28,7 +28,7 @@
          </image>
       </ImageView>
       <Rectangle arcHeight="30.0" arcWidth="30.0" fill="WHITE" height="576.0" layoutX="573.0" layoutY="100.0" stroke="WHITE" strokeType="INSIDE" width="386.0" />
-      <Label layoutX="713.0" layoutY="131.0" styleClass="font_jasmine_20pt" text="เข้าสู่ระบบ">
+      <Label layoutX="725.0" layoutY="131.0" styleClass="font_jasmine_20pt" text="เข้าสู่ระบบ">
          <font>
             <Font size="31.0" />
          </font></Label>
@@ -46,7 +46,7 @@
             <Font name="JasmineUPC Bold" size="24.0" />
          </font>
       </Button>
-      <Button layoutX="680.0" layoutY="526.0" mnemonicParsing="false" style="-fx-background-color: ffffff;" text="คุณลืมรหัสผ่านใช่หรือไม่ ?">
+      <Button layoutX="650.0" layoutY="526.0" mnemonicParsing="false" style="-fx-background-color: ffffff;" text="หากคุณลืมรหัสผ่าน กรุณาติดต่อผู้พัฒนา" textFill="#b1afaf">
          <font>
             <Font name="JasmineUPC" size="18.0" />
          </font></Button>

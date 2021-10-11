@@ -35,18 +35,19 @@ public class OrderListController implements Initializable {
     @FXML private Button shippedButton;
     @FXML private Button newOrderButton;
     @FXML private FlowPane flowPaneOrder;
+    private OrderDataSource orderData ;
+    private OrderList orders ;
 
     private BookDetailDataSource data = new BookDetailDataSource("csv-data/bookDetail.csv");
     private BookList books = data.readData();
-
-    private OrderDataSource orderData = new OrderDataSource("csv-data/bookOrder.csv");
-    private OrderList orders = orderData.readData();
 
     private ArrayList<Account> accountsList = new ArrayList<>();
     private AccountList accountList ;
     private Account account ;
 
     public void initialize (URL location, ResourceBundle resource){
+        orderData = new OrderDataSource("csv-data/bookOrder.csv");
+        orders = orderData.readData();
         System.out.println("OrderList Controller " + orders.getOrder(1).getBookName() + " " + orders.getOrder(1).getTrackingNumber() + "");
         accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
         account = accountList.getCurrentAccount() ;
@@ -55,17 +56,18 @@ public class OrderListController implements Initializable {
         pagesHeader();
 
         ArrayList<Order> bookOrderInShop = orders.getOrderByShop(account.getShopName());
+        System.out.println("book Order in shop " + bookOrderInShop.get(0).getBookName() + " " + bookOrderInShop.get(0).getTrackingNumber() );
         flowPaneOrder.getChildren().clear();
-        System.out.println("OrderList Controller num of order in my shop is " + orders.getCountOrderByShop(account.getShopName()));
+        System.out.println("OrderList Controller num of order in my shop is " + orders.getCountOrderByShop(account.getShopName()) );
         try {
             for (int i = 0; i < orders.getCountOrderByShop(account.getShopName()); i++) {
-                if (bookOrderInShop.get(i).getTrackingNumber().equals("ยังไม่ได้จัดส่ง")) {
+                if (bookOrderInShop.get(i).getTrackingNumber().equals("ยังไม่จัดส่ง")) {
                     FXMLLoader fxmlLoader = new FXMLLoader();
                     fxmlLoader.setLocation(getClass().getResource("/ku/cs/newOrder.fxml"));
 
                     flowPaneOrder.getChildren().add(fxmlLoader.load()); // child,col,row
                     OrderController orderController = fxmlLoader.getController();
-                    orderController.setData(bookOrderInShop.get(i), accountList);
+                    orderController.setData(bookOrderInShop.get(i), accountList, orders);
                     orderController.changeData();
                 }
             }
@@ -80,13 +82,13 @@ public class OrderListController implements Initializable {
         ArrayList<Order> bookOrderInShop = orders.getOrderByShop(account.getShopName());
         try {
             for (int i = 0; i < orders.getCountOrderByShop(account.getShopName()); i++) {
-                if (! bookOrderInShop.get(i).getTrackingNumber().equals("ยังไม่ได้จัดส่ง")) {
+                if (! bookOrderInShop.get(i).getTrackingNumber().equals("ยังไม่จัดส่ง")) {
                     FXMLLoader fxmlLoader = new FXMLLoader();
                     fxmlLoader.setLocation(getClass().getResource("/ku/cs/shippedOrder.fxml"));
 
                     flowPaneOrder.getChildren().add(fxmlLoader.load()); // child,col,row
                     OrderController orderController = fxmlLoader.getController();
-                    orderController.setData(bookOrderInShop.get(i), accountList);
+                    orderController.setData(bookOrderInShop.get(i), accountList, orders);
                     orderController.changeData();
                 }
             }
@@ -102,13 +104,13 @@ public class OrderListController implements Initializable {
         ArrayList<Order> bookOrderInShop = orders.getOrderByShop(account.getShopName());
         try {
             for (int i = 0; i < orders.getCountOrderByShop(account.getShopName()); i++) {
-                if (bookOrderInShop.get(i).getTrackingNumber().equals("ยังไม่ได้จัดส่ง")) {
+                if (bookOrderInShop.get(i).getTrackingNumber().equals("ยังไม่จัดส่ง")) {
                     FXMLLoader fxmlLoader = new FXMLLoader();
                     fxmlLoader.setLocation(getClass().getResource("/ku/cs/newOrder.fxml"));
 
                     flowPaneOrder.getChildren().add(fxmlLoader.load()); // child,col,row
                     OrderController orderController = fxmlLoader.getController();
-                    orderController.setData(bookOrderInShop.get(i), accountList);
+                    orderController.setData(bookOrderInShop.get(i), accountList, orders);
                     orderController.changeData();
                 }
             }
