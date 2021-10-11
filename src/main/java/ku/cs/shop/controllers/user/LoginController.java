@@ -1,5 +1,6 @@
 package ku.cs.shop.controllers.user;
 
+import javafx.animation.Timeline;
 import javafx.application.Preloader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -89,6 +90,8 @@ public class LoginController {
         else {
             errorLabel.setTextFill(Color.rgb(210, 39, 30));
         }
+
+
     }
 
     @FXML

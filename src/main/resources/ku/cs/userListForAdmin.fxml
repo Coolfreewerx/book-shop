@@ -18,7 +18,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.user.UserListForAdminController">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.user.UserListForAdminController">
     <children>
         <BorderPane layoutX="-1.0" layoutY="1.0" prefHeight="768.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
@@ -78,10 +78,13 @@
                         <Pane maxHeight="20.0" minHeight="20.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS" />
                         <HBox alignment="CENTER" prefHeight="28.0" prefWidth="200.0">
                            <children>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font_rsu_12pt" text="วันเกิด :  ">
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="วันเกิด :  ">
                                  <HBox.margin>
-                                    <Insets bottom="5.0" />
-                                 </HBox.margin></Text>
+                                    <Insets bottom="5.0" top="7.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="JasmineUPC" size="20.0" />
+                                 </font></Text>
                               <Label fx:id="birthDayLabel" styleClass="font_rsu_12pt" text="Day" textFill="WHITE" />
                               <Pane maxWidth="25.0" minWidth="25.0" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
                               <Label fx:id="birthMonthLabel" styleClass="font_rsu_12pt" text="Month" textFill="WHITE" />
@@ -92,57 +95,78 @@
                         <Pane maxHeight="20.0" minHeight="20.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS" />
                         <HBox alignment="CENTER" prefHeight="28.0" prefWidth="200.0">
                            <children>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font_rsu_12pt" text="เพศ :  ">
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="เพศ :  ">
                                  <HBox.margin>
-                                    <Insets bottom="5.0" />
-                                 </HBox.margin></Text>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="JasmineUPC" size="20.0" />
+                                 </font></Text>
                               <Label fx:id="sexLabel" styleClass="font_rsu_12pt" text="Sex" textFill="WHITE" />
                               <Pane maxWidth="40.0" minWidth="40.0" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font_rsu_12pt" text="เบอร์โทร :  ">
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="เบอร์โทร :  ">
                                  <HBox.margin>
-                                    <Insets bottom="5.0" />
-                                 </HBox.margin></Text>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="JasmineUPC" size="20.0" />
+                                 </font></Text>
                               <Label fx:id="phoneLabel" styleClass="font_rsu_12pt" text="Phone" textFill="WHITE" />
                            </children>
                         </HBox>
                         <Pane maxHeight="20.0" minHeight="20.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS" />
                         <HBox alignment="CENTER" prefHeight="28.0" prefWidth="200.0">
                            <children>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font_rsu_12pt" text="ชื่อร้านค้า :  ">
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อร้านค้า :  ">
                                  <HBox.margin>
-                                    <Insets bottom="5.0" />
-                                 </HBox.margin></Text>
+                                    <Insets top="4.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="JasmineUPC" size="20.0" />
+                                 </font></Text>
                               <Label fx:id="shopNameLabel" styleClass="font_rsu_12pt" text="Shopname" textFill="WHITE" />
                            </children>
                         </HBox>
                         <Pane maxHeight="20.0" minHeight="20.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS" />
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font_rsu_12pt" text="** ที่อยู่ **" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="** ที่อยู่ **">
+                           <font>
+                              <Font name="JasmineUPC" size="20.0" />
+                           </font></Text>
                         <Pane maxHeight="20.0" minHeight="20.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS" />
                         <Label fx:id="addressLabel" alignment="TOP_CENTER" lineSpacing="10.0" maxHeight="58.0" maxWidth="300.0" minHeight="58.0" styleClass="font_rsu_12pt" text="Address" textFill="WHITE" wrapText="true" />
                         <Pane maxHeight="20.0" minHeight="20.0" style="-fx-background-color: transparent;" />
                         <HBox alignment="CENTER_LEFT" maxHeight="32.0" minHeight="32.0" prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <Pane maxWidth="25.0" minWidth="25.0" style="-fx-background-color: transparent;" />
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font_rsu_12pt" text="ใช้งานล่าสุดเมื่อ :  ">
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="ใช้งานล่าสุดเมื่อ :  ">
                                  <HBox.margin>
-                                    <Insets bottom="5.0" />
-                                 </HBox.margin></Text>
+                                    <Insets bottom="5.0" top="5.5" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="JasmineUPC" size="20.0" />
+                                 </font></Text>
                               <Label fx:id="loginTimeLabel" styleClass="font_rsu_12pt" text="Login Time" textFill="WHITE" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" maxHeight="32.0" minHeight="32.0" prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <Pane maxWidth="25.0" minWidth="25.0" style="-fx-background-color: transparent;" />
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font_rsu_12pt" text="สถานะบัญชี :  ">
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="สถานะบัญชี :  ">
                                  <HBox.margin>
-                                    <Insets bottom="5.0" />
-                                 </HBox.margin></Text>
+                                    <Insets bottom="5.0" top="5.5" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="JasmineUPC" size="20.0" />
+                                 </font></Text>
                               <Label fx:id="accountStatusLabel" maxWidth="70.0" minWidth="70.0" styleClass="font_rsu_12pt" text="Working" textFill="WHITE" />
                               <Pane maxWidth="20.0" minWidth="20.0" style="-fx-background-color: transparent;" />
-                              <Text fx:id="tryToLoginText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font_rsu_12pt" text="พยายามเข้าสู่ระบบ :  ">
+                              <Text fx:id="tryToLoginText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="พยายามเข้าสู่ระบบ :  ">
                                  <HBox.margin>
-                                    <Insets bottom="5.0" />
+                                    <Insets bottom="5.0" top="8.5" />
                                  </HBox.margin>
+                                 <font>
+                                    <Font name="JasmineUPC" size="20.0" />
+                                 </font>
                               </Text>
                               <Label fx:id="tryToLoginLabel" styleClass="font_rsu_12pt" text="Try To Login" textFill="WHITE" />
                            </children>
@@ -150,11 +174,20 @@
                         <Pane maxHeight="15.0" minHeight="15.0" style="-fx-background-color: transparent;" />
                         <HBox alignment="CENTER_RIGHT" maxHeight="36.0" prefHeight="100.0" prefWidth="512.0">
                            <children>
-                              <Button mnemonicParsing="false" onAction="#handleUnbanButton" style="-fx-background-color: fff;" text="ปลดบล็อก" textFill="#349400" />
+                              <Button mnemonicParsing="false" onAction="#handleUnbanButton" style="-fx-background-color: fff;" text="ปลดบล็อก" textFill="#349400">
+                                 <font>
+                                    <Font name="JasmineUPC" size="19.0" />
+                                 </font></Button>
                               <Pane maxWidth="25.0" minWidth="25.0" style="-fx-background-color: transparent;" />
-                              <Button mnemonicParsing="false" onAction="#handleBanButton" style="-fx-background-color: ffff;" text="บล็อกการใช้งาน" textFill="#a90000" />
+                              <Button mnemonicParsing="false" onAction="#handleBanButton" style="-fx-background-color: ffff;" text="บล็อกการใช้งาน" textFill="#a90000">
+                                 <font>
+                                    <Font name="JasmineUPC" size="20.0" />
+                                 </font></Button>
                               <Pane maxWidth="25.0" minWidth="25.0" style="-fx-background-color: transparent;" />
-                              <Button maxWidth="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#handleToInformationButton" style="-fx-background-color: black;" text="กลับหน้าบัญชี" textFill="#f99f28" />
+                              <Button maxWidth="125.0" minWidth="80.0" mnemonicParsing="false" onAction="#handleToInformationButton" prefHeight="28.0" prefWidth="125.0" style="-fx-background-color: black;" text="กลับหน้าบัญชี" textFill="#f99f28">
+                                 <font>
+                                    <Font name="JasmineUPC" size="19.0" />
+                                 </font></Button>
                               <Pane maxWidth="25.0" minWidth="25.0" style="-fx-background-color: transparent;" />
                            </children>
                         </HBox>
@@ -165,9 +198,9 @@
                   <VBox alignment="TOP_CENTER" maxWidth="512.0" minWidth="512.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <Pane maxHeight="30.0" minHeight="30.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS" />
-                        <Text fill="WHITE" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font_rsu_18pt" text="รายชื่อบัญชีผู้ใช้งาน">
+                        <Text fill="WHITE" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="รายชื่อบัญชีผู้ใช้งาน">
                            <font>
-                              <Font size="22.0" />
+                              <Font name="JasmineUPC" size="30.0" />
                            </font>
                         </Text>
                         <Pane maxHeight="15.0" minHeight="15.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS" />
@@ -177,9 +210,9 @@
                            </VBox.margin>
                         </ListView>
                         <Pane maxHeight="30.0" minHeight="30.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;" />
-                        <Text fill="WHITE" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font_rsu_18pt" text="รายการความไม่เหมาะสม">
+                        <Text fill="WHITE" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="รายการความไม่เหมาะสม">
                            <font>
-                              <Font size="22.0" />
+                              <Font name="JasmineUPC" size="29.0" />
                            </font>
                         </Text>
                         <Pane maxHeight="15.0" minHeight="15.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;" />

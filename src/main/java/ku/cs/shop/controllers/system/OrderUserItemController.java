@@ -28,7 +28,6 @@ public class OrderUserItemController {
         trakingNumberLabel.setText(order.getTrackingNumber());
         bookShopLabel.setText(order.getBookShop());
         totalPriceLabel.setText(String.format("%.02f", order.getTotalPriceOrdered()) + " Baht.");
-        bookStatusLabel.setText("ยังไม่จัดส่ง");
         bookImg.setImage(new Image(order.getPicturePath()));
     }
 

@@ -105,7 +105,7 @@ public class ConfirmOrderController {
             order.setBookShop(bookDetailController.getBook().getBookShop());
             order.setTotalBookOrdered(Integer.parseInt(inputNumOfBookTextField.getText()));
             order.setTotalPriceOrdered(Double.parseDouble(sumBookPriceLabel.getText()));
-            order.setTrackingNumber(randomStringAtIndexOne + "-" + numberRandomTracking);
+            order.setTrackingNumber("ยังไม่จัดส่ง");
             order.setCustomerName(bookDetailController.getAccount().getUserName());
             order.setCustomerPhone(bookDetailController.getAccount().getPhone());
             order.setTimeOfOrdered(LocalDateTime.now());
