@@ -24,7 +24,7 @@
                      <children>
                         <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@image/Manaul.jpg" />
+                              <Image url="@image/Manual.jpg" />
                            </image>
                         </ImageView>
                         <Rectangle height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" GridPane.rowIndex="1">
