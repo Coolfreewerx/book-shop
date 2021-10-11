@@ -12,15 +12,22 @@ import java.util.ArrayList;
 
 public class ChoiceApplySubtypeBookController {
     private ProvideTypeBook provideTypeBook;
+    private ArrayList<ProvideTypeBook> typeBookArrayList;
 
     @FXML private Label subTypeBookLabel;
     @FXML private TextField subTypeBookTextField;
 
-    public void setData(ProvideTypeBook provideTypeBook){
+    public void setData(ProvideTypeBook provideTypeBook,ArrayList<ProvideTypeBook> typeBookArrayList){
         this.provideTypeBook = provideTypeBook;
+        this.typeBookArrayList = typeBookArrayList;
     }
 
     public void changeData() {
         subTypeBookLabel.setText(provideTypeBook.getSubTypeBook());
+    }
+
+    public void sendBackData() {
+        provideTypeBook.setSubTypeBook(subTypeBookTextField.getText());
+        typeBookArrayList.add(provideTypeBook);
     }
 }

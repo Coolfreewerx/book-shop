@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class Book {
     private String bookName;
@@ -20,13 +21,14 @@ public class Book {
     private int leastStock;
     private double bookPrice;
     private LocalDateTime timeOfAddingBook;
+    private ArrayList<ProvideTypeBook> typeBookArrayList;
 
     //เก็บค่าเริ่มต้น
     public Book() {}
 
     public Book(String bookName, String bookShop, String bookAuthor, String bookISBN, String bookType,
                 String bookDetail, String bookPublisher, String bookImg,
-                int bookStock, String bookPage, int leastStock, double bookPrice, LocalDateTime timeOfAddingBook) {
+                int bookStock, String bookPage, int leastStock, double bookPrice, LocalDateTime timeOfAddingBook,ArrayList<ProvideTypeBook> typeBookArrayList) {
         this.bookName = bookName;
         this.bookShop = bookShop;
         this.bookAuthor = bookAuthor;
@@ -40,6 +42,7 @@ public class Book {
         this.leastStock = leastStock;
         this.bookPrice = bookPrice;
         this.timeOfAddingBook = timeOfAddingBook;
+        this.typeBookArrayList = typeBookArrayList;
     }
 
 
@@ -68,10 +71,8 @@ public class Book {
     public String getBookPage() { return bookPage; }
     public int getLeastStock() { return leastStock; }
     public double getBookPrice() { return bookPrice; }
-
-    public LocalDateTime getTimeOfAddingBook() {
-        return timeOfAddingBook;
-    }
+    public LocalDateTime getTimeOfAddingBook() { return timeOfAddingBook; }
+    public ArrayList<ProvideTypeBook> getTypeBookArrayList() { return typeBookArrayList; }
 
     public void setBookName(String bookName) { this.bookName = bookName; }
     public void setBookShop(String bookShop) { this.bookShop = bookShop; }
@@ -85,9 +86,8 @@ public class Book {
     public void setLeastStock(int leastStock) { this.leastStock = leastStock; }
     public void setBookPrice(double bookPrice) { this.bookPrice = bookPrice; }
     public void setBookPage(String bookPage) { this.bookPage = bookPage; }
-    public void setTimeOfAddingBook(LocalDateTime timeOfAddingBook) {
-        this.timeOfAddingBook = timeOfAddingBook;
-    }
+    public void setTimeOfAddingBook(LocalDateTime timeOfAddingBook) { this.timeOfAddingBook = timeOfAddingBook; }
+    public void setTypeBookArrayList(ArrayList<ProvideTypeBook> typeBookArrayList) { this.typeBookArrayList = typeBookArrayList; }
 
     public String getPicturePath() {
         return new File(System.getProperty("user.dir")

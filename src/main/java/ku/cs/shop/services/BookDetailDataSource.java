@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import com.opencsv.CSVReader;
 import ku.cs.shop.models.Book;
 import ku.cs.shop.models.BookList;
+import ku.cs.shop.models.ProvideTypeBook;
+import ku.cs.shop.models.ProvideTypeBookList;
 
 public class BookDetailDataSource implements DataSource<BookList> {
 
@@ -39,9 +41,16 @@ public class BookDetailDataSource implements DataSource<BookList> {
                 double bookPrice = Double.parseDouble(data[11].trim());
                 LocalDateTime localDateTime = LocalDateTime.parse(data[12].trim(), DateTimeFormatter.ISO_LOCAL_DATE_TIME);
 
-                //while loop max subtype
+                //loop max subtype
+                ProvideTypeBookList provideTypeBookList = new ProvideTypeBookList();
+                ArrayList<ProvideTypeBook> provideTypeBookArrayList = new ArrayList<>();
 
-                Book bookInformation = new Book(bookName,bookShop,bookAuthor,bookISBN,bookType,bookDetail,bookPublisher,bookImg,bookStock,bookPage,leastStock,bookPrice,localDateTime);
+//                for (int i = 13; i <= 13 + provideTypeBookList.maxSizeSubTypeBook(); i++){
+//                    String subTypeBook = data[i].trim();
+//                    provideTypeBookArrayList.add(new ProvideTypeBook(bookType,subTypeBook));
+//                }
+
+                Book bookInformation = new Book(bookName,bookShop,bookAuthor,bookISBN,bookType,bookDetail,bookPublisher,bookImg,bookStock,bookPage,leastStock,bookPrice,localDateTime,provideTypeBookArrayList);
                 bookList.addBook(bookInformation);
             }
 

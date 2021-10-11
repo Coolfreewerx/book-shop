@@ -176,7 +176,7 @@ public class EditBookController {
                 flowPaneSubTypeBook.getChildren().add(fxmlLoader.load());
 
                 ChoiceApplySubtypeBookController choiceApplySubtypeBookController = fxmlLoader.getController();
-                choiceApplySubtypeBookController.setData(provideTypeBookArrayList.get(i));
+                choiceApplySubtypeBookController.setData(provideTypeBookArrayList.get(i),provideTypeBookArrayList);
                 choiceApplySubtypeBookController.changeData();
             }
         } catch (IOException e) {

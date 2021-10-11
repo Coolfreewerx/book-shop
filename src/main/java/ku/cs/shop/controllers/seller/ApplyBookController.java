@@ -62,9 +62,13 @@ public class ApplyBookController {
     @FXML private ImageView userImageView;
     @FXML private FlowPane flowPaneSubTypeBook;
 
+    @FXML private Label subTypeBookLabel;
+    @FXML private TextField subTypeBookTextField;
+
     private File selectedImage;
     private String imageName;
     private String currentType;
+    private ArrayList<ProvideTypeBook> typeBookArrayList = new ArrayList<>();
 
     private ArrayList<Account> accountsList = new ArrayList<>();
     private AccountList accountList ;
@@ -114,7 +118,7 @@ public class ApplyBookController {
     }
 
     public void addBookTypeToMenuItem() {
-        for (String type : books.getBookType()) {
+        for (String type : typeBookList.getSuperTypeBook()) {
             System.out.println("for addBookTypeToMenuItem : " + type);
 
             MenuItem subBookTypeMenuItem = new MenuItem(type);
@@ -131,6 +135,7 @@ public class ApplyBookController {
     }
 
     public void changeBookType(String type){
+        typeBookArrayList.clear();
         flowPaneSubTypeBook.getChildren().clear();
         currentType = type;
         book.setBookType(type);
@@ -152,8 +157,11 @@ public class ApplyBookController {
                 flowPaneSubTypeBook.getChildren().add(fxmlLoader.load());
 
                 ChoiceApplySubtypeBookController choiceApplySubtypeBookController = fxmlLoader.getController();
-                choiceApplySubtypeBookController.setData(provideTypeBookArrayList.get(i));
+                choiceApplySubtypeBookController.setData(provideTypeBookArrayList.get(i), typeBookArrayList);
                 choiceApplySubtypeBookController.changeData();
+                choiceApplySubtypeBookController.sendBackData();
+
+                System.out.println("print text after send back data " + i + " " + typeBookArrayList.get(i).getSubTypeBook());
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -200,6 +208,7 @@ public class ApplyBookController {
         book.setBookStock(Integer.parseInt(bookStockTextField.getText()));
         book.setLeastStock(Integer.parseInt(leastStockTextField.getText()));
         book.setBookPrice(Double.parseDouble(bookPriceTextField.getText()));
+        book.setTypeBookArrayList(typeBookArrayList);
 
         if (seller.getDataCheck(book) && (seller.isBookISBNCorrect(book.getBookISBN())) && (seller.isIntNumber(book.getBookPage()))
                 &&(seller.isIntNumber(bookStockTextField.getText()))&&(seller.isIntNumber(leastStockTextField.getText())) &&(seller.isDoubleNumber(bookPriceTextField.getText()))) {
@@ -209,6 +218,7 @@ public class ApplyBookController {
             dataSource = new BookDetailDataSource("csv-data/bookDetail.csv");
             BookList bookList = dataSource.readData();
             bookList.addBook(book);
+            book.getTypeBookArrayList().get(1).getSubTypeBook();
 
             dataSource.writeData(bookList);
 

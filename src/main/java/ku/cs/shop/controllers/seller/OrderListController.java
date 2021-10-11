@@ -16,6 +16,7 @@ import javafx.scene.layout.Region;
 import ku.cs.shop.controllers.system.OrderController;
 import ku.cs.shop.models.*;
 import ku.cs.shop.services.BookDetailDataSource;
+import ku.cs.shop.services.OrderDataSource;
 
 import java.io.IOException;
 import java.net.URL;
@@ -36,6 +37,9 @@ public class OrderListController implements Initializable {
     private BookDetailDataSource data = new BookDetailDataSource("csv-data/bookDetail.csv");
     private BookList books = data.readData();
 
+    private OrderDataSource orderData = new OrderDataSource("csv-data/bookOrder.csv");
+    private OrderList orders = orderData.readData();
+
     private ArrayList<Account> accountsList = new ArrayList<>();
     private AccountList accountList ;
     private Account account ;
@@ -46,14 +50,18 @@ public class OrderListController implements Initializable {
         userImageView.setImage(new Image(account.getImagePath()));
         int column = 0;
         int row = 1;
+
+        ArrayList<Order> bookOrderInShop = orders.getOrderByShop(account.getShopName());
+
+
         try {
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < orders.getCountOrderByShop(account.getShopName()); i++) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/ku/cs/order.fxml"));
 
                 grid.add(fxmlLoader.load(), column, row++); // child,col,row
                 OrderController orderController = fxmlLoader.getController();
-                orderController.setData(books.getBook(i));
+                orderController.setData(bookOrderInShop.get(i));
                 orderController.changeData();
 
                 grid.setMinWidth(Region.USE_COMPUTED_SIZE);

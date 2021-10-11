@@ -49,9 +49,7 @@ public class ProvideTypeBookList {
         return max;
     }
 
-//    public int numSubTypeBook(String typeBook){
-//        return this.typeBookMap.get(typeBook).size();
-//    }
+    public Set<String> getSuperTypeBook() { return superTypeBook; }
 
     public boolean checkNewTypeBookHaveUsed(String typeBook){
         for(ProvideTypeBook provideTypeBook : this.typeBooks) {

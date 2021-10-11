@@ -6,26 +6,30 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import ku.cs.shop.models.Book;
+import ku.cs.shop.models.Order;
 
 public class OrderController {
     @FXML private ImageView bookImageView;
     @FXML private Label bookNameLabel;
     @FXML private Label numBookLabel;
-    @FXML private Label statusLabel;
     @FXML private Label notificationForStock;
     @FXML private Label nameCustomerLabel;
     @FXML private Label contactCustomerLabel;
     @FXML private Label numPriceLabel;
-    private Book book;
+    @FXML private Button editStatusButton;
+    private Order order;
 
-    public void setData(Book book) {
-        this.book = book;
+    public void setData(Order order) {
+        this.order = order;
     }
 
     public void changeData() {
-        bookNameLabel.setText(book.getBookName());
-        numPriceLabel.setText(book.getBookPrice() + "");
-        bookImageView.setImage(new Image(book.getPicturePath()));
+        bookNameLabel.setText(order.getBookName());
+        numPriceLabel.setText(order.getTotalPriceOrdered() + "");
+        numBookLabel.setText(order.getTotalBookOrdered() + "");
+        nameCustomerLabel.setText(order.getCustomerName());
+        contactCustomerLabel.setText(order.getCustomerPhone());
+        bookImageView.setImage(new Image(order.getPicturePath()));
     }
 
 }

@@ -64,10 +64,8 @@ public class BookList {
 
     public int getCountBookByShop(String nameShop) {
         int count = 0;
-        ArrayList<Book> bookByShop = new ArrayList<>();
         for (Book book : books) {
             if (book.getBookShop().equals(nameShop)) {
-                bookByShop.add(book);
                 count++;
             }
         }
