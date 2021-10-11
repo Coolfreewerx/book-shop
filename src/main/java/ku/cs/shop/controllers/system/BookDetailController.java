@@ -196,7 +196,6 @@ public class BookDetailController
     public void showCommentByBookNameAndShop(String bookName, String bookShop) { //แสดง comment
         commentFlowPane.getChildren().clear();
         ArrayList<Reviews> bookByNameAndShop = reviewsList.getReviewsByBookNameAndShopName(bookName, bookShop);
-        System.out.println(reviewsList.sumOfRatingByBookNameAndBookShop(book.getBookName(),book.getBookShop(),reviews.getBookRating()));
         try {
             for (Reviews reviews : bookByNameAndShop) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
@@ -205,6 +204,7 @@ public class BookDetailController
                 commentFlowPane.getChildren().add(fxmlLoader.load());
                 ItemCommentController itemCommentController = fxmlLoader.getController();
                 itemCommentController.setCommentData(reviews);
+                bookRatingLabel.setText(String.valueOf(String.format("%.02f",reviewsList.averageRating(reviews.getBookName(), reviews.getBookShop()))));
             }
         }
         catch (IOException e) {

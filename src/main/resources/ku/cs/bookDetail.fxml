@@ -91,22 +91,38 @@
             </HBox>
          </children>
       </HBox>
-      <ScrollPane hbarPolicy="NEVER" layoutY="71.0" prefHeight="696.0" prefWidth="1024.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <ScrollPane hbarPolicy="NEVER" layoutY="71.0" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1380.0" prefWidth="1022.0" style="-fx-background-color: white;">
                <children>
-                  <HBox layoutX="91.0" layoutY="611.0" prefHeight="46.0" prefWidth="604.0">
+                  <HBox layoutX="91.0" layoutY="611.0" prefHeight="44.0" prefWidth="604.0">
                      <children>
-                        <Label fx:id="bookRatingLabel" prefHeight="26.0" prefWidth="74.0" styleClass="font_jasmine_25pt" stylesheets="@style/PrimaryTheme.css" text="คะแนน" textFill="#f99f28">
-                           <HBox.margin>
-                              <Insets left="20.0" top="10.0" />
-                           </HBox.margin>
-                        </Label>
-                        <Label styleClass="font_jasmine_25pt" stylesheets="@style/PrimaryTheme.css" text="เต็ม  5" textFill="#f99f28">
-                           <HBox.margin>
-                              <Insets left="10.0" top="10.0" />
-                           </HBox.margin>
-                        </Label>
+                        <FlowPane fx:id="bookRatingFlowPane" prefHeight="44.0" prefWidth="604.0">
+                           <children>
+                              <AnchorPane prefHeight="46.0" prefWidth="604.0">
+                                 <children>
+                                    <HBox layoutX="-66.0" layoutY="-27.0" prefHeight="46.0" prefWidth="111.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+                                       <children>
+                                          <Label fx:id="bookRatingLabel" prefHeight="26.0" prefWidth="89.0" styleClass="font_jasmine_25pt" stylesheets="@style/PrimaryTheme.css" text="คะแนน" textFill="#f99f28" wrapText="true">
+                                             <HBox.margin>
+                                                <Insets left="20.0" top="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="111.0" prefHeight="46.0" prefWidth="140.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="111.0">
+                                       <children>
+                                          <Label styleClass="font_jasmine_25pt" stylesheets="@style/PrimaryTheme.css" text="เต็ม    5" textFill="#f99f28">
+                                             <HBox.margin>
+                                                <Insets top="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </FlowPane>
                      </children>
                   </HBox>
                   <HBox prefHeight="38.0" prefWidth="178.0" />

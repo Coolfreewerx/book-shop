@@ -5,6 +5,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import ku.cs.shop.models.Reviews;
+import ku.cs.shop.models.ReviewsList;
+import ku.cs.shop.services.ReviewsDataSource;
 
 public class ItemCommentController {
     @FXML private Label commentLabel;
@@ -12,6 +14,8 @@ public class ItemCommentController {
     @FXML private Label usernameLabel;
 
     private Reviews reviews;
+    private ReviewsDataSource reviewsDataSource = new ReviewsDataSource("csv-data/reviews.csv") ;
+    private ReviewsList reviewsList = reviewsDataSource.readData();
 
     public void setCommentData(Reviews reviews) {
         this.reviews = reviews;
