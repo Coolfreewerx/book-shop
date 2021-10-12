@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.seller.ApplyToBeASellerController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.seller.ApplyToBeASellerController">
     <children>
         <BorderPane layoutX="-22.0" layoutY="3.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
@@ -164,7 +164,7 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="applyTobeSellerButton" layoutX="257.0" layoutY="320.0" mnemonicParsing="false" onAction="#handleApplyToBeSellerButton" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="สมัครเป็นผู้ขาย" textFill="WHITE">
+                  <Button fx:id="applyTobeSellerButton" layoutX="257.0" layoutY="320.0" mnemonicParsing="false" onAction="#handleApplyToBeSellerButton" style="-fx-background-radius: 10;" styleClass="bevel-orange" stylesheets="@style/PrimaryTheme.css" text="สมัครเป็นผู้ขาย" textFill="WHITE">
                      <font>
                         <Font name="JasmineUPC" size="36.0" />
                      </font>

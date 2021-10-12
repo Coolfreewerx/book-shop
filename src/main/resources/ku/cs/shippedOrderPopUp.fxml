@@ -36,7 +36,7 @@
             <Font name="JasmineUPC" size="18.0" />
          </font>
       </TextField>
-      <Button fx:id="shippedButton" layoutX="119.0" layoutY="155.0" mnemonicParsing="false" onAction="#handleShippedButton" prefHeight="34.0" prefWidth="169.0" style="-fx-background-radius: 20; -fx-background-color: F99F28;" text="ยืนยันการจัดส่งสินค้า" textFill="WHITE">
+      <Button fx:id="shippedButton" layoutX="119.0" layoutY="155.0" mnemonicParsing="false" onAction="#handleShippedButton" prefHeight="34.0" prefWidth="169.0" style="-fx-background-radius: 20;" styleClass="bevel-orange" stylesheets="@style/PrimaryTheme.css" text="ยืนยันการจัดส่งสินค้า" textFill="WHITE">
          <font>
             <Font name="JasmineUPC" size="21.0" />
          </font>

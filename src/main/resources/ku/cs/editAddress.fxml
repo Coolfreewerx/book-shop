@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -11,21 +12,29 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #c9ad88;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.user.EditAddressController">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #c9ad88;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.user.EditAddressController">
    <children>
       <VBox layoutX="282.0" layoutY="33.0" prefHeight="625.0" prefWidth="378.0" style="-fx-background-color: white; -fx-background-radius: 20;">
          <children>
             <AnchorPane prefHeight="625.0" prefWidth="378.0" style="-fx-background-radius: 20; -fx-background-color: white;">
                <children>
-                  <Button layoutX="242.0" layoutY="631.0" mnemonicParsing="false" onAction="#handleGoToInformationPageWhenEditAddress" prefHeight="28.0" prefWidth="74.0" style="-fx-background-color: F99F28;" styleClass="font_jasmine_16pt" stylesheets="@style/PrimaryTheme.css" text="บันทึก" textFill="WHITE">
+                  <Button layoutX="242.0" layoutY="631.0" mnemonicParsing="false" onAction="#handleGoToInformationPageWhenEditAddress" prefHeight="28.0" prefWidth="74.0" style="-fx-background-color: F99F28;" stylesheets="@style/PrimaryTheme.css" text="บันทึก" textFill="WHITE">
                      <font>
                         <Font name="JasmineUPC" size="20.0" />
                      </font>
+                     <styleClass>
+                        <String fx:value="font_jasmine_16pt" />
+                        <String fx:value="bevel-orange" />
+                     </styleClass>
                   </Button>
-                  <Button layoutX="157.0" layoutY="631.0" mnemonicParsing="false" onAction="#handleGotoInformationPageWhenCancelEditAddress" prefHeight="28.0" prefWidth="74.0" style="-fx-background-color: F99F28;" styleClass="font_jasmine_16pt" stylesheets="@style/PrimaryTheme.css" text="ยกเลิก" textFill="WHITE">
+                  <Button layoutX="157.0" layoutY="631.0" mnemonicParsing="false" onAction="#handleGotoInformationPageWhenCancelEditAddress" prefHeight="28.0" prefWidth="74.0" style="-fx-background-color: F99F28;" stylesheets="@style/PrimaryTheme.css" text="ยกเลิก" textFill="WHITE">
                      <font>
                         <Font name="JasmineUPC" size="20.0" />
                      </font>
+                     <styleClass>
+                        <String fx:value="font_jasmine_16pt" />
+                        <String fx:value="bevel-orange" />
+                     </styleClass>
                   </Button>
                   <Text layoutX="152.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="แก้ไขข้อมูลที่อยู่">
                      <font>

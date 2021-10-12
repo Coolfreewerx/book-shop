@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #c9ad88;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.ReportingController">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #c9ad88;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.ReportingController">
    <children>
       <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="690.0" layoutX="262.0" layoutY="39.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="500.0" />
       <ImageView fx:id="reportImage" fitHeight="300.0" fitWidth="450.0" layoutX="287.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
@@ -53,7 +53,7 @@
             <Font name="JasmineUPC" size="24.0" />
          </font>
       </Text>
-      <Button layoutX="492.0" layoutY="684.0" mnemonicParsing="false" onAction="#handleReportButton" prefHeight="28.0" prefWidth="88.0" style="-fx-background-color: F99F28;" text="รายงาน" textFill="WHITE">
+      <Button layoutX="492.0" layoutY="684.0" mnemonicParsing="false" onAction="#handleReportButton" prefHeight="28.0" prefWidth="88.0" style="-fx-background-color: F99F28;" styleClass="bevel-orange" stylesheets="@style/PrimaryTheme.css" text="รายงาน" textFill="WHITE">
          <font>
             <Font name="JasmineUPC" size="18.0" />
          </font>

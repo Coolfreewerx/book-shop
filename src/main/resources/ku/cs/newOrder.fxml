@@ -49,7 +49,7 @@
             <Font name="JasmineUPC" size="24.0" />
          </font>
       </Label>
-        <Button fx:id="editStatusButton" layoutX="560.0" layoutY="190.0" mnemonicParsing="false" onAction="#handleEditOrderButton" prefHeight="34.0" prefWidth="102.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="จัดส่งแล้ว" textFill="WHITE">
+        <Button fx:id="editStatusButton" layoutX="560.0" layoutY="190.0" mnemonicParsing="false" onAction="#handleEditOrderButton" prefHeight="34.0" prefWidth="102.0" style="-fx-background-radius: 10;" styleClass="bevel-orange" stylesheets="@style/PrimaryTheme.css" text="จัดส่งแล้ว" textFill="WHITE">
             <font>
                 <Font name="JasmineUPC" size="22.0" />
             </font>

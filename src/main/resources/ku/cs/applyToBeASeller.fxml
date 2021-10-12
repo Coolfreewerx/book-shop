@@ -20,7 +20,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.seller.ApplyToBeASellerController">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.seller.ApplyToBeASellerController">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -182,7 +182,7 @@
 
       <Line endX="500.666748046875" endY="1.52587890625E-5" layoutX="450.0" layoutY="161.0" startX="-100.0" stroke="#7e4811" />
 
-                  <Button fx:id="submitButton" layoutX="560.0" layoutY="650.0" mnemonicParsing="false" onAction="#handleAddSellerStockButton" prefHeight="51.0" prefWidth="194.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="สมัครเป็นผู้ขาย" textFill="WHITE">
+                  <Button fx:id="submitButton" layoutX="560.0" layoutY="650.0" mnemonicParsing="false" onAction="#handleAddSellerStockButton" prefHeight="51.0" prefWidth="194.0" style="-fx-background-radius: 10;" styleClass="bevel-orange" stylesheets="@style/PrimaryTheme.css" text="สมัครเป็นผู้ขาย" textFill="WHITE">
          <font>
             <Font name="JasmineUPC" size="30.0" />
          </font>

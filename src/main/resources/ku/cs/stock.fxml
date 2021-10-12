@@ -88,7 +88,7 @@
             <Font name="JasmineUPC Bold" size="32.0" />
          </font>
       </Button>
-      <Button layoutX="560.0" layoutY="175.0" mnemonicParsing="false" onAction="#handleEditBookButton" prefHeight="34.0" prefWidth="102.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="แก้ไขข้อมูล" textFill="WHITE">
+      <Button layoutX="560.0" layoutY="175.0" mnemonicParsing="false" onAction="#handleEditBookButton" prefHeight="34.0" prefWidth="102.0" style="-fx-background-radius: 10;" styleClass="bevel-orange" stylesheets="@style/PrimaryTheme.css" text="แก้ไขข้อมูล" textFill="WHITE">
          <font>
             <Font name="JasmineUPC" size="22.0" />
          </font>

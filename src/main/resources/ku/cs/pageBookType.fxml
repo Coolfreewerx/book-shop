@@ -178,7 +178,7 @@
                                     <Insets top="3.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#handleLowPriceToMaxPrice" prefHeight="28.0" prefWidth="134.0" style="-fx-background-radius: 20; -fx-background-color: F99F28;" text="ราคาน้อยไปมาก" textFill="WHITE">
+                              <Button mnemonicParsing="false" onAction="#handleLowPriceToMaxPrice" prefHeight="28.0" prefWidth="134.0" style="-fx-background-radius: 20;" styleClass="bevel-orange" stylesheets="@style/PrimaryTheme.css" text="ราคาน้อยไปมาก" textFill="WHITE">
                                  <font>
                                     <Font name="JasmineUPC" size="20.0" />
                                  </font>
@@ -186,7 +186,7 @@
                                     <Insets right="5.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#handleMaxPriceToLowPrice" prefHeight="28.0" prefWidth="140.0" style="-fx-background-radius: 20; -fx-background-color: F99F28;" text="ราคามากไปน้อย" textFill="WHITE">
+                              <Button mnemonicParsing="false" onAction="#handleMaxPriceToLowPrice" prefHeight="28.0" prefWidth="140.0" style="-fx-background-radius: 20;" styleClass="bevel-orange" stylesheets="@style/PrimaryTheme.css" text="ราคามากไปน้อย" textFill="WHITE">
                                  <font>
                                     <Font name="JasmineUPC" size="20.0" />
                                  </font>

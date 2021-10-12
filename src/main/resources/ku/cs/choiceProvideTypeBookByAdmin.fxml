@@ -22,7 +22,7 @@
          <font>
             <Font name="JasmineUPC" size="28.0" />
          </font></TextField>
-      <Button fx:id="enterTypeBookButton" layoutX="751.0" layoutY="68.0" mnemonicParsing="false" onAction="#handleEnterSubTypeBookButton" style="-fx-background-color: F99F28;" text="ENTER" textFill="WHITE">
+      <Button fx:id="enterTypeBookButton" layoutX="751.0" layoutY="68.0" mnemonicParsing="false" onAction="#handleEnterSubTypeBookButton" styleClass="bevel-orange" stylesheets="@style/PrimaryTheme.css" text="ENTER" textFill="WHITE">
          <font>
             <Font name="JasmineUPC" size="24.0" />
          </font>

@@ -111,7 +111,7 @@
                                                 <Font name="JasmineUPC" size="28.0" />
                                              </font>
                                           </TextField>
-                                          <Button fx:id="checkBookButton" layoutX="750.0" layoutY="81.0" mnemonicParsing="false" onAction="#handleEnterTypeBookButton" prefHeight="43.0" prefWidth="98.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="ENTER" textFill="WHITE">
+                                          <Button fx:id="checkBookButton" layoutX="750.0" layoutY="81.0" mnemonicParsing="false" onAction="#handleEnterTypeBookButton" prefHeight="43.0" prefWidth="98.0" style="-fx-background-radius: 10;" styleClass="bevel-orange" stylesheets="@style/PrimaryTheme.css" text="ENTER" textFill="WHITE">
                                              <font>
                                                 <Font name="JasmineUPC Bold" size="26.0" />
                                              </font>
@@ -144,7 +144,7 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="1024.0" style="-fx-background-color: ffffff;">
                            <children>
-                              <Button fx:id="saveSubtypeBookButton" mnemonicParsing="false" onAction="#handleSaveTypeBookButton" prefHeight="50.0" prefWidth="220.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="บันทึกข้อมูลทั้งหมด" textFill="WHITE">
+                              <Button fx:id="saveSubtypeBookButton" mnemonicParsing="false" onAction="#handleSaveTypeBookButton" prefHeight="50.0" prefWidth="220.0" style="-fx-background-radius: 10;" styleClass="bevel-orange" stylesheets="@style/PrimaryTheme.css" text="บันทึกข้อมูลทั้งหมด" textFill="WHITE">
                                  <font>
                                     <Font name="JasmineUPC Bold" size="26.0" />
                                  </font>
