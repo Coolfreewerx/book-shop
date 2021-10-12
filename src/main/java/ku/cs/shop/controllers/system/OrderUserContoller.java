@@ -48,6 +48,10 @@ public class OrderUserContoller implements Initializable {
         pagesHeader();
 
         userImageView.setImage(new Image(account.getImagePath()));
+        orderByshop();
+    }
+
+    public void orderByshop() {
         ArrayList<Order> orderByName = orderList.getOrderByCustomerName(currentUser);
 
         try {
@@ -61,7 +65,9 @@ public class OrderUserContoller implements Initializable {
             }
         } catch (IOException e) {
             e.printStackTrace();
-    }
+        }
+
+
     }
 
     @FXML
@@ -71,8 +77,6 @@ public class OrderUserContoller implements Initializable {
                 com.github.saacsos.FXRouter.goTo("sellerHaventApply",accountList);
             } catch (IOException e) {
                 e.printStackTrace();
-                System.err.println("ไปที่หน้า sellerHaventApply ไม่ได้");
-                System.err.println("ให้ตรวจสอบการกำหนด route");
             }
         }
         else{
@@ -80,8 +84,6 @@ public class OrderUserContoller implements Initializable {
                 com.github.saacsos.FXRouter.goTo("sellerStock",accountList);
             } catch (IOException e) {
                 e.printStackTrace();
-                System.err.println("ไปที่หน้า sellerHaventApply ไม่ได้");
-                System.err.println("ให้ตรวจสอบการกำหนด route");
             }
         }
     }
@@ -102,8 +104,6 @@ public class OrderUserContoller implements Initializable {
             com.github.saacsos.FXRouter.goTo("accountDetail", accountList);
         } catch (IOException e) {
             e.printStackTrace();
-            System.err.println("ไปที่หน้า accountDetail ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
 
@@ -111,11 +111,11 @@ public class OrderUserContoller implements Initializable {
     public void pagesHeader() {
         usernameInHead.setText(account.getUserName());
         img.setImage(new Image(account.getImagePath()));
-        if(account instanceof AdminAccount){
+        if (account instanceof AdminAccount){
             status.setText("Admin");
-        }else if(account.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")){
+        } else if(account.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")){
             status.setText("User");
-        }else {
+        } else {
             status.setText("Seller");
         }
     }
@@ -137,8 +137,7 @@ public class OrderUserContoller implements Initializable {
         try {
             com.github.saacsos.FXRouter.goTo("login");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า login ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
+            e.printStackTrace();
         }
     }
 
@@ -149,5 +148,48 @@ public class OrderUserContoller implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    void handleCompletedOrderUserButton(ActionEvent event) {
+        ArrayList<Order> orderByName = orderList.getOrderByCustomerName(currentUser);
+        orderListFlowPane.getChildren().clear();
+        for (Order order : orderByName) {
+            if (!order.getTrackingNumber().equals("ยังไม่จัดส่ง")) {
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("/ku/cs/orderUserItem.fxml"));
+
+                    orderListFlowPane.getChildren().add(fxmlLoader.load());
+                    OrderUserItemController orderUserItemController = fxmlLoader.getController();
+                    orderUserItemController.setData(order);
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @FXML
+    void handleNewBookOrderButton(ActionEvent event) {
+        ArrayList<Order> orderByName = orderList.getOrderByCustomerName(currentUser);
+        orderListFlowPane.getChildren().clear();
+        for (Order order : orderByName) {
+            if (order.getTrackingNumber().equals("ยังไม่จัดส่ง")) {
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("/ku/cs/orderUserItem.fxml"));
+
+                    orderListFlowPane.getChildren().add(fxmlLoader.load());
+                    OrderUserItemController orderUserItemController = fxmlLoader.getController();
+                    orderUserItemController.setData(order);
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
     }
 }

@@ -56,9 +56,8 @@ public class OrderListController implements Initializable {
         pagesHeader();
 
         ArrayList<Order> bookOrderInShop = orders.getOrderByShop(account.getShopName());
-        System.out.println("book Order in shop " + bookOrderInShop.get(0).getBookName() + " " + bookOrderInShop.get(0).getTrackingNumber() );
         flowPaneOrder.getChildren().clear();
-        System.out.println("OrderList Controller num of order in my shop is " + orders.getCountOrderByShop(account.getShopName()) );
+
         try {
             for (int i = 0; i < orders.getCountOrderByShop(account.getShopName()); i++) {
                 if (bookOrderInShop.get(i).getTrackingNumber().equals("ยังไม่จัดส่ง")) {

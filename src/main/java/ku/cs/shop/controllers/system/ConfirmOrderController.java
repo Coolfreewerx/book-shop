@@ -33,23 +33,18 @@ public class ConfirmOrderController {
     @FXML private TextField inputNumOfBookTextField;
 
     private Random random = new Random();
-    private int numberRandomTracking = random.nextInt(900000-100000) + 100000;
-
     private Order order = new Order();
+
     private Book book;
     private BookList bookList;
+
     private BookDetailController bookDetailController;
     private int totalBookOrdered;
     private int stockInShop;
     private double costOfBook;
-    private String randomStringAtIndexOne = RandomStringUtils.randomAlphanumeric(2);
 
     private OrderDataSource orderDataSource = new OrderDataSource("csv-data/bookOrder.csv");
     private OrderList orderList = orderDataSource.readData();
-
-    public void setStockInShop(int stockInShop) { this.stockInShop = stockInShop; }
-    public void setCostOfBook(double costOfBook) { this.costOfBook = costOfBook; }
-    public void setTotalBookOrdered(int totalBookOrdered) { this.totalBookOrdered = totalBookOrdered; }
 
     public void setController(BookDetailController book) {
         this.bookDetailController = book;
@@ -65,6 +60,10 @@ public class ConfirmOrderController {
         this.bookList = bookDetailController.getBookList();
         this.book = bookDetailController.getBook();
     }
+
+    public void setStockInShop(int stockInShop) { this.stockInShop = stockInShop; }
+    public void setCostOfBook(double costOfBook) { this.costOfBook = costOfBook; }
+    public void setTotalBookOrdered(int totalBookOrdered) { this.totalBookOrdered = totalBookOrdered; }
 
     public int checkInputNumOfOrder() {
         if (Pattern.matches("[1-9]+[0-9]+" , inputNumOfBookTextField.getText())
@@ -89,12 +88,13 @@ public class ConfirmOrderController {
             noficationItem.setText("");
             sumBookPriceLabel.setText(String.format("%.02f",costOfBook * totalBookOrdered));
              if ( sumBookPriceLabel.getText().equals("0.00")) {
-                 noficationItem.setText("กรุณากรอกจำนวนสินค้าให้ถูกต้อง (มากกว่า 0) ");
+                 noficationItem.setText("กรุณากรอกจำนวนสินค้าให้ถูกต้อง (มากกว่า 0)");
              }
         }
 
         if (book.getBookStock() == 0)
-            noficationItem.setText("    สินค้าในคลังหมดแล้ว กรุณาเลือกสินค้าใหม่");
+            noficationItem.setText("    " +
+                    "สินค้าในคลังหมดแล้ว กรุณาเลือกสินค้าใหม่");
     }
 
     @FXML
@@ -113,12 +113,13 @@ public class ConfirmOrderController {
             if (order.getCustomerPhone().equals("null"))
                 order.setCustomerPhone("ไม่มีข้อมูลการติดต่อ");
 
-            noficationItem.setText("               คุณซื้อหนังสือเล่มนี้สำเร็จ          ");
+            noficationItem.setText("               "
+                    + "คุณซื้อหนังสือเล่มนี้สำเร็จ");
 
             orderList.addOrder(order);
             orderDataSource.writeData(orderList);
-
             book.setBookStock(stockInShop - totalBookOrdered);
+
             BookDetailDataSource bookDetailDataSource = new BookDetailDataSource("csv-data/bookDetail.csv");
             bookDetailDataSource.writeData(bookList);
         }
