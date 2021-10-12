@@ -90,7 +90,7 @@ public class EditBookController {
         imageView.setImage(new Image(book.getPicturePath()));
         pagesHeader();
 
-        changeBookType(book.getBookType());
+//        changeBookType(book.getBookType());
         addBookTypeToMenuItem();
     }
     public void castObjectToData() {
@@ -154,35 +154,35 @@ public class EditBookController {
 
     public void handleSubBookTypeMenuItem(ActionEvent actionEvent) {
         MenuItem menuItem = (MenuItem) actionEvent.getSource();
-        changeBookType(menuItem.getText());
+//        changeBookType(menuItem.getText());
         System.out.println("Click to " + currentType);
     }
 
-    public void changeBookType(String type){
-        flowPaneSubTypeBook.getChildren().clear();
-        currentType = type;
-        book.setBookType(type);
-        menuButton.setText(type);
-        ArrayList<ProvideTypeBook> provideTypeBookArrayList = typeBookList.findSubTypeBook(book.getBookType());
-        int numTypeBookList = typeBookList.numOfSubTypeBook(book.getBookType());
-
-        System.out.println("NumArraylist" + provideTypeBookArrayList.size());
-        System.out.println(provideTypeBookArrayList.get(0).getSuperTypeBook() +  "Arraylist Subtype 1 is " + provideTypeBookArrayList.get(0).getSubTypeBook());
-
-        try {
-            for (int i = 0; i < numTypeBookList ; i++) {
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/ku/cs/choiceApplySubTypeBook.fxml"));
-                flowPaneSubTypeBook.getChildren().add(fxmlLoader.load());
-
-                ChoiceApplySubtypeBookController choiceApplySubtypeBookController = fxmlLoader.getController();
-                choiceApplySubtypeBookController.setData(provideTypeBookArrayList.get(i),provideTypeBookArrayList);
-                choiceApplySubtypeBookController.changeData();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+//    public void changeBookType(String type){
+//        flowPaneSubTypeBook.getChildren().clear();
+//        currentType = type;
+//        book.setBookType(type);
+//        menuButton.setText(type);
+//        ArrayList<ProvideTypeBook> provideTypeBookArrayList = typeBookList.findSubTypeBook(book.getBookType());
+//        int numTypeBookList = typeBookList.numOfSubTypeBook(book.getBookType());
+//
+//        System.out.println("NumArraylist" + provideTypeBookArrayList.size());
+//        System.out.println(provideTypeBookArrayList.get(0).getSuperTypeBook() +  "Arraylist Subtype 1 is " + provideTypeBookArrayList.get(0).getSubTypeBook());
+//
+//        try {
+//            for (int i = 0; i < numTypeBookList ; i++) {
+//                FXMLLoader fxmlLoader = new FXMLLoader();
+//                fxmlLoader.setLocation(getClass().getResource("/ku/cs/choiceApplySubTypeBook.fxml"));
+//                flowPaneSubTypeBook.getChildren().add(fxmlLoader.load());
+//
+//                ChoiceApplySubtypeBookController choiceApplySubtypeBookController = fxmlLoader.getController();
+//                choiceApplySubtypeBookController.setData(provideTypeBookArrayList.get(i),provideTypeBookArrayList,accountList);
+//                choiceApplySubtypeBookController.changeData();
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     @FXML
     public void handleAddImageButton (ActionEvent actionEvent) {

@@ -34,7 +34,6 @@ public class ApplyBookController {
     private BookDetailDataSource data = new BookDetailDataSource("csv-data/bookDetail.csv");
     private BookList books = data.readData();
 
-    @FXML private Label userNameLabel;
     @FXML private Button addImgButton;
     @FXML private TextField bookNameTextField;
     @FXML private TextField bookAuthorTextField;
@@ -81,6 +80,8 @@ public class ApplyBookController {
     public void initialize(){
         accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
         account = accountList.getCurrentAccount() ;
+        System.out.println("account " + account);
+        System.out.println(userImageView);
         userImageView.setImage(new Image(account.getImagePath()));
 
         pagesHeader();
@@ -117,14 +118,13 @@ public class ApplyBookController {
         NotificationBookPrice.setText(seller.checkDoubleNumber(bookPriceTextField.getText()));
     }
 
+
     public void addBookTypeToMenuItem() {
         for (String type : typeBookList.getSuperTypeBook()) {
             System.out.println("for addBookTypeToMenuItem : " + type);
-
             MenuItem subBookTypeMenuItem = new MenuItem(type);
             menuButton.getItems().add(subBookTypeMenuItem);
             subBookTypeMenuItem.setOnAction(this :: handleSubBookTypeMenuItem);
-
         }
     }
 
@@ -142,26 +142,21 @@ public class ApplyBookController {
         menuButton.setText(type);
 
 
-        //Just for test method
-        System.out.println("Max size of type book : " + typeBookList.maxSizeSubTypeBook());
-
         ArrayList<ProvideTypeBook> provideTypeBookArrayList = typeBookList.findSubTypeBook(book.getBookType());
         int numTypeBookList = typeBookList.numOfSubTypeBook(book.getBookType());
         System.out.println("NumArraylist : " + provideTypeBookArrayList.size());
-        System.out.println(provideTypeBookArrayList.get(0).getSuperTypeBook() +  "Arraylist Subtype 1 is " + provideTypeBookArrayList.get(0).getSubTypeBook());
 
         try {
             for (int i = 0; i < numTypeBookList ; i++) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/ku/cs/choiceApplySubTypeBook.fxml"));
+
                 flowPaneSubTypeBook.getChildren().add(fxmlLoader.load());
-
                 ChoiceApplySubtypeBookController choiceApplySubtypeBookController = fxmlLoader.getController();
-                choiceApplySubtypeBookController.setData(provideTypeBookArrayList.get(i), typeBookArrayList);
+                choiceApplySubtypeBookController.setData(provideTypeBookArrayList.get(i),typeBookArrayList,accountList);
                 choiceApplySubtypeBookController.changeData();
-                choiceApplySubtypeBookController.sendBackData();
-
-                System.out.println("print text after send back data " + i + " " + typeBookArrayList.get(i).getSubTypeBook());
+//                ProvideTypeBook provideTypeBook = choiceApplySubtypeBookController.sendDataBack();
+//                typeBookArrayList.add(provideTypeBook);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -196,6 +191,7 @@ public class ApplyBookController {
 
     @FXML
     public void handleAddBookButton(ActionEvent actionEvent){
+        System.out.println("typebookarraylist after sndBackData Loop " + 0 + " " + typeBookArrayList.get(0).getSubTypeBook());
         book.setBookName(bookNameTextField.getText());
         book.setBookAuthor(bookAuthorTextField.getText());
         book.setBookDetail(bookDetailTextArea.getText());
@@ -209,6 +205,7 @@ public class ApplyBookController {
         book.setLeastStock(Integer.parseInt(leastStockTextField.getText()));
         book.setBookPrice(Double.parseDouble(bookPriceTextField.getText()));
         book.setTypeBookArrayList(typeBookArrayList);
+
 
         if (seller.getDataCheck(book) && (seller.isBookISBNCorrect(book.getBookISBN())) && (seller.isIntNumber(book.getBookPage()))
                 &&(seller.isIntNumber(bookStockTextField.getText()))&&(seller.isIntNumber(leastStockTextField.getText())) &&(seller.isDoubleNumber(bookPriceTextField.getText()))) {

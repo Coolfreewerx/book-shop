@@ -105,6 +105,11 @@ public class Book {
 
     public String toCsv(){
         String result = "";
+        String subType = "";
+        for(int i = 0; i < typeBookArrayList.size(); i++){
+            subType += typeBookArrayList.get(i).getSubTypeBook() + ",";
+        }
+
         result = "\"" + bookName.replace("\"","\"\"") + "\""  + ","
                 + "\"" + bookShop.replace("\"","\"\"") + "\"" +  ","
                 + "\"" + bookAuthor.replace("\"","\"\"")  + "\"" + ","
@@ -117,8 +122,7 @@ public class Book {
                 + bookPage + ","
                 + leastStock + ","
                 + bookPrice + ","
-                + timeOfAddingBook.toString() + "\n" ;
-
+                + timeOfAddingBook.toString() + "," + subType + "\n" ;
         return result;
     }
 

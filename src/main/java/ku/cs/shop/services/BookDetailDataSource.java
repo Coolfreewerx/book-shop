@@ -44,12 +44,10 @@ public class BookDetailDataSource implements DataSource<BookList> {
                 //loop max subtype
                 ProvideTypeBookList provideTypeBookList = new ProvideTypeBookList();
                 ArrayList<ProvideTypeBook> provideTypeBookArrayList = new ArrayList<>();
-
-//                for (int i = 13; i <= 13 + provideTypeBookList.maxSizeSubTypeBook(); i++){
-//                    String subTypeBook = data[i].trim();
-//                    provideTypeBookArrayList.add(new ProvideTypeBook(bookType,subTypeBook));
-//                }
-
+                for (int i = 13; i < data.length; i++){
+                    String subTypeBook = data[i].trim();
+                    provideTypeBookArrayList.add(new ProvideTypeBook(bookType,subTypeBook));
+                }
                 Book bookInformation = new Book(bookName,bookShop,bookAuthor,bookISBN,bookType,bookDetail,bookPublisher,bookImg,bookStock,bookPage,leastStock,bookPrice,localDateTime,provideTypeBookArrayList);
                 bookList.addBook(bookInformation);
             }
