@@ -8,7 +8,7 @@
   <content>
     <AnchorPane>
          <children>
-            <ImageView fitHeight="8000.0" fitWidth="940.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <ImageView fitWidth="940.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
                   <Image url="@../image/manualdetail.png" />
                </image>
