@@ -53,12 +53,23 @@ public class AccountDetailController<handleToOrderPageButton> {
         usernameLabel.setText(account.getUserName());
         firstnameLabel.setText(account.getFirstName());
         lastnameLabel.setText(account.getLastName());
+        passwordLabel.setText(setPassword(account.getPassword().length()));
         birthdayLabel.setText(account.getBirthDay());
         birthMonthLabel.setText(account.getBirthMonth());
         birthYearLabel.setText(account.getBirthYear());
         sexLabel.setText(account.getSex().replace("null", "ยังไม่ได้เพิ่มข้อมูลเพศ"));
         phoneLabel.setText(account.getPhone().replace("null", "ยังไม่ได้เพิ่มข้อมูลเบอร์โทร"));
         addressLabel.setText(account.getAddress().replace("null", "ยังไม่ได้เพิ่มข้อมูลที่อยู่"));
+    }
+
+    public String setPassword(int passwordLength) {
+        String password = "" ;
+        int i = 0 ;
+        while (i < passwordLength) {
+            password += "*";
+            i++ ;
+        }
+        return  password ;
     }
 
     @FXML
