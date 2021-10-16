@@ -1,5 +1,7 @@
 package ku.cs.shop.models;
 
+import ku.cs.shop.services.ProvideTypeBookDataSource;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -107,7 +109,7 @@ public class Book {
         String result = "";
         String subType = "";
         for(int i = 0; i < typeBookArrayList.size(); i++){
-            subType += typeBookArrayList.get(i).getSubTypeBook() + ",";
+            subType +=  "," + typeBookArrayList.get(i).getSubTypeBook();
         }
 
         result = "\"" + bookName.replace("\"","\"\"") + "\""  + ","
@@ -122,7 +124,7 @@ public class Book {
                 + bookPage + ","
                 + leastStock + ","
                 + bookPrice + ","
-                + timeOfAddingBook.toString() + "," + subType + "\n" ;
+                + timeOfAddingBook.toString() + subType + "\n" ;
         return result;
     }
 

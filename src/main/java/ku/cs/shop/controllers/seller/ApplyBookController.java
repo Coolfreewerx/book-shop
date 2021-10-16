@@ -75,7 +75,7 @@ public class ApplyBookController {
 
     private ProvideTypeBookDataSource provideTypeBookDataSource = new ProvideTypeBookDataSource("csv-data/provideTypeBookData.csv");
     private ProvideTypeBookList typeBookList = provideTypeBookDataSource.readData();
-    private ProvideTypeBook provideTypeBook = new ProvideTypeBook("","");
+    private ProvideTypeBook provideTypeBook;
 
     public void initialize(){
         accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
@@ -153,7 +153,7 @@ public class ApplyBookController {
 
                 flowPaneSubTypeBook.getChildren().add(fxmlLoader.load());
                 ChoiceApplySubtypeBookController choiceApplySubtypeBookController = fxmlLoader.getController();
-                choiceApplySubtypeBookController.setData(provideTypeBookArrayList.get(i),typeBookArrayList,accountList);
+                choiceApplySubtypeBookController.setData(provideTypeBookArrayList.get(i),typeBookArrayList,accountList,i,typeBookList);
                 choiceApplySubtypeBookController.changeData();
 //                ProvideTypeBook provideTypeBook = choiceApplySubtypeBookController.sendDataBack();
 //                typeBookArrayList.add(provideTypeBook);
@@ -191,7 +191,7 @@ public class ApplyBookController {
 
     @FXML
     public void handleAddBookButton(ActionEvent actionEvent){
-        System.out.println("typebookarraylist after sndBackData Loop " + 0 + " " + typeBookArrayList.get(0).getSubTypeBook());
+//        System.out.println("typebookarraylist after sndBackData Loop " + 0 + " " + typeBookArrayList.get(0).getSubTypeBook());
         book.setBookName(bookNameTextField.getText());
         book.setBookAuthor(bookAuthorTextField.getText());
         book.setBookDetail(bookDetailTextArea.getText());
@@ -205,6 +205,7 @@ public class ApplyBookController {
         book.setLeastStock(Integer.parseInt(leastStockTextField.getText()));
         book.setBookPrice(Double.parseDouble(bookPriceTextField.getText()));
         book.setTypeBookArrayList(typeBookArrayList);
+        seller.setTypeBook(book);
 
 
         if (seller.getDataCheck(book) && (seller.isBookISBNCorrect(book.getBookISBN())) && (seller.isIntNumber(book.getBookPage()))
@@ -215,7 +216,6 @@ public class ApplyBookController {
             dataSource = new BookDetailDataSource("csv-data/bookDetail.csv");
             BookList bookList = dataSource.readData();
             bookList.addBook(book);
-            book.getTypeBookArrayList().get(1).getSubTypeBook();
 
             dataSource.writeData(bookList);
 

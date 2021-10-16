@@ -1,10 +1,13 @@
 package ku.cs.shop.models;
 
+import ku.cs.shop.services.ProvideTypeBookDataSource;
+
 import java.io.*;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 public class Seller{
@@ -91,6 +94,19 @@ public class Seller{
                 book.getBookPublisher().equals("") || book.getBookStatus().equals("") || book.getBookImg().equals("") || (book.getBookStock() == -1) || book.getBookPage().equals("") || (book.getLeastStock() == -1) || (book.getBookPrice() == -1) ){
             return false;
         } else{ return true;}
+    }
+
+    public void setTypeBook(Book book){
+        ProvideTypeBookDataSource provideTypeBookDataSource = new ProvideTypeBookDataSource("csv-data/provideTypeBookData.csv");
+        ProvideTypeBookList typeBookList = provideTypeBookDataSource.readData();
+        if(book.getTypeBookArrayList().size() != typeBookList.numOfSubTypeBook(book.getBookType())){
+            ProvideTypeBook provideTypeBook = new ProvideTypeBook();
+            for(int i = 0; i < typeBookList.numOfSubTypeBook(book.getBookType());i++){
+                provideTypeBook.setSuperTypeBook(book.getBookType());
+                provideTypeBook.setSubTypeBook("ไม่มีรายละเอียด");
+                book.getTypeBookArrayList().add(provideTypeBook);
+            }
+        }
     }
 
     public static void copyImageToPackage(File image, String imageName) {

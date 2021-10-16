@@ -27,23 +27,23 @@ public class ProvideTypeBookList {
     }
 
     public int numOfSubTypeBook(String typeBook){
-        ArrayList<ProvideTypeBook> provideTypeBookArrayList =new ArrayList<>();
+        ArrayList<String> provideSubTypeBookArrayList = new ArrayList<>();
         for(ProvideTypeBook provideTypeBook : typeBooks){
             if (provideTypeBook.getSuperTypeBook().equals(typeBook)){
-                provideTypeBookArrayList.add(provideTypeBook);
+                provideSubTypeBookArrayList.add(provideTypeBook.getSubTypeBook());
             }
         }
-        return provideTypeBookArrayList.size();
+        return provideSubTypeBookArrayList.size();
     }
 
     public int maxSizeSubTypeBook(){
         int max = 0;
-        for(ProvideTypeBook provideTypeBook : typeBooks){
-            if (max == 0){
-                max = numOfSubTypeBook(provideTypeBook.getSuperTypeBook());
+        for(String superType : superTypeBook){
+            if ( max == 0 ){
+                max = 2;
             }
-            else if (numOfSubTypeBook(provideTypeBook.getSuperTypeBook()) > max){
-                max = numOfSubTypeBook(provideTypeBook.getSuperTypeBook());
+            else if ( numOfSubTypeBook(superType) > max ){
+                max = numOfSubTypeBook(superType);
             }
         }
         return max;
