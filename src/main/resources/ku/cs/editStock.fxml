@@ -24,7 +24,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.seller.EditBookController">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.seller.EditBookController">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -115,7 +115,7 @@
                               <Insets left="98.0" />
                            </GridPane.margin>
                         </ImageView>
-                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" stylesheets="@style/PrimaryTheme.css" text="ข้อมูลส่วนตัว" textFill="WHITE" GridPane.rowIndex="1">
+                        <Button mnemonicParsing="false" onAction="#handleToAccountDetailButton" prefHeight="60.0" prefWidth="200.0" stylesheets="@style/PrimaryTheme.css" text="ข้อมูลส่วนตัว" textFill="WHITE" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="70.0" top="10.0" />
                            </GridPane.margin>
@@ -139,7 +139,7 @@
                               <String fx:value="bevel-brown" />
                            </styleClass>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" stylesheets="@style/PrimaryTheme.css" text="ข้อมูลการขาย" textFill="WHITE" GridPane.rowIndex="3">
+                        <Button mnemonicParsing="false" onAction="#handleToSellerButton" prefHeight="60.0" prefWidth="200.0" stylesheets="@style/PrimaryTheme.css" text="ข้อมูลการขาย" textFill="WHITE" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets left="70.0" top="10.0" />
                            </GridPane.margin>
