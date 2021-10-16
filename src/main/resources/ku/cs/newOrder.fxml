@@ -13,7 +13,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.OrderController">
     <children>
-      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#d4c1a8" height="60.0" layoutX="30.0" layoutY="10.0" stroke="WHITE" strokeType="INSIDE" width="482.0" />
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#d4c1a8" height="60.0" layoutX="30.0" layoutY="10.0" stroke="WHITE" strokeType="INSIDE" width="490.0" />
         <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#fffcf1" height="200.0" layoutX="10.0" layoutY="47.0" stroke="WHITE" strokeType="INSIDE" width="665.0" />
           <Label layoutX="200.0" layoutY="65.0" text="ชื่อหนังสือ">
               <font>
@@ -65,7 +65,7 @@
             <Font name="JasmineUPC" size="26.0" />
          </font>
       </Label>
-      <Label fx:id="contactCustomerLabel" layoutX="385.0" layoutY="22.0" text="0815112001">
+      <Label fx:id="contactCustomerLabel" layoutX="365.0" layoutY="22.0" text="ไม่มีข้อมูลการติดต่อ">
          <font>
             <Font name="JasmineUPC" size="24.0" />
          </font>
@@ -80,7 +80,7 @@
             <Font name="JasmineUPC" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="305.0" layoutY="22.0" text="เบอร์โทร">
+      <Label layoutX="285.0" layoutY="22.0" text="เบอร์โทร">
          <font>
             <Font name="JasmineUPC Bold" size="26.0" />
          </font>
