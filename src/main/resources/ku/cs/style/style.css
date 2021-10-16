@@ -22,6 +22,9 @@
 .backgroundColor3{
     -fx-background-color: linear-gradient(#FFE0B8, #FFF1DE);
 }
+.backgroundColor4{
+    -fx-background-color: #FFE0B8;
+}
 .backgroundColorInHeadPages{
     -fx-background-color: #ffe6c9;
 }
@@ -30,4 +33,33 @@
 }
 .backgroundColorOrange{
     -fx-background-color: #F99F28;
+}
+.backgroundColor{
+    -fx-background-color: #FFFAF0;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.toggle-button {
+    -fx-color: #ffffff;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+}
+
+.toggle-button:selected {
+    -fx-background-color:
+            -fx-shadow-highlight-color,
+            linear-gradient(to bottom, -fx-color 0%, -fx-color 0%),
+            linear-gradient(to bottom, -fx-color 0%,-fx-color 0%, -fx-color 0%, -fx-color 0%);
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+}
+
+.toggle-button:selected:focused {
+    -fx-background-color:
+            -fx-focus-color,
+            linear-gradient(to bottom, -fx-color 0%, -fx-color 0%),
+            linear-gradient(to bottom, -fx-color 0%,-fx-color 0%, -fx-color 0%, -fx-color 0%);
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
 }

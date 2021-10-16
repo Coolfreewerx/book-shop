@@ -5,6 +5,8 @@ import ku.cs.shop.models.Reviews;
 import ku.cs.shop.models.ReviewsList;
 
 import java.io.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class ReviewsDataSource implements DataSource<ReviewsList> {
 
@@ -30,8 +32,9 @@ public class ReviewsDataSource implements DataSource<ReviewsList> {
                 String imageName = data[3].trim();
                 String comment = data[4].trim();
                 int bookRating =  Integer.parseInt(data[5].trim());
+                LocalDateTime localDateTime = LocalDateTime.parse(data[6].trim(), DateTimeFormatter.ISO_LOCAL_DATE_TIME);
 
-                Reviews reviews = new Reviews(bookName, bookShop, userName, imageName, comment, bookRating);
+                Reviews reviews = new Reviews(bookName, bookShop, userName, imageName, comment, bookRating, localDateTime);
                 reviewsList.addReviews(reviews);
             }
         }

@@ -85,19 +85,9 @@ public class EditInformationController {
 
     @FXML // ทำงานเมื่อกรอกเบอร์โทร
     public void handleKeyCheckPhoneNumber(){
-//        account.setPhone(phoneNumberTextField.getText());
-//        if(!Account.checkPhoneNumber(account.getPhone())){
-//           account.setPhone("");
-//        }
+        account.setPhone(phoneNumberTextField.getText());
+        if(!account.checkPhoneNumber(account.getPhone())){ account.setPhone("");}
         editPhoneNumberError.setText(account.checkPhoneNumberIsCorrect(account.getPhone()));
-        if (Account.checkPhoneNumber(phoneNumberTextField.getText())){
-            editPhoneNumberError.setText("รหัสผ่านนี้สามารถใช้ได้") ;
-            editPhoneNumberError.setTextFill(Color.rgb(21, 117, 84));
-        }
-        else {
-            editPhoneNumberError.setText("รหัสผ่านไม่ตรงตามรูปแบบที่กำหนด");
-            editPhoneNumberError.setTextFill(Color.rgb(210, 39, 30));
-        }
     }
 
     private void lodeSexData() {
@@ -179,7 +169,7 @@ public class EditInformationController {
         }
     }
 
-    //เช็คการกรอกข้อมูลก่อนสมัคร
+    //เช็คการกรอกข้อมูลก่อนบันทึก
     public String checkData() {
         // ตรวจสอบว่าทุกช่องมีข้อมูล
         if ((firstnameTextField.getText().equals("") || lastnameTextField.getText().equals("")
@@ -191,8 +181,4 @@ public class EditInformationController {
             return " ";
         }
     }
-
-    //else if (phoneNumberTextField.getText().length() != 10 || !Pattern.matches("[0-9]+", phoneNumberTextField.getText())){
-    //            return "เบอร์โทรศัพท์ไม่ถูกต้อง กรุณาตรวจสอบ";
-    //        }
 }

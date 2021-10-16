@@ -6,11 +6,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.*;
 import ku.cs.shop.models.*;
 import ku.cs.shop.services.ReviewsDataSource;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class BookDetailController
@@ -219,7 +219,8 @@ public class BookDetailController
                 account.getUserName(),
                 imageName,
                 commentTextField.getText(),
-                addRating()
+                addRating(),
+                LocalDateTime.now()
         );
 
         reviewsList.addReviews(reviews);
@@ -259,7 +260,7 @@ public class BookDetailController
         return reviews.getBookRating();
     }
 
-    @FXML // บันทึก comment ลง csv
+    @FXML // บันทึก reviews ลง csv
     public void handleSendCommentButton(ActionEvent actionEvent) {
         setImageName();
         sendReviewToWrite();

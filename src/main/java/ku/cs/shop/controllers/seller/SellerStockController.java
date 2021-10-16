@@ -15,11 +15,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import ku.cs.shop.controllers.system.StockController;
 import ku.cs.shop.models.*;
-
 import ku.cs.shop.services.BookDetailDataSource;
-
 import java.io.IOException;
-
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -169,6 +166,15 @@ public class SellerStockController implements Initializable {
     public void handleToOrderPageButton(ActionEvent actionEvent) {
         try {
             com.github.saacsos.FXRouter.goTo("bookOrderOfUser" ,accountList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void handleToPromotionPageButton(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("promotion" ,accountList);
         } catch (IOException e) {
             e.printStackTrace();
         }

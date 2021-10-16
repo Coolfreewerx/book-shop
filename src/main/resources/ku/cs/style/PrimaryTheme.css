@@ -23,6 +23,11 @@
     -fx-font-size: 25pt;
 }
 
+.font_jasmine_30pt {
+    -fx-font-family: 'JasmineUPC';
+    -fx-font-size: 30pt;
+}
+
 .font_rsu_12pt {
     -fx-font-family: 'RSU_Regular' ;
     -fx-font-size : 12pt;

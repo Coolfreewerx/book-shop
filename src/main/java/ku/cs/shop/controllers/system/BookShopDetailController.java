@@ -7,7 +7,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -15,13 +14,11 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.text.Text;
 import ku.cs.shop.models.*;
 import ku.cs.shop.services.BookDetailDataSource;
-import ku.cs.shop.services.BookLowPriceToMaxPriceComparator;
-import ku.cs.shop.services.BookMaxPriceToLowPriceComparator;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import com.github.saacsos.FXRouter;
 
 public class BookShopDetailController<MenuItemCartoon, bookTypeLabel> implements Initializable {
 
@@ -48,7 +45,7 @@ public class BookShopDetailController<MenuItemCartoon, bookTypeLabel> implements
     public void initialize (URL location, ResourceBundle resource){
         System.out.println("Welcome to  Seller Book Page");
 
-        objectForPassing = (ArrayList<Object>) com.github.saacsos.FXRouter.getData();
+        objectForPassing = (ArrayList<Object>) FXRouter.getData();
         castObjectToData();
 
         bookHeadLabel.setText(book.getBookShop() + "");

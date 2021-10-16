@@ -3,29 +3,24 @@ package ku.cs.shop.controllers.user;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import com.github.saacsos.FXRouter;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.GridPane;
-import javafx.scene.paint.Color;
 import ku.cs.shop.models.*;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class AccountDetailController<handleToOrderPageButton> {
 
     @FXML private Label birthdayLabel;
     @FXML private Label birthMonthLabel;
     @FXML private Label birthYearLabel;
+    @FXML private Label passwordLabel;
     @FXML private Label sexLabel;
     @FXML private Label phoneLabel;
     @FXML private Label lastnameLabel;
     @FXML private Label firstnameLabel;
-    @FXML private Label passwordLabel;
     @FXML private Label usernameLabel;
     @FXML private ImageView userImageView ;
     @FXML private Label addressLabel ;
@@ -39,7 +34,7 @@ public class AccountDetailController<handleToOrderPageButton> {
     private Account account;
 
     public void initialize(){
-        accountList = (AccountList) com.github.saacsos.FXRouter.getData();
+        accountList = (AccountList) FXRouter.getData();
         account = accountList.getCurrentAccount();
         showData();
         pagesHeader();
@@ -119,7 +114,7 @@ public class AccountDetailController<handleToOrderPageButton> {
                 com.github.saacsos.FXRouter.goTo("sellerStock",accountList);
             } catch (IOException e) {
                 e.printStackTrace();
-                System.err.println("ไปที่หน้า sellerHaventApply ไม่ได้");
+                System.err.println("ไปที่หน้า sellerStock ไม่ได้");
                 System.err.println("ให้ตรวจสอบการกำหนด route");
             }
         }

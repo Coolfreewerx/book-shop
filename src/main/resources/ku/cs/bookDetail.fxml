@@ -91,7 +91,7 @@
             </HBox>
          </children>
       </HBox>
-      <ScrollPane hbarPolicy="NEVER" layoutY="71.0" prefHeight="696.0" prefWidth="1024.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <ScrollPane hbarPolicy="NEVER" layoutY="71.0" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1380.0" prefWidth="1022.0" style="-fx-background-color: white;">
                <children>
@@ -147,7 +147,7 @@
                   </Button>
                   <HBox layoutX="82.0" layoutY="655.0" prefHeight="54.0" prefWidth="865.0" style="-fx-border-color: gray; -fx-border-radius: 10;">
                      <children>
-                        <Button fx:id="addRatingPlusOne" mnemonicParsing="false" onAction="#handleAddRatingPlusOneButton" prefHeight="54.0" prefWidth="52.0" styleClass="bevel-red" stylesheets="@style/PrimaryTheme.css" text="1">
+                        <Button fx:id="addRatingPlusOne" mnemonicParsing="false" onAction="#handleAddRatingPlusOneButton" prefHeight="51.0" prefWidth="52.0" styleClass="toggle-button" stylesheets="@style/style.css" text="1">
                            <HBox.margin>
                               <Insets left="250.0" />
                            </HBox.margin>
@@ -155,7 +155,7 @@
                               <Font name="JasmineUPC" size="20.0" />
                            </font>
                         </Button>
-                        <Button fx:id="addRatingPlusTwo" mnemonicParsing="false" onAction="#handleAddRatingPlusTwoButton" prefHeight="54.0" prefWidth="52.0" styleClass="bevel-red" stylesheets="@style/PrimaryTheme.css" text="2">
+                        <Button fx:id="addRatingPlusTwo" mnemonicParsing="false" onAction="#handleAddRatingPlusTwoButton" prefHeight="51.0" prefWidth="52.0" styleClass="toggle-button" stylesheets="@style/style.css" text="2">
                            <HBox.margin>
                               <Insets left="10.0" />
                            </HBox.margin>
@@ -163,7 +163,7 @@
                               <Font name="JasmineUPC" size="20.0" />
                            </font>
                         </Button>
-                        <Button fx:id="addRatingPlusThree" mnemonicParsing="false" onAction="#handleAddRatingPlusThreeButton" prefHeight="54.0" prefWidth="52.0" styleClass="bevel-red" stylesheets="@style/PrimaryTheme.css" text="3">
+                        <Button fx:id="addRatingPlusThree" mnemonicParsing="false" onAction="#handleAddRatingPlusThreeButton" prefHeight="51.0" prefWidth="52.0" styleClass="toggle-button" stylesheets="@style/style.css" text="3">
                            <HBox.margin>
                               <Insets left="10.0" />
                            </HBox.margin>
@@ -171,7 +171,7 @@
                               <Font name="JasmineUPC" size="20.0" />
                            </font>
                         </Button>
-                        <Button fx:id="addRatingPlusFour" mnemonicParsing="false" onAction="#handleAddRatingPlusFourButton" prefHeight="54.0" prefWidth="52.0" styleClass="bevel-red" stylesheets="@style/PrimaryTheme.css" text="4">
+                        <Button fx:id="addRatingPlusFour" mnemonicParsing="false" onAction="#handleAddRatingPlusFourButton" prefHeight="51.0" prefWidth="52.0" styleClass="toggle-button" stylesheets="@style/style.css" text="4">
                            <HBox.margin>
                               <Insets left="10.0" />
                            </HBox.margin>
@@ -179,7 +179,7 @@
                               <Font name="JasmineUPC" size="20.0" />
                            </font>
                         </Button>
-                        <Button fx:id="addRatingPlusFive" mnemonicParsing="false" onAction="#handleAddRatingPlusFiveButton" prefHeight="54.0" prefWidth="52.0" styleClass="bevel-red" stylesheets="@style/PrimaryTheme.css" text="5">
+                        <Button fx:id="addRatingPlusFive" mnemonicParsing="false" onAction="#handleAddRatingPlusFiveButton" prefHeight="51.0" prefWidth="52.0" styleClass="toggle-button" stylesheets="@style/style.css" text="5">
                            <HBox.margin>
                               <Insets left="10.0" />
                            </HBox.margin>

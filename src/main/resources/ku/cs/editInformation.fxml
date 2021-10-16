@@ -148,12 +148,12 @@
                      </font>
                   </Text>
                   <ComboBox fx:id="sexChoice" layoutX="41.0" layoutY="583.0" prefHeight="27.0" prefWidth="84.0" promptText="เพศ" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88; -fx-border-radius: 5;" />
-                  <TextField fx:id="phoneNumberTextField" layoutX="41.0" layoutY="513.0" prefHeight="28.0" prefWidth="324.0" promptText="เบอร์โทรศัพท์" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88; -fx-border-radius: 5;">
+                  <TextField fx:id="phoneNumberTextField" layoutX="41.0" layoutY="513.0" onKeyReleased="#handleKeyCheckPhoneNumber" prefHeight="28.0" prefWidth="324.0" promptText="เบอร์โทรศัพท์" style="-fx-background-color: FFFCF1; -fx-border-color: C9AD88; -fx-border-radius: 5;">
                      <font>
                         <Font name="JasmineUPC" size="16.0" />
                      </font>
                   </TextField>
-                  <Label fx:id="editErrorLabel" layoutX="132.0" layoutY="630.0" textFill="RED">
+                  <Label fx:id="editPhoneNumberError" layoutX="44.0" layoutY="545.0" onKeyReleased="#handleKeyCheckPhoneNumber" prefHeight="11.0" prefWidth="182.0" textFill="RED">
                      <font>
                         <Font name="JasmineUPC" size="15.0" />
                      </font>
@@ -163,7 +163,7 @@
                         <Font name="JasmineUPC" size="26.0" />
                      </font>
                   </Text>
-                  <Label fx:id="editPhoneNumberError" layoutX="44.0" layoutY="545.0" onKeyReleased="#handleKeyCheckPhoneNumber" prefHeight="11.0" prefWidth="182.0" textFill="RED">
+                  <Label fx:id="editErrorLabel" layoutX="132.0" layoutY="630.0" textFill="RED">
                      <font>
                         <Font name="JasmineUPC" size="15.0" />
                      </font>

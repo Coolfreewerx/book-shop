@@ -1,8 +1,7 @@
 package ku.cs.shop.models;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
+import ku.cs.shop.services.ReviewsSortByTimeComparator;
+import java.util.*;
 
 public class ReviewsList {
     private ArrayList<Reviews> reviews;
@@ -13,6 +12,7 @@ public class ReviewsList {
 
     public void addReviews(Reviews reviews){
         this.reviews.add(reviews);
+        sort();
     }
 
     public ArrayList<Reviews> getReviewsByBookNameAndShopName(String bookName, String bookShop) {
@@ -51,6 +51,15 @@ public class ReviewsList {
            }
        }
        return averageRating/count;
+    }
+
+    public void sort(Comparator<Reviews> reviewsComparator) {
+        Collections.sort(this.reviews, reviewsComparator);
+    }
+
+    public void sort() {
+        ReviewsSortByTimeComparator reviewsSortByTimeComparator = new ReviewsSortByTimeComparator();
+        sort(reviewsSortByTimeComparator);
     }
 
     public String toCsv() {

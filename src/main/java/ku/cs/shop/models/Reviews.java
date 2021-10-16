@@ -1,6 +1,7 @@
 package ku.cs.shop.models;
 
 import java.io.File;
+import java.time.LocalDateTime;
 
 public class Reviews {
     private String bookName;
@@ -9,16 +10,18 @@ public class Reviews {
     private String imageName ;
     private String comment;
     private int  bookRating;
+    private LocalDateTime timeOfAddingReviews;
 
     public Reviews(){}
 
-    public Reviews(String bookName, String bookShop, String userName, String imageName, String comment, int bookRating){
+    public Reviews(String bookName, String bookShop, String userName, String imageName, String comment, int bookRating, LocalDateTime timeOfAddingReviews){
         this.bookName = bookName;
         this.bookShop = bookShop;
         this.userName = userName;
         this.imageName = imageName;
         this.comment = comment;
         this.bookRating = bookRating;
+        this.timeOfAddingReviews = timeOfAddingReviews;
     }
 
     public String getBookName(){ return bookName; }
@@ -27,11 +30,13 @@ public class Reviews {
     public String getImageName(){ return imageName; }
     public String getComment(){ return comment; }
     public int getBookRating(){ return bookRating; }
+    public LocalDateTime getTimeOfAddingReviews() { return timeOfAddingReviews; }
 
     public void setUserName(String userName) { this.userName = userName; }
     public void setImageName(String imageName) { this.imageName = imageName; }
     public void setComment(String comment) { this.comment = comment; }
     public void setBookRating(int  bookRating){ this.bookRating = bookRating; }
+    public void setTimeOfAddingReviews(LocalDateTime timeOfAddingReviews){ this.timeOfAddingReviews = timeOfAddingReviews; }
 
     // คะแนนรีวิว
     public void addRatingPlusOne () { this.setBookRating(this.bookRating + 1); }
