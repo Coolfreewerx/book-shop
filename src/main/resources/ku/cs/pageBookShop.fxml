@@ -21,7 +21,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.BookShopDetailController">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.BookShopDetailController">
     <children>
         <BorderPane layoutY="52.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
@@ -147,6 +147,19 @@
                                     </GridPane.margin>
                            <children>
                               <HBox spacing="20.0" />
+                              <Button mnemonicParsing="false" onAction="#handleToPromotionPageButton" style="-fx-background-radius: 10;" text="โปรโมชั่น" textFill="WHITE">
+                                 <stylesheets>
+                                    <URL value="@style/PrimaryTheme.css" />
+                                    <URL value="@style/style.css" />
+                                 </stylesheets>
+                                 <styleClass>
+                                    <String fx:value="font_jasmine_16pt" />
+                                    <String fx:value="backgroundColorLightBrownButton" />
+                                 </styleClass>
+                                 <HBox.margin>
+                                    <Insets left="220.0" />
+                                 </HBox.margin>
+                              </Button>
                            </children>
                                 </HBox>
                             </children>

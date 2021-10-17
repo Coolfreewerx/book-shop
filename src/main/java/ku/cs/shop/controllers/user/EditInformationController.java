@@ -86,7 +86,9 @@ public class EditInformationController {
     @FXML // ทำงานเมื่อกรอกเบอร์โทร
     public void handleKeyCheckPhoneNumber(){
         account.setPhone(phoneNumberTextField.getText());
-        if(!account.checkPhoneNumber(account.getPhone())){ account.setPhone("");}
+        if(!account.checkPhoneNumber(account.getPhone())){
+            account.setPhone(" ");
+        }
         editPhoneNumberError.setText(account.checkPhoneNumberIsCorrect(account.getPhone()));
     }
 

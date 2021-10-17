@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -9,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="230.0" prefWidth="695.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" styleClass="backgroundColor1" stylesheets="@style/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.ItemPromotionController">
+<AnchorPane prefHeight="230.0" prefWidth="695.0" style="-fx-background-color: #fffcf1;" stylesheets="@style/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.ItemPromotionController">
    <children>
       <Label layoutX="20.0" layoutY="67.0" prefHeight="18.0" prefWidth="174.0" styleClass="font_jasmine_25pt" stylesheets="@style/PrimaryTheme.css" text="รายละเอียด" />
       <HBox layoutX="18.0" layoutY="136.0" prefHeight="87.0" prefWidth="668.0" style="-fx-border-color: #1d3557; -fx-border-radius: 10;" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="14.0">
@@ -31,7 +30,7 @@
                   <Insets left="20.0" top="14.0" />
                </HBox.margin>
             </Label>
-            <TextField fx:id="codePromotionTextField" prefHeight="48.0" prefWidth="519.0" promptText="Code" style="-fx-border-color: #1d3557; -fx-background-radius: 10; -fx-border-radius: 10;">
+            <TextField fx:id="codePromotionTextField" prefHeight="48.0" prefWidth="519.0" promptText="Code" style="-fx-border-color: #1d3557; -fx-background-color: #fffcf1; -fx-background-radius: 10; -fx-border-radius: 10;" styleClass="font_jasmine_25pt">
                <HBox.margin>
                   <Insets top="5.0" />
                </HBox.margin>
@@ -39,14 +38,10 @@
                   <URL value="@style/style.css" />
                   <URL value="@style/PrimaryTheme.css" />
                </stylesheets>
-               <styleClass>
-                  <String fx:value="font_jasmine_25pt" />
-                  <String fx:value="backgroundColorInHeadPages" />
-               </styleClass>
             </TextField>
          </children>
       </HBox>
-      <HBox layoutX="18.0" layoutY="104.0" prefHeight="30.0" prefWidth="464.0">
+      <HBox layoutX="18.0" layoutY="99.0" prefHeight="30.0" prefWidth="663.0">
          <children>
             <Label styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" text="เมื่อซื้อตั้งแต่">
                <HBox.margin>
@@ -59,6 +54,11 @@
                </HBox.margin>
             </Label>
             <Label styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" text="บาทขึ้นไป">
+               <HBox.margin>
+                  <Insets left="10.0" top="6.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="discountLabel" styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" text="Label">
                <HBox.margin>
                   <Insets left="10.0" top="6.0" />
                </HBox.margin>

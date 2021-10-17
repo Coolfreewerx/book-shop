@@ -139,4 +139,13 @@ public class BookShopDetailController<MenuItemCartoon, bookTypeLabel> implements
             e.printStackTrace();
         }
     }
+
+    @FXML
+    public void handleToPromotionPageButton(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("pagePromotionByBookShop" ,accountList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

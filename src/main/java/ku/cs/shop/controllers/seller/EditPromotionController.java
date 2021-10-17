@@ -66,7 +66,7 @@ public class EditPromotionController {
     @FXML //ทำงานเมื่อกรอก codePromotion
     public void handleKeyCodePromotion() {
         String codePromotion = codePromotionTextField.getText();
-        codePromotionTextField.setText(Promotion.checkCodePromotionCondition(codePromotion));
+        codePromotionWarning.setText(Promotion.checkCodePromotionCondition(codePromotion));
         if (Promotion.getCodePromotionCheck()){
             if (promotionList.checkCodePromotionHaveUsed(codePromotion)) {
                 codePromotionWarning.setText("โค้ดโปรโมชั่นนี้ถูกใช้งานไปแล้ว") ;

@@ -43,6 +43,7 @@ public class Promotion {
     public void setPromotionDetail(String promotionDetail) { this.promotionDetail = promotionDetail; }
     public void setTimeOfAddingPromotion(LocalDateTime timeOfAddingPromotion){ this.timeOfAddingPromotion = timeOfAddingPromotion; }
 
+    // เช็กความถูกต้องของรูปแบบโค้ดส่วนลด
     public static String checkCodePromotionCondition(String codePromotion) {
         if (!Pattern.matches("[a-zA-Z0-9]+", codePromotion)) {
             codePromotionCheck = false ;
@@ -51,24 +52,6 @@ public class Promotion {
         codePromotionCheck = true ;
         return null ;
     }
-
-    // เช็กความถูกต้องของรูปแบบโค้ดส่วนลด
-    public boolean checkCodePromotionCondition1(String codePromotion){
-        if(!Pattern.matches("[a-zA-Z0-9]+", codePromotion)) {
-            return false;
-        }
-        else{
-            return true;
-        }
-    }
-
-//    public String checkCodePromotionIsCorrect(String codePromotion) {
-//        if (checkCodePromotionCondition(codePromotion)) {
-//            return "";
-//        } else {
-//            return "โค้ดโปรโมชั่นไม่ตรงตามรูปแบบที่กำหนด";
-//        }
-//    }
     public String toCsv() {
         return "\"" + shopName + "\"," +
                 "\"" + codePromotion + "\"," + ratePrice + "," +

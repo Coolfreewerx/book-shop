@@ -54,8 +54,8 @@ public class Reviews {
     }
 
     public String toCsv(){
-        return "\"" + bookName + "\"," + "\"" + bookShop + "\"," + userName + "," + imageName + "," + "\"" + comment + "\"" + "," + bookRating;
+        return "\"" + bookName + "\"," + "\"" + bookShop + "\"," + userName + "," + imageName + "," + "\"" + comment + "\"" + "," + bookRating + "," + timeOfAddingReviews;
     }
 
-    public String toString(){ return "\"ชื่อหนังสือ : " + bookName + " ชื่อร้านค้า : " + bookShop + " คะแนน : " + bookRating + "\"";}
+    public String toString(){ return "\"ชื่อหนังสือ : " + bookName + " ชื่อร้านค้า : " + bookShop + " คะแนน : " + bookRating + " เวลา : " + timeOfAddingReviews + "\"";}
 }

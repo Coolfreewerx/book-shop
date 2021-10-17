@@ -13,6 +13,7 @@ public class ItemPromotionController {
     @FXML private TextField codePromotionTextField;
     @FXML private Label promotionDetailLabel;
     @FXML private Label ratePromotionLabel;
+    @FXML private Label discountLabel;
 
     private Promotion promotion;
     private PromotionDataSource promotionDataSource = new PromotionDataSource("csv-data/promotion.csv");
@@ -27,5 +28,10 @@ public class ItemPromotionController {
         codePromotionTextField.setText(promotion.getCodePromotion());
         promotionDetailLabel.setText(promotion.getPromotionDetail());
         ratePromotionLabel.setText(promotion.getRatePrice()+"");
+        if(promotion.getPriceReductionInPercentage() != 0){
+            discountLabel.setText("รับส่วนลด " + promotion.getPriceReductionInPercentage() + " %");
+        }else{
+            discountLabel.setText("รับส่วนลด " + promotion.getPriceReductionInBaht() + " บาท");
+        }
     }
 }

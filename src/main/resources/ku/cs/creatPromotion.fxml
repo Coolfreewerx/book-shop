@@ -191,7 +191,7 @@
                                           <Font name="JasmineUPC" size="32.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="codePromotionTextField" layoutX="55.0" layoutY="149.0" prefHeight="40.0" prefWidth="581.0" style="-fx-background-color: FFFCF1; -fx-background-radius: 10; -fx-alignment: c9ad88;" />
+                                    <TextField fx:id="codePromotionTextField" layoutX="55.0" layoutY="149.0" prefHeight="40.0" prefWidth="581.0" style="-fx-background-color: FFFCF1; -fx-background-radius: 10; -fx-alignment: c9ad88;" onKeyReleased="#handleKeyCodePromotion"/>
                                     <TextField fx:id="ratePromotionTextField" layoutX="55.0" layoutY="245.0" prefHeight="40.0" prefWidth="581.0" style="-fx-background-color: FFFCF1; -fx-background-radius: 10;" />
                                     <Label layoutX="50.0" layoutY="316.0" text="ลดราคาในหน่วยเปอร์เซ็นต์">
                                        <font>
@@ -251,7 +251,12 @@
                                           <Font name="JasmineUPC" size="18.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="codePromotionWarning" layoutX="62.0" layoutY="192.0" prefHeight="14.0" prefWidth="419.0" textFill="RED" onKeyReleased="#handleKeyCodePromotion">
+                                    <Label fx:id="codePromotionWarning" layoutX="62.0" layoutY="192.0" prefHeight="14.0" prefWidth="419.0" textFill="RED">
+                                       <font>
+                                          <Font name="JasmineUPC" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="92.0" layoutY="125.0" text="( โค้ดโปรโมชั่นสามารถประกอบด้วยตัวอักษรภาษาอังกฤษและตัวเลข 0-9 )" textFill="#797979">
                                        <font>
                                           <Font name="JasmineUPC" size="18.0" />
                                        </font>

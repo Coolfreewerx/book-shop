@@ -1,4 +1,4 @@
-package ku.cs.shop.controllers.system;
+package ku.cs.shop.controllers.seller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,7 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.GridPane;
+import ku.cs.shop.controllers.system.ItemPromotionController;
 import ku.cs.shop.models.*;
 import ku.cs.shop.services.PromotionDataSource;
 import com.github.saacsos.FXRouter;
@@ -25,14 +25,11 @@ public class PromotionController {
     @FXML private Label usernameInHead;
     // in promotion detail
     @FXML private FlowPane promotionFlowPane;
-    @FXML private GridPane grid;
 
     Promotion promotion = new Promotion();
 
     private AccountList accountList ;
     private Account account;
-    private Book book;
-    private BookList bookList;
     private PromotionList promotionList;
     private PromotionDataSource promotionDataSource;
 
@@ -45,7 +42,7 @@ public class PromotionController {
         account = accountList.getCurrentAccount() ;
         userImageView.setImage(new Image(account.getImagePath()));
         pagesHeader();
-        showPromotionByBookNameAndShop(account.getShopName());
+        showPromotionByShopName(account.getShopName());
     }
 
     @FXML
@@ -121,7 +118,7 @@ public class PromotionController {
         }
     }
 
-    public void showPromotionByBookNameAndShop(String shopName) { // แสดงโปรโมชั่น
+    public void showPromotionByShopName(String shopName) { // แสดงโปรโมชั่น
         promotionFlowPane.getChildren().clear();
         ArrayList<Promotion> promotionByShopName = promotionList.getPromotionByShopName(shopName);
         try {

@@ -53,6 +53,8 @@ public class App extends Application
         FXRouter.when("reportingInBookDetail", packageStr + "reportingInBookDetail.fxml");
         FXRouter.when("creatPromotion", packageStr + "creatPromotion.fxml");
         FXRouter.when("promotion", packageStr + "promotion.fxml");
+        FXRouter.when("itemPromotion", packageStr + "itemPromotion.fxml");
+        FXRouter.when("pagePromotionByBookShop", packageStr + "pagePromotionByBookShop.fxml");
     }
 
     public static void setRoot(String fxml) throws IOException {
