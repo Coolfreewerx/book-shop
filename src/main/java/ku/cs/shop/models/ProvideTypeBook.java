@@ -26,4 +26,12 @@ public class ProvideTypeBook {
                 + subTypeBook +  "\n" ;
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "ProvideTypeBook{" +
+                "superTypeBook='" + superTypeBook + '\'' +
+                ", subTypeBook='" + subTypeBook + '\'' +
+                '}';
+    }
 }

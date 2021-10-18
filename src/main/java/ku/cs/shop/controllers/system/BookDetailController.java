@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import ku.cs.shop.models.*;
+import ku.cs.shop.services.ProvideTypeBookDataSource;
 import ku.cs.shop.services.ReviewsDataSource;
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -37,6 +38,7 @@ public class BookDetailController
     @FXML private GridPane showPopupGrid;
     @FXML private Label numberOfComments;
     @FXML private Label bookRatingLabel;
+    @FXML private FlowPane showTypeBookFlowPane;
 
     Reviews reviews = new Reviews();
     private AccountList accountList;
@@ -45,6 +47,8 @@ public class BookDetailController
     private BookList bookList;
     private ReviewsList reviewsList;
     private ReviewsDataSource reviewsDataSource;
+    private ProvideTypeBookDataSource provideTypeBookDataSource;
+    private ProvideTypeBookList provideTypeBookList;
     private String imageName;
     private ArrayList<Object> objectForPassing = new ArrayList<>();
 
@@ -52,11 +56,15 @@ public class BookDetailController
     public void initialize()
     {
         objectForPassing = (ArrayList<Object>) com.github.saacsos.FXRouter.getData();
-        reviewsDataSource = new ReviewsDataSource("csv-data/reviews.csv") ;
+        reviewsDataSource = new ReviewsDataSource("csv-data/reviews.csv");
+        provideTypeBookDataSource = new ProvideTypeBookDataSource("csv-data/provideTypeBookData.csv");
         reviewsList = reviewsDataSource.readData();
+        provideTypeBookList = provideTypeBookDataSource.readData();
+        System.out.println(provideTypeBookList);
         castObjectToData();
         showData();
         pagesHeader();
+        addInfoToShowTypeBookFlowPane();
         showCommentByBookNameAndShop(book.getBookName(), book.getBookShop());
         numberOfComments.setText("(" + reviewsList.getCountBookByNameAndShop(book.getBookName(), book.getBookShop()) + ")");
     }
@@ -118,6 +126,26 @@ public class BookDetailController
         } else {
             status.setText("Seller");
         }
+    }
+
+    public void addInfoToShowTypeBookFlowPane() {
+        ArrayList<ProvideTypeBook> provideTypeBooks = provideTypeBookList.findSubTypeBook(book.getBookType());
+        int numOfSubTypeBook = provideTypeBookList.numOfSubTypeBook(book.getBookType());
+        System.out.println(numOfSubTypeBook);
+        try {
+            for(int i = 0  ; i < numOfSubTypeBook ; i++) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/ku/cs/showSubType.fxml"));
+
+                showTypeBookFlowPane.getChildren().add(fxmlLoader.load());
+                ShowSubTypeController showSubTypeController = fxmlLoader.getController();
+                showSubTypeController.changeData(provideTypeBooks,book,i);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return;
     }
 
     public void handleToInformationButton(ActionEvent actionEvent) {

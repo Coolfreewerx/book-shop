@@ -127,8 +127,4 @@ public class Book {
                 + timeOfAddingBook.toString() + subType + "\n" ;
         return result;
     }
-
-
-
-
 }

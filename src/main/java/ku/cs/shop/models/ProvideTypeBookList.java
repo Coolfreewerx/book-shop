@@ -17,12 +17,14 @@ public class ProvideTypeBookList {
     }
 
     public ArrayList<ProvideTypeBook> findSubTypeBook(String typeBook){
-        ArrayList<ProvideTypeBook> provideTypeBookArrayList =new ArrayList<>();
+        System.out.println(typeBook);
+        ArrayList<ProvideTypeBook> provideTypeBookArrayList = new ArrayList<>();
         for(ProvideTypeBook provideTypeBook : typeBooks){
             if (provideTypeBook.getSuperTypeBook().equals(typeBook)){
                 provideTypeBookArrayList.add(provideTypeBook);
             }
         }
+        System.out.println(provideTypeBookArrayList);
         return provideTypeBookArrayList;
     }
 
@@ -68,4 +70,10 @@ public class ProvideTypeBookList {
         return csv;
     }
 
+    @Override
+    public String toString() {
+        return "ProvideTypeBookList{" +
+                ", superTypeBook=" + superTypeBook +
+                '}';
+    }
 }
