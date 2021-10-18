@@ -8,62 +8,66 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="230.0" prefWidth="695.0" style="-fx-background-color: #fffcf1;" stylesheets="@style/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.ItemPromotionController">
+<AnchorPane prefHeight="230.0" prefWidth="675.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.ItemPromotionController">
    <children>
-      <Label layoutX="20.0" layoutY="67.0" prefHeight="18.0" prefWidth="174.0" styleClass="font_jasmine_25pt" stylesheets="@style/PrimaryTheme.css" text="รายละเอียด" />
-      <HBox layoutX="18.0" layoutY="136.0" prefHeight="87.0" prefWidth="668.0" style="-fx-border-color: #1d3557; -fx-border-radius: 10;" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="14.0">
+      <AnchorPane prefHeight="220.0" prefWidth="580.0" style="-fx-background-color: #fffcf1; -fx-background-radius: 20; -fx-border-radius: 20;" stylesheets="@style/style.css" AnchorPane.bottomAnchor="2.5" AnchorPane.leftAnchor="6.5" AnchorPane.rightAnchor="6.5" AnchorPane.topAnchor="2.5">
          <children>
-            <Label fx:id="promotionDetailLabel" prefHeight="20.0" prefWidth="650.0" styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" text="รายละเอียดอื่นๆ" wrapText="true">
-               <HBox.margin>
-                  <Insets left="10.0" top="10.0" />
-               </HBox.margin>
-               <font>
-                  <Font name="JasmineUPC" size="25.0" />
-               </font>
-            </Label>
+            <Label layoutX="16.0" layoutY="65.0" prefHeight="18.0" prefWidth="174.0" styleClass="font_jasmine_25pt" stylesheets="@style/PrimaryTheme.css" text="รายละเอียด" />
+            <HBox layoutX="17.0" layoutY="132.0" prefHeight="87.0" prefWidth="634.0" style="-fx-border-color: #1d3557; -fx-border-radius: 10;" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="17.0">
+               <children>
+                  <Label fx:id="promotionDetailLabel" prefHeight="20.0" prefWidth="650.0" styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" text="รายละเอียดอื่นๆ" wrapText="true">
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="JasmineUPC" size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox layoutX="7.0" layoutY="1.0" prefHeight="55.0" prefWidth="652.0" stylesheets="@style/style.css" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="27.0">
+               <children>
+                  <Label prefHeight="30.0" prefWidth="96.0" styleClass="font_jasmine_30pt" stylesheets="@style/PrimaryTheme.css" text="Code  : ">
+                     <HBox.margin>
+                        <Insets left="10.0" top="14.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="codePromotionTextField" prefHeight="48.0" prefWidth="519.0" promptText="Code" style="-fx-border-color: #1d3557; -fx-background-color: #fffcf1; -fx-background-radius: 10; -fx-border-radius: 10;" styleClass="font_jasmine_25pt">
+                     <HBox.margin>
+                        <Insets top="4.0" />
+                     </HBox.margin>
+                     <stylesheets>
+                        <URL value="@style/style.css" />
+                        <URL value="@style/PrimaryTheme.css" />
+                     </stylesheets>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox layoutX="14.0" layoutY="96.0" prefHeight="30.0" prefWidth="654.0">
+               <children>
+                  <Label styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" text="เมื่อซื้อตั้งแต่">
+                     <HBox.margin>
+                        <Insets left="10.0" top="6.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="ratePromotionLabel" styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" text="price">
+                     <HBox.margin>
+                        <Insets left="10.0" top="6.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" text="บาทขึ้นไป">
+                     <HBox.margin>
+                        <Insets left="10.0" top="6.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="discountLabel" styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" text="Label">
+                     <HBox.margin>
+                        <Insets left="10.0" top="6.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
          </children>
-      </HBox>
-      <HBox layoutX="3.0" layoutY="1.0" prefHeight="55.0" prefWidth="688.0" stylesheets="@style/style.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-         <children>
-            <Label prefHeight="30.0" prefWidth="96.0" styleClass="font_jasmine_30pt" stylesheets="@style/PrimaryTheme.css" text="Code  : ">
-               <HBox.margin>
-                  <Insets left="20.0" top="14.0" />
-               </HBox.margin>
-            </Label>
-            <TextField fx:id="codePromotionTextField" prefHeight="48.0" prefWidth="519.0" promptText="Code" style="-fx-border-color: #1d3557; -fx-background-color: #fffcf1; -fx-background-radius: 10; -fx-border-radius: 10;" styleClass="font_jasmine_25pt">
-               <HBox.margin>
-                  <Insets top="5.0" />
-               </HBox.margin>
-               <stylesheets>
-                  <URL value="@style/style.css" />
-                  <URL value="@style/PrimaryTheme.css" />
-               </stylesheets>
-            </TextField>
-         </children>
-      </HBox>
-      <HBox layoutX="18.0" layoutY="99.0" prefHeight="30.0" prefWidth="663.0">
-         <children>
-            <Label styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" text="เมื่อซื้อตั้งแต่">
-               <HBox.margin>
-                  <Insets left="10.0" top="6.0" />
-               </HBox.margin>
-            </Label>
-            <Label fx:id="ratePromotionLabel" styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" text="price">
-               <HBox.margin>
-                  <Insets left="10.0" top="6.0" />
-               </HBox.margin>
-            </Label>
-            <Label styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" text="บาทขึ้นไป">
-               <HBox.margin>
-                  <Insets left="10.0" top="6.0" />
-               </HBox.margin>
-            </Label>
-            <Label fx:id="discountLabel" styleClass="font_jasmine_20pt" stylesheets="@style/PrimaryTheme.css" text="Label">
-               <HBox.margin>
-                  <Insets left="10.0" top="6.0" />
-               </HBox.margin>
-            </Label>
-         </children>
-      </HBox>
+      </AnchorPane>
    </children>
 </AnchorPane>

@@ -57,6 +57,7 @@ public class EditBookController {
     @FXML private ImageView img;
     @FXML private ImageView logoJavaPai;
     @FXML private FlowPane flowPaneSubTypeBook;
+    @FXML private ImageView userImageView;
 
     private File selectedImage;
     private String imageName;
@@ -92,6 +93,7 @@ public class EditBookController {
 
         addBookTypeToMenuItem();
         changeBookType(book.getBookType());
+        userImageView.setImage(new Image(account.getImagePath()));
     }
     public void castObjectToData() {
         book = (Book) objectForPassing.get(0);

@@ -191,7 +191,7 @@
                                           <Font name="JasmineUPC" size="32.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="codePromotionTextField" layoutX="55.0" layoutY="149.0" prefHeight="40.0" prefWidth="581.0" style="-fx-background-color: FFFCF1; -fx-background-radius: 10; -fx-alignment: c9ad88;" onKeyReleased="#handleKeyCodePromotion"/>
+                                    <TextField fx:id="codePromotionTextField" layoutX="55.0" layoutY="149.0" onKeyReleased="#handleKeyCodePromotion" prefHeight="40.0" prefWidth="581.0" style="-fx-background-color: FFFCF1; -fx-background-radius: 10; -fx-alignment: c9ad88;" />
                                     <TextField fx:id="ratePromotionTextField" layoutX="55.0" layoutY="245.0" prefHeight="40.0" prefWidth="581.0" style="-fx-background-color: FFFCF1; -fx-background-radius: 10;" />
                                     <Label layoutX="50.0" layoutY="316.0" text="ลดราคาในหน่วยเปอร์เซ็นต์">
                                        <font>
@@ -259,6 +259,21 @@
                                     <Label layoutX="92.0" layoutY="125.0" text="( โค้ดโปรโมชั่นสามารถประกอบด้วยตัวอักษรภาษาอังกฤษและตัวเลข 0-9 )" textFill="#797979">
                                        <font>
                                           <Font name="JasmineUPC" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="591.0" layoutY="216.0" text="บาท">
+                                       <font>
+                                          <Font name="JasmineUPC" size="32.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="591.0" layoutY="407.0" text="บาท">
+                                       <font>
+                                          <Font name="JasmineUPC" size="32.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="600.0" layoutY="316.0" text="\%">
+                                       <font>
+                                          <Font name="JasmineUPC" size="32.0" />
                                        </font>
                                     </Label>
                                  </children>

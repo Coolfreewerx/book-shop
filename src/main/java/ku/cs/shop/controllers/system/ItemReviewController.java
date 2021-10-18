@@ -8,7 +8,7 @@ import ku.cs.shop.models.Reviews;
 import ku.cs.shop.models.ReviewsList;
 import ku.cs.shop.services.ReviewsDataSource;
 
-public class ItemCommentController {
+public class ItemReviewController {
     @FXML private Label commentLabel;
     @FXML private ImageView userImageView;
     @FXML private Label usernameLabel;
@@ -17,7 +17,7 @@ public class ItemCommentController {
     private ReviewsDataSource reviewsDataSource = new ReviewsDataSource("csv-data/reviews.csv") ;
     private ReviewsList reviewsList = reviewsDataSource.readData();
 
-    public void setCommentData(Reviews reviews) {
+    public void setReviewData(Reviews reviews) {
         this.reviews = reviews;
         changeData();
     }

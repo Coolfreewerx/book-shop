@@ -45,7 +45,7 @@ public class App extends Application
         FXRouter.when("pageBookShop",packageStr + "pageBookShop.fxml");
         FXRouter.when("forAdmin",packageStr + "userListForAdmin.fxml");
         FXRouter.when("editAddress",packageStr + "editAddress.fxml");
-        FXRouter.when("itemComment",packageStr + "itemComment.fxml");
+        FXRouter.when("itemReview",packageStr + "itemReview.fxml");
         FXRouter.when("provideTypeBookByAdmin",packageStr + "provideTypeBookByAdmin.fxml");
         FXRouter.when("reporting",packageStr + "reporting.fxml");
         FXRouter.when("bookOrderOfUser", packageStr + "bookOrderOfUser.fxml");

@@ -26,8 +26,6 @@ public class PromotionController {
     // in promotion detail
     @FXML private FlowPane promotionFlowPane;
 
-    Promotion promotion = new Promotion();
-
     private AccountList accountList ;
     private Account account;
     private PromotionList promotionList;

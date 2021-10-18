@@ -3,10 +3,8 @@ package ku.cs.shop.controllers.system;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import ku.cs.shop.models.Promotion;
 import ku.cs.shop.models.PromotionList;
-import ku.cs.shop.models.Reviews;
 import ku.cs.shop.services.PromotionDataSource;
 
 public class ItemPromotionController {

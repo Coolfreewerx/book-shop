@@ -34,7 +34,6 @@ public class EditPromotionController {
 
     private AccountList accountList ;
     private Account account;
-    private Promotion promotion;
     private PromotionList promotionList;
     private PromotionDataSource promotionDataSource;
 
@@ -97,6 +96,13 @@ public class EditPromotionController {
 
     @FXML //บันทึกการแก้ไขโปรโมชั่น
     public void handleSavePromotionDataButton(ActionEvent actionEvent) {
+        String shopName = account.getShopName();
+        String codePromotion = codePromotionTextField.getText();
+        Promotion promotion = promotionList.code(shopName, codePromotion);
+        if(promotion != null){
+            promotionDataSource.writeData(promotionList);
+            return;
+        }
         promotionWarningBeforeSaveData.setText(checkData());
         if(!(checkData().equals(" "))) {
             return;

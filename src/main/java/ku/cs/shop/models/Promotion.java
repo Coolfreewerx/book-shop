@@ -63,6 +63,6 @@ public class Promotion {
     @Override
     public String toString() {
         return  "shopName : " + shopName + " โค้ดโปรโมชั่น : " + codePromotion + " ส่วนลด " + priceReductionInPercentage + " เปอร์เซ็นต์ " +
-                priceReductionInBaht + ", " + "ส่วนลด " + promotionDetail + " บาท" + " ซื้อตั้งแต่ : " + ratePrice + "เวลา : " + timeOfAddingPromotion;
+                "ส่วนลด " + priceReductionInBaht + " บาท" + " รายละเอียด " + promotionDetail + " ซื้อตั้งแต่ : " + ratePrice + " บาท" + " เวลา : " + timeOfAddingPromotion;
     }
 }

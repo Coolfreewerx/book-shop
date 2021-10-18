@@ -199,11 +199,11 @@ public class BookDetailController
         try {
             for (Reviews reviews : bookByNameAndShop) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/ku/cs/itemComment.fxml"));
+                fxmlLoader.setLocation(getClass().getResource("/ku/cs/itemReview.fxml"));
 
                 commentFlowPane.getChildren().add(fxmlLoader.load());
-                ItemCommentController itemCommentController = fxmlLoader.getController();
-                itemCommentController.setCommentData(reviews);
+                ItemReviewController itemReviewController = fxmlLoader.getController();
+                itemReviewController.setReviewData(reviews);
                 bookRatingLabel.setText(String.valueOf(String.format("%.02f",reviewsList.averageRating(reviews.getBookName(), reviews.getBookShop()))));
             }
         }

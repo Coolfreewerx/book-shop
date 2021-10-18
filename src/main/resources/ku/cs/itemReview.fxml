@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="194.0" prefWidth="880.0" styleClass="backgroundColorAndBorderColor" stylesheets="@style/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.ItemCommentController">
+<AnchorPane prefHeight="194.0" prefWidth="880.0" styleClass="backgroundColorAndBorderColor" stylesheets="@style/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.ItemReviewController">
    <children>
       <HBox layoutX="10.0" layoutY="50.0" prefHeight="138.0" prefWidth="830.0">
          <children>
