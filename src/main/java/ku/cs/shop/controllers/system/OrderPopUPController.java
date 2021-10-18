@@ -37,7 +37,6 @@ public class OrderPopUPController {
         customerNamePopUpLabel.setText(this.order.getCustomerName());
 
         DataSource<OrderList> dataSource= new OrderDataSource("csv-data/bookOrder.csv");
-//        orders.editIndexOrderByName(order.getBookName(),order);
         dataSource.writeData(orders);
     }
 
@@ -48,8 +47,7 @@ public class OrderPopUPController {
         try {
             com.github.saacsos.FXRouter.goTo("orderList",accountList);
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า login ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
+            e.printStackTrace();
         }
     }
 
@@ -59,8 +57,7 @@ public class OrderPopUPController {
         try {
             com.github.saacsos.FXRouter.goTo("orderList",accountList);
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า login ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
+            e.printStackTrace();
         }
     }
 }

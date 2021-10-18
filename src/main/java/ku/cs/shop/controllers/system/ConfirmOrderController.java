@@ -46,7 +46,6 @@ public class ConfirmOrderController {
         setBookListAndBook();
         promotionDataSource = new PromotionDataSource("csv-data/promotion.csv");
         promotionList = promotionDataSource.readData();
-//        setPromotionAndPromotionList(promotion,promotionList);
 
         bookNameLabel.setText(bookDetailController.getBook().getBookName());
         setCostOfBook(bookDetailController.getBook().getBookPrice());
@@ -61,7 +60,7 @@ public class ConfirmOrderController {
         this.book = bookDetailController.getBook();
     }
 
-    public void setPromotionAndPromotionList(Promotion promotion, PromotionList promotionList){
+    public void setPromotionAndPromotionList(Promotion promotion, PromotionList promotionList) {
         this.promotion = promotion;
         this.promotionList = promotionList;
     }
@@ -104,12 +103,12 @@ public class ConfirmOrderController {
 
     @FXML
     void handleAddCodePromotionInput(ActionEvent event) {
-        if(inputCodePromotion.getText().equals(promotionList.checkPromotionByShopNameAndCode(promotion.getShopName(), promotion.getCodePromotion()))){
-            if(totalBookOrdered > promotion.getRatePrice()){
-                if(promotion.getPriceReductionInPercentage() != 0){
+        if (inputCodePromotion.getText().equals(promotionList.checkPromotionByShopNameAndCode(promotion.getShopName(), promotion.getCodePromotion()))) {
+            if (totalBookOrdered > promotion.getRatePrice()) {
+                if (promotion.getPriceReductionInPercentage() != 0) {
                     totalBookOrderedWhenUseCodePromotion = totalBookOrdered * (promotion.getPriceReductionInPercentage() / 100);
                 }
-                else if (promotion.getPriceReductionInBaht() != 0){
+                else if (promotion.getPriceReductionInBaht() != 0) {
                     totalBookOrderedWhenUseCodePromotion = totalBookOrdered - promotion.getPriceReductionInBaht();
                 }
             }
@@ -119,11 +118,11 @@ public class ConfirmOrderController {
 
     public double showPromotionByShopName(String shopName, String codePromotion) { // แสดงโปรโมชั่น
         ArrayList<Promotion> checkPromotionByShopNameAndCode = promotionList.checkPromotionByShopNameAndCode(shopName, codePromotion);
-        if(inputCodePromotion.getText().equals(checkPromotionByShopNameAndCode) && totalBookOrdered > promotion.getRatePrice()){
-            if(promotion.getPriceReductionInPercentage() != 0){
+        if(inputCodePromotion.getText().equals(checkPromotionByShopNameAndCode) && totalBookOrdered > promotion.getRatePrice()) {
+            if(promotion.getPriceReductionInPercentage() != 0) {
                 totalBookOrderedWhenUseCodePromotion = totalBookOrdered * (promotion.getPriceReductionInPercentage() / 100);
             }
-            else if (promotion.getPriceReductionInBaht() != 0){
+            else if (promotion.getPriceReductionInBaht() != 0) {
                 totalBookOrderedWhenUseCodePromotion = totalBookOrdered - promotion.getPriceReductionInBaht();
             }
         }

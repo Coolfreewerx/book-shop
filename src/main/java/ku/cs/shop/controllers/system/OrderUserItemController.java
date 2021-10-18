@@ -30,5 +30,4 @@ public class OrderUserItemController {
         totalPriceLabel.setText(String.format("%.02f", order.getTotalPriceOrdered()) + " Baht.");
         bookImg.setImage(new Image(order.getPicturePath()));
     }
-
 }

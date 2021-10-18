@@ -131,7 +131,6 @@ public class BookDetailController
     public void addInfoToShowTypeBookFlowPane() {
         ArrayList<ProvideTypeBook> provideTypeBooks = provideTypeBookList.findSubTypeBook(book.getBookType());
         int numOfSubTypeBook = provideTypeBookList.numOfSubTypeBook(book.getBookType());
-        System.out.println(numOfSubTypeBook);
         try {
             for(int i = 0  ; i < numOfSubTypeBook ; i++) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
@@ -190,12 +189,9 @@ public class BookDetailController
     @FXML
     public void handleToBookSortFromShop(ActionEvent actionevent) {
         try {
-            System.out.println("Click to pageBookShop");
             com.github.saacsos.FXRouter.goTo("pageBookShop", castDataToObject());
         } catch (IOException e) {
             e.printStackTrace();
-            System.err.println("ไปที่หน้า pageBookShop ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
 
@@ -205,8 +201,6 @@ public class BookDetailController
             com.github.saacsos.FXRouter.goTo("pageBookType", accountList);
         } catch (IOException e) {
             e.printStackTrace();
-            System.err.println("ไปที่หน้า pageBookType ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
 
