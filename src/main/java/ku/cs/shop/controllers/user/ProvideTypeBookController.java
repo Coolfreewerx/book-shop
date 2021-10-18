@@ -44,7 +44,6 @@ public class ProvideTypeBookController {
         account = accountList.getCurrentAccount() ;
     }
 
-
     @FXML private ImageView logoJavaPai;
     @FXML private Button provideUserButton;
     @FXML private Button provideShopButton;
@@ -91,8 +90,6 @@ public class ProvideTypeBookController {
             notificationCheckTypeBookLabel.setTextFill(Color.GREEN);
             notificationCheckTypeBookLabel.setText("ประเภทหนังสือนี้สามารถเพิ่มได้");
         }
-
-
     }
 
     @FXML
@@ -143,5 +140,4 @@ public class ProvideTypeBookController {
             e.printStackTrace();
         }
     }
-
 }

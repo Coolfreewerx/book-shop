@@ -40,15 +40,6 @@ public class ApplyToBeASellerController { //สมัครเป็นผู้
     @FXML private ImageView logoJavaPai;
     @FXML private ImageView userImageView;
 
-
-//    private Account account = new UserAccount ("Freshmin", "Na", "justmeka", "13082000",
-//            "15", "11", "2001", "default.png", "0823341025", "Women",
-//            "null", "ยังไม่สมัครเป็นผู้ขาย", "working", LocalDateTime.now());
-//    (String firstName, String lastName, String userName, String password,
-//    String birthDay, String birthMonth, String birthYear,
-//    String imageName, String phone, String sex, String address, String shopName,
-//    String status, LocalDateTime loginTime )
-
     private ArrayList<Account> accountsList = new ArrayList<>();
     private AccountList accountList ;
     private Account account ;
@@ -83,6 +74,7 @@ public class ApplyToBeASellerController { //สมัครเป็นผู้
             notificationShopName.setText("") ;
         }
     }
+
     @FXML
     public void handleKeyPassword() {
         notificationPassword1.setText(Account.comparePassword(passwordTextField1.getText(),account.getPassword()));
@@ -101,8 +93,6 @@ public class ApplyToBeASellerController { //สมัครเป็นผู้
         if(shopName != "") {
             DataSource<AccountList> dataSource;
             dataSource = new AccountDataSource("csv-data/accountData.csv");
-//            AccountList accountListForWriteData = dataSource.readData();
-//            accountListForWriteData.editInformationByName(account.getUserName(), account);
             System.out.println(account.getUserName());
             System.out.println(account.getShopName());
             dataSource.writeData(accountList);

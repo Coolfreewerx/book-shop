@@ -14,7 +14,6 @@ public class OrderList {
         orders = new ArrayList<>();
         customerName = new HashSet<>();
         shopName = new HashSet<>();
-
     }
 
     public void addOrder(Order order){

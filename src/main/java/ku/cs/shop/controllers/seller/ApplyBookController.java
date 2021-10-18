@@ -61,9 +61,6 @@ public class ApplyBookController {
     @FXML private ImageView userImageView;
     @FXML private FlowPane flowPaneSubTypeBook;
 
-    @FXML private Label subTypeBookLabel;
-    @FXML private TextField subTypeBookTextField;
-
     private File selectedImage;
     private File selectedImageForCopy ;
     private String imageName;
@@ -84,8 +81,6 @@ public class ApplyBookController {
 
         accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
         account = accountList.getCurrentAccount() ;
-        System.out.println("account " + account);
-        System.out.println(userImageView);
         userImageView.setImage(new Image(account.getImagePath()));
 
         pagesHeader();
@@ -125,7 +120,6 @@ public class ApplyBookController {
 
     public void addBookTypeToMenuItem() {
         for (String type : typeBookList.getSuperTypeBook()) {
-            System.out.println("for addBookTypeToMenuItem : " + type);
             MenuItem subBookTypeMenuItem = new MenuItem(type);
             menuButton.getItems().add(subBookTypeMenuItem);
             subBookTypeMenuItem.setOnAction(this :: handleSubBookTypeMenuItem);
@@ -135,7 +129,6 @@ public class ApplyBookController {
     public void handleSubBookTypeMenuItem(ActionEvent actionEvent) {
         MenuItem menuItem = (MenuItem) actionEvent.getSource();
         changeBookType(menuItem.getText());
-        System.out.println("Click to " + currentType);
     }
 
     public void changeBookType(String type){
@@ -145,10 +138,8 @@ public class ApplyBookController {
         book.setBookType(type);
         menuButton.setText(type);
 
-
         ArrayList<ProvideTypeBook> provideTypeBookArrayList = typeBookList.findSubTypeBook(book.getBookType());
         int numTypeBookList = typeBookList.numOfSubTypeBook(book.getBookType());
-        System.out.println("NumArraylist : " + provideTypeBookArrayList.size());
 
         try {
             for (int i = 0; i < numTypeBookList ; i++) {
@@ -159,8 +150,6 @@ public class ApplyBookController {
                 ChoiceApplySubtypeBookController choiceApplySubtypeBookController = fxmlLoader.getController();
                 choiceApplySubtypeBookController.setData(provideTypeBookArrayList.get(i),typeBookArrayList,accountList,i,typeBookList);
                 choiceApplySubtypeBookController.changeData();
-//                ProvideTypeBook provideTypeBook = choiceApplySubtypeBookController.sendDataBack();
-//                typeBookArrayList.add(provideTypeBook);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -197,22 +186,7 @@ public class ApplyBookController {
 
     @FXML
     public void handleAddBookButton(ActionEvent actionEvent){
-//        System.out.println("typebookarraylist after sndBackData Loop " + 0 + " " + typeBookArrayList.get(0).getSubTypeBook());
-        book.setBookName(bookNameTextField.getText());
-        book.setBookAuthor(bookAuthorTextField.getText());
-        book.setBookDetail(bookDetailTextArea.getText());
-        book.setBookPublisher(bookPublisherTextField.getText());
-        book.setBookShop(account.getShopName());
-        book.setTimeOfAddingBook(LocalDateTime.now());
-
-        book.setBookISBN(bookISBNTextField.getText());
-        book.setBookPage(bookPageTextField.getText());
-        book.setBookStock(Integer.parseInt(bookStockTextField.getText()));
-        book.setLeastStock(Integer.parseInt(leastStockTextField.getText()));
-        book.setBookPrice(Double.parseDouble(bookPriceTextField.getText()));
-        book.setTypeBookArrayList(typeBookArrayList);
-        seller.setTypeBook(book);
-
+        setAddData();
 
         if (seller.getDataCheck(book) && (seller.isBookISBNCorrect(book.getBookISBN())) && (seller.isIntNumber(book.getBookPage()))
                 &&(seller.isIntNumber(bookStockTextField.getText()))&&(seller.isIntNumber(leastStockTextField.getText())) &&(seller.isDoubleNumber(bookPriceTextField.getText()))
@@ -232,13 +206,24 @@ public class ApplyBookController {
             }
         } else{
             NotificationCantAdd.setText("เพิ่มสินค้าไม่ได้ กรุณาตรวจสอบข้อมูลอีกครั้ง");
-            System.out.println("seller.getDataCheck(book) " + seller.getDataCheck(book) );
-            System.out.println("seller.isBookISBNCorrect(book.getBookISBN()) " + seller.isBookISBNCorrect(book.getBookISBN()));
-            System.out.println("seller.isNumber(book.getBookPage() " + seller.isIntNumber(book.getBookPage()));
-            System.out.println("seller.isNumber(bookStockTextField.getText()) " + seller.isIntNumber(bookStockTextField.getText()));
-            System.out.println("seller.isNumber(leastStockTextField.getText()) " + seller.isIntNumber(leastStockTextField.getText()));
-            System.out.println("seller.isNumber(bookPriceTextField.getText()) " + seller.isDoubleNumber(bookPriceTextField.getText()));
         }
+    }
+
+    public void setAddData(){
+        book.setBookName(bookNameTextField.getText());
+        book.setBookAuthor(bookAuthorTextField.getText());
+        book.setBookDetail(bookDetailTextArea.getText());
+        book.setBookPublisher(bookPublisherTextField.getText());
+        book.setBookShop(account.getShopName());
+        book.setTimeOfAddingBook(LocalDateTime.now());
+
+        book.setBookISBN(bookISBNTextField.getText());
+        book.setBookPage(bookPageTextField.getText());
+        book.setBookStock(Integer.parseInt(bookStockTextField.getText()));
+        book.setLeastStock(Integer.parseInt(leastStockTextField.getText()));
+        book.setBookPrice(Double.parseDouble(bookPriceTextField.getText()));
+        book.setTypeBookArrayList(typeBookArrayList);
+        seller.setTypeBook(book);
     }
 
     @FXML public void handleSellerStockButton(){
@@ -264,7 +249,7 @@ public class ApplyBookController {
     }
 
     @FXML
-    public void handleToSellerButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า home
+    public void handleToSellerButton(ActionEvent actionEvent) {
         if (account.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")) {
             try {
                 com.github.saacsos.FXRouter.goTo("sellerHaventApply",accountList);
@@ -305,7 +290,6 @@ public class ApplyBookController {
             status.setText("Seller");
         }
     }
-
 
     @FXML
     public void mouseClickedInLogo(MouseEvent event){ // คลิกที่ logo แล้วจะไปหน้า home

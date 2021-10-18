@@ -16,7 +16,6 @@ public class Seller{
     private Book book;
     public Seller() { }
 
-
     public String isBookShopNameCanUsed(String bookshop) {
         if (isNameBookShopHaveUsed(bookshop)) {
             this.bookShopCheck = false;

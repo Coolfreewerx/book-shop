@@ -92,7 +92,6 @@ public class StockController  {
         return objectForPassing;
     }
 
-
     @FXML
     public void handleEditBookButton(){
         try {

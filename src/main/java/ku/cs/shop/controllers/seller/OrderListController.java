@@ -35,6 +35,7 @@ public class OrderListController implements Initializable {
     @FXML private Button shippedButton;
     @FXML private Button newOrderButton;
     @FXML private FlowPane flowPaneOrder;
+
     private OrderDataSource orderData ;
     private OrderList orders ;
 
@@ -48,7 +49,6 @@ public class OrderListController implements Initializable {
     public void initialize (URL location, ResourceBundle resource){
         orderData = new OrderDataSource("csv-data/bookOrder.csv");
         orders = orderData.readData();
-        System.out.println("OrderList Controller " + orders.getOrder(1).getBookName() + " " + orders.getOrder(1).getTrackingNumber() + "");
         accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
         account = accountList.getCurrentAccount() ;
 
@@ -119,9 +119,6 @@ public class OrderListController implements Initializable {
             e.printStackTrace();
         }
     }
-
-
-
 
     @FXML
     public void handleToSellerButton(ActionEvent actionEvent) {

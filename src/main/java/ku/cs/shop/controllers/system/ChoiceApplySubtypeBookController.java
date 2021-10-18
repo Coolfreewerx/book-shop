@@ -62,8 +62,4 @@ public class ChoiceApplySubtypeBookController {
         checkAddButton = true;
         notificationAddButton.setText("");
     }
-
-//    public ProvideTypeBook sendDataBack() {
-//        return provideTypeBookData;
-//    }
 }

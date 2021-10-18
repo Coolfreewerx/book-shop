@@ -47,7 +47,6 @@ public class OrderController {
         bookImageView.setImage(new Image(order.getPicturePath()));
     }
 
-
     @FXML
     public void handleEditOrderButton(ActionEvent actionEvent){
         try {

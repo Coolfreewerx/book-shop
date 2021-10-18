@@ -61,7 +61,6 @@ public class EditBookController {
     private File selectedImage;
     private String imageName;
     private String currentType;
-//    private ArrayList<ProvideTypeBook> typeBookArrayList = new ArrayList<>();
 
     private ArrayList<Account> accountsList = new ArrayList<>();
     private AccountList accountList ;
@@ -144,7 +143,6 @@ public class EditBookController {
 
     public void addBookTypeToMenuItem() {
         for (String type : typeBookList.getSuperTypeBook()) {
-            System.out.println("for addBookTypeToMenuItem : " + type);
             MenuItem subBookTypeMenuItem = new MenuItem(type);
             menuButton.getItems().add(subBookTypeMenuItem);
             subBookTypeMenuItem.setOnAction(this :: handleSubBookTypeMenuItem);
@@ -154,7 +152,6 @@ public class EditBookController {
     public void handleSubBookTypeMenuItem(ActionEvent actionEvent) {
         MenuItem menuItem = (MenuItem) actionEvent.getSource();
         changeBookType(menuItem.getText());
-        System.out.println("Click to " + currentType);
     }
 
     public void changeBookType(String type){
@@ -163,21 +160,17 @@ public class EditBookController {
         book.setBookType(type);
         menuButton.setText(type);
 
-
         ArrayList<ProvideTypeBook> provideTypeBookArrayList = typeBookList.findSubTypeBook(book.getBookType());
         int numTypeBookList = typeBookList.numOfSubTypeBook(book.getBookType());
-        System.out.println("NumArraylist : " + provideTypeBookArrayList.size());
 
         try {
             for (int i = 0; i < numTypeBookList ; i++) {
-                System.out.println("i = " + i );
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/ku/cs/choiceApplySubTypeBook.fxml"));
 
                 flowPaneSubTypeBook.getChildren().add(fxmlLoader.load());
                 ChoiceApplySubtypeBookController choiceApplySubtypeBookController = fxmlLoader.getController();
                 choiceApplySubtypeBookController.setData(provideTypeBookArrayList.get(i),book.getTypeBookArrayList(),accountList,i,typeBookList);
-                System.out.println("In loop " + book.getTypeBookArrayList().size());
                 choiceApplySubtypeBookController.changeData();
                 choiceApplySubtypeBookController.changeTextFieldData();
             }
@@ -215,25 +208,12 @@ public class EditBookController {
 
     @FXML
     public void handleEditBookButton(ActionEvent actionEvent){
-        book.setBookName(bookNameTextField.getText());
-        book.setBookAuthor(bookAuthorTextField.getText());
-        book.setBookDetail(bookDetailTextArea.getText());
-        book.setBookPublisher(bookPublisherTextField.getText());
-        book.setBookShop(account.getShopName());
-        book.setTimeOfAddingBook(LocalDateTime.now());
-
-        book.setBookISBN(bookISBNTextField.getText());
-        book.setBookPage(bookPageTextField.getText());
-        book.setBookStock(Integer.parseInt(bookStockTextField.getText()));
-        book.setLeastStock(Integer.parseInt(leastStockTextField.getText()));
-        book.setBookPrice(Double.parseDouble(bookPriceTextField.getText()));
+        setEditData();
 
         if (seller.getDataCheck(book) && (seller.isBookISBNCorrect(book.getBookISBN())) && (seller.isIntNumber(book.getBookPage()))
                 &&(seller.isIntNumber(bookStockTextField.getText()))&&(seller.isIntNumber(leastStockTextField.getText())) &&(seller.isDoubleNumber(bookPriceTextField.getText()))) {
             DataSource<BookList> dataSource;
             dataSource = new BookDetailDataSource("csv-data/bookDetail.csv");
-            System.out.println("Can Edit booklist");
-            System.out.println(bookList.getBookByShop(account.getShopName()).get(0).getBookName());
 
             dataSource.writeData(bookList);
             try {
@@ -246,14 +226,22 @@ public class EditBookController {
         }
         else{
             NotificationCantAdd.setText("แก้ไขสินค้าไม่ได้ กรุณาตรวจสอบข้อมูลอีกครั้ง");
-            System.out.println("seller.getDataCheck(book) " + seller.getDataCheck(book) );
-            System.out.println("seller.isBookISBNCorrect(book.getBookISBN()) " + seller.isBookISBNCorrect(book.getBookISBN()));
-            System.out.println("seller.isNumber(book.getBookPage() " + seller.isIntNumber(book.getBookPage()));
-            System.out.println("seller.isNumber(bookStockTextField.getText()) " + seller.isIntNumber(bookStockTextField.getText()));
-            System.out.println("seller.isNumber(leastStockTextField.getText()) " + seller.isIntNumber(leastStockTextField.getText()));
-            System.out.println("seller.isNumber(bookPriceTextField.getText()) " + seller.isDoubleNumber(bookPriceTextField.getText()));
         }
+    }
 
+    public void setEditData(){
+        book.setBookName(bookNameTextField.getText());
+        book.setBookAuthor(bookAuthorTextField.getText());
+        book.setBookDetail(bookDetailTextArea.getText());
+        book.setBookPublisher(bookPublisherTextField.getText());
+        book.setBookShop(account.getShopName());
+        book.setTimeOfAddingBook(LocalDateTime.now());
+
+        book.setBookISBN(bookISBNTextField.getText());
+        book.setBookPage(bookPageTextField.getText());
+        book.setBookStock(Integer.parseInt(bookStockTextField.getText()));
+        book.setLeastStock(Integer.parseInt(leastStockTextField.getText()));
+        book.setBookPrice(Double.parseDouble(bookPriceTextField.getText()));
     }
 
     @FXML public void handleSellerStockButton(){

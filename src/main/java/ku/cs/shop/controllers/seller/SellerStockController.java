@@ -22,8 +22,6 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class SellerStockController implements Initializable {
-    @FXML private HBox hBoxSellerStock;
-    @FXML private Label userNameLabel;
     @FXML private ScrollPane scoll;
     @FXML private GridPane grid;
     @FXML private Button orderListButtonn;
@@ -36,6 +34,7 @@ public class SellerStockController implements Initializable {
 
     private BookDetailDataSource data = new BookDetailDataSource("csv-data/bookDetail.csv");
     private BookList books = data.readData();
+
     private ArrayList<Account> accountsList = new ArrayList<>();
     private AccountList accountList ;
     private Account account ;
