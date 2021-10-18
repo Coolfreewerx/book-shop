@@ -7,7 +7,7 @@ import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.util.regex.Pattern;
 
-public class Account {
+public abstract class Account {
 
     private String firstName ;
     private String lastName ;
@@ -168,9 +168,7 @@ public class Account {
         }
     }
 
-    public String toCsv() {
-        return null ;
-    }
+    public abstract String toCsv();
 
     @Override
     public String toString() {
