@@ -245,7 +245,7 @@ public class EditBookController {
             }
         }
         else{
-            NotificationCantAdd.setText("ไม่สามารถแก้ไขสินค้าได้ กรุณาตรวจสอบข้อมูลใหม่อีกครั้งค่ะ");
+            NotificationCantAdd.setText("แก้ไขสินค้าไม่ได้ กรุณาตรวจสอบข้อมูลอีกครั้ง");
             System.out.println("seller.getDataCheck(book) " + seller.getDataCheck(book) );
             System.out.println("seller.isBookISBNCorrect(book.getBookISBN()) " + seller.isBookISBNCorrect(book.getBookISBN()));
             System.out.println("seller.isNumber(book.getBookPage() " + seller.isIntNumber(book.getBookPage()));

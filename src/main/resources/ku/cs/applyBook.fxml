@@ -271,11 +271,6 @@
                                           <Font name="JasmineUPC" size="12.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="NotificationCantAdd" layoutX="55.0" layoutY="900.0" textFill="#f20505">
-                                       <font>
-                                          <Font name="JasmineUPC" size="24.0" />
-                                       </font>
-                                    </Label>
                                     <TextArea fx:id="bookDetailTextArea" layoutX="55.0" layoutY="740.0" prefHeight="130.0" prefWidth="270.0" />
                                     <Label fx:id="NotificationBookPrice" layoutX="387.0" layoutY="495.0" textFill="#f20505">
                                        <font>
@@ -301,12 +296,24 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="690.0" style="-fx-background-color: ffffff;">
                            <children>
+                              <VBox prefHeight="50.0" prefWidth="380.0">
+                                 <children>
+                                    <Label fx:id="NotificationCantAdd" prefHeight="30.0" prefWidth="385.0" textFill="#f20505">
+                                       <font>
+                                          <Font name="JasmineUPC" size="24.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                 </children>
+                              </VBox>
                               <Button fx:id="addBookButton" mnemonicParsing="false" onAction="#handleAddBookButton" prefHeight="40.0" prefWidth="125.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" styleClass="font_jasmine_16pt" stylesheets="@style/PrimaryTheme.css" text="เพิ่มสินค้า" textFill="WHITE">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                                  <HBox.margin>
-                                    <Insets bottom="10.0" left="380.0" top="10.0" />
+                                    <Insets bottom="10.0" left="20.0" top="10.0" />
                                  </HBox.margin>
                               </Button>
                               <Button fx:id="goToSellerStockButton" mnemonicParsing="false" onAction="#handleSellerStockButton" prefHeight="40.0" prefWidth="125.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" styleClass="font_jasmine_16pt" stylesheets="@style/PrimaryTheme.css" text="สินค้าทั้งหมด" textFill="WHITE">

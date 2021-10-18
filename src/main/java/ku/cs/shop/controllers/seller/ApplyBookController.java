@@ -231,7 +231,7 @@ public class ApplyBookController {
                 System.err.println("ให้ตรวจสอบการกำหนด route");
             }
         } else{
-            NotificationCantAdd.setText("ไม่สามารถเพิ่มสินค้าได้ กรุณาตรวจสอบข้อมูลใหม่อีกครั้งค่ะ");
+            NotificationCantAdd.setText("เพิ่มสินค้าไม่ได้ กรุณาตรวจสอบข้อมูลอีกครั้ง");
             System.out.println("seller.getDataCheck(book) " + seller.getDataCheck(book) );
             System.out.println("seller.isBookISBNCorrect(book.getBookISBN()) " + seller.isBookISBNCorrect(book.getBookISBN()));
             System.out.println("seller.isNumber(book.getBookPage() " + seller.isIntNumber(book.getBookPage()));
