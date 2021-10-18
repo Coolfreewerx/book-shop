@@ -56,6 +56,7 @@ public class UserListForAdminController {
     private Reporting selectedReporting ;
     private ReportingList reportingList;
     private ReportingDataSource reportingDataSource ;
+    private AccountDataSource accountDataSource ;
     private int countReportClick = 0 ;
 
     public void initialize(){
@@ -67,6 +68,8 @@ public class UserListForAdminController {
         clearSelectedUserAccount();
         handleSelectedUserAccountListView();
         handleSelectedReportingListView();
+
+        accountDataSource = new AccountDataSource("csv-data/accountData.csv") ;
     }
 
     //user zone
@@ -247,7 +250,6 @@ public class UserListForAdminController {
     @FXML
     public void handleToInformationButton(ActionEvent actionEvent) {
         try {
-            AccountDataSource accountDataSource = new AccountDataSource("csv-data/accountData.csv") ;
             accountDataSource.writeData(accountList);
             com.github.saacsos.FXRouter.goTo("accountDetail", accountList);
         } catch (IOException e) {
@@ -260,7 +262,6 @@ public class UserListForAdminController {
     public void mouseClickedInLogo(MouseEvent event){
         try{
             logoJavaPai.getOnMouseClicked();
-            AccountDataSource accountDataSource = new AccountDataSource("csv-data/accountData.csv") ;
             accountDataSource.writeData(accountList);
             com.github.saacsos.FXRouter.goTo("home" ,accountList);
         } catch (Exception e) {
@@ -271,6 +272,7 @@ public class UserListForAdminController {
     @FXML
     public void handleToProvideShopButton(ActionEvent actionEvent) {
         try {
+            accountDataSource.writeData(accountList);
             com.github.saacsos.FXRouter.goTo("provideTypeBookByAdmin" ,accountList);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า provideTypeBookByAdmin ไม่ได้");
