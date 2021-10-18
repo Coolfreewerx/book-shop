@@ -65,6 +65,7 @@ public class ApplyBookController {
     @FXML private TextField subTypeBookTextField;
 
     private File selectedImage;
+    private File selectedImageForCopy = null;
     private String imageName;
     private String currentType;
     private ArrayList<ProvideTypeBook> typeBookArrayList = new ArrayList<>();
@@ -172,18 +173,20 @@ public class ApplyBookController {
         if (selectedImage != null) {
             Image image = new Image(selectedImage.toURI().toString());
             imageView.setImage(image);
+            selectedImageForCopy = selectedImage;
         }
         book.setBookImg("Haveimage");
+
     }
 
     public void setImageName() {
-        if (!selectedImage.equals("")) {
+        if (selectedImageForCopy != null) {
             imageName =  bookNameTextField.getText() + "-"
                     + LocalDate.now().getYear() + "-"
                     + LocalDate.now().getMonth() + "-"
                     + LocalDate.now().getDayOfMonth() + "-"
                     + LocalDateTime.now().getHour() + LocalDateTime.now().getMinute() + LocalDateTime.now().getSecond() + ".png" ;
-            seller.copyImageToPackage(selectedImage , imageName) ;
+            seller.copyImageToPackage(selectedImageForCopy , imageName) ;
         } else {
             imageName = "default.png" ;
         }
@@ -209,7 +212,8 @@ public class ApplyBookController {
 
 
         if (seller.getDataCheck(book) && (seller.isBookISBNCorrect(book.getBookISBN())) && (seller.isIntNumber(book.getBookPage()))
-                &&(seller.isIntNumber(bookStockTextField.getText()))&&(seller.isIntNumber(leastStockTextField.getText())) &&(seller.isDoubleNumber(bookPriceTextField.getText()))) {
+                &&(seller.isIntNumber(bookStockTextField.getText()))&&(seller.isIntNumber(leastStockTextField.getText())) &&(seller.isDoubleNumber(bookPriceTextField.getText()))
+                && (selectedImageForCopy != null )) {
             setImageName();
             book.setBookImg(imageName);
             DataSource<BookList> dataSource;
