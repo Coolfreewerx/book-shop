@@ -10,14 +10,10 @@ import ku.cs.shop.models.Reporting;
 
 public class ReportingInformationController {
 
-    @FXML
-    private ImageView reportImage;
-    @FXML
-    private Label reportTypeLabel;
-    @FXML
-    private Label informationLabel;
-    @FXML
-    private Label reporterLabel;
+    @FXML private ImageView reportImage;
+    @FXML private Label reportTypeLabel;
+    @FXML private Label informationLabel;
+    @FXML private Label reporterLabel;
 
     private Reporting reporting;
     private UserListForAdminController userListForAdminController;

@@ -37,6 +37,7 @@ public class RegisterController {
     @FXML private AnchorPane registerAnchorPane ;
 
     private File selectedImage ;
+    private File selectedImageForCopy ;
     private String imageName ;
     private AccountList accountList ;
     private AccountDataSource accountDataSource ;
@@ -62,6 +63,7 @@ public class RegisterController {
         if (selectedImage != null) {
             Image image = new Image(selectedImage.toURI().toString());
             imageView.setImage(image);
+            selectedImageForCopy = selectedImage ;
         }
     }
 
@@ -190,13 +192,13 @@ public class RegisterController {
     }
 
     public void setImageName() {
-        if (selectedImage != null) {
+        if (selectedImageForCopy != null) {
             imageName =  userNameTextField.getText() + "-"
                     + LocalDate.now().getYear() + "-"
                     + LocalDate.now().getMonth() + "-"
                     + LocalDate.now().getDayOfMonth() + "-"
                     + LocalDateTime.now().getHour() + LocalDateTime.now(ZoneId.of("Asia/Bangkok")).getMinute() + LocalDateTime.now().getSecond() + ".png" ;
-            Account.copyImageToPackage(selectedImage , imageName) ;
+            Account.copyImageToPackage(selectedImageForCopy , imageName) ;
         } else {
             imageName = "default.png" ;
         }

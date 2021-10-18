@@ -21,14 +21,13 @@ import java.time.ZoneId;
 import java.util.ArrayList;
 
 public class ReportingInBookDetailController {
-    @FXML
-    private ImageView reportImage ;
+
+    @FXML private ImageView reportImage ;
     @FXML private TextField userNameTextField ;
     @FXML private ComboBox<String> reportTypeChoice ;
     @FXML private TextField informationTextField ;
     @FXML private Text errorText ;
 
-    private ObservableList accountNameList = FXCollections.observableArrayList() ;
     private ObservableList reportTypeList = FXCollections.observableArrayList() ;
 
     private AccountList accountList;
@@ -37,6 +36,7 @@ public class ReportingInBookDetailController {
     private BookList bookList;
 
     private File selectedImage ;
+    private File selectedImageForCopy ;
     private String imageName ;
 
     private ReportingList reportingList ;
@@ -86,17 +86,18 @@ public class ReportingInBookDetailController {
         if (selectedImage != null) {
             Image image = new Image(selectedImage.toURI().toString());
             reportImage.setImage(image);
+            selectedImageForCopy = selectedImage ;
         }
     }
 
     public void setImageName() {
-        if (selectedImage != null) {
+        if (selectedImageForCopy != null) {
             imageName =  userNameTextField.getText() + "-"
                     + LocalDate.now().getYear() + "-"
                     + LocalDate.now().getMonth() + "-"
                     + LocalDate.now().getDayOfMonth() + "-"
                     + LocalDateTime.now().getHour() + LocalDateTime.now(ZoneId.of("Asia/Bangkok")).getMinute() + LocalDateTime.now().getSecond() + ".png" ;
-            Reporting.copyImageToPackage(selectedImage , imageName) ;
+            Reporting.copyImageToPackage(selectedImageForCopy , imageName) ;
         }
     }
 
@@ -115,7 +116,7 @@ public class ReportingInBookDetailController {
 
     public String checkData() {
         // ตรวจสอบว่าทุกช่องมีข้อมูล
-        if ((selectedImage == null || userNameTextField.getText().equals("") || reportTypeChoice.getValue().equals("") || informationTextField.getText().equals(""))) {
+        if ((selectedImageForCopy == null || userNameTextField.getText().equals("") || reportTypeChoice.getValue().equals("") || informationTextField.getText().equals(""))) {
             return "โปรดใส่รายละเอียดให้ครบถ้วน" ;
         } else if (!(accountList.checkUserNameHaveUsed(userNameTextField.getText()))) {
             return "ไม่พบชื่อผู้ใช้นี้ในระบบ" ;

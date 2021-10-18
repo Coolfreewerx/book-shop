@@ -31,8 +31,8 @@ import java.util.ArrayList;
 public class ApplyBookController {
     Seller seller = new Seller();
     Book book = new Book();
-    private BookDetailDataSource data = new BookDetailDataSource("csv-data/bookDetail.csv");
-    private BookList books = data.readData();
+    private BookDetailDataSource data ;
+    private BookList books ;
 
     @FXML private Button addImgButton;
     @FXML private TextField bookNameTextField;
@@ -65,7 +65,7 @@ public class ApplyBookController {
     @FXML private TextField subTypeBookTextField;
 
     private File selectedImage;
-    private File selectedImageForCopy = null;
+    private File selectedImageForCopy ;
     private String imageName;
     private String currentType;
     private ArrayList<ProvideTypeBook> typeBookArrayList = new ArrayList<>();
@@ -79,6 +79,9 @@ public class ApplyBookController {
     private ProvideTypeBook provideTypeBook;
 
     public void initialize(){
+        data = new BookDetailDataSource("csv-data/bookDetail.csv");
+        books = data.readData();
+
         accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
         account = accountList.getCurrentAccount() ;
         System.out.println("account " + account);
@@ -214,14 +217,11 @@ public class ApplyBookController {
         if (seller.getDataCheck(book) && (seller.isBookISBNCorrect(book.getBookISBN())) && (seller.isIntNumber(book.getBookPage()))
                 &&(seller.isIntNumber(bookStockTextField.getText()))&&(seller.isIntNumber(leastStockTextField.getText())) &&(seller.isDoubleNumber(bookPriceTextField.getText()))
                 && (selectedImageForCopy != null )) {
+
             setImageName();
             book.setBookImg(imageName);
-            DataSource<BookList> dataSource;
-            dataSource = new BookDetailDataSource("csv-data/bookDetail.csv");
-            BookList bookList = dataSource.readData();
-            bookList.addBook(book);
-
-            dataSource.writeData(bookList);
+            books.addBook(book);
+            data.writeData(books);
 
             try {
                 com.github.saacsos.FXRouter.goTo("sellerStock",accountList);
