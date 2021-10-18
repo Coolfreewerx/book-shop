@@ -24,7 +24,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.seller.ApplyBookController">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.seller.ApplyBookController">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -277,7 +277,7 @@
                                        </font>
                                     </Label>
                                     <TextArea fx:id="bookDetailTextArea" layoutX="55.0" layoutY="740.0" prefHeight="130.0" prefWidth="270.0" />
-                                    <Label fx:id="NotificationBookPrice" layoutX="387.0" layoutY="781.0" textFill="#f20505">
+                                    <Label fx:id="NotificationBookPrice" layoutX="387.0" layoutY="495.0" textFill="#f20505">
                                        <font>
                                           <Font name="JasmineUPC" size="12.0" />
                                        </font>
