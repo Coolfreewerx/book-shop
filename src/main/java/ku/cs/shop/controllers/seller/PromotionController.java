@@ -31,8 +31,6 @@ public class PromotionController {
     private PromotionList promotionList;
     private PromotionDataSource promotionDataSource;
 
-    private ArrayList<Object> objectForPassing = new ArrayList<>();
-
     public void initialize(){
         promotionDataSource = new PromotionDataSource("csv-data/promotion.csv");
         promotionList = promotionDataSource.readData();
@@ -43,7 +41,7 @@ public class PromotionController {
         showPromotionByShopName(account.getShopName());
     }
 
-    @FXML
+    @FXML // กดไปหน้าส้รางโปรโมชั่น
     public void handleToCreatPromotionPageButton(ActionEvent actionEvent) {
         try {
             com.github.saacsos.FXRouter.goTo("creatPromotion" , accountList);

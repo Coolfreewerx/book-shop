@@ -15,7 +15,7 @@ import ku.cs.shop.services.PromotionDataSource;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
-public class EditPromotionController {
+public class creatPromotionController {
     //in head
     @FXML private ImageView img;
     @FXML private ImageView logoJavaPai;

@@ -14,6 +14,7 @@ public class Promotion {
     private static boolean codePromotionCheck = false;
     private static boolean priceReductionInPercentageCheck = false;
     private static boolean priceReductionInBahtCheck = false;
+    private static boolean isCodePromotionCheck = false;
 
     public Promotion(){}
 
@@ -38,6 +39,7 @@ public class Promotion {
     public static boolean getCodePromotionCheck(){ return codePromotionCheck; }
     public static boolean getPriceReductionInPercentageCheck(){ return priceReductionInPercentageCheck; }
     public static boolean getPriceReductionInBahtCheck(){ return priceReductionInBahtCheck; }
+    public static boolean getIsCodePromotionCheck(){ return isCodePromotionCheck; }
 
     public void setShopName(String shopName) { this.shopName = shopName; }
     public void setCodePromotion(String codePromotion) { this.codePromotion = codePromotion; }

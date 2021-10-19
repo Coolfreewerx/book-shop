@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import ku.cs.shop.models.*;
 import ku.cs.shop.services.BookDetailDataSource;
 import javafx.scene.text.Text;
@@ -11,7 +12,6 @@ import java.util.ArrayList;
 import java.util.Random;
 import ku.cs.shop.services.OrderDataSource;
 import ku.cs.shop.services.PromotionDataSource;
-
 import java.time.LocalDateTime;
 import java.util.regex.Pattern;
 
@@ -21,6 +21,7 @@ public class ConfirmOrderController {
     @FXML private Text noficationItem;
     @FXML private TextField inputNumOfBookTextField;
     @FXML private TextField inputCodePromotion;
+    @FXML private Label codePromotionWarningLabel;
 
     private Random random = new Random();
     private Order order = new Order();
@@ -99,12 +100,32 @@ public class ConfirmOrderController {
     @FXML
     void handleAddCodePromotionInput(ActionEvent event) {
         sumBookPriceLabel.setText(String.format("%.02f", checkUsePromotion()));
+        codePromotionWarningLabel.setText("โค้ดโปรโมชั่นไม่ถูกต้อง กรุณาตรวจสอบ");
     }
 
     public double checkUsePromotion(){
         double sum = costOfBook * totalBookOrdered;
         totalBookOrderedWhenUseCodePromotion = promotionList.usePromotion(shopPromotion, inputCodePromotion.getText(), sum);
         return totalBookOrderedWhenUseCodePromotion;
+    }
+
+    @FXML //ทำงานเมื่อกรอก codePromotion
+    public void handleKeyCodePromotion() {
+        String shopName = bookDetailController.getBook().getBookShop();
+        String codePromotion = inputCodePromotion.getText();
+        codePromotionWarningLabel.setText(Promotion.checkCodePromotionCondition(codePromotion));
+        if (Promotion.getCodePromotionCheck()){
+            if (promotionList.checkCodePromotionIsCorrect(shopName,codePromotion)) {
+                codePromotionWarningLabel.setText("โค้ดโปรโมชั่นนี้สามารถใช้งานได้") ;
+                codePromotionWarningLabel.setTextFill(Color.rgb(21, 117, 84));
+            } else {
+                codePromotionWarningLabel.setText("โค้ดโปรโมชั่นนี้ไม่ตรงกับร้านค้า") ;
+                codePromotionWarningLabel.setTextFill(Color.rgb(210, 39, 30));
+            }
+        }
+        else {
+            codePromotionWarningLabel.setTextFill(Color.rgb(210, 39, 30));
+        }
     }
 
     @FXML

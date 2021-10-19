@@ -6,16 +6,9 @@ import java.util.*;
 
 public class PromotionList {
     private ArrayList<Promotion> promotions;
-    private Promotion currentPromotion;
-    private Set<Promotion> codePromotion;
 
     public PromotionList(){
        promotions = new ArrayList<>();
-       codePromotion = new HashSet<>();
-    }
-
-    public Promotion getCurrentPromotion() {
-        return currentPromotion ;
     }
 
     public ArrayList<Promotion> getPromotions(){ return promotions; }
@@ -35,20 +28,19 @@ public class PromotionList {
         return false;
     }
 
+    public boolean checkCodePromotionIsCorrect(String shopName, String codePromotion) {
+        for (Promotion promotion: this.promotions) {
+            if (promotion.getShopName().equals(shopName) && promotion.getCodePromotion().equals(codePromotion)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public ArrayList<Promotion> getPromotionByShopName(String shopName) {
         ArrayList<Promotion> promotionByShopName = new ArrayList<>();
         for(Promotion promotion : promotions){
             if(promotion.getShopName().equals(shopName)){
-                promotionByShopName.add(promotion);
-            }
-        }
-        return promotionByShopName;
-    }
-
-    public ArrayList<Promotion> checkPromotionByShopNameAndCode(String shopName, String codePromotion) {
-        ArrayList<Promotion> promotionByShopName = new ArrayList<>();
-        for(Promotion promotion : promotions){
-            if(promotion.getShopName().equals(shopName) && promotion.getCodePromotion().equals(codePromotion)){
                 promotionByShopName.add(promotion);
             }
         }
@@ -71,18 +63,6 @@ public class PromotionList {
             }
         }
         return price;
-    }
-
-    public int getCountPromotionByShopName (String shopName) {
-        int count = 0;
-        ArrayList<Promotion> countPromotionByShopName = new ArrayList<>();
-        for(Promotion promotion : promotions){
-            if(promotion.getShopName().equals(shopName)){
-                countPromotionByShopName.add(promotion);
-                count++;
-            }
-        }
-        return count;
     }
 
     public void sort(Comparator<Promotion> promotionComparator) {

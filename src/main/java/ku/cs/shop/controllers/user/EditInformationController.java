@@ -14,12 +14,10 @@ import ku.cs.shop.models.AccountList;
 import ku.cs.shop.models.UserAccount;
 import ku.cs.shop.services.AccountDataSource;
 import com.github.saacsos.FXRouter;
-
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.regex.Pattern;
 
 public class EditInformationController {
 
