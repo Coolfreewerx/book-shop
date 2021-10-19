@@ -79,7 +79,7 @@ public class OrderUserContoller implements Initializable {
                 e.printStackTrace();
             }
         }
-        else{
+        else {
             try {
                 com.github.saacsos.FXRouter.goTo("sellerStock",accountList);
             } catch (IOException e) {
@@ -111,9 +111,9 @@ public class OrderUserContoller implements Initializable {
     public void pagesHeader() {
         usernameInHead.setText(account.getUserName());
         img.setImage(new Image(account.getImagePath()));
-        if (account instanceof AdminAccount){
+        if (account instanceof AdminAccount) {
             status.setText("Admin");
-        } else if(account.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")){
+        } else if (account.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")) {
             status.setText("User");
         } else {
             status.setText("Seller");

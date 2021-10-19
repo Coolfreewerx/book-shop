@@ -4,7 +4,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.paint.Color;
 import ku.cs.shop.models.*;
 import ku.cs.shop.services.BookDetailDataSource;
 import javafx.scene.text.Text;

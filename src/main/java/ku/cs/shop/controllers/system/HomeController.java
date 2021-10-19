@@ -55,8 +55,8 @@ public class HomeController implements Initializable {
                 ItemController itemController = fxmlLoader.getController();
                 itemController.setData(books.getBook(i));
                 itemController.setController(this,"default");
-
             }
+
         } catch (IOException e) {
             e.printStackTrace();
         } pagesHeader();
@@ -92,8 +92,6 @@ public class HomeController implements Initializable {
             FXRouter.goTo("pageBookType", accountList);
         } catch (IOException e) {
             e.printStackTrace();
-            System.err.println("ไปที่หน้า pageBookType ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
 
@@ -102,15 +100,13 @@ public class HomeController implements Initializable {
         try {
             FXRouter.goTo("accountDetail", accountList);
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า accountDetail ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
             e.printStackTrace();
         }
     }
 
     @FXML
     public void mouseClickedInLogo(MouseEvent event){ // คลิกที่ logo แล้วจะไปหน้า home
-        try{
+        try {
             logoJavaPai.getOnMouseClicked();
             com.github.saacsos.FXRouter.goTo("home" ,accountList);
         } catch (Exception e) {

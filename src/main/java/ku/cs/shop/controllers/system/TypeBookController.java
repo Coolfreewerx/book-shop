@@ -120,7 +120,6 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
     public void setMaxPriceFromInput(double maxPriceFromInput) {
         this.maxPriceFromInput = maxPriceFromInput;
     }
-
     public void setLowPriceFromInput(double lowPriceFromInput) {
         this.lowPriceFromInput = lowPriceFromInput;
     }
@@ -178,9 +177,6 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
                 && Double.parseDouble(inputMaxPriceTextField.getText()) >= 0 ) {
             setMaxPriceFromInput(Double.parseDouble(inputMaxPriceTextField.getText()));
         }
-
-        System.out.println("low price from user input " + lowPriceFromInput);
-        System.out.println("max price from user input " + maxPriceFromInput);
         return 0;
     }
 
@@ -265,8 +261,6 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
             com.github.saacsos.FXRouter.goTo("accountDetail", accountList);
         } catch (IOException e) {
             e.printStackTrace();
-            System.err.println("ไปที่หน้า accountDetail ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
 

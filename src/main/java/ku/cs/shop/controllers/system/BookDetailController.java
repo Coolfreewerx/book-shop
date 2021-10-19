@@ -188,12 +188,9 @@ public class BookDetailController
     @FXML
     public void handleToBookSortFromShop(ActionEvent actionevent) {
         try {
-            System.out.println("Click to pageBookShop");
             com.github.saacsos.FXRouter.goTo("pageBookShop", castDataToObject());
         } catch (IOException e) {
             e.printStackTrace();
-            System.err.println("ไปที่หน้า pageBookShop ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
 
@@ -203,8 +200,6 @@ public class BookDetailController
             com.github.saacsos.FXRouter.goTo("pageBookType", accountList);
         } catch (IOException e) {
             e.printStackTrace();
-            System.err.println("ไปที่หน้า pageBookType ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
 
