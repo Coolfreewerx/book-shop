@@ -45,7 +45,7 @@ public class ProvideTypeBookController {
 
     private ProvideTypeBookDataSource provideTypeBookDataSource ;
     private ProvideTypeBookList typeBookList ;
-    private ProvideTypeBook provideTypeBook;
+    private ProvideTypeBook provideTypeBook = new ProvideTypeBook("","");
 
     private BookDetailDataSource data ;
     private BookList books;
@@ -75,7 +75,6 @@ public class ProvideTypeBookController {
     // ตรวจสอบข้อมูล typeBook ที่รับมา
     @FXML
     public void handleKeyNewBookTypeTextField(){
-        System.out.println(newBooktypeTextField.getText());
         if(typeBookList.checkNewTypeBookHaveUsed(newBooktypeTextField.getText())){
             notificationCheckTypeBookLabel.setText("มีประเภทหนังสือนี้อยู่แล้ว กรุณากรอกประเภทหนังสือใหม่");
         }
@@ -92,7 +91,6 @@ public class ProvideTypeBookController {
         }
         else{
             provideTypeBook.setSuperTypeBook(newBooktypeTextField.getText());
-            System.out.println(provideTypeBook.getSubTypeBook());
             notificationCheckTypeBookLabel.setTextFill(Color.GREEN);
             notificationCheckTypeBookLabel.setText("ประเภทหนังสือนี้สามารถเพิ่มได้");
         }

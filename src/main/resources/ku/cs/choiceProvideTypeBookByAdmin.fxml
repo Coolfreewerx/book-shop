@@ -18,7 +18,7 @@
             <Font name="JasmineUPC" size="32.0" />
          </font>
       </Label>
-      <TextField fx:id="subTypeBookTextField" layoutX="115.0" layoutY="60.0" prefHeight="50.0" prefWidth="620.0" style="-fx-background-color: #fffcf1; -fx-background-radius: 20;">
+      <TextField fx:id="subTypeBookTextField" onKeyReleased="#handleKeySubtypeBookTextField" layoutX="115.0" layoutY="60.0" prefHeight="50.0" prefWidth="620.0" style="-fx-background-color: #fffcf1; -fx-background-radius: 20;">
          <font>
             <Font name="JasmineUPC" size="28.0" />
          </font></TextField>

@@ -43,7 +43,7 @@ public class ChoiceApplySubtypeBookController {
 
     // ตรวจสอบการกดปุ่มเพิ่มข้อมูล
     public void handleKeySubTypeBookTextField(){
-        if (checkAddButton == false)
+        if (!checkAddButton)
             notificationAddButton.setText("กรุณากด add ข้อมูล");
         else
             notificationAddButton.setText("");

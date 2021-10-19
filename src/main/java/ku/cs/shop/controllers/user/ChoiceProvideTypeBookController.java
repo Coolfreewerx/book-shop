@@ -23,6 +23,7 @@ public class ChoiceProvideTypeBookController {
 
     private ProvideTypeBook provideTypeBook;
     private ProvideTypeBookList provideTypeBookList;
+    private boolean checkSubTypeBookButton = false;
 
     // กำหนดข้อมูลที่ได้รับมา
     public void setData(ProvideTypeBook provideTypeBook, ProvideTypeBookList provideTypeBookList, int numSubtype){
@@ -31,14 +32,23 @@ public class ChoiceProvideTypeBookController {
         numSubTypeBookLabel.setText(String.valueOf(numSubtype));
     }
 
+    // แจ้งเตือนการกดปุ่ม enter ของข้อมูล
+    @FXML
+    public void handleKeySubtypeBookTextField(){
+        if(!checkSubTypeBookButton){
+            notificationSubTypeBookLabel.setText("กรุณากด Enter เพื่อเพิ่มข้อมูล");
+        }
+        else {
+            notificationSubTypeBookLabel.setText("");
+        }
+    }
+
     // กดปุ่มเพื่อตรวจสอบข้อมูล subTypeBook ที่รับเข้ามา
     @FXML
     public void handleEnterSubTypeBookButton(ActionEvent actionEvent){
         this.provideTypeBook.setSubTypeBook(subTypeBookTextField.getText());
-        System.out.println(this.provideTypeBook.getSubTypeBook());
-        System.out.println(this.provideTypeBook.getSuperTypeBook());
-        notificationSubTypeBookLabel.setTextFill(Color.GREEN);
-        notificationSubTypeBookLabel.setText("ประเภทย่อยหนังสือนี้สามารถใช้ได้");
+        checkSubTypeBookButton = true;
+        notificationSubTypeBookLabel.setText("");
 
         DataSource<ProvideTypeBookList> dataSource;
         dataSource = new ProvideTypeBookDataSource("csv-data/provideTypeBookData.csv");
@@ -46,8 +56,6 @@ public class ChoiceProvideTypeBookController {
         provideTypeBookListData.addTypeBook(this.provideTypeBook);
 
         dataSource.writeData(provideTypeBookListData);
-        System.out.println("Can write");
-        System.out.println("-------------------");
     }
 
 }
