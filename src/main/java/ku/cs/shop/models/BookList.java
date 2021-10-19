@@ -6,7 +6,6 @@ import java.lang.reflect.Array;
 import java.util.*;
 
 public class BookList {
-
     private Set<String> bookTypes;
     private Set<String> bookNames;
     private Set<String> bookShops;
@@ -41,6 +40,7 @@ public class BookList {
         return bookByType;
     }
 
+    // แก้ไขข้อมูลจากชื่อหนังสือ
     public void editIndexBookByName(String name, Book newDetailbook) {
         int index = 0;
         for (Book book : this.books){
@@ -52,7 +52,8 @@ public class BookList {
         }
     }
 
-    public ArrayList<Book> getBookByShop(String nameShop) { // หนังสือทั้งหมดที่มีอยู่ในร้านนั้น
+    // หนังสือทั้งหมดที่มีอยู่ในร้านนั้น
+    public ArrayList<Book> getBookByShop(String nameShop) {
         ArrayList<Book> bookByShop = new ArrayList<>();
         for (Book book : books) {
             if (book.getBookShop().equals(nameShop)) {

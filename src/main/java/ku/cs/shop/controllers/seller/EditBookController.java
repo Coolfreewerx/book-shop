@@ -25,11 +25,6 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class EditBookController {
-    private Book book;
-    private String startedBookname;
-    private BookList bookList;
-    public void setData(Book book) { this.book = book; }
-
     @FXML private Button addImgButton;
     @FXML private TextField bookNameTextField;
     @FXML private TextField bookAuthorTextField;
@@ -67,13 +62,20 @@ public class EditBookController {
     private Account account ;
     private ArrayList<Object> objectForPassing = new ArrayList<>();
 
-    private ProvideTypeBookDataSource provideTypeBookDataSource = new ProvideTypeBookDataSource("csv-data/provideTypeBookData.csv");
-    private ProvideTypeBookList typeBookList = provideTypeBookDataSource.readData();
-    private ProvideTypeBook provideTypeBook;
+    private Book book;
+    private String startedBookname;
+    private BookList bookList;
+    public void setData(Book book) { this.book = book; }
+
+    private ProvideTypeBookDataSource provideTypeBookDataSource ;
+    private ProvideTypeBookList typeBookList ;
 
     @FXML public void initialize(){
         objectForPassing = (ArrayList<Object>) com.github.saacsos.FXRouter.getData();
         castObjectToData();
+
+        provideTypeBookDataSource = new ProvideTypeBookDataSource("csv-data/provideTypeBookData.csv");
+        typeBookList = provideTypeBookDataSource.readData();
 
         startedBookname = book.getBookName();
         bookNameTopicLabel.setText(book.getBookName());
@@ -94,6 +96,8 @@ public class EditBookController {
         changeBookType(book.getBookType());
         userImageView.setImage(new Image(account.getImagePath()));
     }
+
+    // แปลงข้อมูลที่ได้รับมา
     public void castObjectToData() {
         book = (Book) objectForPassing.get(0);
         bookList = (BookList) objectForPassing.get(1);
@@ -101,47 +105,54 @@ public class EditBookController {
         accountList = (AccountList) objectForPassing.get(3);
     }
 
+    // รับข้อมูล bookName
     @FXML
     public void handleKeyBookName(){
         book.setBookName(bookNameTextField.getText());
     }
 
+    // รับข้อมูล bookAuthor
     @FXML
     public void handleKeyBookAuthor(){
         book.setBookAuthor(bookAuthorTextField.getText());
     }
 
-
+    // ตรวจสอบข้อมูล bookISBN ที่รับเข้ามา
     @FXML public void handleKeyBookISBN(){
         book.setBookISBN(bookISBNTextField.getText());
         if(!book.isBookISBNCorrect(book.getBookISBN())){ book.setBookISBN(""); }
         NotificationBookISBN.setText(book.checkBookISBNCorrect(book.getBookISBN()));
     }
 
+    // ตรวจสอบข้อมูล bookPage ที่รับเข้ามา
     @FXML public void handleKeyBookPage(){
         book.setBookPage(bookPageTextField.getText());
         if(! book.isIntNumber(book.getBookPage())){book.setBookPage("");}
         NotificationBookPage.setText(book.checkIntNumber(book.getBookPage()));
     }
 
+    // ตรวจสอบข้อมูล bookStock ที่รับเข้ามา
     @FXML public void handleKeyBookStock(){
         if(! book.isIntNumber(bookStockTextField.getText())){book.setBookStock(-1);}
         else {book.setBookStock(Integer.parseInt(bookStockTextField.getText()));}
         NotificationBookStock.setText(book.checkIntNumber(bookStockTextField.getText()));
     }
 
+    // ตรวจสอบข้อมูล leastStock ที่รับเข้ามา
     @FXML public void handleKeyLeastStock(){
         if(!book.isIntNumber(leastStockTextField.getText())){book.setLeastStock(-1);}
         else {book.setLeastStock(Integer.parseInt(leastStockTextField.getText()));}
         NotificationLeastStock.setText(book.checkIntNumber(leastStockTextField.getText()));
     }
 
+    // ตรวจสอบข้อมูล bookPrice ที่รับเข้ามา
     @FXML public void handleKeyBookPrice(){
         if(!book.isDoubleNumber(bookPriceTextField.getText())){book.setBookPrice(-1);}
         else {book.setBookPrice(Double.parseDouble(bookPriceTextField.getText()));}
         NotificationBookPrice.setText(book.checkDoubleNumber(bookPriceTextField.getText()));
     }
 
+    // เพิ่มประเภทหนังสือที่ปุ่ม
     public void addBookTypeToMenuItem() {
         for (String type : typeBookList.getSuperTypeBook()) {
             MenuItem subBookTypeMenuItem = new MenuItem(type);
@@ -150,11 +161,13 @@ public class EditBookController {
         }
     }
 
+    // เปลี่ยนปุ่มให้มีชื่อตรงกับประเภทที่เลือก
     public void handleSubBookTypeMenuItem(ActionEvent actionEvent) {
         MenuItem menuItem = (MenuItem) actionEvent.getSource();
         changeBookType(menuItem.getText());
     }
 
+    // เปลียนประเภทข้อมูลและเพิ่ม subTypeBook
     public void changeBookType(String type){
         flowPaneSubTypeBook.getChildren().clear();
         currentType = type;
@@ -180,6 +193,7 @@ public class EditBookController {
         }
     }
 
+    // เพิ่มรูปจากการกดปุ่ม
     @FXML
     public void handleAddImageButton (ActionEvent actionEvent) {
         FileChooser fileChooser = new FileChooser();
@@ -194,6 +208,8 @@ public class EditBookController {
         book.setBookImg(imageName);
 
     }
+
+    // ตั้งชื่อรูปภาพและคัดลอกรูปภาพ
     public void setImageName() {
         if (!selectedImage.equals("")) {
             imageName =  bookNameTextField.getText() + "-"
@@ -207,6 +223,7 @@ public class EditBookController {
         }
     }
 
+    // แก้ไขข้อมูลและเช็คเงื่อนไขข้อมูล
     @FXML
     public void handleEditBookButton(ActionEvent actionEvent){
         setEditData();
@@ -230,6 +247,7 @@ public class EditBookController {
         }
     }
 
+    // กำหนดข้อมูลที่เพิ่มเข้ามา
     public void setEditData(){
         book.setBookName(bookNameTextField.getText());
         book.setBookAuthor(bookAuthorTextField.getText());
@@ -245,6 +263,7 @@ public class EditBookController {
         book.setBookPrice(Double.parseDouble(bookPriceTextField.getText()));
     }
 
+    // กดปุ่มไปยัง sellerStock
     @FXML public void handleSellerStockButton(){
         try {
             com.github.saacsos.FXRouter.goTo("sellerStock", accountList);
@@ -255,6 +274,7 @@ public class EditBookController {
         }
     }
 
+    // กดปุ่มไปยังข้อมูลส่วนตัว
     @FXML
     public void handleToAccountDetailButton(ActionEvent actionEvent) {
         try {
@@ -266,6 +286,7 @@ public class EditBookController {
         }
     }
 
+    // กดปุ่มข้อมูลการขาย
     @FXML
     public void handleToSellerButton(ActionEvent actionEvent) {
         if (account.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")) {
@@ -286,8 +307,9 @@ public class EditBookController {
         }
     }
 
+    // กดปุ่มไปยังหน้าหนังสือทั้งหมด
     @FXML
-    public void handleAllTypeBookButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าหนังสือทั้งหมด
+    public void handleAllTypeBookButton(ActionEvent actionEvent) {
         try {
             com.github.saacsos.FXRouter.goTo("pageBookType", accountList);
         } catch (IOException e) {
@@ -295,7 +317,8 @@ public class EditBookController {
         }
     }
 
-    public void pagesHeader() { // กำหนดและแสดงข้อมูลตรงส่วน head page
+    // กำหนดและแสดงข้อมูลตรงส่วน head page
+    public void pagesHeader() {
         usernameInHead.setText(account.getUserName());
         img.setImage(new Image(account.getImagePath()));
         if(account instanceof AdminAccount){
@@ -306,6 +329,8 @@ public class EditBookController {
             status.setText("Seller");
         }
     }
+
+    // คลิกที่ logo แล้วจะไปหน้า home
     @FXML
     public void mouseClickedInLogo(MouseEvent event){
         try{
@@ -327,6 +352,7 @@ public class EditBookController {
         }
     }
 
+    // กดปุ่มไปยังประวัติการซื้อ
     @FXML
     public void handleToOrderPageButton(ActionEvent actionEvent) {
         try {

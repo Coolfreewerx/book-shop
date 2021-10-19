@@ -24,12 +24,14 @@ public class ChoiceProvideTypeBookController {
     private ProvideTypeBook provideTypeBook;
     private ProvideTypeBookList provideTypeBookList;
 
+    // กำหนดข้อมูลที่ได้รับมา
     public void setData(ProvideTypeBook provideTypeBook, ProvideTypeBookList provideTypeBookList, int numSubtype){
         this.provideTypeBook = provideTypeBook;
         this.provideTypeBookList = provideTypeBookList;
         numSubTypeBookLabel.setText(String.valueOf(numSubtype));
     }
 
+    // กดปุ่มเพื่อตรวจสอบข้อมูล subTypeBook ที่รับเข้ามา
     @FXML
     public void handleEnterSubTypeBookButton(ActionEvent actionEvent){
         this.provideTypeBook.setSubTypeBook(subTypeBookTextField.getText());
@@ -47,17 +49,5 @@ public class ChoiceProvideTypeBookController {
         System.out.println("Can write");
         System.out.println("-------------------");
     }
-
-
-//    @FXML
-//    public void handleEnterTypeBookButton(ActionEvent actionEvent) {
-//        try {
-//            com.github.saacsos.FXRouter.goTo("home");
-//        } catch (IOException e) {
-//            System.err.println("ไปที่หน้า login ไม่ได้");
-//            System.err.println("ให้ตรวจสอบการกำหนด route");
-//        }
-//    }
-
 
 }

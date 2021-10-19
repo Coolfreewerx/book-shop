@@ -49,12 +49,14 @@ public class StockController  {
         account = accountList.getCurrentAccount() ;
     }
 
+    // กำหนดข้อมูลที่ได้รับมา
     public void setData(Book book, AccountList accountList,BookList bookList) {
         this.book = book;
         this.accountList = accountList;
         this.bookList = bookList;
     }
 
+    // เปลี่ยนข้อมูลตามข้อมูลที่ได้รับมา
     public void changeData() {
         bookNameLabel.setText(book.getBookName());
         bookPriceLabel.setText(String.format("%.02f",book.getBookPrice()) + " Baht.");
@@ -74,15 +76,19 @@ public class StockController  {
         dataSource.writeData(bookList);
     }
 
+    // กดปุ่มเพื่อเพิ่มจำนวนสินค้า
     @FXML public void handleIncreaseButton(ActionEvent actionEvent){
         book.increaseStock();
         changeData();
     }
+
+    // กดปุ่มเพื่อลดจำนวนสินค้า
     @FXML public void handleDecreaseButton(ActionEvent actionEvent){
         book.decreaseStock();
         changeData();
     }
 
+    // แปลงข้อมูลเพื่อส่งต่อ
     public ArrayList<Object> castDataToObject() {
         objectForPassing.clear();
         objectForPassing.add(book);
@@ -92,6 +98,7 @@ public class StockController  {
         return objectForPassing;
     }
 
+    // กดปุ่มเพื่อไปยังหน้าแก้ไขข้อมูล
     @FXML
     public void handleEditBookButton(){
         try {

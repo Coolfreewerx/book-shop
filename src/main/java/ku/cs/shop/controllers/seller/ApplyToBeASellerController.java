@@ -23,10 +23,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class ApplyToBeASellerController { //สมัครเป็นผู้ขายสินค้า
-    private String shopName;
-    private String password;
-    private String passwordRecheck;
-
     @FXML private Button submitButton;
     @FXML private TextField nameShopTextField;
     @FXML private PasswordField passwordTextField1;
@@ -44,6 +40,10 @@ public class ApplyToBeASellerController { //สมัครเป็นผู้
     private AccountList accountList ;
     private Account account ;
 
+    private String shopName;
+    private String password;
+    private String passwordRecheck;
+
     public void initialize(){
         accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
         account = accountList.getCurrentAccount() ;
@@ -51,18 +51,7 @@ public class ApplyToBeASellerController { //สมัครเป็นผู้
         pagesHeader();
     }
 
-    public void pagesHeader() { // กำหนดและแสดงข้อมูลตรงส่วน head page
-        usernameInHead.setText(account.getUserName());
-        img.setImage(new Image(account.getImagePath()));
-        if(account instanceof AdminAccount){
-            status.setText("Admin");
-        }else if(account.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")){
-            status.setText("User");
-        }else {
-            status.setText("Seller");
-        }
-    }
-
+    // ตรวจสอบข้อมูล shopName ที่รับเข้ามา
     @FXML
     public void handleKeyCheckShopName(){
         System.out.println(nameShopTextField.getText());
@@ -75,15 +64,19 @@ public class ApplyToBeASellerController { //สมัครเป็นผู้
         }
     }
 
+    // ตรวจสอบข้อมูล password ที่รับเข้ามา
     @FXML
     public void handleKeyPassword() {
         notificationPassword1.setText(Account.comparePassword(passwordTextField1.getText(),account.getPassword()));
     }
+
+    // ตรวจสอบข้อมูล password ยืนยันที่รับเข้ามา
     @FXML
     public void handleKeyCheckPassword() {
         notificationPassword2.setText(Account.comparePassword(passwordTextField1.getText(),passwordTextField2.getText()));
     }
 
+    // สมัครเป็นร้านค้า
     @FXML
     public void handleAddSellerStockButton(){
         password = passwordTextField1.getText();
@@ -107,6 +100,7 @@ public class ApplyToBeASellerController { //สมัครเป็นผู้
         }
     }
 
+    // กดปุ่มไปยังข้อมูลส่วนตัว
     @FXML
     public void handleToAccountDetailButton(ActionEvent actionEvent) {
         try {
@@ -118,6 +112,7 @@ public class ApplyToBeASellerController { //สมัครเป็นผู้
         }
     }
 
+    // กดปุ่มข้อมูลการขาย
     @FXML
     public void handleToSellerButton(ActionEvent actionEvent) {
         if (account.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")) {
@@ -140,6 +135,7 @@ public class ApplyToBeASellerController { //สมัครเป็นผู้
         }
     }
 
+    // กดปุ่มข้อมูลการขาย
     @FXML
     public void handleApplyToBeSellerButton(ActionEvent actionEvent) {
         try {
@@ -151,6 +147,7 @@ public class ApplyToBeASellerController { //สมัครเป็นผู้
         }
     }
 
+    // กดปุ่มไปยังหน้าหนังสือทั้งหมด
     @FXML
     public void handleAllTypeBookButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าหนังสือทั้งหมด
         try {
@@ -160,8 +157,9 @@ public class ApplyToBeASellerController { //สมัครเป็นผู้
         }
     }
 
+    // คลิกที่ logo แล้วจะไปหน้า home
     @FXML
-    public void mouseClickedInLogo(MouseEvent event){ //คลิกที่ logo แล้วจะไปหน้า home
+    public void mouseClickedInLogo(MouseEvent event){
         try{
             logoJavaPai.getOnMouseClicked();
             com.github.saacsos.FXRouter.goTo("home" ,accountList);
@@ -170,7 +168,7 @@ public class ApplyToBeASellerController { //สมัครเป็นผู้
         }
     }
 
-    //ออกจากระบบกลับไปล็อกอิน
+    // ออกจากระบบกลับไปล็อกอิน
     @FXML
     public void handleToLogoutButton(ActionEvent actionEvent) {
         try {
@@ -181,6 +179,20 @@ public class ApplyToBeASellerController { //สมัครเป็นผู้
         }
     }
 
+    // กำหนดและแสดงข้อมูลตรงส่วน head page
+    public void pagesHeader() {
+        usernameInHead.setText(account.getUserName());
+        img.setImage(new Image(account.getImagePath()));
+        if(account instanceof AdminAccount){
+            status.setText("Admin");
+        }else if(account.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")){
+            status.setText("User");
+        }else {
+            status.setText("Seller");
+        }
+    }
+
+    // กดปุ่มไปยังประวัติการซื้อ
     @FXML
     public void handleToOrderPageButton(ActionEvent actionEvent) {
         try {

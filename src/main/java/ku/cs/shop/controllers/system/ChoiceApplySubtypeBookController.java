@@ -10,6 +10,11 @@ import ku.cs.shop.models.*;
 import java.util.ArrayList;
 
 public class ChoiceApplySubtypeBookController {
+    @FXML private Label subTypeBookLabel;
+    @FXML private TextField subTypeBookTextField;
+    @FXML private Button addSubTypeBookButton;
+    @FXML private Label notificationAddButton;
+
     private ProvideTypeBook provideTypeBook ;
     private ProvideTypeBook provideTypeBookData;
     private ProvideTypeBookList typeBookList;
@@ -18,11 +23,7 @@ public class ChoiceApplySubtypeBookController {
     private int index;
     private boolean checkAddButton = false;
 
-    @FXML private Label subTypeBookLabel;
-    @FXML private TextField subTypeBookTextField;
-    @FXML private Button addSubTypeBookButton;
-    @FXML private Label notificationAddButton;
-
+    // กำหนดข้อมูลที่ได้รับมา
     public void setData(ProvideTypeBook provideTypeBook,ArrayList<ProvideTypeBook> typeBookArrayList, AccountList accountList,int index,ProvideTypeBookList typeBookList){
         this.provideTypeBook = provideTypeBook;
         this.typeBookArrayList = typeBookArrayList;
@@ -31,6 +32,7 @@ public class ChoiceApplySubtypeBookController {
         this.typeBookList = typeBookList;
     }
 
+    // เปลี่ยนข้อมูลตามข้อมูลที่ได้รับมา
     public void changeData() {
         subTypeBookLabel.setText(provideTypeBook.getSubTypeBook());
     }
@@ -39,6 +41,7 @@ public class ChoiceApplySubtypeBookController {
         subTypeBookTextField.setText(typeBookArrayList.get(index).getSubTypeBook());
     }
 
+    // ตรวจสอบการกดปุ่มเพิ่มข้อมูล
     public void handleKeySubTypeBookTextField(){
         if (checkAddButton == false)
             notificationAddButton.setText("กรุณากด add ข้อมูล");
@@ -46,11 +49,10 @@ public class ChoiceApplySubtypeBookController {
             notificationAddButton.setText("");
     }
 
+    // กดปุ่มเพิ่มข้อมูลและตรวจสอบข้อมูล
     @FXML
     public void handleAddSubTypeButton(ActionEvent actionEvent) {
         provideTypeBookData = new ProvideTypeBook();
-        System.out.println(provideTypeBookData);
-        System.out.println(subTypeBookTextField);
         provideTypeBookData.setSubTypeBook(subTypeBookTextField.getText());
         provideTypeBookData.setSuperTypeBook(provideTypeBook.getSuperTypeBook());
         if (typeBookArrayList.size() != typeBookList.numOfSubTypeBook(provideTypeBook.getSuperTypeBook())){

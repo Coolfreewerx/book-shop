@@ -52,7 +52,6 @@ public class Book {
         this.typeBookArrayList = typeBookArrayList;
     }
 
-
     public Book(String bookName, double bookPrice, String bookShop) {
         this.bookName = bookName;
         this.bookPrice = bookPrice;
@@ -110,6 +109,7 @@ public class Book {
     // decrease method
     public void decreaseStock () { this.setBookStock(this.bookStock - 1); }
 
+    // ตรวจสอบข้อมูล bookISBN และส่งกลับไปยังเงื่อนไข
     public boolean isBookISBNCorrect(String bookISBN) {
         if (((bookISBN.length() == 10 || bookISBN.length() == 13 ) && Pattern.matches("[0-9]+",bookISBN)) || (bookISBN.length() == 1 ||Pattern.matches("[\\-]+",bookISBN)))  {
             return true;
@@ -118,6 +118,7 @@ public class Book {
         }
     }
 
+    // ตรวจสอบข้อมูล bookISBN และแจ้งเตือน
     public String checkBookISBNCorrect(String bookISBN) {
         if (isBookISBNCorrect(bookISBN)) {
             return "";
@@ -126,12 +127,14 @@ public class Book {
         }
     }
 
+    // ตรวจสอบข้อมูลตัวเลขจำนวนเต็ม และส่งกลับไปยังเงื่อนไข
     public boolean isIntNumber(String num) {
         if ((Pattern.matches("[0-9]+",num)) && (Integer.parseInt(num) > 0)) {
             return true;
         } return false;
     }
 
+    // ตรวจสอบข้อมูลตัวเลขจำนวนเต็ม และแจ้งเตือน
     public String checkIntNumber(String num) {
         if (isIntNumber(num)) {
             return "";
@@ -140,12 +143,14 @@ public class Book {
         }
     }
 
+    // ตรวจสอบข้อมูลตัวเลขจำนวนจริง และส่งกลับไปยังเงื่อนไข
     public boolean isDoubleNumber(String num) {
         if ((Pattern.matches("[0-9].+[0-9]+",num)||Pattern.matches("[0-9]+",num)) && (Double.parseDouble(num) > 0) ){
             return true;
         }return false;
     }
 
+    // ตรวจสอบข้อมูลตัวเลขจำนวนจริง และแจ้งเตือน
     public String checkDoubleNumber(String num) {
         if (isDoubleNumber(num)) {
             return "";
@@ -154,6 +159,7 @@ public class Book {
         }
     }
 
+    // ตรวจสอบว่าข้อมูลได้ถูกกรอกทั้งหมดหรือไม่
     public boolean getDataCheck(Book book) {
         if (book.getBookName().equals("") || book.getBookShop().equals("") || book.getBookAuthor().equals("") || book.getBookISBN().equals("") || book.getBookType().equals("") || book.getBookDetail().equals("") ||
                 book.getBookPublisher().equals("") || book.getBookStatus().equals("") || book.getBookImg().equals("") || (book.getBookStock() == -1) || book.getBookPage().equals("") || (book.getLeastStock() == -1) || (book.getBookPrice() == -1) ){
@@ -161,6 +167,7 @@ public class Book {
         } else{ return true;}
     }
 
+    // กำหนดค่าข้อมูล typeBook เริ่มต้น
     public void setTypeBook(Book book){
         ProvideTypeBookDataSource provideTypeBookDataSource = new ProvideTypeBookDataSource("csv-data/provideTypeBookData.csv");
         ProvideTypeBookList typeBookList = provideTypeBookDataSource.readData();
@@ -174,6 +181,7 @@ public class Book {
         }
     }
 
+    // คัดลอกรูปภาพ
     public static void copyImageToPackage(File image, String imageName) {
         File file = new File("images/book-images") ;
         Path desPath = FileSystems.getDefault().getPath(file.getAbsolutePath() + "\\" + imageName);

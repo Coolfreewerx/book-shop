@@ -73,6 +73,7 @@ public class SellerStockController implements Initializable {
         }
     }
 
+    // กดปุ่มไปยังหน้าเพิ่มหนังสือ
     @FXML
     public void handleAddStockButton(){
         try {
@@ -84,6 +85,7 @@ public class SellerStockController implements Initializable {
         }
     }
 
+    // กดปุ่มไปยังรายการสั่งซื้อ
     @FXML
     public void handleOrderListButton(ActionEvent actionEvent){
         try {
@@ -95,6 +97,7 @@ public class SellerStockController implements Initializable {
         }
     }
 
+    // กดปุ่มไปยังข้อมูลส่วนตัว
     @FXML
     public void handleToAccountDetailButton(ActionEvent actionEvent) {
         try {
@@ -106,6 +109,7 @@ public class SellerStockController implements Initializable {
         }
     }
 
+    // กดปุ่มข้อมูลการขาย
     @FXML
     public void handleToSellerButton(ActionEvent actionEvent) {
         if (account.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")) {
@@ -124,8 +128,9 @@ public class SellerStockController implements Initializable {
         }
     }
 
+    // กดปุ่มไปยังหน้าหนังสือทั้งหมด
     @FXML
-    public void handleAllTypeBookButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าหนังสือทั้งหมด
+    public void handleAllTypeBookButton(ActionEvent actionEvent) {
         try {
             com.github.saacsos.FXRouter.goTo("pageBookType", accountList);
         } catch (IOException e) {
@@ -133,8 +138,9 @@ public class SellerStockController implements Initializable {
         }
     }
 
+    //คลิกที่รูป logo แล้วจะไปหน้า home
     @FXML
-    public void mouseClickedInLogo(MouseEvent event){ //คลิกที่รูป logo แล้วจะไปหน้า home
+    public void mouseClickedInLogo(MouseEvent event){
         try{
             logoJavaPai.getOnMouseClicked();
             com.github.saacsos.FXRouter.goTo("home" ,accountList);
@@ -143,7 +149,8 @@ public class SellerStockController implements Initializable {
         }
     }
 
-    public void pagesHeader() { // กำหนดและแสดงข้อมูลตรงส่วน head page
+    // กำหนดและแสดงข้อมูลตรงส่วน head page
+    public void pagesHeader() {
         usernameInHead.setText(account.getUserName());
         img.setImage(new Image(account.getImagePath()));
         if(account instanceof AdminAccount){
@@ -166,6 +173,7 @@ public class SellerStockController implements Initializable {
         }
     }
 
+    // กดปุ่มไปยังประวัติการซื้อ
     @FXML
     public void handleToOrderPageButton(ActionEvent actionEvent) {
         try {
@@ -175,6 +183,7 @@ public class SellerStockController implements Initializable {
         }
     }
 
+    // กดปุ่มไปยังหน้าสร้างโปรโมชั่น
     @FXML
     public void handleToPromotionPageButton(ActionEvent actionEvent) {
         try {

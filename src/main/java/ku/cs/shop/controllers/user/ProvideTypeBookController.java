@@ -24,26 +24,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class ProvideTypeBookController {
-
-    private AccountList accountList ;
-    private Account account ;
-    private UserAccount selectedAccount ;
-
-    private ProvideTypeBookDataSource provideTypeBookDataSource = new ProvideTypeBookDataSource("csv-data/provideTypeBookData.csv");
-    private ProvideTypeBookList typeBookList = provideTypeBookDataSource.readData();
-    private ProvideTypeBook provideTypeBook = new ProvideTypeBook("","");
-
-    @FXML private FlowPane flowPaneForSubTypeBook;
-
-
-    private BookDetailDataSource data = new BookDetailDataSource("csv-data/bookDetail.csv");
-    private BookList books = data.readData();
-
-    public void initialize(){
-        accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
-        account = accountList.getCurrentAccount() ;
-    }
-
     @FXML private ImageView logoJavaPai;
     @FXML private Button provideUserButton;
     @FXML private Button provideShopButton;
@@ -57,7 +37,31 @@ public class ProvideTypeBookController {
     @FXML private Label topicLabel11;
     @FXML private Button addSubTypeBookButton;
     @FXML private Button saveSubtypeBookButton;
+    @FXML private FlowPane flowPaneForSubTypeBook;
 
+    private AccountList accountList ;
+    private Account account ;
+    private UserAccount selectedAccount ;
+
+    private ProvideTypeBookDataSource provideTypeBookDataSource ;
+    private ProvideTypeBookList typeBookList ;
+    private ProvideTypeBook provideTypeBook;
+
+    private BookDetailDataSource data ;
+    private BookList books;
+
+    public void initialize(){
+        accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
+        account = accountList.getCurrentAccount() ;
+
+        data = new BookDetailDataSource("csv-data/bookDetail.csv");
+        books = data.readData();
+
+        provideTypeBookDataSource = new ProvideTypeBookDataSource("csv-data/provideTypeBookData.csv");
+        typeBookList = provideTypeBookDataSource.readData();
+    }
+
+    // คลิกที่ logo แล้วจะไปหน้า home
     @FXML
     public void mouseClickedInLogo(MouseEvent event){
         try{
@@ -68,6 +72,7 @@ public class ProvideTypeBookController {
         }
     }
 
+    // ตรวจสอบข้อมูล typeBook ที่รับมา
     @FXML
     public void handleKeyNewBookTypeTextField(){
         System.out.println(newBooktypeTextField.getText());
@@ -79,6 +84,7 @@ public class ProvideTypeBookController {
         }
     }
 
+    // กดเพื่อเพิ่มข้อมูล typeBook
     @FXML
     public void handleEnterTypeBookButton(ActionEvent actionEvent){
         if (typeBookList.checkNewTypeBookHaveUsed(newBooktypeTextField.getText())) {
@@ -92,6 +98,7 @@ public class ProvideTypeBookController {
         }
     }
 
+    // กดปุ่มเพื่อยังหน้าการจัดการผู้ใช้
     @FXML
     public void handleToProvideAdminButton(ActionEvent actionEvent) {
         try {
@@ -101,8 +108,9 @@ public class ProvideTypeBookController {
             e.printStackTrace();
         }
     }
-    int numSubType = 1;
 
+    // กดเพื่อเพิ่ม subTypeBook
+    int numSubType = 1;
     @FXML
     public void handleAddSubTypeBookButton(ActionEvent actionEvent) throws IOException {
         if (! provideTypeBook.getSuperTypeBook().equals("")) {
@@ -119,6 +127,7 @@ public class ProvideTypeBookController {
         }
     }
 
+    // กดเพื่อเคลียร์หน้าข้อมูล
     @FXML
     public void handleSaveTypeBookButton(ActionEvent actionEvent){
         try {
@@ -129,6 +138,7 @@ public class ProvideTypeBookController {
         }
     }
 
+    // กดปุ่มเพื่อไปยังหน้าข้อมูลส่วนตัว
     @FXML
     public void handleToInformationButton(ActionEvent actionEvent) {
         try {

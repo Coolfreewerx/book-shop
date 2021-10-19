@@ -26,12 +26,14 @@ public class OrderPopUPController {
     private AccountList accountList ;
     private Account account ;
 
+    // กำหนดข้อมูลที่ได้รับมา
     public void setData(Order order,AccountList accountList,OrderList orders) {
         this.order = order;
         this.accountList = accountList;
         this.orders = orders;
     }
 
+    // เปลี่ยนข้อมูลตามข้อมูลที่ได้รับมา
     public void changeData() {
         bookNamePopUpLabel.setText(this.order.getBookName());
         customerNamePopUpLabel.setText(this.order.getCustomerName());
@@ -40,6 +42,7 @@ public class OrderPopUPController {
         dataSource.writeData(orders);
     }
 
+    // กดปุ่มเพื่อเพิ่มข้อมูลเลขพัสดุ
     @FXML
     public void handleShippedButton(ActionEvent actionEvent){
         order.setTrackingNumber(trackingNumberTextField.getText());
@@ -51,6 +54,7 @@ public class OrderPopUPController {
         }
     }
 
+    // กดเพื่อปิดหน้าต่าง pop up
     @FXML
     public void handleBackToOrderListButton(ActionEvent actionEvent){
         try {

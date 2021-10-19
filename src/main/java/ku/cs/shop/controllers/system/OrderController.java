@@ -26,17 +26,20 @@ public class OrderController {
     @FXML private Button editStatusButton;
     @FXML private Label statusBookLabel;
     @FXML private GridPane gridPaneForPopup;
+
     private Order order;
     private OrderList orders;
     private AccountList accountList ;
     private Account account ;
 
+    // กำหนดข้อมูลที่ได้รับมา
     public void setData(Order order,AccountList accountList,OrderList orders) {
         this.order = order;
         this.accountList = accountList;
         this.orders = orders;
     }
 
+    // เปลี่ยนข้อมูลตามข้อมูลที่ได้รับมา
     public void changeData() {
         bookNameLabel.setText(order.getBookName());
         numPriceLabel.setText(order.getTotalPriceOrdered() + "");
@@ -47,6 +50,7 @@ public class OrderController {
         bookImageView.setImage(new Image(order.getPicturePath()));
     }
 
+    // กดปุ่มแก้ไขข้อมูลการจัดส่ง
     @FXML
     public void handleEditOrderButton(ActionEvent actionEvent){
         try {
@@ -61,5 +65,4 @@ public class OrderController {
             e.printStackTrace();
         }
     }
-
 }

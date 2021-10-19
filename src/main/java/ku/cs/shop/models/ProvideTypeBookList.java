@@ -16,6 +16,7 @@ public class ProvideTypeBookList {
         superTypeBook.add(provideTypeBook.getSuperTypeBook());
     }
 
+    // ค้นหา subTypeBook จากข้อมูลประเภททั้งหมด
     public ArrayList<ProvideTypeBook> findSubTypeBook(String typeBook){
         System.out.println(typeBook);
         ArrayList<ProvideTypeBook> provideTypeBookArrayList = new ArrayList<>();
@@ -28,6 +29,7 @@ public class ProvideTypeBookList {
         return provideTypeBookArrayList;
     }
 
+    // คืนค่าจำนวนค้นหา subTypeBook จากข้อมูลประเภททั้งหมด
     public int numOfSubTypeBook(String typeBook){
         ArrayList<String> provideSubTypeBookArrayList = new ArrayList<>();
         for(ProvideTypeBook provideTypeBook : typeBooks){
@@ -38,21 +40,9 @@ public class ProvideTypeBookList {
         return provideSubTypeBookArrayList.size();
     }
 
-    public int maxSizeSubTypeBook(){
-        int max = 0;
-        for(String superType : superTypeBook){
-            if ( max == 0 ){
-                max = 2;
-            }
-            else if ( numOfSubTypeBook(superType) > max ){
-                max = numOfSubTypeBook(superType);
-            }
-        }
-        return max;
-    }
-
     public Set<String> getSuperTypeBook() { return superTypeBook; }
 
+    // ตรวจสอบการมีอยู่ของชื่อ typeBook
     public boolean checkNewTypeBookHaveUsed(String typeBook){
         for(ProvideTypeBook provideTypeBook : this.typeBooks) {
             if (provideTypeBook.getSuperTypeBook().equals(typeBook)) {
