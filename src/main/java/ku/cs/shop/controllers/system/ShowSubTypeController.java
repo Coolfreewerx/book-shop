@@ -13,7 +13,6 @@ public class ShowSubTypeController {
     @FXML private Label bookTypeMoreInfo;
 
     public void changeData(ArrayList<ProvideTypeBook> provideTypeBook,Book book, int index) {
-        System.out.println(book.getTypeBookArrayList());
         bookSubType.setText(book.getTypeBookArrayList().get(index).getSubTypeBook());
         bookTypeMoreInfo.setText(provideTypeBook.get(index).getSubTypeBook());
     }
