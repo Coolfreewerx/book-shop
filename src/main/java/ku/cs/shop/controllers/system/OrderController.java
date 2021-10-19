@@ -55,10 +55,9 @@ public class OrderController {
 
             gridPaneForPopup.add(fxmlLoader.load(), 0, 0);
             OrderPopUPController orderPopUPController = fxmlLoader.getController();
-            orderPopUPController.setData(this.order,accountList,this.orders);
+            orderPopUPController.setData(this.order, accountList, this.orders);
             orderPopUPController.changeData();
-
-        }catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

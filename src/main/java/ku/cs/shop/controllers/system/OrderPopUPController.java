@@ -45,7 +45,7 @@ public class OrderPopUPController {
         order.setTrackingNumber(trackingNumberTextField.getText());
         changeData();
         try {
-            com.github.saacsos.FXRouter.goTo("orderList",accountList);
+            com.github.saacsos.FXRouter.goTo("orderList", accountList);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -53,9 +53,8 @@ public class OrderPopUPController {
 
     @FXML
     public void handleBackToOrderListButton(ActionEvent actionEvent){
-        System.out.println("Click on Back Button is on popup");
         try {
-            com.github.saacsos.FXRouter.goTo("orderList",accountList);
+            com.github.saacsos.FXRouter.goTo("orderList", accountList);
         } catch (IOException e) {
             e.printStackTrace();
         }

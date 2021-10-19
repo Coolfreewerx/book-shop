@@ -31,19 +31,17 @@ public class BookShopDetailController<MenuItemCartoon, bookTypeLabel> implements
     @FXML private ImageView img;
     @FXML private ImageView logoJavaPai;
 
-    private String currentType;
+    private ArrayList<Object> objectForPassing = new ArrayList<>();
     private Account account;
     private AccountList accountList;
+    private BookDetailDataSource data;
+    private BookList books;
     private BookList bookList;
     private Book book;
 
-    private ArrayList<Object> objectForPassing = new ArrayList<>();
-
-    private BookDetailDataSource data = new BookDetailDataSource("csv-data/bookDetail.csv");
-    private BookList books = data.readData();
-
-    public void initialize (URL location, ResourceBundle resource){
-        System.out.println("Welcome to  Seller Book Page");
+    public void initialize (URL location, ResourceBundle resource) {
+        data = new BookDetailDataSource("csv-data/bookDetail.csv");
+        books = data.readData();
 
         objectForPassing = (ArrayList<Object>) FXRouter.getData();
         castObjectToData();
@@ -87,20 +85,20 @@ public class BookShopDetailController<MenuItemCartoon, bookTypeLabel> implements
                 itemController.setData(book);
                 itemController.setController(this, "byShop");
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void pagesHeader() { // กำหนดและแสดงข้อมูลตรงส่วน head page
+    // กำหนดและแสดงข้อมูลตรงส่วน head page
+    public void pagesHeader() {
         usernameInHead.setText(account.getUserName());
         img.setImage(new Image(account.getImagePath()));
-        if(account instanceof AdminAccount){
+        if (account instanceof AdminAccount) {
             status.setText("Admin");
-        }else if(account.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")){
+        } else if (account.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")) {
             status.setText("User");
-        }else {
+        } else {
             status.setText("Seller");
         }
     }
@@ -110,17 +108,17 @@ public class BookShopDetailController<MenuItemCartoon, bookTypeLabel> implements
         return objectForPassing;
     }
 
+    // ไปยังหน้า market page
     public void handleAllTypeBookButton(ActionEvent actionEvent) {
         try {
             com.github.saacsos.FXRouter.goTo("pageBookType", accountList);
         } catch (IOException e) {
             e.printStackTrace();
-            System.err.println("ไปที่หน้า pageBookType ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
         }
 
     }
 
+    // ไปยังหน้ารายละเอียดส่วนตัว
     @FXML
     public void handleToInformationButton(ActionEvent actionEvent) {
         try {
@@ -130,11 +128,12 @@ public class BookShopDetailController<MenuItemCartoon, bookTypeLabel> implements
         }
     }
 
+    // Logo Javapai ไปยังหน้า Home
     @FXML
-    public void mouseClickedInLogo(MouseEvent event){ // คลิกที่ logo แล้วจะไปหน้า home
+    public void mouseClickedInLogo(MouseEvent event){
         try{
             logoJavaPai.getOnMouseClicked();
-            com.github.saacsos.FXRouter.goTo("home" ,accountList);
+            com.github.saacsos.FXRouter.goTo("home", accountList);
         } catch (Exception e) {
             e.printStackTrace();
         }

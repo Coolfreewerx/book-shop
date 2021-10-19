@@ -37,15 +37,17 @@ public class ConfirmOrderController {
     private int stockInShop;
     private double costOfBook;
     private double totalBookOrderedWhenUseCodePromotion;
-
     private ArrayList<Promotion> shopPromotion;
-
-    private OrderDataSource orderDataSource = new OrderDataSource("csv-data/bookOrder.csv");
-    private OrderList orderList = orderDataSource.readData();
+    private OrderDataSource orderDataSource;
+    private OrderList orderList;
 
     public void setController(BookDetailController book) {
+        orderDataSource = new OrderDataSource("csv-data/bookOrder.csv");
+        orderList = orderDataSource.readData();
+
         this.bookDetailController = book;
         setBookListAndBook();
+
         promotionDataSource = new PromotionDataSource("csv-data/promotion.csv");
         promotionList = promotionDataSource.readData();
         shopPromotion = promotionList.getPromotionByShopName(bookDetailController.getBook().getBookShop());
@@ -53,7 +55,6 @@ public class ConfirmOrderController {
         bookNameLabel.setText(bookDetailController.getBook().getBookName());
         setCostOfBook(bookDetailController.getBook().getBookPrice());
         setStockInShop(bookDetailController.getBook().getBookStock());
-        System.out.println("name book is " + bookDetailController.getBook().getBookName() + " stock is " + bookDetailController.getBook().getBookStock());
     }
 
     public void setBookListAndBook() {
@@ -65,6 +66,7 @@ public class ConfirmOrderController {
     public void setCostOfBook(double costOfBook) { this.costOfBook = costOfBook; }
     public void setTotalBookOrdered(int totalBookOrdered) { this.totalBookOrdered = totalBookOrdered; }
 
+    // ตรวจสอบการรับข้อมูลจำนวนสั่งหนังสือจาก User
     public int checkInputNumOfOrder() {
         if (Pattern.matches("[1-9]+[0-9]+" , inputNumOfBookTextField.getText())
                 || ( (inputNumOfBookTextField.getText().length() == 1) && Pattern.matches("[0-9]+", inputNumOfBookTextField.getText()) )
@@ -77,6 +79,7 @@ public class ConfirmOrderController {
         return 0;
     }
 
+    // ครวจสอบการสั่งหนังสือกับสินค้าในร้านค้า
     @FXML
     void handleAddNumOfBookInput(ActionEvent event) {
         checkInputNumOfOrder();
@@ -109,7 +112,8 @@ public class ConfirmOrderController {
         return totalBookOrderedWhenUseCodePromotion;
     }
 
-    @FXML //ทำงานเมื่อกรอก codePromotion
+    //ทำงานเมื่อกรอก codePromotion
+    @FXML
     public void handleKeyCodePromotion() {
         String shopName = bookDetailController.getBook().getBookShop();
         String codePromotion = inputCodePromotion.getText();
@@ -128,6 +132,7 @@ public class ConfirmOrderController {
         }
     }
 
+    // เพิ่มข้อมูลไปยัง bookOrder.csv
     @FXML
     public void handleConfirmBuyBook(ActionEvent event) {
         if (Double.parseDouble(sumBookPriceLabel.getText()) > 0 && bookDetailController.getBook().getBookStock() > 0) {

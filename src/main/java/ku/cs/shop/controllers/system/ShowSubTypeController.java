@@ -8,6 +8,7 @@ import ku.cs.shop.models.ProvideTypeBook;
 import java.util.ArrayList;
 
 public class ShowSubTypeController {
+
     @FXML private Label bookSubType;
     @FXML private Label bookTypeMoreInfo;
 

@@ -34,19 +34,21 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
     @FXML private ImageView img;
     @FXML private ImageView logoJavaPai;
 
+    private BookList books;
+    private BookDetailDataSource data;
     private double maxPriceFromInput ;
     private double lowPriceFromInput;
     private String currentType;
     private Account account;
     private AccountList accountList;
     private ArrayList<Book> bookFromPrice = new ArrayList<>();
-
     private ArrayList<Object> objectForPassing = new ArrayList<>();
-    private BookDetailDataSource data = new BookDetailDataSource("csv-data/bookDetail.csv");
-    private BookList books = data.readData();
+
 
     public void initialize (URL location, ResourceBundle resource){
-        System.out.println("Welcome to  Market Book Page");
+        data = new BookDetailDataSource("csv-data/bookDetail.csv");
+        books = data.readData();
+
         accountList = (AccountList) com.github.saacsos.FXRouter.getData();
         account = accountList.getCurrentAccount();
         pagesHeader();
@@ -65,14 +67,15 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
         return objectForPassing;
     }
 
-    public void pagesHeader() { // กำหนดและแสดงข้อมูลตรงส่วน head page
+    // กำหนดและแสดงข้อมูลตรงส่วน head page
+    public void pagesHeader() {
         usernameInHead.setText(account.getUserName());
         img.setImage(new Image(account.getImagePath()));
-        if(account instanceof AdminAccount){
+        if (account instanceof AdminAccount){
             status.setText("Admin");
-        }else if(account.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")){
+        } else if (account.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")) {
             status.setText("User");
-        }else {
+        } else {
             status.setText("Seller");
         }
     }
@@ -89,7 +92,6 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
         bookHeadLabel.setText("ประเภทของหนังสือ");
         MenuItem menuItem = (MenuItem) actionEvent.getSource();
         changeBookType(menuItem.getText());
-        System.out.println("Click to " + currentType);
     }
 
     public void changeBookType(String type) {
@@ -111,7 +113,6 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
                 itemController.setData(book);
                 itemController.setController(this, "byType");
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -137,13 +138,13 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
         changeBookTypeAndSortPriceFromInput("ประเภททั้งหมด");
     }
 
+    // แสดงหนังสือตามช่วงราคาที่ได้จาก User
     public void changeBookTypeAndSortPriceFromInput(String type) {
         currentType = type;
         bookType.setText(currentType);
         bookListFlowPane.getChildren().clear();
         bookFromPrice.clear();
         ArrayList<Book> bookByType = books.getBookByType(type);
-
         try {
             for (Book book : bookByType) {
                 if (book.getBookPrice() >= lowPriceFromInput && book.getBookPrice() <= maxPriceFromInput
@@ -158,16 +159,16 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
                     itemController.setController(this, "byType");
                 }
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    // ตรวจสอบเงื่อนไขการใส่ช่วงราคาจาก User
     @FXML
     public double sortLowPriceToMaxPriceFromInput() {
-        if ( Pattern.matches("[1-9]+[0-9]+" , inputLowPriceTextField.getText()) // fisrt case input many element : input from user by first element not == 0 and not be string
-                || ((inputLowPriceTextField.getText().length() == 1) && Pattern.matches("[0-9]+", inputLowPriceTextField.getText()) )// second case input only one element
+        if ( Pattern.matches("[1-9]+[0-9]+" , inputLowPriceTextField.getText())
+                || ((inputLowPriceTextField.getText().length() == 1) && Pattern.matches("[0-9]+", inputLowPriceTextField.getText()) )
                 && Double.parseDouble(inputLowPriceTextField.getText()) >= 0 ) {
             setLowPriceFromInput(Double.parseDouble(inputLowPriceTextField.getText()));
         }
@@ -180,6 +181,7 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
         return 0;
     }
 
+    // ปุ่มเรียงราคาหนังสือจากน้อยไปมาก
     @FXML
     public void handleLowPriceToMaxPrice(ActionEvent actionEvent) {
         if (!bookFromPrice.isEmpty()) {
@@ -199,7 +201,6 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
                     itemController.setData(book);
                     itemController.setController(this, "byType");
                 }
-
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -213,6 +214,7 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
         }
     }
 
+    // ปุ่มเรียงราคาหนังสือจากมากไปน้อย
     @FXML
     public void handleMaxPriceToLowPrice(ActionEvent actionEvent) {
         if (!bookFromPrice.isEmpty()) {
@@ -232,7 +234,6 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
                     itemController.setData(book);
                     itemController.setController(this, "byType");
                 }
-
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -244,7 +245,6 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
             books.sort(comparator);
             changeBookType(currentType);
         }
-
     }
 
     @FXML
@@ -256,7 +256,7 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
     }
 
     @FXML
-    public void handleToInformationButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าข้อมูลส่วนตัว
+    public void handleToInformationButton(ActionEvent actionEvent) {
         try {
             com.github.saacsos.FXRouter.goTo("accountDetail", accountList);
         } catch (IOException e) {
@@ -264,8 +264,9 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
         }
     }
 
+    // Logo Javapai ไปยังหน้า Home
     @FXML
-    public void mouseClickedInLogo(MouseEvent event){ // คลิกที่ logo แล้วจะไปหน้า home
+    public void mouseClickedInLogo(MouseEvent event){
         try{
             logoJavaPai.getOnMouseClicked();
             com.github.saacsos.FXRouter.goTo("home" ,accountList);

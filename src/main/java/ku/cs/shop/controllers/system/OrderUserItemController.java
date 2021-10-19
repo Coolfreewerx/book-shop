@@ -13,8 +13,8 @@ public class OrderUserItemController {
     @FXML private Label trakingNumberLabel;
     @FXML private Label bookShopLabel;
     @FXML private Label totalPriceLabel;
-    @FXML private Label bookStatusLabel;
     @FXML private ImageView bookImg;
+
     private Order order;
 
     public void setData(Order order) {

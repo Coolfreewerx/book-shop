@@ -27,21 +27,24 @@ public class HomeController implements Initializable {
     @FXML private ImageView img;
     @FXML private ImageView logoJavaPai;
 
-    private BookDetailDataSource data = new BookDetailDataSource("csv-data/bookDetail.csv");
-    private BookList books = data.readData();
-    private int bookAllType = books.getBookListCount();
-
     private ArrayList<Object> objectForPassing = new ArrayList<>();
-    private AccountList accountList ;
-    private Account account ;
+    private BookDetailDataSource data;
+    private BookList books;
+    private AccountList accountList;
+    private Account account;
+    private int bookAllType;
 
-    public void initialize (URL location, ResourceBundle resource){
+    public void initialize (URL location, ResourceBundle resource) {
+        data = new BookDetailDataSource("csv-data/bookDetail.csv");
+        books = data.readData();
+        bookAllType = books.getBookListCount();
         accountList = (AccountList) com.github.saacsos.FXRouter.getData();
         account = accountList.getCurrentAccount();
         data.writeData(books);
         addItemToProgram();
     }
 
+    // แสดงข้อมูล Item หนังสือในหน้า Home
     public void addItemToProgram() {
         try {
             for (int i = 0 ; i < bookAllType; i++) {
@@ -51,12 +54,11 @@ public class HomeController implements Initializable {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/ku/cs/item.fxml"));
 
-                bookListFlowPane.getChildren().add(fxmlLoader.load()); // child,col,row
+                bookListFlowPane.getChildren().add(fxmlLoader.load());
                 ItemController itemController = fxmlLoader.getController();
                 itemController.setData(books.getBook(i));
                 itemController.setController(this,"default");
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         } pagesHeader();
@@ -74,20 +76,22 @@ public class HomeController implements Initializable {
         return objectForPassing;
     }
 
-    public void pagesHeader() { // กำหนดและแสดงข้อมูลตรงส่วน head page
+    // กำหนดและแสดงข้อมูลตรงส่วน head page
+    public void pagesHeader() {
         usernameInHead.setText(account.getUserName());
         img.setImage(new Image(account.getImagePath()));
-        if(account instanceof AdminAccount){
+        if (account instanceof AdminAccount) {
             status.setText("Admin");
-        }else if(account.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")){
+        } else if (account.getShopName().equals("ยังไม่ได้สมัครเป็นผู้ขาย")) {
             status.setText("User");
-        }else {
+        } else {
             status.setText("Seller");
         }
     }
 
+    // ไปยังหน้า market page
     @FXML
-    public void handleAllTypeBookButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าหนังสือทั้งหมด
+    public void handleAllTypeBookButton(ActionEvent actionEvent) {
         try {
             FXRouter.goTo("pageBookType", accountList);
         } catch (IOException e) {
@@ -95,6 +99,7 @@ public class HomeController implements Initializable {
         }
     }
 
+    // ไปยังหน้ารายละเอียดส่วนตัว
     @FXML
     public void handleToAccountDetailButton(ActionEvent actionEvent) {
         try {
@@ -104,8 +109,9 @@ public class HomeController implements Initializable {
         }
     }
 
+    // Logo Javapai ไปยังหน้า Home
     @FXML
-    public void mouseClickedInLogo(MouseEvent event){ // คลิกที่ logo แล้วจะไปหน้า home
+    public void mouseClickedInLogo(MouseEvent event) {
         try {
             logoJavaPai.getOnMouseClicked();
             com.github.saacsos.FXRouter.goTo("home" ,accountList);

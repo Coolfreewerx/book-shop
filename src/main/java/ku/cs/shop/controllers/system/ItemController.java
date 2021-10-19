@@ -8,36 +8,21 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import ku.cs.shop.models.AccountList;
 import ku.cs.shop.models.Book;
-
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class ItemController {
 
-    private Book book;
-    private AccountList accountList;
-    private TypeBookController typeBookController;
-    private BookShopDetailController bookShopDetailController;
-    private HomeController homeController;
-
-
     @FXML private Label bookNameLabel;
     @FXML private Label bookPriceLabel;
     @FXML private ImageView img;
 
-    private ArrayList<Object> objectForPassing = new ArrayList<>();
+    private Book book;
     private String type;
-
-    @FXML
-    public void handleSeeFullDetailButton(ActionEvent actionEvent) {
-        try {
-            setObjectForPassing(type);
-            addBookToArrayList();
-            com.github.saacsos.FXRouter.goTo("bookDetail", objectForPassing);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    private HomeController homeController;
+    private TypeBookController typeBookController;
+    private BookShopDetailController bookShopDetailController;
+    private ArrayList<Object> objectForPassing = new ArrayList<>();
 
     public String setController(Object o, String type) {
         if (type.equals("default")) {
@@ -60,7 +45,7 @@ public class ItemController {
         ArrayList<Object> objects;
         objectForPassing.clear();
 
-        if(type.equals("default")) {
+        if (type.equals("default")) {
             objects = homeController.getObjectForPassing();
             objectForPassing = objects;
         }
@@ -84,5 +69,17 @@ public class ItemController {
         bookNameLabel.setText(book.getBookName());
         bookPriceLabel.setText(String.format("%.02f",book.getBookPrice()) + " Baht.");
         img.setImage(new Image(book.getPicturePath()));
+    }
+
+    // แสดงรายละเอียดหนังสือ
+    @FXML
+    public void handleSeeFullDetailButton(ActionEvent actionEvent) {
+        try {
+            setObjectForPassing(type);
+            addBookToArrayList();
+            com.github.saacsos.FXRouter.goTo("bookDetail", objectForPassing);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

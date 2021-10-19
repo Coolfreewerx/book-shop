@@ -33,14 +33,13 @@ public class BookDetailController
     @FXML private ImageView bookImg;
     @FXML private ImageView img;
     @FXML private ImageView logoJavaPai;
-    @FXML private Hyperlink bookDetailByShop;
     @FXML private TextField commentTextField;
     @FXML private GridPane showPopupGrid;
     @FXML private Label numberOfComments;
     @FXML private Label bookRatingLabel;
     @FXML private FlowPane showTypeBookFlowPane;
 
-    Reviews reviews = new Reviews();
+    private Reviews reviews = new Reviews();
     private AccountList accountList;
     private Account account;
     private Book book;
@@ -80,10 +79,7 @@ public class BookDetailController
     public Book getBook() {
         return book;
     }
-
-    public Account getAccount() {
-        return account;
-    }
+    public Account getAccount() { return account; }
 
     public void showData() {
         bookNameLabel.setText(book.getBookName());
@@ -114,7 +110,8 @@ public class BookDetailController
         return bookList;
     }
 
-    public void pagesHeader() { // กำหนดและแสดงข้อมูลตรงส่วน head page
+    // กำหนดและแสดงข้อมูลตรงส่วน head page
+    public void pagesHeader() {
         usernameInHead.setText(account.getUserName());
         img.setImage(new Image(account.getImagePath()));
 
@@ -127,6 +124,7 @@ public class BookDetailController
         }
     }
 
+    // แสดงหมวดหมู่เพิ่มเติมของหนังสือเล่มนั้น
     public void addInfoToShowTypeBookFlowPane() {
         ArrayList<ProvideTypeBook> provideTypeBooks = provideTypeBookList.findSubTypeBook(book.getBookType());
         int numOfSubTypeBook = provideTypeBookList.numOfSubTypeBook(book.getBookType());
@@ -146,6 +144,7 @@ public class BookDetailController
         return;
     }
 
+    // ไปยังหน้ารายละเอียดส่วนตัว
     public void handleToInformationButton(ActionEvent actionEvent) {
         try {
             com.github.saacsos.FXRouter.goTo("accountDetail", accountList);
@@ -154,7 +153,7 @@ public class BookDetailController
         }
     }
 
-    // show pop-up to buy book
+    // แสดง pop-up เพื่อซื้อหนังสือ
     @FXML
     public void handleToBuyBook(ActionEvent event) {
         try {
@@ -180,11 +179,11 @@ public class BookDetailController
         try {
             com.github.saacsos.FXRouter.goTo("pageBookType", accountList);
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า pageBookType ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
+            e.printStackTrace();
         }
     }
 
+    // แสดงหน้าร้านค้า
     @FXML
     public void handleToBookSortFromShop(ActionEvent actionevent) {
         try {
@@ -203,7 +202,8 @@ public class BookDetailController
         }
     }
 
-    @FXML //คลิกที่ logo แล้วจะไปหน้า home
+    // Logo Javapai ไปยังหน้า Home
+    @FXML
     public void mouseClickedInLogo(){
         try{
             logoJavaPai.getOnMouseClicked();
@@ -252,28 +252,37 @@ public class BookDetailController
         imageName = account.getImageName() ;
     }
 
+    // ให้คะแนนหนังสือเล่มนั้น 1 คะแนน
     @FXML
-    public void handleAddRatingPlusOneButton(ActionEvent actionEvent){ // ให้คะแนนหนังสือเล่มนั้น 1 คะแนน
+    public void handleAddRatingPlusOneButton(ActionEvent actionEvent) {
         reviews.addRatingPlusOne();
         addRating();
     }
+
+    // ให้คะแนนหนังสือเล่มนั้น 2 คะแนน
     @FXML
-    public void handleAddRatingPlusTwoButton(ActionEvent actionEvent){ // ให้คะแนนหนังสือเล่มนั้น 2 คะแนน
+    public void handleAddRatingPlusTwoButton(ActionEvent actionEvent) {
         reviews.addRatingPlusTwo();
         addRating();
     }
+
+    // ให้คะแนนหนังสือเล่มนั้น 3 คะแนน
     @FXML
-    public void handleAddRatingPlusThreeButton(ActionEvent actionEvent){ // ให้คะแนนหนังสือเล่มนั้น 3 คะแนน
+    public void handleAddRatingPlusThreeButton(ActionEvent actionEvent) {
         reviews.addRatingPlusThree();
         addRating();
     }
+
+    // ให้คะแนนหนังสือเล่มนั้น 4 คะแนน
     @FXML
-    public void handleAddRatingPlusFourButton(ActionEvent actionEvent){ // ให้คะแนนหนังสือเล่มนั้น 4 คะแนน
+    public void handleAddRatingPlusFourButton(ActionEvent actionEvent) {
         reviews.addRatingPlusFour();
         addRating();
     }
+
+    // ให้คะแนนหนังสือเล่มนั้น 5 คะแนน
     @FXML
-    public void handleAddRatingPlusFiveButton(ActionEvent actionEvent){ // ให้คะแนนหนังสือเล่มนั้น 5 คะแนน
+    public void handleAddRatingPlusFiveButton(ActionEvent actionEvent) {
         reviews.addRatingPlusFive();
         addRating();
     }
@@ -281,7 +290,8 @@ public class BookDetailController
         return reviews.bookRating(reviews.getBookRating());
     }
 
-    @FXML // บันทึก reviews ลง csv
+    // บันทึก reviews ลง csv
+    @FXML
     public void handleSendCommentButton(ActionEvent actionEvent) {
         setImageName();
         sendReviewToWrite();
