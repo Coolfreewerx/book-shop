@@ -5,6 +5,7 @@ import ku.cs.shop.models.Promotion;
 import ku.cs.shop.models.PromotionList;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -20,7 +21,7 @@ public class PromotionDataSource implements DataSource<PromotionList> {
     public PromotionList readData() {
         PromotionList promotionList = new PromotionList();
         try{
-            FileReader file = new FileReader(filename);
+            FileReader file = new FileReader(filename, StandardCharsets.UTF_8);
             CSVReader reader = new CSVReader(file);
             String[] data = null;
 
@@ -55,7 +56,7 @@ public class PromotionDataSource implements DataSource<PromotionList> {
         BufferedWriter buffer = null;
 
         try {
-            writer = new FileWriter(file);
+            writer = new FileWriter(file, StandardCharsets.UTF_8);
             buffer = new BufferedWriter(writer);
             buffer.write(promotionList.toCsv());
 

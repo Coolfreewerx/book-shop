@@ -4,6 +4,7 @@ import com.opencsv.CSVReader;
 import ku.cs.shop.models.*;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class AccountDataSource implements DataSource<AccountList> {
         AccountList accountList = new AccountList() ;
 
         try {
-            FileReader fileReader = new FileReader(filename) ;
+            FileReader fileReader = new FileReader(filename, StandardCharsets.UTF_8) ;
             CSVReader reader = new CSVReader(fileReader) ;
             String[] data = null ;
 
@@ -88,7 +89,7 @@ public class AccountDataSource implements DataSource<AccountList> {
         BufferedWriter buffer = null;
 
         try {
-            writer = new FileWriter(file);
+            writer = new FileWriter(file, StandardCharsets.UTF_8);
             buffer = new BufferedWriter(writer);
             buffer.write(accountList.toCsv());
 

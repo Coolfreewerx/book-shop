@@ -6,6 +6,7 @@ import ku.cs.shop.models.Reporting;
 import ku.cs.shop.models.ReportingList;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 public class ReportingDataSource implements DataSource<ReportingList> {
 
@@ -21,7 +22,7 @@ public class ReportingDataSource implements DataSource<ReportingList> {
         ReportingList reportingList = new ReportingList();
 
         try {
-            FileReader fileReader = new FileReader(filename);
+            FileReader fileReader = new FileReader(filename, StandardCharsets.UTF_8);
             CSVReader reader = new CSVReader(fileReader);
             String[] data = null;
 
@@ -53,7 +54,7 @@ public class ReportingDataSource implements DataSource<ReportingList> {
         BufferedWriter buffer = null;
 
         try {
-            writer = new FileWriter(file);
+            writer = new FileWriter(file, StandardCharsets.UTF_8);
             buffer = new BufferedWriter(writer);
             buffer.write(reportingList.toCsv());
 

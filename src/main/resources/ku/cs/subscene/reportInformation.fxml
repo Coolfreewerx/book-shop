@@ -10,7 +10,11 @@
 <AnchorPane prefHeight="390.0" prefWidth="470.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.system.ReportingInformationController">
    <children>
       <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#fffcf1" height="390.0" stroke="#714c08" strokeType="INSIDE" strokeWidth="4.0" width="470.0" AnchorPane.topAnchor="0.0" />
-      <ImageView fx:id="reportImage" fitHeight="180.0" fitWidth="270.0" layoutX="100.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+      <VBox alignment="CENTER" layoutX="100.0" layoutY="14.0" maxHeight="180.0" maxWidth="270.4" minHeight="180.0" minWidth="270.4">
+         <children>
+            <ImageView fx:id="reportImage" fitHeight="180.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </VBox>
       <HBox alignment="CENTER" layoutX="37.0" layoutY="357.4" prefHeight="28.0" prefWidth="388.0" AnchorPane.bottomAnchor="5.0">
          <children>
             <Text fill="#717171" strokeType="OUTSIDE" strokeWidth="0.0" text="รายงานโดย : ">

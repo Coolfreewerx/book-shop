@@ -5,6 +5,7 @@ import ku.cs.shop.models.ProvideTypeBook;
 import ku.cs.shop.models.ProvideTypeBookList;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 public class ProvideTypeBookDataSource implements DataSource<ProvideTypeBookList>{
     private String filename;
@@ -16,7 +17,7 @@ public class ProvideTypeBookDataSource implements DataSource<ProvideTypeBookList
         ProvideTypeBookList provideTypeBookList = new ProvideTypeBookList();
 
         try{
-            FileReader file = new FileReader(filename);
+            FileReader file = new FileReader(filename, StandardCharsets.UTF_8);
             CSVReader reader = new CSVReader(file);
             String[] data = null;
 
@@ -47,7 +48,7 @@ public class ProvideTypeBookDataSource implements DataSource<ProvideTypeBookList
         BufferedWriter buffer = null;
 
         try {
-            writer = new FileWriter(file);
+            writer = new FileWriter(file, StandardCharsets.UTF_8);
             buffer = new BufferedWriter(writer);
             buffer.write(provideTypeBookList.toCSV());
 

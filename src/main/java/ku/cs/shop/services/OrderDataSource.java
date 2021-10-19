@@ -5,6 +5,7 @@ import ku.cs.shop.models.Order;
 import ku.cs.shop.models.OrderList;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 
 public class OrderDataSource implements DataSource<OrderList>{
@@ -18,7 +19,7 @@ public class OrderDataSource implements DataSource<OrderList>{
         OrderList orderList = new OrderList();
 
         try {
-            FileReader file = new FileReader(filename);
+            FileReader file = new FileReader(filename, StandardCharsets.UTF_8);
             CSVReader reader = new CSVReader(file);
             String[] data = null;
 
@@ -53,7 +54,7 @@ public class OrderDataSource implements DataSource<OrderList>{
         BufferedWriter buffer = null;
 
         try {
-            writer = new FileWriter(file);
+            writer = new FileWriter(file, StandardCharsets.UTF_8);
             buffer = new BufferedWriter(writer);
             buffer.write(orderList.toCSV());
 

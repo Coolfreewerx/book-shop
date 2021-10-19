@@ -358,7 +358,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <Text layoutX="580.0" layoutY="1479.0" strokeType="OUTSIDE" strokeWidth="0.0" text="พบเนื้อหาที่ไม่เหมาะสมใช่หรือไม่ ?">
+                  <Text layoutX="576.0" layoutY="1479.0" strokeType="OUTSIDE" strokeWidth="0.0" text="พบเนื้อหาที่ไม่เหมาะสมใช่หรือไม่ ?">
                      <font>
                         <Font name="JasmineUPC" size="20.0" />
                      </font>
