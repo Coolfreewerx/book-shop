@@ -103,7 +103,6 @@ public class ConfirmOrderController {
     @FXML
     void handleAddCodePromotionInput(ActionEvent event) {
         sumBookPriceLabel.setText(String.format("%.02f", checkUsePromotion()));
-        codePromotionWarningLabel.setText("โค้ดโปรโมชั่นไม่ถูกต้อง กรุณาตรวจสอบ");
     }
 
     public double checkUsePromotion(){
