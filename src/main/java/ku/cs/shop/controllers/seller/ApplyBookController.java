@@ -29,7 +29,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class ApplyBookController {
-    Seller seller = new Seller();
     Book book = new Book();
     private BookDetailDataSource data ;
     private BookList books ;
@@ -89,32 +88,32 @@ public class ApplyBookController {
 
     @FXML public void handleKeyBookISBN(){
         book.setBookISBN(bookISBNTextField.getText());
-        if(!seller.isBookISBNCorrect(book.getBookISBN())){ book.setBookISBN(""); }
-        NotificationBookISBN.setText(seller.checkBookISBNCorrect(book.getBookISBN()));
+        if(!book.isBookISBNCorrect(book.getBookISBN())){ book.setBookISBN(""); }
+        NotificationBookISBN.setText(book.checkBookISBNCorrect(book.getBookISBN()));
     }
 
     @FXML public void handleKeyBookPage(){
         book.setBookPage(bookPageTextField.getText());
-        if(! seller.isIntNumber(book.getBookPage())){book.setBookPage("");}
-        NotificationBookPage.setText(seller.checkIntNumber(book.getBookPage()));
+        if(! book.isIntNumber(book.getBookPage())){book.setBookPage("");}
+        NotificationBookPage.setText(book.checkIntNumber(book.getBookPage()));
     }
 
     @FXML public void handleKeyBookStock(){
-        if(! seller.isIntNumber(bookStockTextField.getText())){book.setBookStock(-1);}
+        if(! book.isIntNumber(bookStockTextField.getText())){book.setBookStock(-1);}
         else {book.setBookStock(Integer.parseInt(bookStockTextField.getText()));}
-        NotificationBookStock.setText(seller.checkIntNumber(bookStockTextField.getText()));
+        NotificationBookStock.setText(book.checkIntNumber(bookStockTextField.getText()));
     }
 
     @FXML public void handleKeyLeastStock(){
-        if(!seller.isIntNumber(leastStockTextField.getText())){book.setLeastStock(-1);}
+        if(!book.isIntNumber(leastStockTextField.getText())){book.setLeastStock(-1);}
         else {book.setLeastStock(Integer.parseInt(leastStockTextField.getText()));}
-        NotificationLeastStock.setText(seller.checkIntNumber(leastStockTextField.getText()));
+        NotificationLeastStock.setText(book.checkIntNumber(leastStockTextField.getText()));
     }
 
     @FXML public void handleKeyBookPrice(){
-        if(!seller.isDoubleNumber(bookPriceTextField.getText())){book.setBookPrice(-1);}
+        if(!book.isDoubleNumber(bookPriceTextField.getText())){book.setBookPrice(-1);}
         else {book.setBookPrice(Double.parseDouble(bookPriceTextField.getText()));}
-        NotificationBookPrice.setText(seller.checkDoubleNumber(bookPriceTextField.getText()));
+        NotificationBookPrice.setText(book.checkDoubleNumber(bookPriceTextField.getText()));
     }
 
 
@@ -178,7 +177,7 @@ public class ApplyBookController {
                     + LocalDate.now().getMonth() + "-"
                     + LocalDate.now().getDayOfMonth() + "-"
                     + LocalDateTime.now().getHour() + LocalDateTime.now().getMinute() + LocalDateTime.now().getSecond() + ".png" ;
-            seller.copyImageToPackage(selectedImageForCopy , imageName) ;
+            book.copyImageToPackage(selectedImageForCopy , imageName) ;
         } else {
             imageName = "default.png" ;
         }
@@ -188,8 +187,8 @@ public class ApplyBookController {
     public void handleAddBookButton(ActionEvent actionEvent){
         setAddData();
 
-        if (seller.getDataCheck(book) && (seller.isBookISBNCorrect(book.getBookISBN())) && (seller.isIntNumber(book.getBookPage()))
-                &&(seller.isIntNumber(bookStockTextField.getText()))&&(seller.isIntNumber(leastStockTextField.getText())) &&(seller.isDoubleNumber(bookPriceTextField.getText()))
+        if (book.getDataCheck(book) && (book.isBookISBNCorrect(book.getBookISBN())) && (book.isIntNumber(book.getBookPage()))
+                &&(book.isIntNumber(bookStockTextField.getText()))&&(book.isIntNumber(leastStockTextField.getText())) &&(book.isDoubleNumber(bookPriceTextField.getText()))
                 && (selectedImageForCopy != null )) {
 
             setImageName();
@@ -223,7 +222,7 @@ public class ApplyBookController {
         book.setLeastStock(Integer.parseInt(leastStockTextField.getText()));
         book.setBookPrice(Double.parseDouble(bookPriceTextField.getText()));
         book.setTypeBookArrayList(typeBookArrayList);
-        seller.setTypeBook(book);
+        book.setTypeBook(book);
     }
 
     @FXML public void handleSellerStockButton(){
