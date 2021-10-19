@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import ku.cs.shop.models.*;
 import ku.cs.shop.services.BookDetailDataSource;
 import javafx.scene.text.Text;
@@ -28,7 +29,6 @@ public class ConfirmOrderController {
     private Book book;
     private BookList bookList;
     private PromotionList promotionList;
-    private Promotion promotion;
     private PromotionDataSource promotionDataSource;
     private ArrayList<Object> objectForPassing = new ArrayList<>();
 
@@ -38,6 +38,8 @@ public class ConfirmOrderController {
     private double costOfBook;
     private double totalBookOrderedWhenUseCodePromotion;
 
+    private ArrayList<Promotion> shopPromotion;
+
     private OrderDataSource orderDataSource = new OrderDataSource("csv-data/bookOrder.csv");
     private OrderList orderList = orderDataSource.readData();
 
@@ -46,24 +48,17 @@ public class ConfirmOrderController {
         setBookListAndBook();
         promotionDataSource = new PromotionDataSource("csv-data/promotion.csv");
         promotionList = promotionDataSource.readData();
-//        setPromotionAndPromotionList(promotion,promotionList);
+        shopPromotion = promotionList.getPromotionByShopName(bookDetailController.getBook().getBookShop());
 
         bookNameLabel.setText(bookDetailController.getBook().getBookName());
         setCostOfBook(bookDetailController.getBook().getBookPrice());
         setStockInShop(bookDetailController.getBook().getBookStock());
         System.out.println("name book is " + bookDetailController.getBook().getBookName() + " stock is " + bookDetailController.getBook().getBookStock());
-        System.out.println(promotionList);
-        System.out.println(promotion);
     }
 
     public void setBookListAndBook() {
         this.bookList = bookDetailController.getBookList();
         this.book = bookDetailController.getBook();
-    }
-
-    public void setPromotionAndPromotionList(Promotion promotion, PromotionList promotionList){
-        this.promotion = promotion;
-        this.promotionList = promotionList;
     }
 
     public void setStockInShop(int stockInShop) { this.stockInShop = stockInShop; }
@@ -104,30 +99,13 @@ public class ConfirmOrderController {
 
     @FXML
     void handleAddCodePromotionInput(ActionEvent event) {
-        if(inputCodePromotion.getText().equals(promotionList.checkPromotionByShopNameAndCode(promotion.getShopName(), promotion.getCodePromotion()))){
-            if(totalBookOrdered > promotion.getRatePrice()){
-                if(promotion.getPriceReductionInPercentage() != 0){
-                    totalBookOrderedWhenUseCodePromotion = totalBookOrdered * (promotion.getPriceReductionInPercentage() / 100);
-                }
-                else if (promotion.getPriceReductionInBaht() != 0){
-                    totalBookOrderedWhenUseCodePromotion = totalBookOrdered - promotion.getPriceReductionInBaht();
-                }
-            }
-        }
-        sumBookPriceLabel.setText(String.format("%.02f", totalBookOrderedWhenUseCodePromotion));
+        sumBookPriceLabel.setText(String.format("%.02f", checkUsePromotion()));
     }
 
-    public double showPromotionByShopName(String shopName, String codePromotion) { // แสดงโปรโมชั่น
-        ArrayList<Promotion> checkPromotionByShopNameAndCode = promotionList.checkPromotionByShopNameAndCode(shopName, codePromotion);
-        if(inputCodePromotion.getText().equals(checkPromotionByShopNameAndCode) && totalBookOrdered > promotion.getRatePrice()){
-            if(promotion.getPriceReductionInPercentage() != 0){
-                totalBookOrderedWhenUseCodePromotion = totalBookOrdered * (promotion.getPriceReductionInPercentage() / 100);
-            }
-            else if (promotion.getPriceReductionInBaht() != 0){
-                totalBookOrderedWhenUseCodePromotion = totalBookOrdered - promotion.getPriceReductionInBaht();
-            }
-        }
-        return totalBookOrderedWhenUseCodePromotion ;
+    public double checkUsePromotion(){
+        double sum = costOfBook * totalBookOrdered;
+        totalBookOrderedWhenUseCodePromotion = promotionList.usePromotion(shopPromotion, inputCodePromotion.getText(), sum);
+        return totalBookOrderedWhenUseCodePromotion;
     }
 
     @FXML

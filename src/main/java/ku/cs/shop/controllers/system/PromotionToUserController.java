@@ -44,7 +44,7 @@ public class PromotionToUserController {
         try {
             for (Promotion promotion : promotionByShopName) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/ku/cs/itemPromotion.fxml"));
+                fxmlLoader.setLocation(getClass().getResource("/ku/cs/itemPromotionForShowUser.fxml"));
 
                 promotionListFlowPane.getChildren().add(fxmlLoader.load());
                 ItemPromotionController itemPromotionController = fxmlLoader.getController();

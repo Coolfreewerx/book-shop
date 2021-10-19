@@ -31,6 +31,8 @@ public class EditPromotionController {
     @FXML private TextArea promotionDetailTextArea;
     @FXML private Label codePromotionWarning;
     @FXML private Label promotionWarningBeforeSaveData;
+    @FXML private Label priceReductionInBahtWarning;
+    @FXML private Label priceReductionInPercentageWarning;
 
     private AccountList accountList ;
     private Account account;
@@ -80,6 +82,32 @@ public class EditPromotionController {
         }
     }
 
+    @FXML //ทำงานเมื่อกรอกส่วนลดในหน่วยเปอร์เซ็นต์
+    public void handleKeyPriceReductionInPercentage() {
+        String priceReductionInPercentage = priceReductionInPercentageTextField.getText();
+        priceReductionInPercentageWarning.setText(Promotion.checkPriceReductionInPercentageCondition(priceReductionInPercentage));
+        if (Promotion.getPriceReductionInPercentageCheck()){
+            priceReductionInPercentageWarning.setText("ส่วนลดไม่ตรงตามารูปแบบที่กำหนด") ;
+            priceReductionInPercentageWarning.setTextFill(Color.rgb(210, 39, 30));
+        }
+        else {
+            priceReductionInPercentageWarning.setTextFill(Color.rgb(210, 39, 30));
+        }
+    }
+
+    @FXML //ทำงานเมื่อกรอกส่วนลดในหน่วยบาท
+    public void handleKeyPriceReductionInBaht() {
+        String priceReductionInBaht = priceReductionInBahtTextField.getText();
+        priceReductionInBahtWarning.setText(Promotion.checkPriceReductionInBahtCondition(priceReductionInBaht));
+        if (Promotion.getPriceReductionInBahtCheck()){
+            priceReductionInBahtWarning.setText("ส่วนลดไม่ตรงตามารูปแบบที่กำหนด") ;
+            priceReductionInBahtWarning.setTextFill(Color.rgb(210, 39, 30));
+        }
+        else {
+            codePromotionWarning.setTextFill(Color.rgb(210, 39, 30));
+        }
+    }
+
     //เช็คการกรอกข้อมูลก่อนสมัคร
     public String checkData() {
         // ตรวจสอบว่าทุกช่องมีข้อมูล
@@ -96,13 +124,6 @@ public class EditPromotionController {
 
     @FXML //บันทึกการแก้ไขโปรโมชั่น
     public void handleSavePromotionDataButton(ActionEvent actionEvent) {
-        String shopName = account.getShopName();
-        String codePromotion = codePromotionTextField.getText();
-        Promotion promotion = promotionList.code(shopName, codePromotion);
-        if(promotion != null){
-            promotionDataSource.writeData(promotionList);
-            return;
-        }
         promotionWarningBeforeSaveData.setText(checkData());
         if(!(checkData().equals(" "))) {
             return;

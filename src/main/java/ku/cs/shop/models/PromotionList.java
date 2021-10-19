@@ -55,16 +55,22 @@ public class PromotionList {
         return promotionByShopName;
     }
 
-    public Promotion code(String shopName, String codePromotion) {
-        for (Promotion promotion : this.promotions) {
-            if (promotion.getShopName().equals(shopName)) {
-                if (promotion.getCodePromotion().equals(codePromotion)) {
-                    currentPromotion = promotion ;
-                    return promotion ;
+    public double usePromotion(ArrayList<Promotion> promotions, String promotionStr, double price){
+        double rate = 0;
+        for(Promotion promotion : promotions) {
+            if(promotion.getCodePromotion().equals(promotionStr)){
+                if(promotion.getRatePrice() <= price){
+                    if(promotion.getPriceReductionInPercentage() != 0){
+                        rate = price * promotion.getPriceReductionInPercentage() / 100;
+                        price = price - rate;
+                    }
+                    if (promotion.getPriceReductionInBaht() != 0){
+                        price = price - promotion.getPriceReductionInBaht();
+                    }
                 }
             }
         }
-        return null ;
+        return price;
     }
 
     public int getCountPromotionByShopName (String shopName) {

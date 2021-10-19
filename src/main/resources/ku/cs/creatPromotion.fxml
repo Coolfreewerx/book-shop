@@ -198,8 +198,8 @@
                                           <Font name="JasmineUPC" size="32.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="priceReductionInPercentageTextField" layoutX="55.0" layoutY="345.0" prefHeight="40.0" prefWidth="581.0" style="-fx-background-color: FFFCF1; -fx-background-radius: 10;" />
-                                    <Label layoutX="50.0" layoutY="517.0" text="รายละเอียดโปรโมชั่น">
+                                    <TextField fx:id="priceReductionInPercentageTextField" layoutX="55.0" layoutY="345.0" onKeyReleased="#handleKeyPriceReductionInPercentage" prefHeight="40.0" prefWidth="581.0" style="-fx-background-color: FFFCF1; -fx-background-radius: 10;" />
+                                    <Label layoutX="50.0" layoutY="524.0" text="รายละเอียดโปรโมชั่น">
                                        <font>
                                           <Font name="JasmineUPC" size="32.0" />
                                        </font>
@@ -209,8 +209,8 @@
                                           <Font name="JasmineUPC" size="32.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="priceReductionInBahtTextField" layoutX="55.0" layoutY="436.0" prefHeight="40.0" prefWidth="581.0" style="-fx-background-color: FFFCF1; -fx-background-radius: 10;" />
-                                    <TextArea fx:id="promotionDetailTextArea" layoutX="55.0" layoutY="547.0" prefHeight="130.0" prefWidth="270.0" />
+                                    <TextField fx:id="priceReductionInBahtTextField" layoutX="55.0" layoutY="436.0" onKeyReleased="#handleKeyPriceReductionInBaht" prefHeight="40.0" prefWidth="581.0" style="-fx-background-color: FFFCF1; -fx-background-radius: 10;" />
+                                    <TextArea fx:id="promotionDetailTextArea" layoutX="55.0" layoutY="554.0" prefHeight="130.0" prefWidth="270.0" />
                                     <Label fx:id="bookShopTopicLabel" layoutX="224.0" layoutY="48.0" text="bookShopTopicLabel" textFill="#c9ad88">
                                        <font>
                                           <Font name="JasmineUPC" size="32.0" />
@@ -221,7 +221,7 @@
                                           <Font name="JasmineUPC" size="60.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="54.0" layoutY="489.0" text="กรุณากรอกเงื่อนไขการลดราคาช่องใดช่องหนึ่ง โดยช่องที่ไม่กรอกโปรดกรอก เลข 0" textFill="#27039e">
+                                    <Label layoutX="54.0" layoutY="501.0" text="กรุณากรอกเงื่อนไขการลดราคาช่องใดช่องหนึ่ง โดยช่องที่ไม่กรอกโปรดกรอก เลข 0" textFill="#27039e">
                                        <font>
                                           <Font name="JasmineUPC" size="18.0" />
                                        </font>
@@ -274,6 +274,16 @@
                                     <Label layoutX="600.0" layoutY="316.0" text="\%">
                                        <font>
                                           <Font name="JasmineUPC" size="32.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="priceReductionInBahtWarning" layoutX="61.0" layoutY="478.0" textFill="RED">
+                                       <font>
+                                          <Font name="JasmineUPC" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="priceReductionInPercentageWarning" layoutX="61.0" layoutY="388.0" textFill="RED">
+                                       <font>
+                                          <Font name="JasmineUPC" size="18.0" />
                                        </font>
                                     </Label>
                                  </children>

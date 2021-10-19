@@ -60,7 +60,6 @@ public class BookDetailController
         provideTypeBookDataSource = new ProvideTypeBookDataSource("csv-data/provideTypeBookData.csv");
         reviewsList = reviewsDataSource.readData();
         provideTypeBookList = provideTypeBookDataSource.readData();
-        System.out.println(provideTypeBookList);
         castObjectToData();
         showData();
         pagesHeader();
@@ -131,7 +130,6 @@ public class BookDetailController
     public void addInfoToShowTypeBookFlowPane() {
         ArrayList<ProvideTypeBook> provideTypeBooks = provideTypeBookList.findSubTypeBook(book.getBookType());
         int numOfSubTypeBook = provideTypeBookList.numOfSubTypeBook(book.getBookType());
-        System.out.println(numOfSubTypeBook);
         try {
             for(int i = 0  ; i < numOfSubTypeBook ; i++) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
@@ -285,7 +283,7 @@ public class BookDetailController
         addRating();
     }
     public int addRating(){
-        return reviews.getBookRating();
+        return reviews.bookRating(reviews.getBookRating());
     }
 
     @FXML // บันทึก reviews ลง csv

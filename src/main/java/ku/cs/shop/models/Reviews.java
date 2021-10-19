@@ -34,7 +34,6 @@ public class Reviews {
 
     public void setUserName(String userName) { this.userName = userName; }
     public void setImageName(String imageName) { this.imageName = imageName; }
-    public void setComment(String comment) { this.comment = comment; }
     public void setBookRating(int  bookRating){ this.bookRating = bookRating; }
     public void setTimeOfAddingReviews(LocalDateTime timeOfAddingReviews){ this.timeOfAddingReviews = timeOfAddingReviews; }
 
@@ -44,6 +43,13 @@ public class Reviews {
     public void addRatingPlusThree () { this.setBookRating(this.bookRating + 3); }
     public void addRatingPlusFour () { this.setBookRating(this.bookRating + 4); }
     public void addRatingPlusFive () { this.setBookRating(this.bookRating + 5); }
+
+    public int bookRating(int bookRating){
+        if(bookRating > 5){
+            bookRating = 5;
+        }
+        return bookRating;
+    }
 
     public String getImagePath() {
         return new File(System.getProperty("user.dir")

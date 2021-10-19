@@ -12,6 +12,8 @@ public class Promotion {
     private String promotionDetail;
     private LocalDateTime timeOfAddingPromotion;
     private static boolean codePromotionCheck = false;
+    private static boolean priceReductionInPercentageCheck = false;
+    private static boolean priceReductionInBahtCheck = false;
 
     public Promotion(){}
 
@@ -34,6 +36,8 @@ public class Promotion {
     public LocalDateTime getTimeOfAddingPromotion() { return timeOfAddingPromotion;}
 
     public static boolean getCodePromotionCheck(){ return codePromotionCheck; }
+    public static boolean getPriceReductionInPercentageCheck(){ return priceReductionInPercentageCheck; }
+    public static boolean getPriceReductionInBahtCheck(){ return priceReductionInBahtCheck; }
 
     public void setShopName(String shopName) { this.shopName = shopName; }
     public void setCodePromotion(String codePromotion) { this.codePromotion = codePromotion; }
@@ -52,6 +56,25 @@ public class Promotion {
         codePromotionCheck = true ;
         return null ;
     }
+
+    public static String checkPriceReductionInPercentageCondition(String priceReductionInPercentage){
+        if(!Pattern.matches("[0-9]+", priceReductionInPercentage)){
+            priceReductionInPercentageCheck = false;
+            return "ส่วนลดไม่ถูกต้องตามรูปแบบ";
+        }
+        priceReductionInPercentageCheck = true;
+        return null;
+    }
+
+    public static String checkPriceReductionInBahtCondition(String priceReductionInBaht){
+        if(!Pattern.matches("[0-9]+", priceReductionInBaht)){
+            priceReductionInBahtCheck = false;
+            return "ส่วนลดไม่ถูกต้องตามรูปแบบ";
+        }
+        priceReductionInBahtCheck = true;
+        return null;
+    }
+
     public String toCsv() {
         return "\"" + shopName + "\"," +
                 "\"" + codePromotion + "\"," + ratePrice + "," +
