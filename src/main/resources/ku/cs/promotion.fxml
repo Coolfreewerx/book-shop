@@ -186,7 +186,7 @@
                   </ScrollPane>
                   <HBox prefHeight="62.0" prefWidth="698.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#handleToCreatPromotionPageButton" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="เพิ่มโปรโมชั่น" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#handleToCreatePromotionPageButton" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="เพิ่มโปรโมชั่น" textFill="WHITE">
                            <font>
                               <Font name="JasmineUPC" size="28.0" />
                            </font>

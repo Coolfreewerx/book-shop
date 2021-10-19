@@ -72,8 +72,6 @@ public class BookDetailController
         bookList = (BookList) objectForPassing.get(0);
         account = (Account) objectForPassing.get(1);
         accountList = (AccountList) objectForPassing.get(2);
-        System.out.println(book.getBookShop());
-        System.out.println(account.getUserName());
     }
 
     public Book getBook() {
@@ -82,6 +80,7 @@ public class BookDetailController
     public Account getAccount() { return account; }
 
     public void showData() {
+        System.out.println(book.getBookDetail());
         bookNameLabel.setText(book.getBookName());
         bookShop.setText(book.getBookShop());
         bookStatus.setText(book.getBookStatus());

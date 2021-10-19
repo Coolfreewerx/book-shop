@@ -15,14 +15,14 @@ import ku.cs.shop.services.PromotionDataSource;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
-public class creatPromotionController {
+public class createPromotionController {
     //in head
     @FXML private ImageView img;
     @FXML private ImageView logoJavaPai;
     @FXML private Button status;
     @FXML private ImageView userImageView;
     @FXML private Label usernameInHead;
-    // in creat promotion
+    // in create promotion
     @FXML private Label bookShopTopicLabel;
     @FXML private TextField codePromotionTextField;
     @FXML private TextField ratePromotionTextField;

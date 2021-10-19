@@ -185,8 +185,6 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
     @FXML
     public void handleLowPriceToMaxPrice(ActionEvent actionEvent) {
         if (!bookFromPrice.isEmpty()) {
-            System.out.println("Sort Low Price To Max Price From User Input");
-
             BookLowPriceToMaxPriceComparator comparator = new BookLowPriceToMaxPriceComparator();
             bookListFlowPane.getChildren().clear();
             bookFromPrice.sort(comparator);
@@ -218,8 +216,6 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
     @FXML
     public void handleMaxPriceToLowPrice(ActionEvent actionEvent) {
         if (!bookFromPrice.isEmpty()) {
-            System.out.println("Sort Max Price To Low Price From User Input");
-
             BookMaxPriceToLowPriceComparator comparator = new BookMaxPriceToLowPriceComparator();
             bookListFlowPane.getChildren().clear();
             bookFromPrice.sort(comparator);
@@ -249,7 +245,6 @@ public class TypeBookController<MenuItemCartoon, bookTypeLabel> implements Initi
 
     @FXML
     public void handlePageAllTypeBookButton(ActionEvent actionEvent) {
-        System.out.println("Click to " + currentType);
         bookHeadLabel.setText("หนังสือทั้งหมด");
         books.sort();
         changeBookType("ประเภททั้งหมด");

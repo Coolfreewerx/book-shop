@@ -21,7 +21,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class OrderUserContoller implements Initializable {
+public class OrderUserController implements Initializable {
 
     @FXML private ImageView logoJavaPai;
     @FXML private Button status;

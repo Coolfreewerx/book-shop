@@ -38,8 +38,8 @@ public class OrderListController implements Initializable {
     private OrderDataSource orderData ;
     private OrderList orders ;
 
-    private BookDetailDataSource data = new BookDetailDataSource("csv-data/bookDetail.csv");
-    private BookList books = data.readData();
+    private BookDetailDataSource data ;
+    private BookList books ;
 
     private ArrayList<Account> accountsList = new ArrayList<>();
     private AccountList accountList ;
@@ -48,6 +48,9 @@ public class OrderListController implements Initializable {
     public void initialize (URL location, ResourceBundle resource){
         orderData = new OrderDataSource("csv-data/bookOrder.csv");
         orders = orderData.readData();
+        data = new BookDetailDataSource("csv-data/bookDetail.csv");
+        books = data.readData();
+
         accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
         account = accountList.getCurrentAccount() ;
 

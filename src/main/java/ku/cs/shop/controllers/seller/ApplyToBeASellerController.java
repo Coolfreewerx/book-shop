@@ -54,7 +54,6 @@ public class ApplyToBeASellerController { //สมัครเป็นผู้
     // ตรวจสอบข้อมูล shopName ที่รับเข้ามา
     @FXML
     public void handleKeyCheckShopName(){
-        System.out.println(nameShopTextField.getText());
         if(accountList.checkShopNameHaveUsed(nameShopTextField.getText())) {
             notificationShopName.setText("** ชื่อร้านค้านี้ถูกใช้ไปแล้ว กรุณากรอกใหม่อีกครั้ง **") ;
             shopName = "";
@@ -86,8 +85,6 @@ public class ApplyToBeASellerController { //สมัครเป็นผู้
         if(shopName != "") {
             DataSource<AccountList> dataSource;
             dataSource = new AccountDataSource("csv-data/accountData.csv");
-            System.out.println(account.getUserName());
-            System.out.println(account.getShopName());
             dataSource.writeData(accountList);
 
             try {

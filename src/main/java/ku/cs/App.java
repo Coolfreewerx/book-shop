@@ -51,7 +51,7 @@ public class App extends Application
         FXRouter.when("bookOrderOfUser", packageStr + "bookOrderOfUser.fxml");
         FXRouter.when("orderUserItem", packageStr + "orderUserItem.fxml");
         FXRouter.when("reportingInBookDetail", packageStr + "reportingInBookDetail.fxml");
-        FXRouter.when("creatPromotion", packageStr + "creatPromotion.fxml");
+        FXRouter.when("createPromotion", packageStr + "createPromotion.fxml");
         FXRouter.when("promotion", packageStr + "promotion.fxml");
         FXRouter.when("itemPromotion", packageStr + "itemPromotion.fxml");
         FXRouter.when("pagePromotionByBookShop", packageStr + "pagePromotionByBookShop.fxml");

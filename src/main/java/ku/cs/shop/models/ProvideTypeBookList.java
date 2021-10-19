@@ -18,14 +18,12 @@ public class ProvideTypeBookList {
 
     // ค้นหา subTypeBook จากข้อมูลประเภททั้งหมด
     public ArrayList<ProvideTypeBook> findSubTypeBook(String typeBook){
-        System.out.println(typeBook);
         ArrayList<ProvideTypeBook> provideTypeBookArrayList = new ArrayList<>();
         for(ProvideTypeBook provideTypeBook : typeBooks){
             if (provideTypeBook.getSuperTypeBook().equals(typeBook)){
                 provideTypeBookArrayList.add(provideTypeBook);
             }
         }
-        System.out.println(provideTypeBookArrayList);
         return provideTypeBookArrayList;
     }
 
@@ -58,12 +56,5 @@ public class ProvideTypeBookList {
             csv += provideTypeBook.toCsv();
         }
         return csv;
-    }
-
-    @Override
-    public String toString() {
-        return "ProvideTypeBookList{" +
-                ", superTypeBook=" + superTypeBook +
-                '}';
     }
 }

@@ -42,9 +42,9 @@ public class PromotionController {
     }
 
     @FXML // กดไปหน้าส้รางโปรโมชั่น
-    public void handleToCreatPromotionPageButton(ActionEvent actionEvent) {
+    public void handleToCreatePromotionPageButton(ActionEvent actionEvent) {
         try {
-            com.github.saacsos.FXRouter.goTo("creatPromotion" , accountList);
+            com.github.saacsos.FXRouter.goTo("createPromotion" , accountList);
         } catch (IOException e) {
             e.printStackTrace();
         }

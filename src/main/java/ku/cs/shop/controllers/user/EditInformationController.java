@@ -21,12 +21,6 @@ import java.time.LocalDateTime;
 
 public class EditInformationController {
 
-    private Account account;
-    private AccountList accountList;
-    private AccountDataSource accountDataSource;
-    private File selectedImage ;
-    private String imageName;
-
     @FXML private TextField lastnameTextField;
     @FXML private TextField firstnameTextField;
     @FXML private TextField phoneNumberTextField;
@@ -42,6 +36,12 @@ public class EditInformationController {
     @FXML private ImageView imageView;
     @FXML private Label editErrorLabel;
     @FXML private Label editPhoneNumberError;
+
+    private Account account;
+    private AccountList accountList;
+    private AccountDataSource accountDataSource;
+    private File selectedImage ;
+    private String imageName;
 
     private ObservableList sexList = FXCollections.observableArrayList() ;
     private AccountDataSource data = new AccountDataSource("csv-data/accountData.csv");

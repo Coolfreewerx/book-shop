@@ -37,7 +37,6 @@ public class ChoiceApplySubtypeBookController {
         subTypeBookLabel.setText(provideTypeBook.getSubTypeBook());
     }
     public void changeTextFieldData() {
-        System.out.println("changeTextFieldData " + typeBookArrayList.get(index).getSubTypeBook());
         subTypeBookTextField.setText(typeBookArrayList.get(index).getSubTypeBook());
     }
 

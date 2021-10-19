@@ -57,8 +57,6 @@ public class BookShopDetailController<MenuItemCartoon, bookTypeLabel> implements
         bookList = (BookList) objectForPassing.get(1);
         account = (Account) objectForPassing.get(2);
         accountList = (AccountList) objectForPassing.get(3);
-        System.out.println(book.getBookShop());
-        System.out.println(account.getUserName());
     }
 
     public ArrayList<Object> castDataToObject() {
