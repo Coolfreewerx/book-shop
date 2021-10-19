@@ -14,7 +14,7 @@ import ku.cs.shop.services.PromotionDataSource;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class PromotionToUserController {
+public class PromotionToShowUserController {
     @FXML private ImageView img;
     @FXML private ImageView logoJavaPai;
     @FXML private Button status;
