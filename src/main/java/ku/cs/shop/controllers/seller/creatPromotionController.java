@@ -87,8 +87,8 @@ public class creatPromotionController {
         String priceReductionInPercentage = priceReductionInPercentageTextField.getText();
         priceReductionInPercentageWarning.setText(Promotion.checkPriceReductionInPercentageCondition(priceReductionInPercentage));
         if (Promotion.getPriceReductionInPercentageCheck()){
-            priceReductionInPercentageWarning.setText("ส่วนลดไม่ตรงตามารูปแบบที่กำหนด") ;
-            priceReductionInPercentageWarning.setTextFill(Color.rgb(210, 39, 30));
+            priceReductionInPercentageWarning.setText("ส่วนลดตรงตามารูปแบบที่กำหนด") ;
+            priceReductionInPercentageWarning.setTextFill(Color.rgb(21, 117, 84));
         }
         else {
             priceReductionInPercentageWarning.setTextFill(Color.rgb(210, 39, 30));
@@ -100,11 +100,11 @@ public class creatPromotionController {
         String priceReductionInBaht = priceReductionInBahtTextField.getText();
         priceReductionInBahtWarning.setText(Promotion.checkPriceReductionInBahtCondition(priceReductionInBaht));
         if (Promotion.getPriceReductionInBahtCheck()){
-            priceReductionInBahtWarning.setText("ส่วนลดไม่ตรงตามารูปแบบที่กำหนด") ;
-            priceReductionInBahtWarning.setTextFill(Color.rgb(210, 39, 30));
+            priceReductionInBahtWarning.setText("ส่วนลดตรงตามารูปแบบที่กำหนด") ;
+            priceReductionInBahtWarning.setTextFill(Color.rgb(21, 117, 84));
         }
         else {
-            codePromotionWarning.setTextFill(Color.rgb(210, 39, 30));
+            priceReductionInBahtWarning.setTextFill(Color.rgb(210, 39, 30));
         }
     }
 
