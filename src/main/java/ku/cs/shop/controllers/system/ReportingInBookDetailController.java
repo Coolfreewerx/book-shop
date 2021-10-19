@@ -68,6 +68,7 @@ public class ReportingInBookDetailController {
 
         return objectForPassing;
     }
+
     public void lodeReportTypeData() {
         reportTypeList.removeAll(reportTypeList) ;
         reportTypeList.add("ความคิดเห็นไม่เหมาะสม") ;

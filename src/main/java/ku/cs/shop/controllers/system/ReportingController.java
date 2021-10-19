@@ -85,7 +85,6 @@ public class ReportingController {
     }
 
     public void sendDataToWrite() {
-        //UserDataSource
         Reporting reporting = new Reporting(
                 userNameTextField.getText(),
                 reportTypeChoice.getValue(),

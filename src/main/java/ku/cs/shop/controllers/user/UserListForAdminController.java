@@ -45,7 +45,6 @@ public class UserListForAdminController {
     @FXML private ListView<UserAccount> userAccountListView ;
     @FXML private ImageView logoJavaPai;
     @FXML private Button provideUserButton;
-    @FXML private Button provideHomeShopButton;
     @FXML private ListView<Reporting> reportingListView ;
     @FXML private GridPane reportGrid ;
     @FXML private GridPane fullImageGrid ;
@@ -72,12 +71,14 @@ public class UserListForAdminController {
         accountDataSource = new AccountDataSource("csv-data/accountData.csv") ;
     }
 
-    //user zone
+    //User Zone
+    //เพิ่มรายชื่อ UserAccount ใน ListView แล้วโชว์
     private void showUserAccountListView() {
         userAccountListView.getItems().addAll(accountList.getUserAccounts());
         userAccountListView.refresh();
     }
 
+    //เลือก UserAccount จากการคลิกใน ListView
     private void handleSelectedUserAccountListView() {
         userAccountListView.getSelectionModel().selectedItemProperty().addListener(
                 new ChangeListener<UserAccount>() {
@@ -91,6 +92,7 @@ public class UserListForAdminController {
                 });
     }
 
+    //แสดงรายละเอียด Account ที่เลือก
     private void showSelectedUserAccount(UserAccount userAccount) {
         accountImage.setImage(new Image(userAccount.getImagePath()));
         userNameLabel.setText(userAccount.getUserName());
@@ -108,6 +110,8 @@ public class UserListForAdminController {
         accountStatusLabel.setTextFill(Color.rgb(21, 117, 84));
         tryToLoginText.setText("");
         tryToLoginLabel.setText("");
+
+        //แสดงจำนวนครั้งที่พยายามเข้าสู่ระบบหากบัญชีถูกระงับ
         if (userAccount.getStatus().equals("banned")) {
             accountStatusLabel.setTextFill(Color.rgb(210, 39, 30));
             tryToLoginText.setText("พยายามเข้าสู่ระบบ : ");
@@ -115,6 +119,7 @@ public class UserListForAdminController {
         }
     }
 
+    //set Time Format
     private String getStringTime(UserAccount userAccount) {
         LocalDateTime loginTime = userAccount.getLoginTime();
         return "วันที่ " + loginTime.getDayOfMonth() + " " + convertToThaiMonth(loginTime.getMonth().toString()) + " " + loginTime.getYear()
@@ -159,7 +164,9 @@ public class UserListForAdminController {
         tryToLoginLabel.setText("ยังไม่ระบุ");
     }
 
-    //report zone
+
+    //Report Zone
+    //เพิ่มรายชื่อ Reporting ของ Account ใน ListView แล้วโชว์
     private void showReportingListView(UserAccount userAccount) {
         reportingListView.getItems().removeAll(reportingList.getCurrantReportedAccount()) ;
         reportingList.setCurrantReportedAccount(userAccount.getUserName());
@@ -167,6 +174,7 @@ public class UserListForAdminController {
         reportingListView.refresh();
     }
 
+    //เลือก Reporting จากการคลิกใน ListView
     private void handleSelectedReportingListView() {
         reportingListView.getSelectionModel().selectedItemProperty().addListener(
                 new ChangeListener<Reporting>() {

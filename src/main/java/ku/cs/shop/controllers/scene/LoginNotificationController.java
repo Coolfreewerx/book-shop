@@ -7,8 +7,8 @@ import java.io.IOException;
 
 public class LoginNotificationController {
 
-    @FXML
-    public void handleToAboutUsButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้า about us
+    @FXML //ปุ่มสำหรับกดไปหน้า about us
+    public void handleToAboutUsButton(ActionEvent actionEvent) {
         try {
             com.github.saacsos.FXRouter.goTo("aboutUs");
         } catch (IOException e) {

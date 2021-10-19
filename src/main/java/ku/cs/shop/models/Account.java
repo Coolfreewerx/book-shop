@@ -139,7 +139,8 @@ public abstract class Account {
             return true ; }
     }
 
-    public boolean checkPhoneNumber (String phone){ //ตรวจสอบเบอร์โทรตามเงื่อนไข
+    //ตรวจสอบเบอร์โทรตามเงื่อนไข
+    public boolean checkPhoneNumber (String phone){
         if(phone.length() == 10 && (Pattern.matches("[0-9]+", phone))){
             return true;
         }

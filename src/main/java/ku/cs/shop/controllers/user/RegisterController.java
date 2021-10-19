@@ -71,7 +71,9 @@ public class RegisterController {
     public void handleKeyUserName() {
         String userName = userNameTextField.getText() ;
         userNameCheckLabel.setText(Account.checkUserNameCondition(userName));
+        //เช็คเงื่อนไข username
         if (Account.getUserNameCheck()){
+            //ตรวจสอบว่า username ซ้ำหรือไม่
             if (accountList.checkUserNameHaveUsed(userName)) {
                 userNameCheckLabel.setText("ชื่อผู้ใช้นี้ถูกใช้งานไปแล้ว") ;
                 userNameCheckLabel.setTextFill(Color.rgb(210, 39, 30));
@@ -176,7 +178,6 @@ public class RegisterController {
     }
 
     public void sendDataToWrite() {
-        //UserDataSource
         Account account = new UserAccount(
                 firstNameTextField.getText(),
                 lastNameTextField.getText(),
