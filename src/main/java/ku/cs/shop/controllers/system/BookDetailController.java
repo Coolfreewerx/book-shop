@@ -80,7 +80,6 @@ public class BookDetailController
     public Account getAccount() { return account; }
 
     public void showData() {
-        System.out.println(book.getBookDetail());
         bookNameLabel.setText(book.getBookName());
         bookShop.setText(book.getBookShop());
         bookStatus.setText(book.getBookStatus());
