@@ -15,6 +15,7 @@ public class ReviewsList {
         sort();
     }
 
+    // เช็กรีวิวว่าตรงกับชื่อหนังสือและชื่อร้านค้า
     public ArrayList<Reviews> getReviewsByBookNameAndShopName(String bookName, String bookShop) {
         ArrayList<Reviews> reviewsByBookNameAndBookShop = new ArrayList<>();
         for(Reviews reviews : reviews){
@@ -27,6 +28,7 @@ public class ReviewsList {
         return reviewsByBookNameAndBookShop;
     }
 
+    // จำนวนรีวิวที่ตรงกับชื่อหนังสือและชื่อร้านค้า
     public int getCountBookByNameAndShop(String bookName, String bookShop) {
         int count = 0;
         ArrayList<Reviews> countBookByNameAndShop = new ArrayList<>();
@@ -41,6 +43,7 @@ public class ReviewsList {
         return count;
     }
 
+    // คำนวนคะแนนรีวิวเฉลี่ย
     public double averageRating(String bookName, String bookShop){
         double averageRating = 0;
         int count = 0;

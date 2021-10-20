@@ -14,7 +14,6 @@ public class Promotion {
     private static boolean codePromotionCheck = false;
     private static boolean priceReductionInPercentageCheck = false;
     private static boolean priceReductionInBahtCheck = false;
-    private static boolean isCodePromotionCheck = false;
 
     public Promotion(){}
 
@@ -39,7 +38,6 @@ public class Promotion {
     public static boolean getCodePromotionCheck(){ return codePromotionCheck; }
     public static boolean getPriceReductionInPercentageCheck(){ return priceReductionInPercentageCheck; }
     public static boolean getPriceReductionInBahtCheck(){ return priceReductionInBahtCheck; }
-    public static boolean getIsCodePromotionCheck(){ return isCodePromotionCheck; }
 
     public void setShopName(String shopName) { this.shopName = shopName; }
     public void setCodePromotion(String codePromotion) { this.codePromotion = codePromotion; }
@@ -59,6 +57,7 @@ public class Promotion {
         return null ;
     }
 
+    // เช็กรูปแบบของส่วนลด
     public static String checkPriceReductionInPercentageCondition(String priceReductionInPercentage){
         if(!Pattern.matches("[0-9]+", priceReductionInPercentage)){
             priceReductionInPercentageCheck = false;
@@ -68,6 +67,7 @@ public class Promotion {
         return null;
     }
 
+    // เช็กรูปแบบของส่วนลด
     public static String checkPriceReductionInBahtCondition(String priceReductionInBaht){
         if(!Pattern.matches("[0-9]+", priceReductionInBaht)){
             priceReductionInBahtCheck = false;

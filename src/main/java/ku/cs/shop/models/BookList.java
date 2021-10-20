@@ -2,7 +2,6 @@ package ku.cs.shop.models;
 
 import ku.cs.shop.services.BookSortByTimeComparator;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class BookList {

@@ -28,6 +28,7 @@ public class PromotionList {
         return false;
     }
 
+    //เช็กว่าโปรโมชั่นตรงกับร้านค้าหรือไม่
     public boolean checkCodePromotionIsCorrect(String shopName, String codePromotion) {
         for (Promotion promotion: this.promotions) {
             if (promotion.getShopName().equals(shopName) && promotion.getCodePromotion().equals(codePromotion)) {
@@ -37,6 +38,7 @@ public class PromotionList {
         return false;
     }
 
+    // เช็กโปรโมชั่นที่มีในร้านค้าทั้งหมด
     public ArrayList<Promotion> getPromotionByShopName(String shopName) {
         ArrayList<Promotion> promotionByShopName = new ArrayList<>();
         for(Promotion promotion : promotions){
@@ -47,6 +49,7 @@ public class PromotionList {
         return promotionByShopName;
     }
 
+    // ทำงานเมื่อมีการกรอกโปรโมชั่น
     public double usePromotion(ArrayList<Promotion> promotions, String promotionStr, double price){
         double rate = 0;
         for(Promotion promotion : promotions) {

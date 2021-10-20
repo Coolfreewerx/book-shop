@@ -137,10 +137,10 @@ public class BookShopDetailController<MenuItemCartoon, bookTypeLabel> implements
         }
     }
 
-    @FXML
+    @FXML //ปุ่มไปหน้าโปรโมชั่นทั้งหมดของร้านค้านั้น
     public void handleToPromotionPageButton(ActionEvent actionEvent) {
         try {
-            com.github.saacsos.FXRouter.goTo("pagePromotionByBookShop" ,accountList);
+            com.github.saacsos.FXRouter.goTo("pagePromotionByBookShop" ,objectForPassing);
         } catch (IOException e) {
             e.printStackTrace();
         }

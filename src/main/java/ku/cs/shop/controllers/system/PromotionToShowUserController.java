@@ -26,19 +26,30 @@ public class PromotionToShowUserController {
     private PromotionList promotionList;
     private AccountList accountList ;
     private Account account;
+    private Book book;
+    private BookList bookList;
     private PromotionDataSource promotionDataSource;
+    private ArrayList<Object> objectForPassing  = new ArrayList<>();
 
     public void initialize(){
+        objectForPassing = (ArrayList<Object>) com.github.saacsos.FXRouter.getData();
+        castObjectToData();
         promotionDataSource = new PromotionDataSource("csv-data/promotion.csv");
         promotionList = promotionDataSource.readData();
-        accountList = (AccountList) com.github.saacsos.FXRouter.getData() ;
-        account = accountList.getCurrentAccount() ;
         pagesHeader();
-        shopNameLabel.setText(account.getShopName());
-        showPromotionByShopNameInPagePromotionByBookShop(account.getShopName());
+        shopNameLabel.setText(book.getBookShop());
+        showPromotionByShop(book.getBookShop());
     }
 
-    public void showPromotionByShopNameInPagePromotionByBookShop(String shopName) { // แสดงโปรโมชั่น
+    public void castObjectToData() {
+        book = (Book) objectForPassing.get(0);
+        bookList = (BookList) objectForPassing.get(1);
+        account = (Account) objectForPassing.get(2);
+        accountList = (AccountList) objectForPassing.get(3);
+    }
+
+    // แสดงโปรโมชั่น
+    public void showPromotionByShop(String shopName) {
         promotionListFlowPane.getChildren().clear();
         ArrayList<Promotion> promotionByShopName = promotionList.getPromotionByShopName(shopName);
         try {
@@ -56,8 +67,8 @@ public class PromotionToShowUserController {
         }
     }
 
-    @FXML
-    public void handleAllTypeBookButton(ActionEvent actionEvent) { //ปุ่มสำหรับกดไปหน้าหนังสือทั้งหมด
+    @FXML //ปุ่มสำหรับกดไปหน้าหนังสือทั้งหมด
+    public void handleAllTypeBookButton(ActionEvent actionEvent) {
         try {
             com.github.saacsos.FXRouter.goTo("pageBookType", accountList);
         } catch (IOException e) {
@@ -77,7 +88,7 @@ public class PromotionToShowUserController {
         }
     }
 
-    @FXML
+    @FXML // ปุ่มไปหน้าข้อมูลส่วนตัว
     public void handleToInformationButton(ActionEvent actionEvent) {
         try {
             com.github.saacsos.FXRouter.goTo("accountDetail", accountList);
@@ -86,8 +97,8 @@ public class PromotionToShowUserController {
         }
     }
 
-    @FXML
-    public void mouseClickedInLogo(MouseEvent event){ //คลิกที่รูป logo แล้วจะไปหน้า home
+    @FXML // คลิกที่รูป logo แล้วจะไปหน้า home
+    public void mouseClickedInLogo(MouseEvent event){
         try{
             logoJavaPai.getOnMouseClicked();
             com.github.saacsos.FXRouter.goTo("home" ,accountList);
