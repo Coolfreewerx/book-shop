@@ -9,6 +9,8 @@ import java.util.regex.Pattern;
 
 public abstract class Account {
 
+    private String filename ;
+
     private String firstName ;
     private String lastName ;
     private String userName ;
@@ -16,7 +18,6 @@ public abstract class Account {
     private String birthDay ;
     private String birthMonth ;
     private String birthYear ;
-    private String filename;
     private String imageName ;
     private String phone ;
     private String sex ;

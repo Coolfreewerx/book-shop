@@ -55,7 +55,7 @@ public class OrderController {
     public void handleEditOrderButton(ActionEvent actionEvent){
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("/ku/cs/shippedOrderPopup.fxml"));
+            fxmlLoader.setLocation(getClass().getResource("/ku/cs/shippedOrderPopUp.fxml"));
 
             gridPaneForPopup.add(fxmlLoader.load(), 0, 0);
             OrderPopUPController orderPopUPController = fxmlLoader.getController();
