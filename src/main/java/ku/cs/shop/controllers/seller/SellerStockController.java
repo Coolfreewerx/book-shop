@@ -10,6 +10,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
@@ -23,7 +24,6 @@ import java.util.ResourceBundle;
 
 public class SellerStockController implements Initializable {
     @FXML private ScrollPane scoll;
-    @FXML private GridPane grid;
     @FXML private Button orderListButtonn;
     @FXML private Button addStockButton;
     @FXML private Button status;
@@ -31,6 +31,7 @@ public class SellerStockController implements Initializable {
     @FXML private ImageView img;
     @FXML private ImageView logoJavaPai;
     @FXML private ImageView userImageView;
+    @FXML private FlowPane flowPane;
 
     private BookDetailDataSource data = new BookDetailDataSource("csv-data/bookDetail.csv");
     private BookList books = data.readData();
@@ -45,8 +46,6 @@ public class SellerStockController implements Initializable {
         userImageView.setImage(new Image(account.getImagePath()));
 
         pagesHeader();
-        int column = 0;
-        int row = 1;
 
         ArrayList<Book> bookInShop = books.getBookByShop(account.getShopName());
 
@@ -55,18 +54,10 @@ public class SellerStockController implements Initializable {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/ku/cs/stock.fxml"));
 
-                grid.add(fxmlLoader.load(), column, row++); // child,col,row
+                flowPane.getChildren().add(fxmlLoader.load());
                 StockController stockController = fxmlLoader.getController();
                 stockController.setData(bookInShop.get(i),accountList,books);
                 stockController.changeData();
-
-                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
-                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
-                grid.setMaxWidth(Region.USE_COMPUTED_SIZE);
-
-                grid.setMinHeight(Region.USE_COMPUTED_SIZE);
-                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
-                grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
             }
         } catch (IOException e) {
             e.printStackTrace();

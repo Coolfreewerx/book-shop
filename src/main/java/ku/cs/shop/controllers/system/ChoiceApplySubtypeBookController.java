@@ -55,6 +55,8 @@ public class ChoiceApplySubtypeBookController {
         provideTypeBookData.setSubTypeBook(subTypeBookTextField.getText());
         provideTypeBookData.setSuperTypeBook(provideTypeBook.getSuperTypeBook());
         if (typeBookArrayList.size() != typeBookList.numOfSubTypeBook(provideTypeBook.getSuperTypeBook())){
+            if(index != 0 && typeBookArrayList.size()-1 != index)
+                typeBookArrayList.add(new ProvideTypeBook(provideTypeBook.getSuperTypeBook(),"ไม่มีรายละเอียด"));
             typeBookArrayList.add(provideTypeBookData);
         }
         else {
