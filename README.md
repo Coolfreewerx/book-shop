@@ -13,8 +13,8 @@
 
 ## วิธีการติดตั้งหรือรันโปรแกรม
 * ดาวน์โหลดโปรแกรมเป็นรูปแบบไฟล์ .zip จาก https://drive.google.com/drive/folders/1dGbHlZa4_i2xFHBelzFuTaZkVwNDE69I?usp=sharing
-* หากต้องการรันโปรแกรมให้ ทำการ Extract File .zip กดเข้าไฟล์ cs211_431_project_jar และคลิกที่ไฟล์ cs211-431-project.jar
-
+* หากต้องการรันโปรแกรมให้ ทำการ Extract File .zip กดเข้าไฟล์ cs211_431_project_jar และดับเบิ้ลคลิกที่ไฟล์ cs211-431-project.jar
+* หากเกิดปัญหาให้เปิดโปรแกรมผ่าน Command Prompt ใช้คำสั่ง "java -jar cs211-431-project.jar"
 
 ## การวางโครงสร้างไฟล์
 * ในส่วนของโปรแกรมจะมีการวางโครงสร้างไฟล์เป็นสัดส่วนดังนี้
