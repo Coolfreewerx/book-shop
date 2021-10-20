@@ -147,7 +147,7 @@
                                     </GridPane.margin>
                            <children>
                               <HBox spacing="20.0" />
-                              <Button mnemonicParsing="false" onAction="#handleToPromotionPageButton" style="-fx-background-radius: 10;" text="โปรโมชั่น" textFill="WHITE">
+                              <Button mnemonicParsing="false" onAction="#handleToPromotionPageButton" style="-fx-background-radius: 10;" text="โปรโมชัน" textFill="WHITE">
                                  <stylesheets>
                                     <URL value="@style/PrimaryTheme.css" />
                                     <URL value="@style/style.css" />

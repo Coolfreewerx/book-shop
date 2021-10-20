@@ -20,7 +20,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.seller.SellerStockController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.seller.SellerStockController">
    <children>
       <BorderPane layoutX="-22.0" layoutY="3.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -177,7 +177,7 @@
                               <Insets left="20.0" top="20.0" />
                            </HBox.margin>
                         </Label>
-                        <Button mnemonicParsing="false" onAction="#handleToPromotionPageButton" style="-fx-background-radius: 10;" text="โปรโมชั่น" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#handleToPromotionPageButton" style="-fx-background-radius: 10;" text="โปรโมชัน" textFill="WHITE">
                            <stylesheets>
                               <URL value="@style/PrimaryTheme.css" />
                               <URL value="@style/style.css" />

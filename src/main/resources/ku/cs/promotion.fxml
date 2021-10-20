@@ -169,7 +169,7 @@
                <children>
                   <HBox prefHeight="64.0" prefWidth="698.0" style="-fx-background-color: white;">
                      <children>
-                        <Label prefHeight="31.0" prefWidth="234.0" text="โปรโมชั่นทั้งหมด" textFill="#b4875e">
+                        <Label prefHeight="31.0" prefWidth="234.0" text="โปรโมชันทั้งหมด" textFill="#b4875e">
                            <font>
                               <Font name="JasmineUPC" size="42.0" />
                            </font>
@@ -186,7 +186,7 @@
                   </ScrollPane>
                   <HBox prefHeight="62.0" prefWidth="698.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#handleToCreatePromotionPageButton" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="เพิ่มโปรโมชั่น" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#handleToCreatePromotionPageButton" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: F99F28; -fx-background-radius: 10;" text="เพิ่มโปรโมชัน" textFill="WHITE">
                            <font>
                               <Font name="JasmineUPC" size="28.0" />
                            </font>
