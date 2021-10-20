@@ -113,7 +113,7 @@
                      <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="71.0" prefWidth="1024.0">
                            <children>
-                              <Text fx:id="bookHeadLabel" fill="#a05e07" strokeType="OUTSIDE" strokeWidth="0.0" text="โปรโมชั่น">
+                              <Text fx:id="bookHeadLabel" fill="#a05e07" strokeType="OUTSIDE" strokeWidth="0.0" text="โปรโมชัน">
                                  <HBox.margin>
                                     <Insets left="50.0" top="20.0" />
                                  </HBox.margin>

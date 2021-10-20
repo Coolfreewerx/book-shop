@@ -175,7 +175,7 @@
                            <children>
                               <AnchorPane fx:id="anchorPaneCenter" prefHeight="822.0" prefWidth="694.0" style="-fx-background-color: white;">
                                  <children>
-                                    <Label layoutX="47.0" layoutY="44.0" text="เพิ่มโปรโมชั่น" textFill="#a05e07">
+                                    <Label layoutX="47.0" layoutY="44.0" text="เพิ่มโปรโมชัน" textFill="#a05e07">
                                        <font>
                                           <Font name="JasmineUPC" size="40.0" />
                                        </font>
